@@ -1,0 +1,256 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{comment}
+
+\definecolor{blueUniv}{RGB}{1,174,240}
+
+\begin{document}
+
+\newcommand{\customlarge}[1]{\noindent \Large{\textbf{#1}}}
+\newcommand{\customitalic}[1]{\large{\textbf{\textit{#1}}}}
+\newcommand{\avis}[2]{\customlarge{Avis personnel -} \customitalic{#1} \\ #2\\[0.8cm]}
+\newcommand*{\escape}[1]{\texttt{\textbackslash#1}}
+
+\newcommand{\customquote}[1]{\guillemotleft {#1} \guillemorright~}
+
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%   HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Université de Bordeaux}\\[0.5cm]
+\textsc{\large Département Informatique}\\[0.5cm]
+\textsc{\large Année 2019-2020}\\[1.5cm]
+\textsc{\Large Groupe 21-2}\\[0.2cm] 
+\textsc{\large Master 1}\\[0.3cm] 
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Génération procédurale de planètes sphériques\\[0.4cm] 
+   \Large \bfseries Analyse des besoins
+% Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%   AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{center} \large
+\emph{Auteurs:}\\
+Rémi \textsc{Barbosa}\\
+Benjamin \textsc{Darmet}\\
+Marc \textsc{Cerutti}\\
+Sofian \textsc{Antri}\\
+Tsiory \textsc{Rakotoarisoa}\\
+
+\end{center}
+\end{minipage}
+~
+}
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%   DATE SECTION
+%----------------------------------------------------------------------------------------
+
+% {\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%   LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+% ------------------------ END OF TITLEPAGE ------------------------
+\newpage
+
+\section{Présentation du projet}
+
+Le but principal de ce projet est de mettre en place un outil permettant de visualiser des planètes définies par une sphère et des cartes planes générées de manière procédurale pour leur surface. Une fois cela mis en place, l'objectif sera d'implémenter un ensemble d'outils pour augmenter la complexité de la représentation (altitude, plaques tectoniques, température, rivières ...). C'est un outil à but récréatif.
+
+\section{Analyse de l'existant}
+
+\section{Besoins primaires}
+
+\subsection{Besoins fonctionnels}
+\begin{enumerate}
+
+    \item \textbf{Générer procéduralement une planète}
+    \begin{itemize}
+        \item \textbf{Créer la géométrie}
+            \begin{itemize}
+                \item {Faire une échelle}
+                \item {Placer les points}
+                \item {Créer les faces}
+            \end{itemize}
+            
+        \item \textbf{Renseigner des informations (donnés)}
+            \begin{itemize}
+                
+                \item {Définir des propriétés de points}
+                    \begin{itemize}
+                    \item {Définir l'altitude}
+                    \end{itemize}
+                \item {Définir des propriétés d'arêtes}
+                \item {Définir des propriétés de polygones}
+                \begin{itemize}
+                    \item {Définir les couleurs ou textures}
+                \end{itemize}
+            \end{itemize}
+            
+        \item \textbf{Créer des variations}
+        \begin{itemize}
+                \item Créer des transformations pour chaque type de donnés. Accéder à celles de la planète et les modifier.
+                
+                \item {Choisir et appliquer ces transformations (générateur)}
+        \end{itemize}
+        
+        
+        
+    \end{itemize}
+    
+    
+    \item \textbf{Visualiser une planète avec informations réalistes}
+    
+    \begin{itemize}
+        \item \textbf{Afficher la planète :} \\
+        Une seule planète doit être affichée à la fois.
+         \begin{itemize}
+         \item \textbf{Afficher les surfaces :} \\
+         La planète doit être caractérisée par une représentation d'une sphère aux faces polygonales, en low-poly(c'est à dire avec peu de polygone). \\
+         Chaque polygone doit représenter une information sur la planète. 
+         
+         \begin{itemize}
+          \item \textbf{Afficher des couleurs :}
+            \begin{itemize}
+                \item Le bleu et ses nuances représentent la présence d'eau: mer, lac, océan.
+                \item Le vert et ses nuances représentent les terres.
+                \item le gris et le marron ainsi que leurs nuances représentant les montagnes.
+            \end{itemize}
+            
+          \item \textbf{Afficher un relief :} \\
+            Caractérisée par une altitude des points. Il doit être possible de faire la différence entre une montagne et une colline (différents niveaux d'altitude).
+        \end{itemize}
+        
+        \end{itemize}
+    
+        \item \textbf{Effectuer une rotation de la caméra autour de la planète :} \\
+        Il doit être possible de tourner, se déplacer assez précisément autour de la planète.
+        
+        \item \textbf{Zoom avec changement d'orientation du plan :} \\
+        Il doit être possible de zoomer sur un point de la planète. Lorsque la caméra est suffisamment proche de la planète, l'angle de vue doit changer pour nous permettre de voir l'horizon. On peut à ce moment rotater comme une tête pour observer l'environnement.
+        
+    \end{itemize}
+   
+    \item \textbf{Modifier une planète existante} \\
+     Il doit être possible de réinjecter une planète existante dans un générateur afin de lui appliquer des modifications.
+
+\end{enumerate}
+
+\subsection{Besoins non fonctionnels}
+
+    \begin{itemize}
+    
+    \item \textbf{Portage Linux} \\
+    Le logiciel doit être compilable et exécutable sur un environnement Linux. Build possible par le client.
+    
+    \item \textbf{Adaptabilité et extension} \\
+    Possibilité d'implémenter plusieurs générateurs par le client, et de les moduler via des paramètres. 
+    
+    \item \textbf{Temps d'affichage} \\
+    Rendu statique (0.5 s, pas forcément temps réel) 
+
+    \item \textbf{Rendu minimum} \\
+    Low-poly
+
+    \item \textbf{Mémoire optimisé} \\
+    Objectif d'affichage 10 000 polygones actif.
+    
+    \end{itemize}
+
+\newpage
+\section{Besoins secondaires}
+
+\subsection{Besoins fonctionnels optionnels}
+\begin{itemize}
+\item Sauvegarder les planètes générés.
+\item Quadrillage voronoï
+\item Éclairage
+\item Couches (ciel, magma, etc)
+\item Changer le style de visualisation
+\item Se déplacer sur la surface de la planète en 1ère personne
+\end{itemize}
+    
+\subsection{Besoins non fonctionnels optionnels}
+\begin{itemize}
+\item Temps réel
+\item Portage windows
+\item Système de fichier partagé avec l’autre groupe
+\item Utilisation par d’autres logiciels (sauvegarde UVMap, Mesh, HeightMap, …)
+\item Rendu adaptatif
+\end{itemize}
+
+\section{Diagramme de Gantt}
+
+\section{Bibliographie}
+
+\begin{comment}
+Icosahedron
+\end{comment}
+
+\begin{comment}
+1. Une courte introduction au projet.
+2. Une description et analyse de l’existant.
+3. Une description des besoins (´ eventuellement avec distinction besoins
+utilisateurs/besoins syst` eme) :
+i. Une liste des besoins fonctionnels, chacun associ´ es ` a :
+- Un niveau de priorit´ e d’impl´ ementation dans le projet .
+- Toutes ou une partie des rubriques (a)-(e) ci-dessous .
+ii. Une liste des besoins non fonctionnels globaux, chacun associ´ es ` a :
+a. Des quantifications .
+b. Des ´ el´ ements de faisabilit´ e .
+c. Des contraintes ou difficult´ es techniques .
+d. L’´ enonciation de risques et parades .
+e. La sp´ ecification de tests de validation et de contrôle .
+iii. Ces besoins seront expliqu´ es, justifi´ es, illustr´ es au moyen de : sc´ enarios,
+prototypes (par ex. prototypes papier pour les interfaces, prototypes
+impl´ ement´ es pour la faisabilit´ e), sch´ emas, et diagrammes UML.
+4. Un diagramme de Gantt de mise en œuvre des besoins.
+5. Une bibliographie.
+\par\leavevmode\par
+Lien du sujet :\\
+\href{http://dept-info.labri.fr/~narbel/PdP/Subjects19-20/renault\_tectonique\_pdp.html}{http://dept-info.labri.fr/~narbel/PdP/Subjects19-20/renault\_tectonique\_pdp.html}
+\par\leavevmode\par
+Lien du git :\\
+\end{comment}
+
+\end{document}
