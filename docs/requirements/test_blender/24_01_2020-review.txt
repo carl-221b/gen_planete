@@ -39,7 +39,7 @@ Résumé:
 
 Utilisation de l'API Python afin de :
 - créer une icosphére d'environ 10 000 polygones au moins.
-- application d'une transformation sur ses sommets selon une texture.
+- application d'une transformation sur ses sommets selon une texture de Voronoi.
 
 Puis affichage du temps de créations et des propriétés comme le nombre de vertices, d'arrêtes, etc.
 
