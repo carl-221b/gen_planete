@@ -9,9 +9,9 @@ Général
 - Éviter les anglicismes et le franglais (“build” dans besoins non fonctionnels par exemple)
 - Evitez les termes approximatif comme “temps réel” et quantifiez les.
 -Notation : 5% organisation git, tout le monde doit apparaître dans les commit
-           10% (a compléter, j’ai pas bien noté, audit ?)
-           15% (a compléter, j’ai pas bien noté)
-           40% release+mémoire
+           10% (cahier des besoins et bibliographie)
+           15% (1ere release et audit)
+           40% release finale + mémoire
            10% note du client → il évaluera le produit final, pas forcément le code
            20% soutenance
 Lors de la soutenance nous serons avec trois chargés de td, celui avec lequel nous travaillons ce semestre, un autre qui aura lu notre mémoire, et un qui découvrira la projet lors de la soutenance.
@@ -21,7 +21,7 @@ Pour le cahier des besoins
 - Sur la page de garde rajoutez Projet de programmation, et le nom du client(il appréciera).
 - Ajouter une table des matières (table content)
 - Détailler plus la présentation du projet, il faut clairement comprendre ce qu’est le projet en lisant ce paragraphe (icosphère statique avec mouvement point de vue … ), si possible ajouter des images pour l’illustrer. Attention ce n’est pas une introduction, plus un résumé.
-- Bonne intention de mettre le public, mais à détailler.
+- Bonne intention de mettre le public cible, mais à détailler.
 - Faire l’analyse de l’existant ou étude de faisabilité avec la documentation fourni par le client + nos recherches. Y rajouter des preuves, avec par exemple des prototypes.
 - Faire la bibliographie (dernière partie)
 - Développer plus les besoins en expliquant pourquoi ce choix puis comment il sera réalisé. Expliciter la priorité, y mettre les implémentations possibles et les algorithmes afin de le réaliser. Cela peut être vue comme un contrat, même si Pdp est souple avec ça.
