@@ -33,6 +33,17 @@ for i in range(10):
     bm.to_mesh(mesh)
     bm.free()
 
+    #Displacement
+    bpy.ops.object.mode_set(mode='OBJECT')
+    tex = bpy.data.textures.new("Voronoi", 'VORONOI')
+    tex.distance_metric = 'DISTANCE_SQUARED'
+    modifier = basic_sphere.modifiers.new(name="Displace", type='DISPLACE')
+    modifier.texture = bpy.data.textures['Voronoi']
+    modifier.strength = -0.2
+    #Use for apply the modifier
+    #bpy.ops.object.modifier_apply(apply_as='DATA',modifier='Displace')
+
+    
     end = time.time()
 
     #Stats
