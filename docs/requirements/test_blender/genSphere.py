@@ -18,9 +18,18 @@ for i in range(10):
     basic_sphere = bpy.data.objects.new("Basic_Sphere", mesh)
 
     # Add the object into the scene.
-    bpyscene.objects.link(basic_sphere)
-    bpyscene.objects.active = basic_sphere
-    basic_sphere.select = True
+    
+    #bpyscene.objects.link(basic_sphere)
+    #2.8
+    bpy.context.collection.objects.link(basic_sphere)
+    
+    #bpyscene.objects.active = basic_sphere
+    #2.8
+    bpy.context.view_layer.objects.active = basic_sphere
+    
+    #basic_sphere.select = True
+    #2.8
+    basic_sphere.select_set(True)
 
     # Construct the bmesh sphere and assign it to the blender mesh.
     bm = bmesh.new()
@@ -31,6 +40,7 @@ for i in range(10):
     #Icosphere
     bmesh.ops.create_icosphere(bm, subdivisions=i, diameter=1)
     bm.to_mesh(mesh)
+    
     bm.free()
 
     #Displacement
@@ -42,18 +52,17 @@ for i in range(10):
     modifier.strength = -0.2
     #Use for apply the modifier
     #bpy.ops.object.modifier_apply(apply_as='DATA',modifier='Displace')
-
     
     end = time.time()
-
-    #Stats
-    print("\nGenerated mesh :")
-    print(i, "Parameter")
-    print(end - start, "s")
-    print(len(mesh.polygons), "polygons")
-    print(len(mesh.edges), "edges")
-    print(len(mesh.vertices), "vertices")
-
+    
     #Limit
     if(len(mesh.polygons) > aimPoly):
         break
+    
+#Stats
+print("\nGenerated mesh :")
+print(i, "Parameter")
+print(end - start, "s")
+print(len(mesh.polygons), "polygons")
+print(len(mesh.edges), "edges")
+print(len(mesh.vertices), "vertices")
