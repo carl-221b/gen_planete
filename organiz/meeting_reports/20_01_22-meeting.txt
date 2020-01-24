@@ -1,0 +1,50 @@
+Compte rendu Chargé de TD N°1
+
+Général
+- Rappels des modalités de PdP : documents en Latex, citer ses sources, tous les membres participent au rapport et au code, le client regarde surtout le produit final (mais aussi le code dans notre cas car accès git).
+- Organisation : nom des e-mails pour le chargé de TD : “Planète 2”
+- Dans tous les documents / oraux, toujours présenter le projet (car une partie du jury découvre le sujet)
+- Le cahier des besoins servira beaucoup pour le mémoire (possibilité de copier/coller des parties si bien développé, gain de temps)
+- faire des prototypes dès maintenant (pendant la phase documents), notamment pour la faisabilité.
+- Éviter les anglicismes et le franglais (“build” dans besoins non fonctionnels par exemple)
+- Evitez les termes approximatif comme “temps réel” et quantifiez les.
+-Notation : 5% organisation git, tout le monde doit apparaître dans les commit
+           10% (a compléter, j’ai pas bien noté, audit ?)
+           15% (a compléter, j’ai pas bien noté)
+           40% release+mémoire
+           10% note du client → il évaluera le produit final, pas forcément le code
+           20% soutenance
+Lors de la soutenance nous serons avec trois chargés de td, celui avec lequel nous travaillons ce semestre, un autre qui aura lu notre mémoire, et un qui découvrira la projet lors de la soutenance.
+
+
+Pour le cahier des besoins  
+- Sur la page de garde rajoutez Projet de programmation, et le nom du client(il appréciera).
+- Ajouter une table des matières (table content)
+- Détailler plus la présentation du projet, il faut clairement comprendre ce qu’est le projet en lisant ce paragraphe (icosphère statique avec mouvement point de vue … ), si possible ajouter des images pour l’illustrer. Attention ce n’est pas une introduction, plus un résumé.
+- Bonne intention de mettre le public, mais à détailler.
+- Faire l’analyse de l’existant ou étude de faisabilité avec la documentation fourni par le client + nos recherches. Y rajouter des preuves, avec par exemple des prototypes.
+- Faire la bibliographie (dernière partie)
+- Développer plus les besoins en expliquant pourquoi ce choix puis comment il sera réalisé. Expliciter la priorité, y mettre les implémentations possibles et les algorithmes afin de le réaliser. Cela peut être vue comme un contrat, même si Pdp est souple avec ça.
+- Ne pas inventer des besoins que le client ne donnes pas.
+- Expliciter l’interface et les contrôles 
+- Les paramètres sont des valeurs ou des intervalle de valeurs ? Expliquer qu’ils sont donnés au générateur pour la génération procédurale des terrains
+- Expliquer ce que veut dire “rendu low-poly”. Le nombre de polygon n’est pas pertinent, détailler plutôt le style artistique.
+- Définir caméra = point de vue. Expliquer comment elle bouge, les contrôles, comment ce passe le changement de point de vue entre aérienne et vue de l’horizon
+- Le choix des couleurs serait plutôt de l’ordre de la génération, la visualisation ne fait qu’afficher un objet 3D polygonal.
+- Modifier ? Sauvegarde des paramètres afin de régénérer la même planète ? Mieux définir ce besoin.
+
+
+Pour les besoins non fonctionnels : 
+- Préciser la distribution Linux cible et la version (celle du client) ou dire que l’on s’engage à ce que notre logiciel fonctionne sur notre environnement de travail (Debian au CREMI). Préciser la machine cible (celle du client) ou celles sur lesquelles on travail pour justifier ce que signifie “occupation mémoire et temps raisonnable”, système, processeur, carte graphique, RAM, etc.
+- Préciser qu’il n’est pas attendu d’avoir des animations, ni de changements dynamique durant la visualisation (ce que veut donc dire “planète statique”) mais qu’il faut un mouvement de caméra (déplacement, zoom…) fluide (combien de FPS ?)
+- Justifier le nombre de polygones (10 000).
+- Dire quelle technologie on utilise pour l’affichage 3D, si OpenGL : quelle version ?, si moteur de jeu, il faut s’assurer que les nombreuses dépendances ne posent pas de problèmes et que cela convient au client (NB : il me semble que le client était plutôt défavorable car trop lourd)
+- Si utilisation de sources / librairies / moteurs existants, attention aux contraintes de licence à vérifier avec le client. (préférer l’open-source)
+
+Autres remarques : 
+- Préciser ce qu’est l’éclairage.
+- Préférez comme vocabulaire format de sauvegarde
+- Que veut dire couche ? Est-ce utile ? (couche atmosphère pour les nuages par exemple si les nuages fait parti de nos choix d’amélioration)
+- Eviter le mot “temps-réel”.
+- Sources bibliographiques non hyperlien : conférence SIGGRAPH, graphical journal … ; editeur souvent ACM, SCGT.org
+
