@@ -38,7 +38,7 @@ for i in range(10):
     #bmesh.ops.create_uvsphere(bm, u_segments=32, v_segments=16, diameter=1)
 
     #Icosphere
-    bmesh.ops.create_icosphere(bm, subdivisions=i, diameter=1)
+    bmesh.ops.create_icosphere(bm, subdivisions=i, diameter=2)
     bm.to_mesh(mesh)
     
     bm.free()

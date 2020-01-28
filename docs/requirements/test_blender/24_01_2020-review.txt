@@ -1,8 +1,4 @@
-Test de Blender au Cremi :
-
-Blender (version) sur la machine suivante
-
-(spec à donner)
+1er test sur machine quelconque CREMI :
 
 Une génération dans un temps toujours inférieur à 2s pour 10 000 polygones. 
 Une réactualisation en mode rendered de la vue trés saccadé (1-2 FPS~).
@@ -11,6 +7,7 @@ Complexité exponentielle en fonction de la subdivision.
 _________________________________________________________
 Test ordinateur personnel Marc Cerutti :
 
+Windows 10
 Blender version: 2.80
 SDL Version: 2.0.8
 Python version: 3.7.0
@@ -18,13 +15,13 @@ OpenGL version:	'4.5.0 NVIDIA 441.87'
 
 Alienware Aurora R7 - Windows 10
 Intel core i7 3.20 GHz
-GeForce GTX 1080
+GeForce GTX 1080 4 Go
 16 Go de RAM
 
 (plus d'information dans system-info_Marc-Cerutti)
 
 Moteur de rendu Evee
-Actualisation de l'interface en mode rendered fluide (0:0:39 / 20 480 polys, 41 Mb / image de rendu complet)
+Actualisation de l'interface en mode rendered fluide (0:0:39 / 20 480 tris, 41 Mb / image de rendu complet)
 Limite de paramêtre de subdivision environ de 11 avant crash de l'application.
 
 Console :
@@ -34,6 +31,34 @@ Generated mesh
 20480 polygons
 30720 edges
 10242 vertices
+_________________________________________________________
+Test de Blender au Cremi :
+
+Debian GNU/Linux 9.11 (stretch)
+Blender version: 2.80
+SDL version: 2.0.5
+Python version: 3.7.0
+OpenGL version:	'4.5.0 NVIDIA 390.116'
+
+CREMI salle 207 - Linder
+Intel(R) Xeon(R) CPU E3-1240 v5 @ 3.50GHz
+GeForce GTX 1060 6GB/PCIe/SSE2
+16Go de RAM
+
+(plus d'information dans system-info_Cremi-207)
+
+Moteur de rendu Evee
+Actualisation de l'interface en mode rendered fluide (0:0:22 / 20 480 tris, 76.1 Mb / image de rendu complet)
+Limite de paramêtre de subdivision environ de 11 avant crash de l'application.
+
+Console :
+Generated mesh :
+6 Parameter
+0.01950216293334961 s
+20480 polygons
+30720 edges
+10242 vertices
+
 _________________________________________________________
 Résumé:
 
@@ -49,6 +74,7 @@ Pour :
 - Rendu de base avec OpenGL
 - Moteur interne en C/C++
 - Opensource et libre de droit
+- Crossplatform
 - Utilisation trés simple de l'API afin d'accéder et de modifier la forme.
 - Rapidité de prototypage en Python
 - Fonctionnalités suplémentaire (sauvegarde, modification, amélioration de rendu, création de shader en node...)
