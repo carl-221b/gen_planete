@@ -1,0 +1,3 @@
+#Commande blender, without visualisation
+blender --background --python genSphere.py
+
