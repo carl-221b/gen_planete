@@ -114,7 +114,10 @@ Nous cherchons à mettre en place au sein de ce projet, un outil permettant de g
 \begin{figure}[!h]
 \begin{center} \includegraphics{img/planete.png} \end{center}
 \caption{Exemple de planète générée procéduralement}
+
 \end{figure}
+
+Source : \href{https://experilous.com/1/blog/post/procedural-planet-generation}{Procedural Planet Generation}, par Andy Gainey
 
 \newpage
 \section{Analyse de l'existant}
@@ -209,7 +212,7 @@ OpenGL(Open Graphics Library) est considéré comme une API en  qui offre la cap
                 Comme les fonctionnalités de la bibliothèque sont très proche du matériel, cela permet une grande marge de manoeuvre aux développeurs pour rendre ce qu'ils veulent. Si besoin est, on peut implémenter de nouvelles fonctionnalités ou les adapter directement au sein de la bibliothèque.
                 
                 \item {Performant.}
-                Comme justement cette bibliothèque est utilisé par de nombreuses compagnies, studio et équipes de développement afin de faire des applications graphiques en temps réel(60 FPS 4k maintenant), les performances de cette bibliothèque n'est plus à prouver.
+                Comme justement cette bibliothèque est utilisé par de nombreuses compagnies, studio et équipes de développement afin de faire des applications graphiques en temps réel(60 FPS 4k maintenant), les performances des bibliothèques ne sont plus à prouver.
     \end{itemize}
 
 \paragraph{Inconvénient}
@@ -292,8 +295,39 @@ Les besoins sont ordonnés par ordre de priorité. A partir d'une certaine prior
         Il existe deux méthodes principales pour le rendu d'une scène 3D :
         \begin{itemize}
             \item \textbf{Rasterization}
+            La rastérisation, est un procédé qui consiste à convertir une image vectorielle en une image matricielle destinée à être affichée sur un écran. On englobe la rastérisation tous les procédés permettant d'améliorer l'aspect final du rendu 3D.
+            Les objets à l'ecran sont crées à partir à partir de triangles ou de polygones qui créent le modèle 3D de l'objet. 
+            \begin{itemize}
+                \item \textbf{Avantages :}
+                \begin{itemize}
+                    \item Faible coût en mémoire
+                    \item Plus de choix dans la représentation des faces et du modèle (Triangles, Quadrique, Polygones, Torres ..)
+                    \item La performance dépend directement du nombre de faces
+                \end{itemize}
+                \item  \textbf{Inconvénients :}
+                \begin{itemize}
+                    \item Rendu simplifié non réaliste
+                    \item Ne prend pas en compte des reflets, transparence, miroir.
+                \end{itemize}
+            \end{itemize}
             \item \textbf{Ray tracing}
-            A COMPLETER PAR TSIORY.
+            Le ray tracing consiste à simuler le parcours inverse de la lumière : on calcule les éclairages de la caméra vers les objets puis vers les lumières, alors que dans la réalité la lumière va de la scène vers l'œil. Cette technique reproduit les phénomènes physiques que sont la réflexion et la réfraction. 
+            \begin{itemize}
+                \item \textbf{Avantages :}
+                \begin{itemize}
+                    \item Rendu réaliste
+                    \item Meilleure représentation des phénomènes physiques (lumières,reflets,transparence)
+                    \item Plus de liberté dans les détails du rendu
+                \end{itemize}
+                \item  \textbf{Inconvénients}
+                \begin{itemize}
+                    \item Calculs coûteux 
+                    \item Rendu surtout utilisés pour image fixe (pas adapté à ce que l'on veut)
+                    \item Nécessite des calculs en parallèle afin d'accélérer
+                \end{itemize}
+            \end{itemize}
+            
+            
         \end{itemize}
         La planète est caractérisée par une sphère aux faces polygonales, en low-poly (c'est à dire avec peu de polygone). (DANS GENERATION, A DEPLACER Chaque polygone représente une information sur la planète : un relief (hauteur des points), une couleur bleue pour l'eau, vert pour les terres, gris/marron pour les montagnes...)\\
         
@@ -322,9 +356,18 @@ Les besoins sont ordonnés par ordre de priorité. A partir d'une certaine prior
 
 \subsection{Guider la génération de la planète}
 
-Il doit être possible pour l'utilisateur de guider la génération d'une planète en passant des paramètres à notre algorithme/générateur. Ce passage de paramètres pourrait simplement se faire par ligne de commande lors de l'appel à l'exécutable. Ces paramètres influeront donc sur les transformations appliquées à la planète (plus ou moins d'altitude, de type de terrain... Par exemple, \verb|./planet -altitude 5| accentuerai d'un facteur 5 la présence de montagnes).\\
+Il doit être possible pour l'utilisateur de guider la génération d'une planète en passant des paramètres à notre algorithme/générateur. Ce passage de paramètres pourrait simplement se faire par ligne de commande lors de l'appel à l'exécutable. Ces paramètres influeront donc sur les transformations appliquées à la planète (plus ou moins d'altitude, de type de terrain... Par exemple, \verb|./planet -altitude 5| , accentuerai d'un facteur 5 la présence de montagnes).\\
 \\
-Afin de réaliser ses transformations //MARC A FAIRE, ALGO DE PERLIN NOISE ETC.\\
+Afin de réaliser ses transformations, il faudrait délimiter des zones pour discrétiser sur la surface les informations à afficher, tout en rajoutant de l'aléatoire pour les variations des paramètres données en entrée.\\
+Une solution à cette fin serait d'oublier l'aspect 3D de la sphère, et de raisonner en 2D, avec des textures, où les valeurs correspondrait à un type d'information. La combinaison de ces informations diverses comme l'altitude des sommets, la couleurs, et d'autres aspects plus abstrait comme la densité de population, etc, pourrait se faire sous forme de "couches" superposable, et liée les unes aux autres (par exemple des villes qui sont au dessus d'une certaine hauteur, de l'eau). Pour cela, on adoptera une structure de code séquentiel en fonction des dépendances des couches entre elles. On pourrai tout à fait envisager utiliser une structure de graph pour de futures implémentations comme du visual scripting de générateur, mais ce n'est pas le sujet ici. \\
+Une implémentation possible serait de générer des textures 2D grâce à des algorithmes de "bruit" que je vais détailler plus tard, qu'on projette sphériquement sur la surface de la plane.\\
+Il faut faire attention au choix de ces algorithmes de bruit qui créeront les dites textures, sous peine de perdre en réalisme. Par exemple il faut éviter d'implémenter le bruit "blanc". Bien que très simple, il est beaucoup trop aléatoire pour être intéressant afin de générer des environnements réalistes aléatoires.\\
+(METTRE PHOTO BRUIT NON RÉALISTE)\\
+Une texture de bruit souvent utilisé en synthèse d'image afin de faire des textures réalistes se nomme le bruit de  PerlinNoise(METTRE REF) , qui a l'avantage d'être très flexible sur les paramètres données, tout en produisant des textures réalistes.
+(EXPLIQUER + PHOTO)\\
+Il existe des alternatives aussi moins coûteuses en ressources comme Simplex Noise.\\
+
+//MARC A FAIRE, ALGO DE PERLIN NOISE ETC.\\
 \\
 Les besoins fonctionnels qui suivent sont optionnels.
 
@@ -355,21 +398,27 @@ Les besoins fonctionnels qui suivent sont optionnels.
 
 \subsection{Besoins fonctionnels optionnels}
 \begin{itemize}
-\item \textbf{Sauvegarder les planètes générés.} \\
+\item \textbf{Sauvegarder les planètes générés :} \\
     L'utilisateur doit avoir la capacité de sauvegarder les modifications appliquées à une planète puis la recharger pour une utilisation ultérieure. Cette sauvegarde peut être fait en gardant les données sous un format spécifique (txt,json,yaml,xml,obj...).
     
 \item \textbf{Éclairage :} \\
     Ajout d'une source de lumière à un endroit de la scène, par exemple le soleil pour la terre qui influera sur le cycle jour et nuit sur certaines parties de la planète.Sur la partie non éclairée par la lumière il fera nuit et inversement pour le jour. 
     
-\item \textbf{Changer le style de visualisation} \\
+\item \textbf{Changer le style de visualisation :} \\
     Pouvoir influer et faire des transformations sur les couleurs ou sur les ombres pour changer le style graphique.Dans un premier temps, changer la palette des couleurs peut être une amélioration optionnel facile suivant l'architecture
 
-\item \textbf{Plusieurs biomes}\\
-    Un biome de manière générale est un écosystème terrestre ou aquatique caractéristique de grandes zones biogéographiques soumises à un climat particulier. Il faut donc diversifier certaines zones de la planètes en fonction de certains paramètres comme l'altitude (montagnes, plaines), la présence aquatique (rivières,ocean), climat (nuageux,dégagé).
+\item \textbf{Couches :}\\
+    Dans l'exemple d'une planète similaire à la terre représenter les différentes couches de la croûte terrestre. Représenter du plus profond au moins profond le noyau interne, noyau externe, manteau supérieur et inférieur et la croûte terrestre.
     
+\item \textbf{Plusieurs biomes :}\\
+    Un biome de manière générale est un écosystème terrestre ou aquatique caractéristique de grandes zones biogéographiques soumises à un climat particulier. Il faut donc diversifier certaines zones de la planètes en fonction de certains paramètres comme l'altitude (montagnes, plaines), la présence aquatique (rivières,ocean), climat (nuageux,dégagé). Dans le cas où les couches sont bien représentés on peut envisage la présence de magma et de biomes volcaniques.
+
+
+\item \textbf{Influence des plaques tectoniques sur le relief}
+
 \item Quadrillage de Voronoï
-\item Influence des plaques tectoniques sur le relief
-\item Couches (ciel, magma, etc)
+
+
 \item Se déplacer sur la surface de la planète en 1ère personne
 \end{itemize}
     
@@ -397,3 +446,4 @@ Les besoins fonctionnels qui suivent sont optionnels.
 
 
 \end{document}
+
