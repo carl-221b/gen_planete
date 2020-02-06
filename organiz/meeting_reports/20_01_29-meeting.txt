@@ -1,0 +1,78 @@
+Compte rendu Chargé de TD N°2
+
+Ce TD a eu pour but d’avoir une première vision critique sur l’ébauche de l’analyse des besoins. Les points soulevés ont été les suivants:
+
+Introduction :
+
+-Reformulez, enlever l’introduction à l’introduction (“Grande quantité” peu cohérent).
+-Définir “procédurale”
+-Low-poly à plus raccourcir
+-Footnotes pour lien et date accès de l’image
+-Parler de la figure dans le texte (dire que c’est un exemple) et la référencer
+
+Existant :
+
+-Existant = Outils + Algos de visualisation, Fenêtre, Génération, Interaction, Aléatoire,...
+-Parler des choix possibles dans la rasterization, être court sur le raytracing
+-Sur blender, rajouter une formalisation de pourquoi on le prend pas (ne convient pas à l’exercice du PDP)
+-Définir texture de voronoï
+-Blender “Sans perte de FPS” = Sans dégradation de l’image, à reformuler
+-Blender mettre temps, élément de faisabilité
+-Algos de génération de sphère, bien expliquez les possibilités + figure
+-Opensource + Licence, Pas de  “Libre de droit”
+-Définition de crossplatform  -> multi-plateforme / Préciser que le client veut compatibilité linux
+-Corriger la phrase “au développeur de l’implémenter”
+-Acronyme de API
+-Existant, plus de recherche (Algos, Vulkan ?, Moteur de jeu, FreeGlut/GLSW, etc.)
+-Bien préciser OpenGL (Une norme, API public, pas implémentation)
+-Pourquoi 3.3 d’OpenGL ?
+-“figure ci dessous”  -> voir figure X (avec \ref)
+-Préciser le langage sur les outils
+-“adapter la bibliothèque/le code” : reformuler en faire un surcouche et non pas une modif du code source
+-“rendre” -> dessiner, effectuer un rendu
+-“Performant” vague, toujours quantifier
+-“Plus à prouver” à bannir (hors de propos)
+-Voire structures d’affichages, VertexArray, VBO
+-Pour les besoins fonctionnelles  :
+-Besoin = Choix
+-Hiérarchisé les besoins, et choisir ce qui vas être utilisé qui était dans l’existant
+-Faire plutôt une liste de priorité après les explications
+-Introduire le “Comment créer la géométrie
+-Séparer “repère” et “échelle” (deux sous besoins différents, clarté)
+-“Echelle” pas clair. Faire plus de schéma et bien introduire les notions de pourquoi on en a besoin
+-Schéma et référence à l'existant pour la façon de faire
+-Comment renseigner les informations = scénario + comment? ça veut dire quoi? peut être changer le nom de la section
+-Définir vraiment le comment ça va marcher (expliquer l’algo/ le processus)
+-Décrire le cheminement pour introduire les détails (utilisateur ou système) = Mieux introduire les besoins : “Pourquoi -on cherche à faire ça ?” + éventuel diagramme de flux, scénarios ...
+-Comment choisir les couleur ? A préciser
+-Partie dans Visualisation sur “ray-tracing / rasterisation” doit être mis dans l’existant dans une partie “rendu --graphique” + préciser dans la visualisation que l’on fait rasterisation et pourquoi (en référençant l’existant)
+-Des répétitions, pas clair (dans Visu, le paragraphe “la planète est caractérisée par un sphère aux faces polygonales ..etc.” peut servir d’intro dans la génération)
+-OpenGL ne crée pas de fenêtres, si pas assez de contenu dans l’existant peut introduire les bibliothèques dans les besoins
+-Expliquer la théorie derrière les fenêtres, un peu magique. Hiérarchisé plus cette partie
+-Citer le prototype caméra, le montrer
+-Faire une rotation etc, à préciser ( rotater -> faire tourner / faire une rotation)
+-Besoin “Guider la génération” à déplacer dans la partie génération
+-Changer les hauteurs = Besoin, => utilisation du bruit, pas l’inverse
+-Expliquer pourquoi générer du bruit (amélioration visuelle)
+-Scénarios bienvenue
+
+Pour les besoins non fonctionnels : 
+
+-Approfondir “prog utilisable par le client” (quelle distrib linux, quelle machine)
+-Enoncer et justifier l’utilisation de OpenGL (liberté, intérêt pédagogique) et bibliothèques
+-Définir des objectifs si pas de contraintes
+-Différencier temps de génération, temps d’affichage et temps de rafraîchissement (quantifier ce qui semble être capable de faire)
+-Si pas accès à la machine, donnez au client des proto, voire faire une échelle.
+-Tout quantifier (slide 37), nombre de polygone = ?
+-Priorité des besoins non fonctionnels
+
+Autres remarques : 
+
+-Risque et parade à faire
+-Test et validation à faire
+-Note de bas de page pour des liens sans grande importance + Date d'accès
+-Figure = Texte, toujours rajouter un texte pour introduire les figure
+-utiliser la numérotation de figure, pas de “ci-dessous”
+ Voronoï, FPS à préciser
+-“Pour faire le rendu”, pas “rendre”
+
