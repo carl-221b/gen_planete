@@ -9,7 +9,7 @@ class Renderer
 {
 public:
 
-    Renderer(Planet planet);
+    Renderer(Planet& planet);
 
     /**
      * @brief drawScene, draw the actual scene with the bacground, the planet, calculation of the camera, etc.

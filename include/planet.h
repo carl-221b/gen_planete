@@ -10,7 +10,7 @@ typedef Eigen::Matrix<uint,3,1> Vector3ui;
 class Planet
 {
 public:
-    Planet (Geometry geo);
+    Planet();
 
     /**
      * @brief edit, apply transformations to the geometry and the colors.
@@ -41,7 +41,7 @@ public:
      * @param key the identifier
      * @return a vector3 of unsigned int in RGB.
      */
-    Eigen::Vector3ui getColor(std::string key) const;
+    Vector3ui getColor(std::string key) const;
 };
 
 #endif // PLANET_H

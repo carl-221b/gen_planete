@@ -1,6 +1,6 @@
 #include "renderer.h"
 
-Renderer::Renderer()
+Renderer::Renderer(Planet& planet)
 {
 
 }
