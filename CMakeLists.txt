@@ -35,7 +35,6 @@ set(SRC_FILES
     #Geometry
     src/face.cpp
     src/vertex.cpp
-    src/geometry.cpp
     src/icosphere.cpp
 
     include/face.h
@@ -45,7 +44,6 @@ set(SRC_FILES
 
     #Editors
     src/planet.cpp
-    src/editor.cpp
     src/basiceditor.cpp
 
     include/planet.h

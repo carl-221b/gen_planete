@@ -4,6 +4,9 @@
 #include "opengl.h"
 #include <iostream>
 
+/**
+  * MONDES 3D CREDITS TODO
+  * */
 
 /** Permet de manipuler des shaders en GLSL
     Exemple d'utilisation:

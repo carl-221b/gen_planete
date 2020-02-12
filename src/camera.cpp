@@ -1,5 +1,9 @@
 #include "camera.h"
 
+/**
+  * MONDES 3D CREDITS TODO
+  * */
+
 using namespace Eigen;
 
 Camera::Camera()

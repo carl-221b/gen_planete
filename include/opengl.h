@@ -1,6 +1,10 @@
 #ifndef GLERROR_H
 #define GLERROR_H
 
+/**
+  * MONDES 3D CREDITS TODO
+  * */
+
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 

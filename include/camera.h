@@ -1,6 +1,9 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+/**
+  * MONDES 3D CREDITS TODO
+  * */
 #include <Eigen/Geometry>
 
 class Camera
