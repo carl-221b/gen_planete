@@ -378,4 +378,9 @@ src/glfw3.dll
 src/glfw3dll.lib
 src/libglfw3dll.a
 
+#############################################################################################################
+####### IDE
+
+# QtCreator CMake
+CMakeLists.txt.user*
 
