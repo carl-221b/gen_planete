@@ -11,9 +11,8 @@
 
 class Editor
 {
-    using namespace std;
-
 public:
+
     Editor();
 
     /**
@@ -25,7 +24,7 @@ public:
      * @brief getColorsGenerated, get the colors used by the editor.
      * @return
      */
-    map<string,int> getColorsGenerated();
+    std::map<std::string,int> getColorsGenerated();
 };
 
 #endif // EDITOR_H
