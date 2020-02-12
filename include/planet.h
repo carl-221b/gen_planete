@@ -4,6 +4,7 @@
 #include <geometry.h>
 
 #include <editor.h>
+#include <shader.h>
 
 typedef Eigen::Matrix<uint,3,1> Vector3ui;
 
@@ -19,9 +20,10 @@ public:
     void edit(Editor& ed);
 
     /**
-     * @brief draw the planet.
+     * @brief draw, wit a given shader.
+     * @param shd, the shader to use.
      */
-    void draw();
+    void draw(const Shader &shd);
 
     /**
      * @brief getFaceColor, get the color of the face.
