@@ -1,0 +1,46 @@
+﻿Compte rendu Chargé de TD N°3
+________________
+Dans ce TD le chargé de TD nous a fait des remarques par rapport au cahier des besoins qui a été rendu la veille et nous a donné des conseils sur les choix d’implémentation pour le premier audit.
+
+
+* Dans la présentation du sujet, préciser que la figure 1 n’est pas contractuelle
+Analyse de l’existant:
+* Dire que Blender nécessite trop de dépendance ce qui ne convient pas aux clients (dit mais pas hiérarchisé)
+* Ref de godot, Unity, Unreal
+* Ne pas choisir un moteur de jeu permet d’optimiser le code faux
+* Rivière algo à définir -> parcours de graph des faces ou de la texture ?
+
+Besoins Fonctionnels :
+   * Utiliser le même niveau d’abstraction dans le diagramme de flux ( Appuie sur CTRL+S -> Sauvegarde avec touche clavier ) 
+   * Pas d’explication au schéma + légende
+   * Mauvais ordre pour expliquer le repère et l’échelle
+   * Echelle (-1,1) pour les altitudes et profondeur. Si 0 est le niveau de la mer -1 ne peut pas être le centre de la terre car des montagnes de même altitude que le rayon de la terre ça n’est pas possible et ça nous limite vite par rapport à la précision de déplacement de sommets des faces
+   * Spécifier qu’il existe pas de zone < 0 sur la planète (pas de creux dans la sphère)
+   * Diagramme séquentiel : expliquer dans le texte ce qui entre en jeu, données != paramètres (ligne de commande) (on sauvegarde les données de la planète, pas les paramètres)
+   * Pas de sortie sur le schéma de la boîte génération
+   * Le programme permet-il de visualiser avec un programme extérieur ? ->priorité génération
+   * Quand on cite une partie faut faire une référence sur le pdf (ici vers l’analyse de l’existant, ex créer la géom.)
+   * “Caractéristiques” de la planète au lieu de “informations”, préférer ce terme et plus expliquer ces caractéristiques
+   * Les couleurs constituent un besoin fonctionnel à part entière + couleur en fonction : - de l’altitude; - des biomes … + priorité
+   * utiliser des exemples déjà expliciter (ex. villes ?)
+   * altitude pour données != relief pour visualisation (cohérence)
+   * Trop de choses à la fois dans les caractéristiques et représentation, séparer ce que l’on veut, et ce qui est réalisable
+   * Dissocier : 1. ce que l’on veut faire ; 2. comment on va le faire
+   * Mer -> altitude 0 avec nuances de bleus ?
+Besoins Non Fonctionnels :
+   * Dire pourquoi on se fixe comme objectif les temps qu’on a spécifié pour 
+   * Temps d'exécution de blender pour faisabilité dans les temps
+   * Manque lien entre besoins non-fonctionnels, Temps VS rendu
+   * Spécifier les propriétés des machines cremi (juste machine avec carte graphique plus puissante, donc envoi de prototypes au client)
+   * Découpé le Gantt en plus petites parties
+Test :
+   * Géométrie : test unitaire, mélange d’abstraction
+   * + de hiérarchie
+   * Monkey test = test aux limites de l'interaction utilisateurs
+   * Il existe des logiciels qui testent les limites d’interaction (Entrer les macros clavier/souris une fois et on peut ensuite relancer les mêmes tests à chaque fois) 
+Conseils Implémentation :
+   * Priorité : algorithme de bruit et génération en général > interaction utilisateur 
+   * Parcourir les triangles technologies possible : Structure half-edge , CGAL, DGtal , Surface-Mesh(Daniel Sieger)
+   * Choisir comment mettre les couleurs :  texture ou sur les faces 
+   * Algorithme parcours de rivière 
+   * Audit et final pas de démo
