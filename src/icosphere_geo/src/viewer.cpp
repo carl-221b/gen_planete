@@ -133,6 +133,7 @@ void Viewer::mousePressed(GLFWwindow *window, int button, int action)
     if(action == GLFW_PRESS) {
         if(button == GLFW_MOUSE_BUTTON_LEFT)
         {
+            std::cout << "Debug: " << "myQuaternion.vec() = " << _cam.sceneOrientation().vec() << std::endl;
             _cam.startRotation(_lastMousePos);
         }
         else if(button == GLFW_MOUSE_BUTTON_RIGHT)
@@ -144,6 +145,7 @@ void Viewer::mousePressed(GLFWwindow *window, int button, int action)
     else if(action == GLFW_RELEASE) {
         if(_button == GLFW_MOUSE_BUTTON_LEFT)
         {
+            std::cout << "Debug: " << "myQuaternion camera vec value = " << _cam.sceneOrientation().vec() << std::endl;
             _cam.endRotation();
         }
         else if(_button == GLFW_MOUSE_BUTTON_RIGHT)
@@ -175,12 +177,18 @@ void Viewer::mouseMoved(int x, int y)
 
 void Viewer::mouseScroll(double x, double y)
 {
-    /*
-    printf("CAM SCENE DIST : %f \n", _cam.sceneDistance());
-    fflush(stdout);
-    if(_cam.sceneDistance() > 0.9)
-    */
-        _cam.zoom((y>0)? 1.1: 1.0/1.1);
+
+    std::cout << "Debug: " << "myQuaternion camera vec value = " << _cam.sceneOrientation().vec() << std::endl;
+    if(_cam.sceneDistance() > 0.9){
+        std::cout << "Debug" << "Value of y for the mouse = " << y << std::endl;
+        if(y > 0)
+            _cam.zoom(1.1);
+        else
+            _cam.zoom(1.0/1.1);
+     }else{
+        if(y < 0)
+            _cam.zoom(1.0/1.1);
+     }
 }
 
 

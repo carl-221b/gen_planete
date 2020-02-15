@@ -3,8 +3,8 @@
 
 Viewer* v;
 
-const int WIDTH = 640;
-const int HEIGHT = 480;
+const int WIDTH = 1000;
+const int HEIGHT = 1200;
 
 static void char_callback(GLFWwindow* window, unsigned int key)
 {
