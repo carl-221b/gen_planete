@@ -13,6 +13,8 @@ public:
     void load(const std::string& filename);
     void init();
     void display(Shader *shader);
+    void saveOBJ();
+    void saveOFF();
 
     void subdivide();
     int numFaces() { return _halfEdge.faces_size(); }
