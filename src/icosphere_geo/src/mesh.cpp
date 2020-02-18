@@ -317,7 +317,7 @@ void Mesh::subdivide()
 
 /* TODO */
 void Mesh::edit(Editor *edit){
-    //_halfEdge = edit->modifyShape(_halfEdge);
-    //load();
+    _halfEdge = edit->modifyShape(_halfEdge);
+    load();
 }
 
