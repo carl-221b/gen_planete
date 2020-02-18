@@ -77,6 +77,48 @@ void Mesh::load()
             _indices.push_back(Vector3i(v0.idx(), v1.idx(), v2.idx()));
         } while (++fvit != fvend);
     }
+    saveOBJ();
+    saveOFF();
+}
+
+void Mesh::saveOBJ()
+{
+    std::ofstream myfile;
+    myfile.open ("suzanne.obj");
+    myfile << "o suzanne\n";
+
+    for(unsigned int i=0; i<_positions.size(); i++){
+        Eigen::Vector3f p = _positions.at(i);
+        myfile << "v " << p.x() << " " << p.y() << " " << p.z() << "\n";
+        Eigen::Vector3f n = _normals.at(i);
+        myfile << "vn " << n.x() << " " << n.y() << " " << n.z() << "\n";
+
+    }
+
+    for(unsigned int i=0; i<_indices.size(); i++){
+        Eigen::Vector3i f = _indices.at(i);
+        myfile << "f " << ( std::to_string(f.x()+1)+"//"+std::to_string(f.x()+1) ) << " " << ( std::to_string(f.y()+1)+"//"+std::to_string(f.y()+1) ) << " " << ( std::to_string(f.z()+1)+ "//" +std::to_string(f.z()+1) ) << "\n";
+    }
+
+
+    myfile.close();
+}
+
+void Mesh::saveOFF(){
+    std::ofstream myfile;
+    myfile.open ("suzanne.off");
+    myfile << "OFF\n";
+    myfile << _positions.size() << " " << numFaces() << " 0\n"; // 0 is the (ignored) number of edges
+
+    for(unsigned int i=0; i<_positions.size(); i++){
+        Eigen::Vector3f p = _positions.at(i);
+        myfile << p.x() << " " << p.y() << " " << p.z() << "\n";
+    }
+
+    for(unsigned int i=0; i<_indices.size(); i++){
+        Eigen::Vector3i f = _indices.at(i);
+        myfile << "3 " << f.x() << " " << f.y() << " " << f.z() << "\n";
+    }
 }
 
 void Mesh::init()
