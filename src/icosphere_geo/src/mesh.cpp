@@ -84,8 +84,8 @@ void Mesh::load()
 void Mesh::saveOBJ()
 {
     std::ofstream myfile;
-    myfile.open ("suzanne.obj");
-    myfile << "o suzanne\n";
+    myfile.open ("planet.obj");
+    myfile << "o planet\n";
 
     for(unsigned int i=0; i<_positions.size(); i++){
         Eigen::Vector3f p = _positions.at(i);
@@ -106,7 +106,7 @@ void Mesh::saveOBJ()
 
 void Mesh::saveOFF(){
     std::ofstream myfile;
-    myfile.open ("suzanne.off");
+    myfile.open ("planet.off");
     myfile << "OFF\n";
     myfile << _positions.size() << " " << numFaces() << " 0\n"; // 0 is the (ignored) number of edges
 

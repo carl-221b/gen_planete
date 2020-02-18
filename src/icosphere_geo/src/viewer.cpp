@@ -198,6 +198,7 @@ void Viewer::keyPressed(int key, int action, int mods)
             loadPrograms();
         else if(key == GLFW_KEY_S){
             //_mesh->subdivide();
+            _mesh->saveOBJ();
         }
         else if(key == GLFW_KEY_W)
         {
