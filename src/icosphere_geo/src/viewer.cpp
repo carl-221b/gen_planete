@@ -1,7 +1,5 @@
 #include "viewer.h"
 
-#define NB_SUBDIVISE 5
-
 using namespace Eigen;
 
 Viewer::Viewer()
@@ -35,10 +33,6 @@ void Viewer::init(int w, int h){
     _mesh = new Mesh();
     _mesh->load(DATA_DIR"/models/icosa.obj");
     _mesh->init();
-
-    for(int i = 0; i < NB_SUBDIVISE; i++){
-        _mesh->subdivide();
-    }
 
     _cam.setSceneCenter(_mesh->boundingBox().center());
     _cam.setSceneRadius(_mesh->boundingBox().sizes().maxCoeff());

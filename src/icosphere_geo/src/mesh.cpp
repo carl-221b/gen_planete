@@ -6,6 +6,8 @@
 #include <cstdio>
 #include <math.h>
 
+#define NB_SUBDIVISE 5
+
 using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
@@ -79,6 +81,10 @@ void Mesh::load()
 
 void Mesh::init()
 {
+    for(int i = 0; i < NB_SUBDIVISE; i++){
+        subdivide();
+    }
+
     glGenVertexArrays(1, &_vao);
     glGenBuffers(2, _vbo);
 
@@ -131,7 +137,6 @@ void Mesh::display(Shader *shader)
 void Mesh::subdivide()
 {
     Surface_mesh _nextHalfEdge;
-
 
     Surface_mesh::Vertex_property<Point> vertices = _halfEdge.get_vertex_property<Point>("v:point");
     Surface_mesh::Vertex_property<Surface_mesh::Vertex> vertex_mapping = _halfEdge.add_vertex_property<Surface_mesh::Vertex>("v:mapping");
@@ -258,7 +263,7 @@ void Mesh::subdivide()
     //Etape 4
     _halfEdge = _nextHalfEdge;
     load();
-    init();
+    //init();
 
     /*
     printf("NB VERTICES : %u \n", _halfEdge.vertices_size());
@@ -267,3 +272,10 @@ void Mesh::subdivide()
     fflush(stdout);
     */
 }
+
+/* TODO */
+void Mesh::edit(Editor *edit){
+    //_halfEdge = edit->modifyShape(_halfEdge);
+    //load();
+}
+

@@ -13,8 +13,8 @@ public:
     void load(const std::string& filename);
     void init();
     void display(Shader *shader);
+    void edit(Editor *edit);
 
-    void subdivide();
     int numFaces() { return _halfEdge.faces_size(); }
     /// Copy vertex attributes from the CPU to GPU memory (needs to be called after editing any vertex attributes: positions, normals, texcoords, masks, etc.)
     void updateVBO();
@@ -23,6 +23,8 @@ public:
 private:
     void load();
     void specifyVertexData(Shader *shader);
+    void subdivide();
+
 
     std::vector<Eigen::Vector3i> _indices;
 

@@ -36,7 +36,7 @@ private:
     int _winWidth, _winHeight;
 
     Shader* _blinn_shader, *_simple_shader;
-    Mesh* _mesh;
+    Shape* _mesh;
 
     bool _wireframe = false;
 

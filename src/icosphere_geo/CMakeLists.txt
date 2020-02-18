@@ -1,4 +1,4 @@
-project(icosphere_geo)
+project(pdp_planet)
 
 cmake_minimum_required(VERSION 3.1)
 
@@ -24,10 +24,24 @@ set(SRC_FILES
     src/camera.cpp
     src/viewer.cpp
     src/main.cpp
+    src/basic_editor.cpp
 )
+
+set(HEADERS
+    src/basic_editor.h
+    src/camera.h
+    src/common.h
+    src/editor.h
+    src/mesh.h
+    src/opengl.h
+    src/shader.h
+    src/shape.h
+    src/trackball.h
+    src/viewer.h
+    )
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
 
-add_executable(tp_si ${SRC_FILES})
+add_executable(planet ${SRC_FILES} ${HEADERS})
 
-target_link_libraries(tp_si glfw ${GLFW_LIBRARIES} glbinding)
+target_link_libraries(planet glfw ${GLFW_LIBRARIES} glbinding)
