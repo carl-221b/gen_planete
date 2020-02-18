@@ -34,6 +34,9 @@ void Viewer::init(int w, int h){
     _mesh->load(DATA_DIR"/models/icosa.obj");
     _mesh->init();
 
+    //Editor* basic_editor = new Basic_Editor();
+    //_mesh->edit(basic_editor);
+
     _cam.setSceneCenter(_mesh->boundingBox().center());
     _cam.setSceneRadius(_mesh->boundingBox().sizes().maxCoeff());
     _cam.setSceneDistance(_cam.sceneRadius() * 3.f);
@@ -172,13 +175,16 @@ void Viewer::mouseMoved(int x, int y)
 void Viewer::mouseScroll(double x, double y)
 {
 
-    std::cout << "Debug: " << "myQuaternion camera vec value = " << _cam.sceneOrientation().vec() << std::endl;
-    if(_cam.sceneDistance() > 0.9){
-        std::cout << "Debug" << "Value of y for the mouse = " << y << std::endl;
+    //std::cout << "Debug: " << "myQuaternion camera vec value = " << _cam.sceneOrientation().vec() << std::endl;
+    if(_cam.sceneDistance() > 0.9 && _cam.sceneDistance() < 5.7){
+        //std::cout << "Debug" << "Value of y for the mouse = " << y << std::endl;
         if(y > 0)
             _cam.zoom(1.1);
         else
             _cam.zoom(1.0/1.1);
+     }else if(_cam.sceneDistance() > 5.7){
+        if(y > 0)
+            _cam.zoom(1.1);
      }else{
         if(y < 0)
             _cam.zoom(1.0/1.1);

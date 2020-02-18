@@ -9,6 +9,8 @@
 #include "mesh.h"
 #include "camera.h"
 
+#include "basic_editor.h"
+
 class Viewer
 {
 public:
