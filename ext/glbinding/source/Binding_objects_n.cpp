@@ -1,10 +1,10 @@
 
 #include "Binding_pch.h"
 
-using namespace gl;
+using namespace gl; // ToDo: multiple APIs?
 
 
-namespace glbinding
+namespace glbinding 
 {
 
 
@@ -26,7 +26,6 @@ Function<void, GLuint, GLenum, GLenum, GLuint> Binding::NamedFramebufferRenderbu
 Function<void, GLuint, GLenum, GLenum, GLuint> Binding::NamedFramebufferRenderbufferEXT("glNamedFramebufferRenderbufferEXT");
 Function<void, GLuint, GLuint, GLsizei, const GLfloat *> Binding::NamedFramebufferSampleLocationsfvARB("glNamedFramebufferSampleLocationsfvARB");
 Function<void, GLuint, GLuint, GLsizei, const GLfloat *> Binding::NamedFramebufferSampleLocationsfvNV("glNamedFramebufferSampleLocationsfvNV");
-Function<void, GLuint, GLuint, GLuint, const GLfloat *> Binding::NamedFramebufferSamplePositionsfvAMD("glNamedFramebufferSamplePositionsfvAMD");
 Function<void, GLuint, GLenum, GLuint, GLint> Binding::NamedFramebufferTexture("glNamedFramebufferTexture");
 Function<void, GLuint, GLenum, GLenum, GLuint, GLint> Binding::NamedFramebufferTexture1DEXT("glNamedFramebufferTexture1DEXT");
 Function<void, GLuint, GLenum, GLenum, GLuint, GLint> Binding::NamedFramebufferTexture2DEXT("glNamedFramebufferTexture2DEXT");

@@ -1,10 +1,10 @@
 
 #include "Binding_pch.h"
 
-using namespace gl;
+using namespace gl; // ToDo: multiple APIs?
 
 
-namespace glbinding
+namespace glbinding 
 {
 
 
@@ -125,7 +125,6 @@ Function<void, GLenum, GLuint, GLsizei> Binding::DrawTransformFeedbackInstanced(
 Function<void, GLenum, GLuint> Binding::DrawTransformFeedbackNV("glDrawTransformFeedbackNV");
 Function<void, GLenum, GLuint, GLuint> Binding::DrawTransformFeedbackStream("glDrawTransformFeedbackStream");
 Function<void, GLenum, GLuint, GLuint, GLsizei> Binding::DrawTransformFeedbackStreamInstanced("glDrawTransformFeedbackStreamInstanced");
-Function<void, GLuint64, GLuint, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat, GLfloat> Binding::DrawVkImageNV("glDrawVkImageNV");
 
 
 } // namespace glbinding

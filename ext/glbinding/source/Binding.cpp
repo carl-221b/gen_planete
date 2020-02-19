@@ -51,35 +51,43 @@ void Binding::initialize(
 ,   const bool _useContext
 ,   const bool _resolveFunctions)
 {
-    const auto resolveWOUse = !_useContext & _resolveFunctions;
-    const auto currentContext = resolveWOUse ? getCurrentContext() : static_cast<ContextHandle>(0);
-
+    g_mutex.lock();
+    if (g_bindings.find(context) != g_bindings.end())
     {
-        std::lock_guard<std::recursive_mutex> lock(g_mutex);
+        g_mutex.unlock();
+        return;
+    }
+    g_mutex.unlock();
 
-        if (g_bindings.find(context) != g_bindings.cend())
-        {
-            return;
-        }
+    const auto pos = static_cast<int>(g_bindings.size());
 
-        const auto pos = static_cast<int>(g_bindings.size());
+    g_mutex.lock();
+    g_bindings[context] = pos;
+    g_mutex.unlock();
 
-        g_bindings[context] = pos;
+    g_mutex.lock();
+    AbstractFunction::provideState(pos);
+    g_mutex.unlock();
 
-        AbstractFunction::provideState(pos);
-
-        if(_useContext)
-            useContext(context);
+    if (_useContext)
+    {
+        useContext(context);
 
         if (_resolveFunctions)
         {
             resolveFunctions();
         }
     }
+    else if (_resolveFunctions)
+    {
+        auto currentContext = getCurrentContext();
 
-    // restore previous context
-    if(resolveWOUse)
+        useContext(context);
+
+        resolveFunctions();
+
         useContext(currentContext);
+    }
 }
 
 void Binding::registerAdditionalFunction(AbstractFunction * function)
@@ -89,12 +97,12 @@ void Binding::registerAdditionalFunction(AbstractFunction * function)
 
 void Binding::resolveFunctions()
 {
-    for (auto function : Binding::functions())
+    for (AbstractFunction * function : Binding::functions())
     {
         function->resolveAddress();
     }
 
-    for (auto function : Binding::additionalFunctions())
+    for (AbstractFunction * function : Binding::additionalFunctions())
     {
         function->resolveAddress();
     }
@@ -107,23 +115,32 @@ void Binding::useCurrentContext()
 
 void Binding::useContext(const ContextHandle context)
 {
-    std::lock_guard<std::recursive_mutex> lock(g_mutex);
-
     t_context = context;
 
-    if (g_bindings.find(t_context) == g_bindings.cend())
+    g_mutex.lock();
+    if (g_bindings.find(t_context) == g_bindings.end())
     {
+        g_mutex.unlock();
+
         initialize(t_context);
 
         return;
     }
+    else
+    {
+        g_mutex.unlock();
+    }
 
+    g_mutex.lock();
     AbstractFunction::setStatePos(g_bindings[t_context]);
+    g_mutex.unlock();
 
+    g_mutex.lock();
     for (const auto & callback : s_callbacks)
     {
         callback(t_context);
     }
+    g_mutex.unlock();
 }
 
 void Binding::releaseCurrentContext()
@@ -133,18 +150,20 @@ void Binding::releaseCurrentContext()
 
 void Binding::releaseContext(const ContextHandle context)
 {
-    std::lock_guard<std::recursive_mutex> lock(g_mutex);
-
+    g_mutex.lock();
     AbstractFunction::neglectState(g_bindings[context]);
+    g_mutex.unlock();
 
+    g_mutex.lock();
     g_bindings.erase(context);
+    g_mutex.unlock();
 }
 
-void Binding::addContextSwitchCallback(const ContextSwitchCallback callback)
+void Binding::addContextSwitchCallback(ContextSwitchCallback callback)
 {
-    std::lock_guard<std::recursive_mutex> lock(g_mutex);
-
+    g_mutex.lock();
     s_callbacks.push_back(std::move(callback));
+    g_mutex.unlock();
 }
 
 

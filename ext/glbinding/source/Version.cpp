@@ -10,11 +10,71 @@ namespace glbinding
 {
 
 
+Version::Version()
+: m_major{0}
+, m_minor{0}
+{
+}
+
+Version::Version(const int majorVersion, const int minorVersion)
+: m_major{majorVersion}
+, m_minor{minorVersion}
+{
+}
+
+bool Version::operator<(const Version & version) const
+{
+    return m_major < version.m_major
+        || (m_major == version.m_major && m_minor < version.m_minor);
+}
+
+bool Version::operator>(const Version & version) const
+{
+    return m_major > version.m_major
+        || (m_major == version.m_major && m_minor > version.m_minor);
+}
+
+bool Version::operator==(const Version & version) const
+{
+    return m_major == version.m_major
+        && m_minor == version.m_minor;
+}
+
+bool Version::operator!=(const Version & version) const
+{
+    return m_major != version.m_major
+        || m_minor != version.m_minor;
+}
+
+bool Version::operator>=(const Version & version) const
+{
+    return *this > version || *this == version;
+}
+
+bool Version::operator<=(const Version & version) const
+{
+    return *this < version || *this == version;
+}
+
+Version::operator std::pair<unsigned char, unsigned char>() const
+{
+    return std::make_pair(m_major, m_minor);
+}
+
+Version::operator std::pair<unsigned short, unsigned short>() const
+{
+    return std::make_pair(m_major, m_minor);
+}
+
+Version::operator std::pair<unsigned int, unsigned int>() const
+{
+    return std::make_pair(m_major, m_minor);
+}
+
 std::string Version::toString() const
 {
     std::stringstream stream;
-
-    if (!isValid())
+    if (0 == m_major && 0 == m_minor)
     {
         stream << "-.-";
     }
@@ -24,6 +84,11 @@ std::string Version::toString() const
     }
 
     return stream.str();
+}
+
+bool Version::isNull() const
+{
+    return m_major == 0 && m_minor == 0;
 }
 
 bool Version::isValid() const
@@ -53,30 +118,6 @@ const std::set<Version> & Version::versions()
     return s_validVersions;
 }
 
-const std::set<Version> Version::preceeding(const Version & version)
-{
-    auto preceedingVersions = std::set<Version>{};
-    for (auto & v : s_validVersions)
-    {
-        if (v < version)
-            preceedingVersions.insert(v);
-    }
-
-    return preceedingVersions;
-}
-
-const std::set<Version> Version::succeeding(const Version & version)
-{
-    auto succeedingVersions = std::set<Version>{};
-    for (auto & v : s_validVersions)
-    {
-        if (v > version)
-            succeedingVersions.insert(v);
-    }
-
-    return succeedingVersions;
-}
-
 
 } // namespace glbinding
 
@@ -84,6 +125,5 @@ const std::set<Version> Version::succeeding(const Version & version)
 std::ostream & operator<<(std::ostream & stream, const glbinding::Version & version)
 {
     stream << version.toString();
-
     return stream;
 }

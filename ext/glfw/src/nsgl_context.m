@@ -1,7 +1,7 @@
 //========================================================================
-// GLFW 3.2 OS X - www.glfw.org
+// GLFW 3.1 OS X - www.glfw.org
 //------------------------------------------------------------------------
-// Copyright (c) 2009-2016 Camilla Berglund <elmindreda@glfw.org>
+// Copyright (c) 2009-2010 Camilla Berglund <elmindreda@elmindreda.org>
 //
 // This software is provided 'as-is', without any express or implied
 // warranty. In no event will the authors be held liable for any damages
@@ -27,73 +27,16 @@
 #include "internal.h"
 
 
-static void makeContextCurrentNSGL(_GLFWwindow* window)
-{
-    if (window)
-        [window->context.nsgl.object makeCurrentContext];
-    else
-        [NSOpenGLContext clearCurrentContext];
-
-    _glfwPlatformSetCurrentContext(window);
-}
-
-static void swapBuffersNSGL(_GLFWwindow* window)
-{
-    // ARP appears to be unnecessary, but this is future-proof
-    [window->context.nsgl.object flushBuffer];
-}
-
-static void swapIntervalNSGL(int interval)
-{
-    _GLFWwindow* window = _glfwPlatformGetCurrentContext();
-
-    GLint sync = interval;
-    [window->context.nsgl.object setValues:&sync
-                              forParameter:NSOpenGLCPSwapInterval];
-}
-
-static int extensionSupportedNSGL(const char* extension)
-{
-    // There are no NSGL extensions
-    return GLFW_FALSE;
-}
-
-static GLFWglproc getProcAddressNSGL(const char* procname)
-{
-    CFStringRef symbolName = CFStringCreateWithCString(kCFAllocatorDefault,
-                                                       procname,
-                                                       kCFStringEncodingASCII);
-
-    GLFWglproc symbol = CFBundleGetFunctionPointerForName(_glfw.nsgl.framework,
-                                                          symbolName);
-
-    CFRelease(symbolName);
-
-    return symbol;
-}
-
-// Destroy the OpenGL context
-//
-static void destroyContextNSGL(_GLFWwindow* window)
-{
-    [window->context.nsgl.pixelFormat release];
-    window->context.nsgl.pixelFormat = nil;
-
-    [window->context.nsgl.object release];
-    window->context.nsgl.object = nil;
-}
-
-
 //////////////////////////////////////////////////////////////////////////
 //////                       GLFW internal API                      //////
 //////////////////////////////////////////////////////////////////////////
 
 // Initialize OpenGL support
 //
-GLFWbool _glfwInitNSGL(void)
+int _glfwInitContextAPI(void)
 {
-    if (_glfw.nsgl.framework)
-        return GLFW_TRUE;
+    if (!_glfwInitTLS())
+        return GL_FALSE;
 
     _glfw.nsgl.framework =
         CFBundleGetBundleWithIdentifier(CFSTR("com.apple.opengl"));
@@ -101,38 +44,40 @@ GLFWbool _glfwInitNSGL(void)
     {
         _glfwInputError(GLFW_API_UNAVAILABLE,
                         "NSGL: Failed to locate OpenGL framework");
-        return GLFW_FALSE;
+        return GL_FALSE;
     }
 
-    return GLFW_TRUE;
+    return GL_TRUE;
 }
 
 // Terminate OpenGL support
 //
-void _glfwTerminateNSGL(void)
+void _glfwTerminateContextAPI(void)
 {
+    _glfwTerminateTLS();
 }
 
 // Create the OpenGL context
 //
-GLFWbool _glfwCreateContextNSGL(_GLFWwindow* window,
-                                const _GLFWctxconfig* ctxconfig,
-                                const _GLFWfbconfig* fbconfig)
+int _glfwCreateContext(_GLFWwindow* window,
+                       const _GLFWctxconfig* ctxconfig,
+                       const _GLFWfbconfig* fbconfig)
 {
     unsigned int attributeCount = 0;
 
-    if (ctxconfig->client == GLFW_OPENGL_ES_API)
+    if (ctxconfig->api == GLFW_OPENGL_ES_API)
     {
-        _glfwInputError(GLFW_API_UNAVAILABLE,
-                        "NSGL: OpenGL ES is not available on OS X");
-        return GLFW_FALSE;
+        _glfwInputError(GLFW_VERSION_UNAVAILABLE,
+                        "NSGL: This API does not support OpenGL ES");
+        return GL_FALSE;
     }
 
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1070
     if (ctxconfig->major == 3 && ctxconfig->minor < 2)
     {
         _glfwInputError(GLFW_VERSION_UNAVAILABLE,
                         "NSGL: The targeted version of OS X does not support OpenGL 3.0 or 3.1");
-        return GLFW_FALSE;
+        return GL_FALSE;
     }
 
     if (ctxconfig->major > 2)
@@ -141,16 +86,25 @@ GLFWbool _glfwCreateContextNSGL(_GLFWwindow* window,
         {
             _glfwInputError(GLFW_VERSION_UNAVAILABLE,
                             "NSGL: The targeted version of OS X only supports forward-compatible contexts for OpenGL 3.2 and above");
-            return GLFW_FALSE;
+            return GL_FALSE;
         }
 
         if (ctxconfig->profile != GLFW_OPENGL_CORE_PROFILE)
         {
             _glfwInputError(GLFW_VERSION_UNAVAILABLE,
                             "NSGL: The targeted version of OS X only supports core profile contexts for OpenGL 3.2 and above");
-            return GLFW_FALSE;
+            return GL_FALSE;
         }
     }
+#else
+    // Fail if OpenGL 3.0 or above was requested
+    if (ctxconfig->major > 2)
+    {
+        _glfwInputError(GLFW_VERSION_UNAVAILABLE,
+                        "NSGL: The targeted version of OS X does not support OpenGL version 3.0 or above");
+        return GL_FALSE;
+    }
+#endif /*MAC_OS_X_VERSION_MAX_ALLOWED*/
 
     // Context robustness modes (GL_KHR_robustness) are not yet supported on
     // OS X but are not a hard constraint, so ignore and continue
@@ -167,6 +121,7 @@ GLFWbool _glfwCreateContextNSGL(_GLFWwindow* window,
     ADD_ATTR(NSOpenGLPFAAccelerated);
     ADD_ATTR(NSOpenGLPFAClosestPolicy);
 
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= 1070
 #if MAC_OS_X_VERSION_MAX_ALLOWED >= 101000
     if (ctxconfig->major >= 4)
     {
@@ -178,6 +133,7 @@ GLFWbool _glfwCreateContextNSGL(_GLFWwindow* window,
     {
         ADD_ATTR2(NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion3_2Core);
     }
+#endif /*MAC_OS_X_VERSION_MAX_ALLOWED*/
 
     if (ctxconfig->major <= 2)
     {
@@ -251,40 +207,91 @@ GLFWbool _glfwCreateContextNSGL(_GLFWwindow* window,
 #undef ADD_ATTR
 #undef ADD_ATTR2
 
-    window->context.nsgl.pixelFormat =
+    window->nsgl.pixelFormat =
         [[NSOpenGLPixelFormat alloc] initWithAttributes:attributes];
-    if (window->context.nsgl.pixelFormat == nil)
+    if (window->nsgl.pixelFormat == nil)
     {
-        _glfwInputError(GLFW_FORMAT_UNAVAILABLE,
-                        "NSGL: Failed to find a suitable pixel format");
-        return GLFW_FALSE;
+        _glfwInputError(GLFW_PLATFORM_ERROR,
+                        "NSGL: Failed to create OpenGL pixel format");
+        return GL_FALSE;
     }
 
     NSOpenGLContext* share = NULL;
 
     if (ctxconfig->share)
-        share = ctxconfig->share->context.nsgl.object;
+        share = ctxconfig->share->nsgl.context;
 
-    window->context.nsgl.object =
-        [[NSOpenGLContext alloc] initWithFormat:window->context.nsgl.pixelFormat
+    window->nsgl.context =
+        [[NSOpenGLContext alloc] initWithFormat:window->nsgl.pixelFormat
                                    shareContext:share];
-    if (window->context.nsgl.object == nil)
+    if (window->nsgl.context == nil)
     {
         _glfwInputError(GLFW_VERSION_UNAVAILABLE,
                         "NSGL: Failed to create OpenGL context");
-        return GLFW_FALSE;
+        return GL_FALSE;
     }
 
-    [window->context.nsgl.object setView:window->ns.view];
+    return GL_TRUE;
+}
 
-    window->context.makeCurrent = makeContextCurrentNSGL;
-    window->context.swapBuffers = swapBuffersNSGL;
-    window->context.swapInterval = swapIntervalNSGL;
-    window->context.extensionSupported = extensionSupportedNSGL;
-    window->context.getProcAddress = getProcAddressNSGL;
-    window->context.destroy = destroyContextNSGL;
+// Destroy the OpenGL context
+//
+void _glfwDestroyContext(_GLFWwindow* window)
+{
+    [window->nsgl.pixelFormat release];
+    window->nsgl.pixelFormat = nil;
 
-    return GLFW_TRUE;
+    [window->nsgl.context release];
+    window->nsgl.context = nil;
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+//////                       GLFW platform API                      //////
+//////////////////////////////////////////////////////////////////////////
+
+void _glfwPlatformMakeContextCurrent(_GLFWwindow* window)
+{
+    if (window)
+        [window->nsgl.context makeCurrentContext];
+    else
+        [NSOpenGLContext clearCurrentContext];
+
+    _glfwSetCurrentContext(window);
+}
+
+void _glfwPlatformSwapBuffers(_GLFWwindow* window)
+{
+    // ARP appears to be unnecessary, but this is future-proof
+    [window->nsgl.context flushBuffer];
+}
+
+void _glfwPlatformSwapInterval(int interval)
+{
+    _GLFWwindow* window = _glfwPlatformGetCurrentContext();
+
+    GLint sync = interval;
+    [window->nsgl.context setValues:&sync forParameter:NSOpenGLCPSwapInterval];
+}
+
+int _glfwPlatformExtensionSupported(const char* extension)
+{
+    // There are no NSGL extensions
+    return GL_FALSE;
+}
+
+GLFWglproc _glfwPlatformGetProcAddress(const char* procname)
+{
+    CFStringRef symbolName = CFStringCreateWithCString(kCFAllocatorDefault,
+                                                       procname,
+                                                       kCFStringEncodingASCII);
+
+    GLFWglproc symbol = CFBundleGetFunctionPointerForName(_glfw.nsgl.framework,
+                                                          symbolName);
+
+    CFRelease(symbolName);
+
+    return symbol;
 }
 
 
@@ -296,13 +303,6 @@ GLFWAPI id glfwGetNSGLContext(GLFWwindow* handle)
 {
     _GLFWwindow* window = (_GLFWwindow*) handle;
     _GLFW_REQUIRE_INIT_OR_RETURN(nil);
-
-    if (window->context.client == GLFW_NO_API)
-    {
-        _glfwInputError(GLFW_NO_WINDOW_CONTEXT, NULL);
-        return NULL;
-    }
-
-    return window->context.nsgl.object;
+    return window->nsgl.context;
 }
 

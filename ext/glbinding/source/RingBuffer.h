@@ -17,33 +17,32 @@ class RingBuffer
 public:
     // Buffer is limited to (maxValue(sizeType)/2 - 1) entries
     using SizeType = unsigned int;
-    using TailIdentifier = unsigned int;
-
     RingBuffer(SizeType maxSize);
 
     void resize(SizeType newSize);
 
-    T nextHead(bool & available) const;
+    T nextHead(bool & available);
     bool push(T && entry);
     bool push(T & entry);
 
+    using TailIdentifier = unsigned int;
     TailIdentifier addTail();
     void removeTail(TailIdentifier);
-    const typename std::vector<T>::const_iterator cbegin(TailIdentifier key) const;
-    bool valid(TailIdentifier key, const typename std::vector<T>::const_iterator & it) const;
+    const typename std::vector<T>::const_iterator cbegin(TailIdentifier key);
+    bool valid(TailIdentifier key, const typename std::vector<T>::const_iterator & it);
     const typename std::vector<T>::const_iterator next(TailIdentifier key, const typename std::vector<T>::const_iterator & it);
     SizeType size(TailIdentifier);
 
-    SizeType maxSize() const;
-    SizeType size() const;
-    bool isFull() const;
-    bool isEmpty() const;
+    SizeType maxSize();
+    SizeType size();
+    bool isFull();
+    bool isEmpty();
 
 protected:
-    SizeType next(SizeType current) const;
-    bool isFull(SizeType nextHead) const;
-    SizeType lastTail() const;
-    SizeType size(SizeType, SizeType) const;
+    SizeType next(SizeType current);
+    bool isFull(SizeType nextHead);
+    SizeType lastTail();
+    SizeType size(SizeType, SizeType);
 
 protected:
     std::vector<T> m_buffer;
@@ -56,4 +55,4 @@ protected:
 } // namespace glbinding
 
 
-#include "RingBuffer.inl"
+#include "RingBuffer.hpp"

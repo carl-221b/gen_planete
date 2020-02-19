@@ -1,10 +1,10 @@
 
 #include "Binding_pch.h"
 
-using namespace gl;
+using namespace gl; // ToDo: multiple APIs?
 
 
-namespace glbinding
+namespace glbinding 
 {
 
 
@@ -15,8 +15,8 @@ Function<GLenum, GLenum> Binding::CheckFramebufferStatus("glCheckFramebufferStat
 Function<GLenum, GLenum> Binding::CheckFramebufferStatusEXT("glCheckFramebufferStatusEXT");
 Function<GLenum, GLuint, GLenum> Binding::CheckNamedFramebufferStatus("glCheckNamedFramebufferStatus");
 Function<GLenum, GLuint, GLenum> Binding::CheckNamedFramebufferStatusEXT("glCheckNamedFramebufferStatusEXT");
-Function<void, GLenum, GLboolean> Binding::ClampColor("glClampColor");
-Function<void, GLenum, GLboolean> Binding::ClampColorARB("glClampColorARB");
+Function<void, GLenum, GLenum> Binding::ClampColor("glClampColor");
+Function<void, GLenum, GLenum> Binding::ClampColorARB("glClampColorARB");
 Function<void, ClearBufferMask> Binding::Clear("glClear");
 Function<void, GLfloat, GLfloat, GLfloat, GLfloat> Binding::ClearAccum("glClearAccum");
 Function<void, GLfixed, GLfixed, GLfixed, GLfixed> Binding::ClearAccumxOES("glClearAccumxOES");
@@ -169,7 +169,6 @@ Function<void, GLuint, GLenum, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GL
 Function<void, GLuint, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const void *> Binding::CompressedTextureSubImage3D("glCompressedTextureSubImage3D");
 Function<void, GLuint, GLenum, GLint, GLint, GLint, GLint, GLsizei, GLsizei, GLsizei, GLenum, GLsizei, const void *> Binding::CompressedTextureSubImage3DEXT("glCompressedTextureSubImage3DEXT");
 Function<void, GLenum, GLfloat> Binding::ConservativeRasterParameterfNV("glConservativeRasterParameterfNV");
-Function<void, GLenum, GLint> Binding::ConservativeRasterParameteriNV("glConservativeRasterParameteriNV");
 Function<void, GLenum, GLenum, GLsizei, GLenum, GLenum, const void *> Binding::ConvolutionFilter1D("glConvolutionFilter1D");
 Function<void, GLenum, GLenum, GLsizei, GLenum, GLenum, const void *> Binding::ConvolutionFilter1DEXT("glConvolutionFilter1DEXT");
 Function<void, GLenum, GLenum, GLsizei, GLsizei, GLenum, GLenum, const void *> Binding::ConvolutionFilter2D("glConvolutionFilter2D");

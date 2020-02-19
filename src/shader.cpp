@@ -4,10 +4,6 @@
 #include <fstream>
 #include <assert.h>
 
-/**
-  * MONDES 3D CREDITS TODO
-  * */
-
 std::string loadSourceFromFile(const std::string& filename)
 {
     std::string source = "";

@@ -11,7 +11,7 @@ public:
     /**
      * @brief Build the default geometry implemented.
      */
-    void Build();
+    void build();
 
     /**
      * @brief getFace, get a face by his id..

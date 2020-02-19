@@ -6,7 +6,9 @@
 #include <editor.h>
 #include <shader.h>
 
-typedef Eigen::Matrix<uint,3,1> Vector3ui;
+namespace Eigen {
+    typedef Eigen::Matrix<uint,3,1> Vector3ui;
+}
 
 class Planet
 {
@@ -43,7 +45,7 @@ public:
      * @param key the identifier
      * @return a vector3 of unsigned int in RGB.
      */
-    Vector3ui getColor(std::string key) const;
+    Eigen::Vector3ui getColor(std::string key) const;
 };
 
 #endif // PLANET_H

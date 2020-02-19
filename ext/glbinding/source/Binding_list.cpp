@@ -1,16 +1,14 @@
 
 #include "Binding_pch.h"
 
-using namespace gl;
 
-
-namespace glbinding
+namespace glbinding 
 {
 
 
-const Binding::array_t Binding::s_functions =
+const Binding::array_t Binding::s_functions = 
 {{
-    &Accum,
+	&Accum,
     &AccumxOES,
     &ActiveProgramEXT,
     &ActiveShaderProgram,
@@ -23,7 +21,6 @@ const Binding::array_t Binding::s_functions =
     &AlphaFragmentOp3ATI,
     &AlphaFunc,
     &AlphaFuncxOES,
-    &AlphaToCoverageDitherControlNV,
     &ApplyFramebufferAttachmentCMAAINTEL,
     &ApplyTextureEXT,
     &AreProgramsResidentNV,
@@ -311,7 +308,6 @@ const Binding::array_t Binding::s_functions =
     &CompressedTextureSubImage3D,
     &CompressedTextureSubImage3DEXT,
     &ConservativeRasterParameterfNV,
-    &ConservativeRasterParameteriNV,
     &ConvolutionFilter1D,
     &ConvolutionFilter1DEXT,
     &ConvolutionFilter2D,
@@ -509,7 +505,6 @@ const Binding::array_t Binding::s_functions =
     &DrawTransformFeedbackNV,
     &DrawTransformFeedbackStream,
     &DrawTransformFeedbackStreamInstanced,
-    &DrawVkImageNV,
     &EdgeFlag,
     &EdgeFlagFormatNV,
     &EdgeFlagPointer,
@@ -633,7 +628,6 @@ const Binding::array_t Binding::s_functions =
     &FramebufferRenderbufferEXT,
     &FramebufferSampleLocationsfvARB,
     &FramebufferSampleLocationsfvNV,
-    &FramebufferSamplePositionsfvAMD,
     &FramebufferTexture,
     &FramebufferTexture1D,
     &FramebufferTexture1DEXT,
@@ -778,7 +772,6 @@ const Binding::array_t Binding::s_functions =
     &GetFragmentMaterialivSGIX,
     &GetFramebufferAttachmentParameteriv,
     &GetFramebufferAttachmentParameterivEXT,
-    &GetFramebufferParameterfvAMD,
     &GetFramebufferParameteriv,
     &GetFramebufferParameterivEXT,
     &GetGraphicsResetStatus,
@@ -860,7 +853,6 @@ const Binding::array_t Binding::s_functions =
     &GetNamedBufferSubDataEXT,
     &GetNamedFramebufferAttachmentParameteriv,
     &GetNamedFramebufferAttachmentParameterivEXT,
-    &GetNamedFramebufferParameterfvAMD,
     &GetNamedFramebufferParameteriv,
     &GetNamedFramebufferParameterivEXT,
     &GetNamedProgramLocalParameterIivEXT,
@@ -1096,7 +1088,6 @@ const Binding::array_t Binding::s_functions =
     &GetVideoivNV,
     &GetVideoui64vNV,
     &GetVideouivNV,
-    &GetVkProcAddrNV,
     &GetnColorTable,
     &GetnColorTableARB,
     &GetnCompressedTexImage,
@@ -1231,9 +1222,6 @@ const Binding::array_t Binding::s_functions =
     &IsVertexArray,
     &IsVertexArrayAPPLE,
     &IsVertexAttribEnabledAPPLE,
-    &LGPUCopyImageSubDataNVX,
-    &LGPUInterlockNVX,
-    &LGPUNamedBufferSubDataNVX,
     &LabelObjectEXT,
     &LightEnviSGIX,
     &LightModelf,
@@ -1505,17 +1493,6 @@ const Binding::array_t Binding::s_functions =
     &MultiTexSubImage1DEXT,
     &MultiTexSubImage2DEXT,
     &MultiTexSubImage3DEXT,
-    &MulticastBarrierNV,
-    &MulticastBlitFramebufferNV,
-    &MulticastBufferSubDataNV,
-    &MulticastCopyBufferSubDataNV,
-    &MulticastCopyImageSubDataNV,
-    &MulticastFramebufferSampleLocationsfvNV,
-    &MulticastGetQueryObjecti64vNV,
-    &MulticastGetQueryObjectivNV,
-    &MulticastGetQueryObjectui64vNV,
-    &MulticastGetQueryObjectuivNV,
-    &MulticastWaitSyncNV,
     &NamedBufferData,
     &NamedBufferDataEXT,
     &NamedBufferPageCommitmentARB,
@@ -1534,7 +1511,6 @@ const Binding::array_t Binding::s_functions =
     &NamedFramebufferRenderbufferEXT,
     &NamedFramebufferSampleLocationsfvARB,
     &NamedFramebufferSampleLocationsfvNV,
-    &NamedFramebufferSamplePositionsfvAMD,
     &NamedFramebufferTexture,
     &NamedFramebufferTexture1DEXT,
     &NamedFramebufferTexture2DEXT,
@@ -1935,7 +1911,6 @@ const Binding::array_t Binding::s_functions =
     &RectxvOES,
     &ReferencePlaneSGIX,
     &ReleaseShaderCompiler,
-    &RenderGpuMaskNV,
     &RenderMode,
     &RenderbufferStorage,
     &RenderbufferStorageEXT,
@@ -2058,9 +2033,6 @@ const Binding::array_t Binding::s_functions =
     &ShaderSourceARB,
     &ShaderStorageBlockBinding,
     &SharpenTexFuncSGIS,
-    &SignalVkFenceNV,
-    &SignalVkSemaphoreNV,
-    &SpecializeShaderARB,
     &SpriteParameterfSGIX,
     &SpriteParameterfvSGIX,
     &SpriteParameteriSGIX,
@@ -2816,10 +2788,7 @@ const Binding::array_t Binding::s_functions =
     &ViewportArrayv,
     &ViewportIndexedf,
     &ViewportIndexedfv,
-    &ViewportPositionWScaleNV,
-    &ViewportSwizzleNV,
     &WaitSync,
-    &WaitVkSemaphoreNV,
     &WeightPathsNV,
     &WeightPointerARB,
     &WeightbvARB,
@@ -2886,7 +2855,6 @@ const Binding::array_t Binding::s_functions =
     &WindowPos4ivMESA,
     &WindowPos4sMESA,
     &WindowPos4svMESA,
-    &WindowRectanglesEXT,
     &WriteMaskEXT
 }};
 

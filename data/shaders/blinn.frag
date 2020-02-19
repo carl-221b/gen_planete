@@ -1,7 +1,7 @@
 #version 330 core
 
 uniform vec3 light_dir_world;
-uniform vec3 colorV = vec3(0.2,0.3,0.8);
+uniform vec3 colorV = vec3(1,1,1);
 
 in vec4 vert_pos_view;
 in vec3 vert_normal_view;

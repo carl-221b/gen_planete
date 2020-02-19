@@ -1,10 +1,10 @@
 
 #include "Binding_pch.h"
 
-using namespace gl;
+using namespace gl; // ToDo: multiple APIs?
 
 
-namespace glbinding
+namespace glbinding 
 {
 
 
@@ -132,7 +132,6 @@ Function<void, GLenum, GLenum, GLfloat *> Binding::GetFragmentMaterialfvSGIX("gl
 Function<void, GLenum, GLenum, GLint *> Binding::GetFragmentMaterialivSGIX("glGetFragmentMaterialivSGIX");
 Function<void, GLenum, GLenum, GLenum, GLint *> Binding::GetFramebufferAttachmentParameteriv("glGetFramebufferAttachmentParameteriv");
 Function<void, GLenum, GLenum, GLenum, GLint *> Binding::GetFramebufferAttachmentParameterivEXT("glGetFramebufferAttachmentParameterivEXT");
-Function<void, GLenum, GLenum, GLuint, GLuint, GLsizei, GLfloat *> Binding::GetFramebufferParameterfvAMD("glGetFramebufferParameterfvAMD");
 Function<void, GLenum, GLenum, GLint *> Binding::GetFramebufferParameteriv("glGetFramebufferParameteriv");
 Function<void, GLuint, GLenum, GLint *> Binding::GetFramebufferParameterivEXT("glGetFramebufferParameterivEXT");
 Function<GLenum> Binding::GetGraphicsResetStatus("glGetGraphicsResetStatus");
@@ -214,7 +213,6 @@ Function<void, GLuint, GLintptr, GLsizeiptr, void *> Binding::GetNamedBufferSubD
 Function<void, GLuint, GLintptr, GLsizeiptr, void *> Binding::GetNamedBufferSubDataEXT("glGetNamedBufferSubDataEXT");
 Function<void, GLuint, GLenum, GLenum, GLint *> Binding::GetNamedFramebufferAttachmentParameteriv("glGetNamedFramebufferAttachmentParameteriv");
 Function<void, GLuint, GLenum, GLenum, GLint *> Binding::GetNamedFramebufferAttachmentParameterivEXT("glGetNamedFramebufferAttachmentParameterivEXT");
-Function<void, GLuint, GLenum, GLuint, GLuint, GLsizei, GLfloat *> Binding::GetNamedFramebufferParameterfvAMD("glGetNamedFramebufferParameterfvAMD");
 Function<void, GLuint, GLenum, GLint *> Binding::GetNamedFramebufferParameteriv("glGetNamedFramebufferParameteriv");
 Function<void, GLuint, GLenum, GLint *> Binding::GetNamedFramebufferParameterivEXT("glGetNamedFramebufferParameterivEXT");
 Function<void, GLuint, GLenum, GLuint, GLint *> Binding::GetNamedProgramLocalParameterIivEXT("glGetNamedProgramLocalParameterIivEXT");
@@ -450,7 +448,6 @@ Function<void, GLuint, GLenum, GLint64EXT *> Binding::GetVideoi64vNV("glGetVideo
 Function<void, GLuint, GLenum, GLint *> Binding::GetVideoivNV("glGetVideoivNV");
 Function<void, GLuint, GLenum, GLuint64EXT *> Binding::GetVideoui64vNV("glGetVideoui64vNV");
 Function<void, GLuint, GLenum, GLuint *> Binding::GetVideouivNV("glGetVideouivNV");
-Function<GLVULKANPROCNV, const GLchar *> Binding::GetVkProcAddrNV("glGetVkProcAddrNV");
 Function<void, GLenum, GLenum, GLenum, GLsizei, void *> Binding::GetnColorTable("glGetnColorTable");
 Function<void, GLenum, GLenum, GLenum, GLsizei, void *> Binding::GetnColorTableARB("glGetnColorTableARB");
 Function<void, GLenum, GLint, GLsizei, void *> Binding::GetnCompressedTexImage("glGetnCompressedTexImage");

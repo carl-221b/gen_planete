@@ -205,12 +205,10 @@ set(target glbinding)
 message(STATUS "Lib ${target}")
 
 # Set API export file and macro
-string(MAKE_C_IDENTIFIER ${target} target_id)
-string(TOUPPER ${target_id} target_id)
-set(feature_file         "include/${target}/${target}_features.h")
-set(export_file          "include/${target}/${target}_export.h")
-set(template_export_file "include/${target}/${target}_api.h")
-set(export_macro         "${target_id}_API")
+string(TOUPPER ${target} target_upper)
+set(feature_file "include/${target}/${target}_features.h")
+set(export_file  "include/${target}/${target}_api.h")
+set(export_macro "${target_upper}_API")
 
 
 # 
@@ -227,7 +225,6 @@ set(headers
 
     ${include_path}/gl/bitfield.h
     ${include_path}/gl/boolean.h
-    ${include_path}/gl/boolean.inl
     ${include_path}/gl/enum.h
     ${include_path}/gl/extension.h
     ${include_path}/gl/functions.h
@@ -236,22 +233,18 @@ set(headers
 
     ${include_path}/AbstractFunction.h
     ${include_path}/AbstractValue.h
-    ${include_path}/CallbackMask.h
-    ${include_path}/CallbackMask.inl
     ${include_path}/Function.h
-    ${include_path}/Function.inl
-    ${include_path}/FunctionCall.h
+    ${include_path}/Function.hpp
     ${include_path}/Binding.h
     ${include_path}/Meta.h
     ${include_path}/ProcAddress.h
     ${include_path}/ContextHandle.h
     ${include_path}/ContextInfo.h
     ${include_path}/Value.h
-    ${include_path}/Value.inl
+    ${include_path}/Value.hpp
     ${include_path}/Version.h
-    ${include_path}/Version.inl
     ${include_path}/SharedBitfield.h
-    ${include_path}/SharedBitfield.inl
+    ${include_path}/SharedBitfield.hpp
 
     ${include_path}/logging.h
 )
@@ -259,17 +252,16 @@ set(headers
 # add featured headers
 
 file(GLOB featured_includes ${include_path}/gl*/*.h)
-list(APPEND headers ${featured_includes})
+list(APPEND api_includes ${featured_includes})
 
 set(sources
-    ${source_path}/callbacks_private.h
     ${source_path}/callbacks.cpp
+    ${source_path}/callbacks_private.h
     
     ${source_path}/AbstractFunction.cpp
     ${source_path}/AbstractValue.cpp
     ${source_path}/Binding.cpp
     ${source_path}/Binding_list.cpp
-    ${source_path}/FunctionCall.cpp
 
     ${source_path}/ProcAddress.cpp
     ${source_path}/ContextHandle.cpp
@@ -287,7 +279,6 @@ set(sources
     ${source_path}/Meta_ExtensionsByFunctionString.cpp
     ${source_path}/Meta_ExtensionsByString.cpp
     ${source_path}/Meta_FunctionStringsByExtension.cpp
-    ${source_path}/Meta_FunctionStringsByVersion.cpp
     ${source_path}/Meta_ReqVersionsByExtension.cpp
     ${source_path}/Meta_StringsByBitfield.cpp
     ${source_path}/Meta_StringsByBoolean.cpp
@@ -295,11 +286,10 @@ set(sources
     ${source_path}/Meta_StringsByExtension.cpp
 
     ${source_path}/RingBuffer.h
-    ${source_path}/RingBuffer.inl
+    ${source_path}/RingBuffer.hpp
     ${source_path}/logging.cpp
 
     ${source_path}/gl/types.cpp
-    ${source_path}/gl/functions-patches.cpp
 
     ${source_path}/Binding_pch.h
 )
@@ -323,12 +313,11 @@ if(MSVC_IDE)
         ${source_path}/Binding_pch.cpp)
 endif()
 
-
 # Define function "source_group_by_path with three mandatory arguments (PARENT_PATH, REGEX, GROUP, ...)
 # to group source files in folders (e.g. for MSVC solutions).
 #
 # Example:
-# source_group_by_path("${CMAKE_CURRENT_SOURCE_DIR}/src" "\\\\.h$|\\\\.inl$|\\\\.cpp$|\\\\.c$|\\\\.ui$|\\\\.qrc$" "Source Files" ${sources})
+# source_group_by_path("${CMAKE_CURRENT_SOURCE_DIR}/src" "\\\\.h$|\\\\.hpp$|\\\\.cpp$|\\\\.c$|\\\\.ui$|\\\\.qrc$" "Source Files" ${sources})
 function(source_group_by_path PARENT_PATH REGEX GROUP)
 
     foreach (FILENAME ${ARGN})
@@ -345,37 +334,18 @@ function(source_group_by_path PARENT_PATH REGEX GROUP)
 
 endfunction(source_group_by_path)
 
-# Creates an export header similar to generate_export_header, but for templates.
-# The main difference is that for MSVC, templates must not get exported.
-# When the file ${export_file} is included in source code, the macro ${target_id}_TEMPLATE_API
-# may get used to define public visibility for templates on GCC and Clang platforms.
-function(generate_template_export_header target target_id export_file)
-    if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "MSVC")
-        configure_file(${PROJECT_SOURCE_DIR}/ext/glbinding/codegeneration/template_msvc_api.h.in ${CMAKE_CURRENT_BINARY_DIR}/${export_file})
-    else()
-        configure_file(${PROJECT_SOURCE_DIR}/ext/glbinding/codegeneration/template_api.h.in ${CMAKE_CURRENT_BINARY_DIR}/${export_file})
-    endif()
-endfunction()
-
 # Group source files
 set(header_group "Header Files (API)")
 set(source_group "Source Files")
-source_group_by_path(${include_path} "\\\\.h$|\\\\.inl$" 
+source_group_by_path(${include_path} "\\\\.h$|\\\\.hpp$" 
     ${header_group} ${headers})
-source_group_by_path(${source_path}  "\\\\.cpp$|\\\\.c$|\\\\.h$|\\\\.inl$" 
+source_group_by_path(${source_path}  "\\\\.cpp$|\\\\.c$|\\\\.h$|\\\\.hpp$" 
     ${source_group} ${sources})
 
 
 # 
 # Create library
 # 
-
-# since we use stl and stl is intended to use exceptions, exceptions should not be disabled
-#if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "MSVC")
-    # workaround for removing default flags 
-    # string(REPLACE "/EHsc" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS}) 
-#endif ()
-
 
 # Build library
 add_library(${target}
@@ -395,31 +365,13 @@ generate_export_header(${target}
     EXPORT_MACRO_NAME ${export_macro}
 )
 
-generate_template_export_header(${target}
-    ${target_id}
-    ${template_export_file}
-)
-
 # Create feature detection header
-if (WriterCompilerDetectionHeaderFound)
-    write_compiler_detection_header(
-        FILE ${feature_file}
-        PREFIX ${target_id}
-        COMPILERS AppleClang Clang GNU MSVC
-        FEATURES
-            cxx_thread_local
-            cxx_constexpr
-            cxx_attribute_deprecated
-            cxx_noexcept
-        VERSION 3.2
-    )
-else()
-    file(
-        COPY ${PROJECT_SOURCE_DIR}/ext/glbinding/codegeneration/${target}_features.h
-        DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/include/${target}
-        USE_SOURCE_PERMISSIONS
-    )
-endif()
+write_compiler_detection_header(
+    FILE ${feature_file}
+    PREFIX ${target_upper}
+    COMPILERS AppleClang Clang GNU MSVC
+    FEATURES cxx_thread_local
+)
 
 
 # 
@@ -430,8 +382,6 @@ set_target_properties(${target}
     PROPERTIES
     ${DEFAULT_PROJECT_OPTIONS}
     FOLDER "${IDE_FOLDER}"
-    VERSION ${META_VERSION}
-    SOVERSION ${META_VERSION_MAJOR}
 )
 
 
@@ -476,13 +426,11 @@ target_link_libraries(${target}
 
 target_compile_definitions(${target}
     PRIVATE
-    # since we use stl and stl is intended to use exceptions, exceptions should not be disabled
-    # furthermore, this flag is not officially supported
-    #$<$<CXX_COMPILER_ID:MSVC>:_HAS_EXCEPTIONS=0> 
 
     PUBLIC
-    $<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:${target_id}_STATIC_DEFINE>
+    $<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:${target_upper}_STATIC_DEFINE>
     ${DEFAULT_COMPILE_DEFINITIONS}
+    $<$<BOOL:${OPTION_EXTENSIVE_META}>:EXTENSIVE_META>
 
     INTERFACE
 )
@@ -534,17 +482,6 @@ if (MSVC_IDE)
     set_source_files_properties(${binding_pch_sources} PROPERTIES COMPILE_FLAGS /Yu"Binding_pch.h")
     set_source_files_properties(${functions_pch_sources} PROPERTIES COMPILE_FLAGS /Yu"../Binding_pch.h")
 endif()
-
-
-#
-# Target Health
-#
-
-# perform_health_checks(
-#     ${target}
-#     ${sources}
-#     ${headers}
-# )
 
 
 # 

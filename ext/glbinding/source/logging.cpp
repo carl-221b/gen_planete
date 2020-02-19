@@ -1,7 +1,6 @@
 
 #include <glbinding/logging.h>
 
-#include <array>
 #include <atomic>
 #include <condition_variable>
 #include <fstream>
@@ -19,11 +18,11 @@ namespace
 const unsigned int LOG_BUFFER_SIZE = 5000;
 
 std::atomic<bool> g_stop{false};
-std::atomic<bool> g_persisted{true};
+std::atomic<bool> g_persisted{false};
 std::mutex g_lockfinish;
 std::condition_variable g_finishcheck;
 
-using FunctionCallBuffer = glbinding::RingBuffer<glbinding::logging::LogEntry>;
+using FunctionCallBuffer = glbinding::RingBuffer<glbinding::logging::BufferType>;
 FunctionCallBuffer g_buffer{LOG_BUFFER_SIZE};
 
 
@@ -45,8 +44,7 @@ void resize(const unsigned int newSize)
 
 void start()
 {
-    const auto filepath = getStandardFilepath();
-
+    auto filepath = getStandardFilepath();
     start(filepath);
 }
 
@@ -58,8 +56,7 @@ void start(const std::string & filepath)
 
 void startExcept(const std::set<std::string> & blackList)
 {
-    const auto filepath = getStandardFilepath();
-
+    auto filepath = getStandardFilepath();
     startExcept(filepath, blackList);
 }
 
@@ -95,7 +92,7 @@ void resume()
 
 void log(FunctionCall * call)
 {
-    auto available = false;
+    bool available = false;
     auto next = g_buffer.nextHead(available);
 
     while (!available)
@@ -117,7 +114,7 @@ void startWriter(const std::string & filepath)
 
     std::thread writer([filepath]()
     {
-        const auto key = g_buffer.addTail();
+        auto key = g_buffer.addTail();
         std::ofstream logfile;
         logfile.open (filepath, std::ios::out);
 
@@ -147,25 +144,25 @@ void startWriter(const std::string & filepath)
 
 const std::string getStandardFilepath()
 {
-    const auto now = std::chrono::system_clock::now();
+    auto now = std::chrono::system_clock::now();
 
-    const auto now_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
-    const auto ms = now_ms.count() % 1000;
+    auto now_ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
+    auto ms = now_ms.count() % 1000;
 
-    const auto now_c = std::chrono::system_clock::to_time_t(now);
-
-    std::array<char, 20> time_string;
-    std::strftime(time_string.data(), time_string.size(), "%Y-%m-%d_%H-%M-%S", std::localtime(&now_c));
+    auto now_c = std::chrono::system_clock::to_time_t(now);
+    char time_string[20];
+    std::strftime(time_string, sizeof(time_string), "%Y-%m-%d_%H-%M-%S", std::localtime(&now_c));
 
     std::ostringstream ms_os;
     ms_os << std::setfill('0') << std::setw(3) << ms;
 
     std::ostringstream os;
-    os << "";
-    os << time_string.data() << "-" << ms_os.str();
+    os << "logs/";
+    os << time_string << "-" << ms_os.str();
     os << ".log";
-
-    return os.str();
+    
+    auto logname = os.str();
+    return logname;
 }
 
 TailIdentifier addTail()
@@ -178,17 +175,17 @@ void removeTail(TailIdentifier key)
     g_buffer.removeTail(key);
 }
 
-const std::vector<LogEntry>::const_iterator cbegin(TailIdentifier key)
+const std::vector<BufferType>::const_iterator cbegin(TailIdentifier key)
 {
     return g_buffer.cbegin(key);
 }
 
-bool valid(TailIdentifier key, const std::vector<LogEntry>::const_iterator & it)
+bool valid(TailIdentifier key, const std::vector<BufferType>::const_iterator & it)
 {
     return g_buffer.valid(key, it);
 }
 
-const std::vector<LogEntry>::const_iterator next(TailIdentifier key, const std::vector<LogEntry>::const_iterator & it)
+const std::vector<BufferType>::const_iterator next(TailIdentifier key, const std::vector<BufferType>::const_iterator & it)
 {
     return g_buffer.next(key, it);
 }

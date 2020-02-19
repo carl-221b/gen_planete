@@ -1,8 +1,8 @@
 //========================================================================
-// GLFW 3.2 - www.glfw.org
+// GLFW 3.1 - www.glfw.org
 //------------------------------------------------------------------------
 // Copyright (c) 2002-2006 Marcus Geelnard
-// Copyright (c) 2006-2016 Camilla Berglund <elmindreda@glfw.org>
+// Copyright (c) 2006-2010 Camilla Berglund <elmindreda@elmindreda.org>
 //
 // This software is provided 'as-is', without any express or implied
 // warranty. In no event will the authors be held liable for any damages
@@ -27,7 +27,6 @@
 
 #include "internal.h"
 
-#include <assert.h>
 #include <math.h>
 #include <float.h>
 #include <string.h>
@@ -35,42 +34,43 @@
 #include <limits.h>
 
 
-// Lexically compare video modes, used by qsort
+// Lexical comparison function for GLFW video modes, used by qsort
 //
-static int compareVideoModes(const void* fp, const void* sp)
+static int compareVideoModes(const void* firstPtr, const void* secondPtr)
 {
-    const GLFWvidmode* fm = fp;
-    const GLFWvidmode* sm = sp;
-    const int fbpp = fm->redBits + fm->greenBits + fm->blueBits;
-    const int sbpp = sm->redBits + sm->greenBits + sm->blueBits;
-    const int farea = fm->width * fm->height;
-    const int sarea = sm->width * sm->height;
+    int firstBPP, secondBPP, firstSize, secondSize;
+    const GLFWvidmode* first = firstPtr;
+    const GLFWvidmode* second = secondPtr;
 
     // First sort on color bits per pixel
-    if (fbpp != sbpp)
-        return fbpp - sbpp;
+    firstBPP = first->redBits + first->greenBits + first->blueBits;
+    secondBPP = second->redBits + second->greenBits + second->blueBits;
+    if (firstBPP != secondBPP)
+        return firstBPP - secondBPP;
 
-    // Then sort on screen area
-    if (farea != sarea)
-        return farea - sarea;
+    // Then sort on screen area, in pixels
+    firstSize = first->width * first->height;
+    secondSize = second->width * second->height;
+    if (firstSize != secondSize)
+        return firstSize - secondSize;
 
     // Lastly sort on refresh rate
-    return fm->refreshRate - sm->refreshRate;
+    return first->refreshRate - second->refreshRate;
 }
 
 // Retrieves the available modes for the specified monitor
 //
-static GLFWbool refreshVideoModes(_GLFWmonitor* monitor)
+static int refreshVideoModes(_GLFWmonitor* monitor)
 {
     int modeCount;
     GLFWvidmode* modes;
 
     if (monitor->modes)
-        return GLFW_TRUE;
+        return GL_TRUE;
 
     modes = _glfwPlatformGetVideoModes(monitor, &modeCount);
     if (!modes)
-        return GLFW_FALSE;
+        return GL_FALSE;
 
     qsort(modes, modeCount, sizeof(GLFWvidmode), compareVideoModes);
 
@@ -78,7 +78,7 @@ static GLFWbool refreshVideoModes(_GLFWmonitor* monitor)
     monitor->modes = modes;
     monitor->modeCount = modeCount;
 
-    return GLFW_TRUE;
+    return GL_TRUE;
 }
 
 
@@ -126,11 +126,7 @@ void _glfwInputMonitorChange(void)
         for (window = _glfw.windowListHead;  window;  window = window->next)
         {
             if (window->monitor == monitors[i])
-            {
-                int width, height;
-                _glfwPlatformGetWindowSize(window, &width, &height);
-                _glfwPlatformSetWindowMonitor(window, NULL, 0, 0, width, height, 0);
-            }
+                window->monitor = NULL;
         }
 
         if (_glfw.callbacks.monitor)
@@ -160,11 +156,6 @@ void _glfwInputMonitorChange(void)
     }
 
     _glfwFreeMonitors(monitors, monitorCount);
-}
-
-void _glfwInputMonitorWindowChange(_GLFWmonitor* monitor, _GLFWwindow* window)
-{
-    monitor->window = window;
 }
 
 
@@ -272,9 +263,9 @@ const GLFWvidmode* _glfwChooseVideoMode(_GLFWmonitor* monitor,
     return closest;
 }
 
-int _glfwCompareVideoModes(const GLFWvidmode* fm, const GLFWvidmode* sm)
+int _glfwCompareVideoModes(const GLFWvidmode* first, const GLFWvidmode* second)
 {
-    return compareVideoModes(fm, sm);
+    return compareVideoModes(first, second);
 }
 
 void _glfwSplitBPP(int bpp, int* red, int* green, int* blue)
@@ -303,7 +294,6 @@ void _glfwSplitBPP(int bpp, int* red, int* green, int* blue)
 
 GLFWAPI GLFWmonitor** glfwGetMonitors(int* count)
 {
-    assert(count != NULL);
     *count = 0;
 
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
@@ -315,17 +305,12 @@ GLFWAPI GLFWmonitor** glfwGetMonitors(int* count)
 GLFWAPI GLFWmonitor* glfwGetPrimaryMonitor(void)
 {
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
-
-    if (!_glfw.monitorCount)
-        return NULL;
-
     return (GLFWmonitor*) _glfw.monitors[0];
 }
 
 GLFWAPI void glfwGetMonitorPos(GLFWmonitor* handle, int* xpos, int* ypos)
 {
     _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
-    assert(monitor != NULL);
 
     if (xpos)
         *xpos = 0;
@@ -340,7 +325,6 @@ GLFWAPI void glfwGetMonitorPos(GLFWmonitor* handle, int* xpos, int* ypos)
 GLFWAPI void glfwGetMonitorPhysicalSize(GLFWmonitor* handle, int* widthMM, int* heightMM)
 {
     _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
-    assert(monitor != NULL);
 
     if (widthMM)
         *widthMM = 0;
@@ -358,8 +342,6 @@ GLFWAPI void glfwGetMonitorPhysicalSize(GLFWmonitor* handle, int* widthMM, int* 
 GLFWAPI const char* glfwGetMonitorName(GLFWmonitor* handle)
 {
     _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
-    assert(monitor != NULL);
-
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
     return monitor->name;
 }
@@ -374,8 +356,6 @@ GLFWAPI GLFWmonitorfun glfwSetMonitorCallback(GLFWmonitorfun cbfun)
 GLFWAPI const GLFWvidmode* glfwGetVideoModes(GLFWmonitor* handle, int* count)
 {
     _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
-    assert(monitor != NULL);
-    assert(count != NULL);
 
     *count = 0;
 
@@ -391,7 +371,6 @@ GLFWAPI const GLFWvidmode* glfwGetVideoModes(GLFWmonitor* handle, int* count)
 GLFWAPI const GLFWvidmode* glfwGetVideoMode(GLFWmonitor* handle)
 {
     _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
-    assert(monitor != NULL);
 
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
 
@@ -409,7 +388,7 @@ GLFWAPI void glfwSetGamma(GLFWmonitor* handle, float gamma)
 
     if (gamma != gamma || gamma <= 0.f || gamma > FLT_MAX)
     {
-        _glfwInputError(GLFW_INVALID_VALUE, "Invalid gamma value %f", gamma);
+        _glfwInputError(GLFW_INVALID_VALUE, "Invalid gamma value");
         return;
     }
 
@@ -440,7 +419,6 @@ GLFWAPI void glfwSetGamma(GLFWmonitor* handle, float gamma)
 GLFWAPI const GLFWgammaramp* glfwGetGammaRamp(GLFWmonitor* handle)
 {
     _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
-    assert(monitor != NULL);
 
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
 
@@ -453,19 +431,6 @@ GLFWAPI const GLFWgammaramp* glfwGetGammaRamp(GLFWmonitor* handle)
 GLFWAPI void glfwSetGammaRamp(GLFWmonitor* handle, const GLFWgammaramp* ramp)
 {
     _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
-    assert(monitor != NULL);
-    assert(ramp != NULL);
-    assert(ramp->red != NULL);
-    assert(ramp->green != NULL);
-    assert(ramp->blue != NULL);
-
-    if (ramp->size <= 0)
-    {
-        _glfwInputError(GLFW_INVALID_VALUE,
-                        "Invalid gamma ramp size %i",
-                        ramp->size);
-        return;
-    }
 
     _GLFW_REQUIRE_INIT();
 

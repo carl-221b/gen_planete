@@ -50,7 +50,6 @@ using gl::GLDEBUGPROCKHR;
 using gl::GLDEBUGPROCAMD;
 using gl::GLhalfNV;
 using gl::GLvdpauSurfaceNV;
-using gl::GLVULKANPROCNV;
 using gl::GLuint_array_2;
 using gl::AttribMask;
 using gl::ClearBufferMask;

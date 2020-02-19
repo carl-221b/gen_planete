@@ -1,6 +1,6 @@
-project(gen_planet_pdp)
+project(pdp_planet)
 
-cmake_minimum_required(VERSION 3.2.0)
+cmake_minimum_required(VERSION 3.1)
 
 add_subdirectory(ext/glfw)
 add_subdirectory(ext/glbinding)
@@ -8,55 +8,43 @@ add_subdirectory(ext/glbinding)
 include_directories(ext/glfw/include)
 include_directories(ext/glbinding/include)
 include_directories(ext/eigen3)
-include_directories(ext/)
+include_directories(ext)
 
-include_directories(include/)
+if(APPLE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
+else()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+endif()
 
-set (CMAKE_CXX_STANDARD 11)
-
+# the list of source files
 set(SRC_FILES
-    ext/ObjFormat/ObjFormat.cpp
-    ext/ObjFormat/ObjUtil.cpp
-
-    src/main.cpp
-
-    #Interface
     src/shader.cpp
+    src/mesh.cpp
+    src/trackball.cpp
     src/camera.cpp
-    src/renderer.cpp
-    src/window.cpp
-
-    include/opengl.h
-    include/shader.h
-    include/camera.h
-    include/renderer.h
-    include/window.h
-
-    #Geometry
-    src/face.cpp
-    src/vertex.cpp
-    src/icosphere.cpp
-
-    include/face.h
-    include/vertex.h
-    include/geometry.h
-    include/icosphere.h
-
-    #Editors
-    src/planet.cpp
-    src/basiceditor.cpp
-
-    include/planet.h
-    include/editor.h
-    include/basiceditor.h
-
+    src/viewer.cpp
+    src/main.cpp
+    src/basic_editor.cpp
 )
+
+set(HEADERS
+    src/basic_editor.h
+    src/camera.h
+    src/common.h
+    src/editor.h
+    src/mesh.h
+    src/opengl.h
+    src/shader.h
+    src/shape.h
+    src/trackball.h
+    src/viewer.h
+    )
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
 
-add_executable(gen ${SRC_FILES})
+add_executable(gen_planet ${SRC_FILES} ${HEADERS})
 
-target_link_libraries(gen glfw ${GLFW_LIBRARIES} glbinding)
+target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding)
 
 function(IndicateExternalFile _target)
     foreach(_file IN ITEMS ${ARGN})
@@ -68,5 +56,4 @@ function(IndicateExternalFile _target)
 endfunction()
 
 file(GLOB SHADERS "data/shaders/*.vert" "data/shaders/*.frag")
-IndicateExternalFile("gen" ${SHADERS})
-
+IndicateExternalFile("gen_planet" ${SHADERS})

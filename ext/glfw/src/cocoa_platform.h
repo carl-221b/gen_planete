@@ -1,7 +1,7 @@
 //========================================================================
-// GLFW 3.2 OS X - www.glfw.org
+// GLFW 3.1 OS X - www.glfw.org
 //------------------------------------------------------------------------
-// Copyright (c) 2009-2016 Camilla Berglund <elmindreda@glfw.org>
+// Copyright (c) 2009-2010 Camilla Berglund <elmindreda@elmindreda.org>
 //
 // This software is provided 'as-is', without any express or implied
 // warranty. In no event will the authors be held liable for any damages
@@ -24,28 +24,28 @@
 //
 //========================================================================
 
-#ifndef _glfw3_cocoa_platform_h_
-#define _glfw3_cocoa_platform_h_
+#ifndef _cocoa_platform_h_
+#define _cocoa_platform_h_
+
 
 #include <stdint.h>
-#include <dlfcn.h>
 
 #if defined(__OBJC__)
-#import <Carbon/Carbon.h>
 #import <Cocoa/Cocoa.h>
 #else
-#include <Carbon/Carbon.h>
 #include <ApplicationServices/ApplicationServices.h>
 typedef void* id;
 #endif
 
 #include "posix_tls.h"
-#include "cocoa_joystick.h"
-#include "nsgl_context.h"
 
-#define _glfw_dlopen(name) dlopen(name, RTLD_LAZY | RTLD_LOCAL)
-#define _glfw_dlclose(handle) dlclose(handle)
-#define _glfw_dlsym(handle, name) dlsym(handle, name)
+#if defined(_GLFW_NSGL)
+ #include "nsgl_context.h"
+#else
+ #error "No supported context creation API selected"
+#endif
+
+#include "iokit_joystick.h"
 
 #define _GLFW_PLATFORM_WINDOW_STATE         _GLFWwindowNS  ns
 #define _GLFW_PLATFORM_LIBRARY_WINDOW_STATE _GLFWlibraryNS ns
@@ -53,67 +53,38 @@ typedef void* id;
 #define _GLFW_PLATFORM_MONITOR_STATE        _GLFWmonitorNS ns
 #define _GLFW_PLATFORM_CURSOR_STATE         _GLFWcursorNS  ns
 
-#define _GLFW_EGL_CONTEXT_STATE
-#define _GLFW_EGL_LIBRARY_CONTEXT_STATE
-
-// HIToolbox.framework pointer typedefs
-#define kTISPropertyUnicodeKeyLayoutData _glfw.ns.tis.kPropertyUnicodeKeyLayoutData
-#define kTISNotifySelectedKeyboardInputSourceChanged _glfw.ns.tis.kNotifySelectedKeyboardInputSourceChanged
-typedef TISInputSourceRef (*PFN_TISCopyCurrentKeyboardLayoutInputSource)(void);
-#define TISCopyCurrentKeyboardLayoutInputSource _glfw.ns.tis.CopyCurrentKeyboardLayoutInputSource
-typedef void* (*PFN_TISGetInputSourceProperty)(TISInputSourceRef,CFStringRef);
-#define TISGetInputSourceProperty _glfw.ns.tis.GetInputSourceProperty
-typedef UInt8 (*PFN_LMGetKbdType)(void);
-#define LMGetKbdType _glfw.ns.tis.GetKbdType
-
 
 // Cocoa-specific per-window data
 //
 typedef struct _GLFWwindowNS
 {
     id              object;
-    id              delegate;
+    id	            delegate;
     id              view;
+    unsigned int    modifierFlags;
 
     // The total sum of the distances the cursor has been warped
     // since the last cursor motion event was processed
     // This is kept to counteract Cocoa doing the same internally
-    double          cursorWarpDeltaX, cursorWarpDeltaY;
+    double          warpDeltaX, warpDeltaY;
 
 } _GLFWwindowNS;
+
 
 // Cocoa-specific global data
 //
 typedef struct _GLFWlibraryNS
 {
-    CGEventSourceRef    eventSource;
-    id                  delegate;
-    id                  autoreleasePool;
-    id                  cursor;
-    TISInputSourceRef   inputSource;
-    IOHIDManagerRef     hidManager;
-    id                  unicodeData;
-    id                  listener;
+    CGEventSourceRef eventSource;
+    id              delegate;
+    id              autoreleasePool;
+    id              cursor;
 
-    char                keyName[64];
-    short int           publicKeys[256];
-    short int           nativeKeys[GLFW_KEY_LAST + 1];
-    char*               clipboardString;
-    // Where to place the cursor when re-enabled
-    double              restoreCursorPosX, restoreCursorPosY;
-    // The window whose disabled cursor mode is active
-    _GLFWwindow*        disabledCursorWindow;
-
-    struct {
-        CFBundleRef     bundle;
-        PFN_TISCopyCurrentKeyboardLayoutInputSource CopyCurrentKeyboardLayoutInputSource;
-        PFN_TISGetInputSourceProperty GetInputSourceProperty;
-        PFN_LMGetKbdType GetKbdType;
-        CFStringRef     kPropertyUnicodeKeyLayoutData;
-        CFStringRef     kNotifySelectedKeyboardInputSourceChanged;
-    } tis;
+    short int       publicKeys[256];
+    char*           clipboardString;
 
 } _GLFWlibraryNS;
+
 
 // Cocoa-specific per-monitor data
 //
@@ -121,9 +92,10 @@ typedef struct _GLFWmonitorNS
 {
     CGDirectDisplayID   displayID;
     CGDisplayModeRef    previousMode;
-    uint32_t            unitNumber;
+    id                  screen;
 
 } _GLFWmonitorNS;
+
 
 // Cocoa-specific per-cursor data
 //
@@ -133,18 +105,20 @@ typedef struct _GLFWcursorNS
 
 } _GLFWcursorNS;
 
+
 // Cocoa-specific global timer data
 //
 typedef struct _GLFWtimeNS
 {
-    uint64_t        frequency;
+    double          base;
+    double          resolution;
 
 } _GLFWtimeNS;
 
 
-void _glfwInitTimerNS(void);
+void _glfwInitTimer(void);
 
-GLFWbool _glfwSetVideoModeNS(_GLFWmonitor* monitor, const GLFWvidmode* desired);
-void _glfwRestoreVideoModeNS(_GLFWmonitor* monitor);
+GLboolean _glfwSetVideoMode(_GLFWmonitor* monitor, const GLFWvidmode* desired);
+void _glfwRestoreVideoMode(_GLFWmonitor* monitor);
 
-#endif // _glfw3_cocoa_platform_h_
+#endif // _cocoa_platform_h_
