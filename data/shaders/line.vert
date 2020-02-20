@@ -11,5 +11,5 @@ out vec3 color_frag;
 void main()
 {
     gl_Position = projection_matrix * model_view_matrix * vec4(vtx_position, 1.);
-    color_frag = color_f;
+    color_frag = vec3(255,255,255);
 }

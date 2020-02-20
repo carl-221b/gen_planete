@@ -9,15 +9,14 @@ Viewer::Viewer()
 Viewer::~Viewer()
 {
     delete _simple_shader;
-    delete _blinn_shader;
-    delete _mesh;
+    delete _line_shader;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // GL stuff
 
 // initialize OpenGL context
-void Viewer::init(int w, int h){
+void Viewer::init(int w, int h, Shape* shape){
     _winWidth = w;
     _winHeight = h;
     glViewport(0, 0, w, h);
@@ -25,20 +24,14 @@ void Viewer::init(int w, int h){
     _ligthDir = Vector3f(-1,1,1).normalized();
 
     _simple_shader = new Shader();
-    _blinn_shader = new Shader();
+    _line_shader = new Shader();
+
+    _shape = shape;
 
     loadPrograms();
 
-    //Mesh
-    _mesh = new Mesh();
-    _mesh->load(DATA_DIR"/models/icosa.obj");
-    _mesh->init();
-
-    //Editor* basic_editor = new Basic_Editor();
-    //_mesh->edit(basic_editor);
-
-    _cam.setSceneCenter(_mesh->boundingBox().center());
-    _cam.setSceneRadius(_mesh->boundingBox().sizes().maxCoeff());
+    _cam.setSceneCenter(_shape->boundingBox().center());
+    _cam.setSceneRadius(_shape->boundingBox().sizes().maxCoeff());
     _cam.setSceneDistance(_cam.sceneRadius() * 3.f);
     _cam.setMinNear(0.01f);
     _cam.setNearFarOffsets(-_cam.sceneRadius() * 100.f,
@@ -73,35 +66,37 @@ void Viewer::display()
     glEnable(GL_POLYGON_OFFSET_FILL);
     glPolygonOffset(1.f, 1.f);
 
-    _blinn_shader->activate();
-
-    glUniformMatrix4fv(_blinn_shader->getUniformLocation("projection_matrix"), 1, GL_FALSE, _cam.computeProjectionMatrix().data());
-    glUniform3fv(_blinn_shader->getUniformLocation("light_dir_world"),1,_ligthDir.data());
-
     Matrix4f view_matrix = _cam.computeViewMatrix();
-    Matrix4f model_view = (view_matrix*_mesh->getTransformationMatrix()).matrix();
-    glUniformMatrix4fv(_blinn_shader->getUniformLocation("model_view_matrix"), 1, GL_FALSE, model_view.data());
-    Matrix3f normal_matrix = (view_matrix*_mesh->getTransformationMatrix()).linear().inverse().transpose();
-    glUniformMatrix3fv(_blinn_shader->getUniformLocation("normal_matrix"), 1, GL_FALSE, normal_matrix.data());
+    Matrix4f model_view = (view_matrix*_shape->getTransformationMatrix()).matrix();
+    Matrix3f normal_matrix = (view_matrix*_shape->getTransformationMatrix()).linear().inverse().transpose();
 
-    _mesh->display(_blinn_shader);
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-    _blinn_shader->deactivate();
+    _simple_shader->activate();
 
-    if(_wireframe) {
+    glUniformMatrix4fv(_simple_shader->getUniformLocation("projection_matrix"), 1, GL_FALSE, _cam.computeProjectionMatrix().data());
+    glUniform3fv(_simple_shader->getUniformLocation("light_dir_world"),1,_ligthDir.data());
+    glUniformMatrix4fv(_simple_shader->getUniformLocation("model_view_matrix"), 1, GL_FALSE, model_view.data());
+    glUniformMatrix3fv(_simple_shader->getUniformLocation("normal_matrix"), 1, GL_FALSE, normal_matrix.data());
+
+    _shape->display(_simple_shader);
+
+    _simple_shader->deactivate();
+
+    if(_wireframe){
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        _line_shader->activate();
 
-        _simple_shader->activate();
+        glUniformMatrix4fv(_line_shader->getUniformLocation("projection_matrix"), 1, GL_FALSE, _cam.computeProjectionMatrix().data());
+        glUniform3fv(_line_shader->getUniformLocation("light_dir_world"),1,_ligthDir.data());
+        glUniformMatrix4fv(_line_shader->getUniformLocation("model_view_matrix"), 1, GL_FALSE, model_view.data());
+        glUniformMatrix3fv(_line_shader->getUniformLocation("normal_matrix"), 1, GL_FALSE, normal_matrix.data());
 
-        glUniformMatrix4fv(_simple_shader->getUniformLocation("projection_matrix"), 1, GL_FALSE, _cam.computeProjectionMatrix().data());
-        glUniform3fv(_simple_shader->getUniformLocation("light_dir_world"),1,_ligthDir.data());
-        glUniformMatrix4fv(_simple_shader->getUniformLocation("model_view_matrix"), 1, GL_FALSE, model_view.data());
-        glUniformMatrix3fv(_simple_shader->getUniformLocation("normal_matrix"), 1, GL_FALSE, normal_matrix.data());
+        _shape->display(_line_shader);
 
-        _mesh->display(_simple_shader);
-
-        _simple_shader->deactivate();
     }
+
+    _line_shader->deactivate();
     checkError();
 }
 
@@ -114,7 +109,7 @@ void Viewer::updateScene()
 void Viewer::loadPrograms()
 {
     _simple_shader->loadFromFiles(DATA_DIR"/shaders/simple.vert",DATA_DIR"/shaders/simple.frag");
-    _blinn_shader->loadFromFiles(DATA_DIR"/shaders/blinn.vert",DATA_DIR"/shaders/blinn.frag");
+    _line_shader->loadFromFiles(DATA_DIR"/shaders/line.vert",DATA_DIR"/shaders/simple.frag");
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -203,8 +198,7 @@ void Viewer::keyPressed(int key, int action, int mods)
         if (key == GLFW_KEY_R)
             loadPrograms();
         else if(key == GLFW_KEY_S){
-            //_mesh->subdivide();
-            _mesh->saveOBJ();
+            _shape->saveOBJ();
         }
         else if(key == GLFW_KEY_W)
         {

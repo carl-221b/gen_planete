@@ -3,15 +3,17 @@
 
 #include "editor.h"
 
-class Basic_Editor : public Editor
-{
+class Basic_Editor : public Editor {
 public:
-    Basic_Editor() {}
+    Basic_Editor(Shape* shape) {_shape = shape;} /*: Editor(shape) {}*/
     ~Basic_Editor();
-    surface_mesh::Surface_mesh modifyShape(surface_mesh::Surface_mesh surface_mesh);
+
+    void edit();
+
+protected:
 
 private:
-
+    void assignColor(Shape::Vertices* vertices, float r, float g, float b);
 };
 
 #endif // BASIC_EDITOR_H

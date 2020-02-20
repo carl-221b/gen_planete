@@ -19,7 +19,7 @@ public:
     virtual ~Viewer();
 
     // gl stuff
-    void init(int w, int h);
+    void init(int w, int h, Shape* shape);
     void display();
     void updateScene();
     void reshape(int w, int h);
@@ -37,8 +37,9 @@ private:
 
     int _winWidth, _winHeight;
 
-    Shader* _blinn_shader, *_simple_shader;
-    Mesh* _mesh;
+    Shader* _simple_shader;
+    Shader* _line_shader;
+    Shape* _shape;
 
     bool _wireframe = false;
 
