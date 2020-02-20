@@ -4,10 +4,13 @@ cmake_minimum_required(VERSION 3.1)
 
 add_subdirectory(ext/glfw)
 add_subdirectory(ext/glbinding)
+add_subdirectory(ext/libnoise)
 
 include_directories(ext/glfw/include)
 include_directories(ext/glbinding/include)
 include_directories(ext/eigen3)
+include_directories(ext/libnoise)
+include_directories(ext/libnoise/include)
 include_directories(ext)
 
 if(APPLE)
@@ -44,7 +47,7 @@ add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
 
 add_executable(gen_planet ${SRC_FILES} ${HEADERS})
 
-target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding)
+target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding libnoise)
 
 function(IndicateExternalFile _target)
     foreach(_file IN ITEMS ${ARGN})
