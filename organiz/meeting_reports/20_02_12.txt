@@ -1,0 +1,18 @@
+﻿Compte rendu Chargé de TD N°4
+________________
+Dans ce TD le chargé de TD nous a fait des remarques principalement sur l’architecture et les priorités d’implémentation.
+
+
+Il faut éviter de prendre en compte les cas “d’utilisateur stupide” car risque de ne jamais s’en sortir.
+Génération:
+* Préciser ce que sont les editors point de vue algorithmique / Comment marche un éditor ?
+* Couleurs ? arbitraire OU selon l’altitude OU définir des biomes pour plus grande complexité plus tard
+* Editor nom bancal (planetFormer, modifier, Terraformer, Modeler…)
+* générer un bruit, puis appliquer tous les traitements, modifier la hauteur des sommets qu'à la fin (bruit Perlin / Simplex)
+* Prioriser la conversion en fichier (.obj) pour pouvoir visualiser par un logiciel externe (permettant une abstraction temporaire de OpenGL)
+* Ne pas faire de textures de couleurs sur la planète ; se concentrer sur de simples couleurs
+
+Tâches prioritaires :
+   * Construction de la sphère.
+   * Faire un editor basic (altitude + couleur).
+   * Réfléchir sur les biomes (à définir), puis les algos à utiliser pour l’implémentation => Editors plus perfectionné (biomes, rivières…) pour release finale
