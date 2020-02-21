@@ -130,7 +130,7 @@ void Viewer::mousePressed(GLFWwindow *window, int button, int action)
         }
         else if(button == GLFW_MOUSE_BUTTON_RIGHT)
         {
-            _cam.startTranslation(_lastMousePos);
+            //_cam.startTranslation(_lastMousePos);
         }
         _button = button;
     }
@@ -142,7 +142,7 @@ void Viewer::mousePressed(GLFWwindow *window, int button, int action)
         }
         else if(_button == GLFW_MOUSE_BUTTON_RIGHT)
         {
-            _cam.endTranslation();
+            //_cam.endTranslation();
         }
         _button = -1;
     }
