@@ -34,4 +34,5 @@ Une fenêtre openGL s'ouvre alors avec la planète générée à partir d'un bru
 - surface_mesh :
 Facilite la gestion de connectivité et connexité des vertices pour la subdivision
 Copyright (C) 2013 by Graphics & Geometry Group, Bielefeld University
-
+- libnoise :
+Utilisé pour l'application des bruits sur la sphère afin de créer les reliefs.
