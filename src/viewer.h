@@ -7,7 +7,7 @@
 
 #include "shader.h"
 #include "mesh.h"
-#include "camera.h"
+#include "trackball.h"
 
 #include "basic_editor.h"
 
@@ -33,7 +33,7 @@ public:
     void charPressed(int key);
 
 private:
-    Camera _cam;
+    Trackball _cam;
 
     int _winWidth, _winHeight;
 
