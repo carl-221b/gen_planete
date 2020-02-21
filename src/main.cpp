@@ -1,6 +1,9 @@
 #include "opengl.h"
 #include "viewer.h"
 
+#include "basic_editor.h"
+#include "noisyheight_editor.h"
+
 #define NB_SUBDIVISE 5
 
 Viewer* v;
@@ -99,11 +102,16 @@ int main (int argc, char **argv)
         shape->subdivide();
     }
 
+    Editor* noisy = new NoisyHeight_Editor(shape);
+    noisy->edit();
+    delete noisy;
+
+
+    /*
     Editor* basic_editor = new Basic_Editor(shape);
     basic_editor->edit();
-
-    //Editor* basic_editor = new Basic_Editor();
-    //_shape->edit(basic_editor);
+    delete basic_editor;
+    */
 
     shape->init();
 

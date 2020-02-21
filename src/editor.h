@@ -6,7 +6,7 @@
 
 class Editor /*: public Shape*/ {
 public:
-    Editor() {}
+    Editor(Shape* shape) {_shape = shape;}
     virtual ~Editor() {}
 
     virtual void edit() = 0;

@@ -13,6 +13,10 @@ include_directories(ext/libnoise)
 include_directories(ext/libnoise/include)
 include_directories(ext)
 
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
+
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall --debug")
+
 if(APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
 else()
@@ -28,10 +32,14 @@ set(SRC_FILES
     src/viewer.cpp
     src/main.cpp
     src/basic_editor.cpp
+    src/noisyheight_editor.cpp
+    src/heightnoisegen.cpp
+    src/noisemap.cpp
 )
 
 set(HEADERS
     src/basic_editor.h
+    src/noisyheight_editor.h
     src/camera.h
     src/common.h
     src/editor.h
@@ -41,6 +49,10 @@ set(HEADERS
     src/shape.h
     src/trackball.h
     src/viewer.h
+
+    src/noisegenerator.h
+    src/heightnoisegen.h
+    src/noisemap.h
     )
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")

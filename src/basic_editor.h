@@ -5,7 +5,7 @@
 
 class Basic_Editor : public Editor {
 public:
-    Basic_Editor(Shape* shape) {_shape = shape;} /*: Editor(shape) {}*/
+    Basic_Editor(Shape* shape): Editor(shape) {}
     ~Basic_Editor();
 
     void edit();
