@@ -20,7 +20,6 @@ public:
     virtual void load(const std::string& filename) = 0;
     virtual void init() = 0;
     virtual void display(Shader *shader) = 0;
-    virtual void subdivide() = 0;
 
     virtual void saveOBJ() = 0;
     virtual void saveOFF() = 0;

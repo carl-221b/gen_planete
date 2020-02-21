@@ -10,6 +10,16 @@ using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
 
+Mesh::Mesh(const string& filename) {
+    _vertices = new Vertices;
+
+    load(DATA_DIR"/models/icosa.obj");
+
+    for(int i = 0; i < NB_SUBDIVISE; i++){
+        this->subdivide();
+    }
+}
+
 Mesh::~Mesh()
 {
     if(_ready){
@@ -204,15 +214,13 @@ void Mesh::subdivide()
     Surface_mesh::Edge_iterator eit;
     Surface_mesh::Face_iterator fit;
 
-    //Etape 1
-    //copie des points de _halfEdge dans _nextHalfEdge
+    //Step 1
     for(vit = _halfEdge.vertices_begin(); vit != _halfEdge.vertices_end(); ++vit)
     {
         Point vi = vertices[*vit];
         vertex_mapping[*vit] = _nextHalfEdge.add_vertex(vi);
     }
 
-    //ajout point intermédiaire
     for(eit = _halfEdge.edges_begin(); eit != _halfEdge.edges_end(); ++eit)
     {
         Surface_mesh::Vertex v0, v1, v2, v3;
@@ -243,7 +251,7 @@ void Mesh::subdivide()
         }
     }
 
-    //Etape 2
+    //Step 2
     for(fit = _halfEdge.faces_begin(); fit != _halfEdge.faces_end(); ++fit){
         Surface_mesh::Halfedge h;
         Surface_mesh::Vertex v0, v1, v2;
@@ -287,7 +295,7 @@ void Mesh::subdivide()
         _nextHalfEdge.add_face(v2Face);
     }
 
-    //Etape 3
+    //Step 3
     Surface_mesh::Vertex_property<Point> nextVertices = _nextHalfEdge.get_vertex_property<Point>("v:point");
     for(vit = _halfEdge.vertices_begin(); vit != _halfEdge.vertices_end(); ++vit)
     {
@@ -312,13 +320,10 @@ void Mesh::subdivide()
         } while (cpt <= di);
 
         Point vi_prime = (1.0-B*di)*vi + B*sum_neighbour;
-
-        //cas paticulier (bords ouverts) non implémenté car inutile pour icosphere
-
         nextVertices[vertex_mapping[*vit]] = vi_prime;
     }
 
-    //Etape 4
+    //Step 4
     _halfEdge = _nextHalfEdge;
     updateMeshFromSurfaceMesh();
 }

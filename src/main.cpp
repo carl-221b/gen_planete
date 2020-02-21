@@ -1,8 +1,6 @@
 #include "opengl.h"
 #include "viewer.h"
 
-#define NB_SUBDIVISE 2
-
 Viewer* v;
 
 const int WIDTH = 1000;
@@ -89,19 +87,12 @@ int main (int argc, char **argv)
     glfwGetFramebufferSize(window, &w, &h);
     v = new Viewer();
 
-    Shape* shape = new Mesh();
-    //Shape* shape = new Basic_Editor(new Mesh());
+    Shape* shape = new Mesh(DATA_DIR"/models/icosa.obj");
+    //Shape* shape = new Basic_Editor(new Mesh(DATA_DIR"/models/icosa.obj"));
     //shape->edit();
-
-    shape->load(DATA_DIR"/models/monkey.obj");
-
-    for(int i = 0; i < NB_SUBDIVISE; i++){
-        shape->subdivide();
-    }
 
     Editor* basic_editor = new Basic_Editor(shape);
     basic_editor->edit();
-
     //Editor* basic_editor = new Basic_Editor();
     //_shape->edit(basic_editor);
 
