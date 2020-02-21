@@ -2,10 +2,12 @@
 #define NOISYHEIGHT_EDITOR_H
 
 #include "editor.h"
+#include "heightnoise.h"
 
-#include <iostream>
-#include <noise/noise.h>
-
+/**
+ * @brief The NoisyHeight_Editor class permit to use a noise in order to displace vertices
+ * and apply a color from the resulting height.
+ */
 class NoisyHeight_Editor : public Editor
 {
 public:

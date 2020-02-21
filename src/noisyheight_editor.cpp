@@ -2,8 +2,6 @@
 #include <time.h>
 
 
-using namespace noise;
-
 NoisyHeight_Editor::~NoisyHeight_Editor()
 {
 
@@ -29,9 +27,8 @@ void NoisyHeight_Editor::edit(){
             std::cout << *it << std::endl;
         }
 
-        module::Perlin myModule;
-        myModule.SetFrequency(1.f);
-        double height = myModule.GetValue((*it).x(), (*it).y(), (*it).z());
+        HeightNoise noise;
+        double height = noise.getValue(*it);
 
         if(height>0){
             *it *= (.5 +height * 0.05); //modif pos

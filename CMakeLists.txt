@@ -33,8 +33,7 @@ set(SRC_FILES
     src/main.cpp
     src/basic_editor.cpp
     src/noisyheight_editor.cpp
-    src/heightnoisegen.cpp
-    src/noisemap.cpp
+    src/heightnoise.cpp
 )
 
 set(HEADERS
@@ -49,10 +48,7 @@ set(HEADERS
     src/shape.h
     src/trackball.h
     src/viewer.h
-
-    src/noisegenerator.h
-    src/heightnoisegen.h
-    src/noisemap.h
+    src/heightnoise.h
     )
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
