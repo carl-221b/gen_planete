@@ -11,12 +11,10 @@
 
 #include "basic_editor.h"
 
-
 /**
  * @brief 
  * 
  */
-
 class Viewer
 {
 public:
