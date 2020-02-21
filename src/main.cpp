@@ -1,6 +1,8 @@
 #include "opengl.h"
 #include "viewer.h"
 
+#define NB_SUBDIVISE 5
+
 Viewer* v;
 
 const int WIDTH = 1000;
@@ -51,7 +53,7 @@ GLFWwindow* initGLFW()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, (GLint)GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "TP SI", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "PDP JUPITER", NULL, NULL);
     if (!window) {
         glfwTerminate();
         exit(EXIT_FAILURE);
@@ -86,7 +88,26 @@ int main (int argc, char **argv)
     int w, h;
     glfwGetFramebufferSize(window, &w, &h);
     v = new Viewer();
-    v->init(w,h);
+
+    Shape* shape = new Mesh();
+    //Shape* shape = new Basic_Editor(new Mesh());
+    //shape->edit();
+
+    shape->load(DATA_DIR"/models/icosa.obj");
+
+    for(int i = 0; i < NB_SUBDIVISE; i++){
+        shape->subdivide();
+    }
+
+    Editor* basic_editor = new Basic_Editor(shape);
+    basic_editor->edit();
+
+    //Editor* basic_editor = new Basic_Editor();
+    //_shape->edit(basic_editor);
+
+    shape->init();
+
+    v->init(w, h, shape);
 
     while (!glfwWindowShouldClose(window))
     {
@@ -98,6 +119,7 @@ int main (int argc, char **argv)
     }
 
     delete v;
+    delete shape;
 
     glfwDestroyWindow(window);
     glfwTerminate();

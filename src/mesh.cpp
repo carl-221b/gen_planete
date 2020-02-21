@@ -6,8 +6,6 @@
 #include <cstdio>
 #include <math.h>
 
-#define NB_SUBDIVISE 5
-
 using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
@@ -15,10 +13,12 @@ using namespace surface_mesh;
 Mesh::~Mesh()
 {
     if(_ready){
-        glDeleteBuffers(1, &_indicesBuffer);
+        glDeleteBuffers(1, &_facesBuffer);
         glDeleteBuffers(2, _vbo);
         glDeleteVertexArrays(1,&_vao);
     }
+
+    delete _vertices;
 }
 
 void Mesh::load(const string& filename)
@@ -26,10 +26,10 @@ void Mesh::load(const string& filename)
     cerr << "Loading: " << filename << endl;
 
     _halfEdge.read(filename);
-    load();
+    updateMeshFromSurfaceMesh();
 }
 
-void Mesh::load()
+void Mesh::updateMeshFromSurfaceMesh()
 {
     if(!_halfEdge.is_triangle_mesh())
         _halfEdge.triangulate();
@@ -37,10 +37,13 @@ void Mesh::load()
     _halfEdge.update_face_normals();
     _halfEdge.update_vertex_normals();
 
-    _positions.resize(0);
-    _normals.resize(0);
-    _positions.reserve(_halfEdge.vertices_size());
-    _normals.reserve(_halfEdge.vertices_size());
+    _vertices->_positions.resize(0);
+    _vertices->_normals.resize(0);
+    _vertices->_colors.resize(0);
+
+    _vertices->_positions.reserve(_halfEdge.vertices_size());
+    _vertices->_normals.reserve(_halfEdge.vertices_size());
+    //_vertices->_colors.reserve(_halfEdge.vertices_size()*3);
 
     // vertex properties
     Surface_mesh::Vertex_property<Point> vertices = _halfEdge.get_vertex_property<Point>("v:point");
@@ -51,12 +54,17 @@ void Mesh::load()
 
     for(vit = _halfEdge.vertices_begin(); vit != _halfEdge.vertices_end(); ++vit)
     {
-        _positions.push_back(vertices[*vit]);
-        _normals.push_back(vnormals[*vit]);
+        _vertices->_positions.push_back(vertices[*vit]);
+        _vertices->_normals.push_back(vnormals[*vit]);
+        //Push R, then G, then B
+        _vertices->_colors.push_back(0.0f);
+        _vertices->_colors.push_back(0.0f);
+        _vertices->_colors.push_back(1.0f);
+
         _bbox.extend(vertices[*vit]);
     }
 
-    _indices.resize(0);
+    _faces.resize(0);
 
     // face iterator
     Surface_mesh::Face_iterator fit, fend = _halfEdge.faces_end();
@@ -74,7 +82,7 @@ void Mesh::load()
             v1 = v2;
             ++fvit;
             v2 = *fvit;
-            _indices.push_back(Vector3i(v0.idx(), v1.idx(), v2.idx()));
+            _faces.push_back(Vector3i(v0.idx(), v1.idx(), v2.idx()));
         } while (++fvit != fvend);
     }
     saveOBJ();
@@ -87,16 +95,16 @@ void Mesh::saveOBJ()
     myfile.open ("planet.obj");
     myfile << "o planet\n";
 
-    for(unsigned int i=0; i<_positions.size(); i++){
-        Eigen::Vector3f p = _positions.at(i);
+    for(unsigned int i=0; i<_vertices->_positions.size(); i++){
+        Eigen::Vector3f p = _vertices->_positions.at(i);
         myfile << "v " << p.x() << " " << p.y() << " " << p.z() << "\n";
-        Eigen::Vector3f n = _normals.at(i);
+        Eigen::Vector3f n = _vertices->_normals.at(i);
         myfile << "vn " << n.x() << " " << n.y() << " " << n.z() << "\n";
 
     }
 
-    for(unsigned int i=0; i<_indices.size(); i++){
-        Eigen::Vector3i f = _indices.at(i);
+    for(unsigned int i=0; i<_faces.size(); i++){
+        Eigen::Vector3i f = _faces.at(i);
         myfile << "f " << ( std::to_string(f.x()+1)+"//"+std::to_string(f.x()+1) ) << " " << ( std::to_string(f.y()+1)+"//"+std::to_string(f.y()+1) ) << " " << ( std::to_string(f.z()+1)+ "//" +std::to_string(f.z()+1) ) << "\n";
     }
 
@@ -108,39 +116,39 @@ void Mesh::saveOFF(){
     std::ofstream myfile;
     myfile.open ("planet.off");
     myfile << "OFF\n";
-    myfile << _positions.size() << " " << numFaces() << " 0\n"; // 0 is the (ignored) number of edges
+    myfile << _vertices->_positions.size() << " " << numFaces() << " 0\n"; // 0 is the (ignored) number of edges
 
-    for(unsigned int i=0; i<_positions.size(); i++){
-        Eigen::Vector3f p = _positions.at(i);
+    for(unsigned int i=0; i<_vertices->_positions.size(); i++){
+        Eigen::Vector3f p = _vertices->_positions.at(i);
         myfile << p.x() << " " << p.y() << " " << p.z() << "\n";
     }
 
-    for(unsigned int i=0; i<_indices.size(); i++){
-        Eigen::Vector3i f = _indices.at(i);
+    for(unsigned int i=0; i<_faces.size(); i++){
+        Eigen::Vector3i f = _faces.at(i);
         myfile << "3 " << f.x() << " " << f.y() << " " << f.z() << "\n";
     }
 }
 
 void Mesh::init()
 {
-    for(int i = 0; i < NB_SUBDIVISE; i++){
-        subdivide();
-    }
-
     glGenVertexArrays(1, &_vao);
-    glGenBuffers(2, _vbo);
+    glGenBuffers(3, _vbo);
 
     glBindVertexArray(_vao);
 
     glBindBuffer(GL_ARRAY_BUFFER, _vbo[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f)*_positions.size(), _positions.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f)*_vertices->_positions.size(), _vertices->_positions.data(), GL_STATIC_DRAW);
 
     glBindBuffer(GL_ARRAY_BUFFER, _vbo[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f)*_normals.size(), _normals.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f)*_vertices->_normals.size(), _vertices->_normals.data(), GL_STATIC_DRAW);
 
-    glGenBuffers(1, &_indicesBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indicesBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Vector3i)*_indices.size(), _indices.data(),  GL_STATIC_DRAW);
+    //GLuint colorbuffer;
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo[2]);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLfloat)*_vertices->_colors.size(), _vertices->_colors.data(), GL_STATIC_DRAW);
+
+    glGenBuffers(1, &_facesBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _facesBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Vector3i)*_faces.size(), _faces.data(),  GL_STATIC_DRAW);
 
     glBindVertexArray(0);
 
@@ -160,6 +168,14 @@ void Mesh::specifyVertexData(Shader *shader)
         glEnableVertexAttribArray(normal_loc);
         glVertexAttribPointer(normal_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), (void*)0);
     }
+
+    glBindBuffer(GL_ARRAY_BUFFER, _vbo[2]);
+    int color_loc = shader->getAttribLocation("color_f");
+    if(color_loc>=0)
+    {
+        glEnableVertexAttribArray(color_loc);
+        glVertexAttribPointer(color_loc, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+    }
 }
 
 void Mesh::display(Shader *shader)
@@ -171,7 +187,7 @@ void Mesh::display(Shader *shader)
 
     specifyVertexData(shader);
 
-    glDrawElements(GL_TRIANGLES, _indices.size()*3,  GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, _faces.size()*3,  GL_UNSIGNED_INT, 0);
 
     glBindVertexArray(0);
 }
@@ -304,20 +320,43 @@ void Mesh::subdivide()
 
     //Etape 4
     _halfEdge = _nextHalfEdge;
-    load();
-    //init();
+    updateMeshFromSurfaceMesh();
+}
 
+
+Mesh::Vertices* Mesh::getVertices(){
+    return _vertices;
+    /*Vertices vertices_copy;
+    vertices_copy._positions = _vertices->_positions;
+    vertices_copy._normals = _vertices->_normals;
+    vertices_copy._colors = _vertices->_colors;
+
+    return vertices_copy;*/
+}
+
+void Mesh::updateVertices(Vertices* vertices){
     /*
-    printf("NB VERTICES : %u \n", _halfEdge.vertices_size());
-    printf("NB FACES : %u \n", _halfEdge.faces_size());
-    printf("--------------------\n");
-    fflush(stdout);
+    _vertices->_positions = vertices->_positions;
+    _vertices->_normals = vertices->_normals;
+    _vertices->_colors = vertices->_colors;
     */
 }
 
-/* TODO */
-void Mesh::edit(Editor *edit){
-    _halfEdge = edit->modifyShape(_halfEdge);
-    load();
-}
+
+/*Eigen::Vector3i Mesh::GetVerticesOfFace(){
+    return null;
+}*/
+
+/**
+ * @brief Mesh::getVertexPosition
+ * @param vertexIndex the rank of the vertex position in the vector positions
+ * @return the position of the vertex
+ */
+/*Eigen::Vector3f Mesh::getVertexPosition(int vertexIndex){
+    return _vertices->_positions::at(vertexIndex);
+}*/
+
+/*std::vector<Eigen::Vector3i> getNeighboursFaces(){
+
+}*/
 

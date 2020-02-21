@@ -8,38 +8,40 @@
 class Mesh : public Shape
 {
 public:
-    Mesh() {}
+    Mesh() {
+        _vertices = new Vertices;
+    }
     ~Mesh();
+
     void load(const std::string& filename);
     void init();
     void display(Shader *shader);
+    void subdivide();
 
-    void edit(Editor *edit);
     void saveOBJ();
     void saveOFF();
+    Vertices* getVertices();
+    void updateVertices(Vertices* vertices);
 
-    int numFaces() { return _halfEdge.faces_size(); }
+
+    int numFaces() const { return _halfEdge.faces_size(); }
     /// Copy vertex attributes from the CPU to GPU memory (needs to be called after editing any vertex attributes: positions, normals, texcoords, masks, etc.)
     void updateVBO();
 
-
 private:
-    void load();
+    void updateMeshFromSurfaceMesh();
     void specifyVertexData(Shader *shader);
-    void subdivide();
 
-
-    std::vector<Eigen::Vector3i> _indices;
 
     surface_mesh::Surface_mesh _halfEdge;
 
-    std::vector<Eigen::Vector3f> _positions;
-    std::vector<Eigen::Vector3f> _normals;
-
-    GLuint _indicesBuffer;
+    GLuint _facesBuffer;
 
     GLuint _vao;
-    GLuint _vbo[2]; // positions, normals
+    GLuint _vbo[3]; // positions, normals, colors
+
+protected:
+
 };
 
 

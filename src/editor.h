@@ -1,15 +1,18 @@
 #ifndef EDITOR_H
 #define EDITOR_H
 
+#include "shape.h"
 #include <Eigen/Geometry>
-#include <surface_mesh/surface_mesh.h>
 
-class Editor {
+class Editor /*: public Shape*/ {
 public:
     Editor() {}
     virtual ~Editor() {}
-    virtual surface_mesh::Surface_mesh modifyShape(surface_mesh::Surface_mesh surface_mesh) = 0;
 
+    virtual void edit() = 0;
+
+protected:
+    Shape* _shape;
 };
 
 #endif // EDITOR_H
