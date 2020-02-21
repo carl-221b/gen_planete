@@ -33,23 +33,39 @@ public:
     /**
      * @brief Displays the data computed init
      *  
-     * @param shader shader used to sisplay the data
+     * @param shader shader used to display the data
      */
     void display(Shader *shader);
 
-    /**
-     * @brief 
-     * 
-     */
     void subdivide();
 
+    /**
+     * @brief Saves the planet into a .obj format file, does not include the color yet
+     * 
+     */
     void saveOBJ();
+    
+    /**
+     * @brief Saves the planet into a .off format file, does not include the color yet
+     * 
+     */
     void saveOFF();
+
+    /**
+     * @brief Get the Vertices object
+     * 
+     * @return Vertices*
+     */
     Vertices* getVertices();
-    void updateVertices(Vertices* vertices);
+    
 
-
+    /**
+     * @brief Get the number of faces
+     * 
+     * @return int the number of faces
+     */
     int numFaces() const { return _halfEdge.faces_size(); }
+    
     /// Copy vertex attributes from the CPU to GPU memory (needs to be called after editing any vertex attributes: positions, normals, texcoords, masks, etc.)
     void updateVBO();
 

@@ -1,7 +1,7 @@
 #include "opengl.h"
 #include "viewer.h"
 
-#define NB_SUBDIVISE 2
+#define NB_SUBDIVISE 5
 
 Viewer* v;
 
@@ -93,7 +93,7 @@ int main (int argc, char **argv)
     //Shape* shape = new Basic_Editor(new Mesh());
     //shape->edit();
 
-    shape->load(DATA_DIR"/models/monkey.obj");
+    shape->load(DATA_DIR"/models/icosa.obj");
 
     for(int i = 0; i < NB_SUBDIVISE; i++){
         shape->subdivide();
