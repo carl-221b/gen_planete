@@ -11,7 +11,7 @@
 
 class Editor /*: public Shape*/ {
 public:
-    Editor() {}
+    Editor(Shape* shape) {_shape = shape;}
     virtual ~Editor() {}
     /**
      * @brief Applies vertex deplacement and colors the shape

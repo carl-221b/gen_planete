@@ -1,6 +1,8 @@
 #include "opengl.h"
 #include "viewer.h"
 
+#include "noisyheight_editor.h"
+
 Viewer* v;
 
 const int WIDTH = 1000;
@@ -89,8 +91,16 @@ int main (int argc, char **argv)
 
     Shape* shape = new Mesh(DATA_DIR"/models/icosa.obj");
 
+    Editor* noisy = new NoisyHeight_Editor(shape);
+    noisy->edit();
+    delete noisy;
+
+
+    /*
     Editor* basic_editor = new Basic_Editor(shape);
     basic_editor->edit();
+    delete basic_editor;
+    */
 
     shape->init();
 
