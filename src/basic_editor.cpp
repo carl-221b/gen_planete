@@ -49,6 +49,4 @@ void Basic_Editor::edit(){
             assignColor(vertices, 0.8f, 0.8f, 0.8f);
         }
     }
-
-    _shape->updateVertices(vertices);
 }

@@ -331,37 +331,4 @@ void Mesh::subdivide()
 
 Mesh::Vertices* Mesh::getVertices(){
     return _vertices;
-    /*Vertices vertices_copy;
-    vertices_copy._positions = _vertices->_positions;
-    vertices_copy._normals = _vertices->_normals;
-    vertices_copy._colors = _vertices->_colors;
-
-    return vertices_copy;*/
 }
-
-void Mesh::updateVertices(Vertices* vertices){
-    /*
-    _vertices->_positions = vertices->_positions;
-    _vertices->_normals = vertices->_normals;
-    _vertices->_colors = vertices->_colors;
-    */
-}
-
-
-/*Eigen::Vector3i Mesh::GetVerticesOfFace(){
-    return null;
-}*/
-
-/**
- * @brief Mesh::getVertexPosition
- * @param vertexIndex the rank of the vertex position in the vector positions
- * @return the position of the vertex
- */
-/*Eigen::Vector3f Mesh::getVertexPosition(int vertexIndex){
-    return _vertices->_positions::at(vertexIndex);
-}*/
-
-/*std::vector<Eigen::Vector3i> getNeighboursFaces(){
-
-}*/
-

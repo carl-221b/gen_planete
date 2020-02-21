@@ -88,13 +88,9 @@ int main (int argc, char **argv)
     v = new Viewer();
 
     Shape* shape = new Mesh(DATA_DIR"/models/icosa.obj");
-    //Shape* shape = new Basic_Editor(new Mesh(DATA_DIR"/models/icosa.obj"));
-    //shape->edit();
 
     Editor* basic_editor = new Basic_Editor(shape);
     basic_editor->edit();
-    //Editor* basic_editor = new Basic_Editor();
-    //_shape->edit(basic_editor);
 
     shape->init();
 

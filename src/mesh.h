@@ -40,7 +40,7 @@ public:
 
     /**
      * @brief Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother
-     * 
+     *
      * The algorithm  is from : https://www.labri.fr/perso/pbenard/teaching/mondes3d/td9.html
      * which is based on the thesis : https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/thesis-10.pdf
      *
@@ -77,13 +77,33 @@ public:
      */
     void subdivide();
 
+    /**
+     * @brief Saves the planet into a .obj format file, does not include the color yet
+     *
+     */
     void saveOBJ();
+    
+    /**
+     * @brief Saves the planet into a .off format file, does not include the color yet
+     * 
+     */
     void saveOFF();
+
+    /**
+     * @brief Get the Vertices object
+     * 
+     * @return Vertices*
+     */
     Vertices* getVertices();
-    void updateVertices(Vertices* vertices);
+    
 
-
+    /**
+     * @brief Get the number of faces
+     * 
+     * @return int the number of faces
+     */
     int numFaces() const { return _halfEdge.faces_size(); }
+    
     /// Copy vertex attributes from the CPU to GPU memory (needs to be called after editing any vertex attributes: positions, normals, texcoords, masks, etc.)
     void updateVBO();
 
