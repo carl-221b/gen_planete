@@ -19,7 +19,7 @@ public:
 protected:
 
 private:
-    void assignColor(Shape::Vertices* vertices, float r, float g, float b);
+    void assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors);
 };
 
 #endif // NOISYHEIGHT_EDITOR_H

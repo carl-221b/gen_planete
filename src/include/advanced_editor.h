@@ -1,24 +1,23 @@
-#ifndef BASIC_EDITOR_H
-#define BASIC_EDITOR_H
+#ifndef ADVANCED_EDITOR_H
+#define ADVANCED_EDITOR_H
 
 #include "editor.h"
+
 /**
  * @brief Applies a random modification to the position (x,y,z) of each vertex and applies color depending on the new position.
  * This class allows to transform a generic icosphere into a simple planet
  */
 
-class Basic_Editor : public Editor {
+class Advanced_Editor : public Editor {
 public:
-    Basic_Editor(Shape* shape): Editor(shape) {}
-    ~Basic_Editor();
+    Advanced_Editor(Shape* shape): Editor(shape) {}
+    ~Advanced_Editor();
 
     /**
      * @brief Applies vertex deplacement and colors the shape
      */
 
     void edit();
-
-protected:
 
 private:
     /**
@@ -33,6 +32,4 @@ private:
     void assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors);
 };
 
-#endif // BASIC_EDITOR_H
-
-
+#endif // Advanced_Editor_H

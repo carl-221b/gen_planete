@@ -22,7 +22,7 @@ public:
     struct Vertices{
         std::vector<Eigen::Vector3f> _positions;
         std::vector<Eigen::Vector3f> _normals;
-        std::vector<GLfloat> _colors;
+        std::vector<Eigen::Vector3f> _colors;
     };
 
     Shape() : _ready(false), _transformation(Eigen::Matrix4f::Identity()) {}

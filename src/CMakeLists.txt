@@ -31,6 +31,7 @@ set(SRC_FILES
     model/noisyheight_editor.cpp
     model/heightnoise.cpp
     model/mesh.cpp
+    model/advanced_editor.cpp
     view/shader.cpp
     view/trackball.cpp
     view/camera.cpp
@@ -51,6 +52,7 @@ set(HEADERS
     include/camera.h
     include/common.h
     include/opengl.h
+    include/advanced_editor.h
     )
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")

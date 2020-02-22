@@ -91,16 +91,15 @@ int main (int argc, char **argv)
 
     Shape* shape = new Mesh(DATA_DIR"/models/icosa.obj");
 
+
     Editor* noisy = new NoisyHeight_Editor(shape);
     noisy->edit();
     delete noisy;
 
-
     /*
     Editor* basic_editor = new Basic_Editor(shape);
     basic_editor->edit();
-    delete basic_editor;
-    */
+    delete basic_editor;*/
 
     shape->init();
 

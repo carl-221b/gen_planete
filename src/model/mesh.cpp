@@ -67,9 +67,8 @@ void Mesh::updateMeshFromSurfaceMesh()
         _vertices->_positions.push_back(vertices[*vit]);
         _vertices->_normals.push_back(vnormals[*vit]);
         //Push R, then G, then B
-        _vertices->_colors.push_back(0.0f);
-        _vertices->_colors.push_back(0.0f);
-        _vertices->_colors.push_back(1.0f);
+        Eigen::Vector3f vect = {0.0f,1.0f,1.0f};
+        _vertices->_colors.push_back(vect);
 
         _bbox.extend(vertices[*vit]);
     }
@@ -154,7 +153,7 @@ void Mesh::init()
 
     //GLuint colorbuffer;
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo[2]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLfloat)*_vertices->_colors.size(), _vertices->_colors.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Vector4f)*_vertices->_colors.size(), _vertices->_colors.data(), GL_STATIC_DRAW);
 
     glGenBuffers(1, &_facesBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _facesBuffer);
@@ -184,7 +183,7 @@ void Mesh::specifyVertexData(Shader *shader)
     if(color_loc>=0)
     {
         glEnableVertexAttribArray(color_loc);
-        glVertexAttribPointer(color_loc, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+        glVertexAttribPointer(color_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), (void*)0);
     }
 }
 

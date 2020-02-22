@@ -6,10 +6,8 @@ Basic_Editor::~Basic_Editor(){
 }
 
 
-void Basic_Editor::assignColor(Shape::Vertices* vertices, float r, float g, float b){
-    vertices->_colors.push_back(r);
-    vertices->_colors.push_back(g);
-    vertices->_colors.push_back(b);
+void Basic_Editor::assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors){
+    vertices->_colors.push_back(colors);
 }
 
 void Basic_Editor::edit(){
@@ -37,16 +35,21 @@ void Basic_Editor::edit(){
         }
 
         if(factor <1.0) {
-            assignColor(vertices, 0.0f, 0.0f, 0.5f);
+            Eigen::Vector3f vect{0.0f, 0.0f, 0.5f};
+            assignColor(vertices, vect);
         }
         else if(factor <= 1.01){
-            assignColor(vertices, 0.0f, 0.33f, 0.0f);
+            Eigen::Vector3f vect{0.0f, 0.33f, 0.0f};
+            assignColor(vertices,vect);
         }
         else if(factor <= 1.02){
-            assignColor(vertices, 0.5f, 0.25f, 0.0f);
+            Eigen::Vector3f vect{0.5f, 0.25f, 0.0f};
+            assignColor(vertices, vect);
         }
         else{
-            assignColor(vertices, 0.8f, 0.8f, 0.8f);
+            Eigen::Vector3f vect{0.8f, 0.8f, 0.8f};
+            assignColor(vertices, vect);
         }
+
     }
 }
