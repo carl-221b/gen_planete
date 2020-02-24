@@ -383,3 +383,5 @@ src/libglfw3dll.a
 # QtCreator CMake
 CMakeLists.txt.user*
 
+
+build-src-Desktop-Release/
