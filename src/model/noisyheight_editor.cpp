@@ -41,7 +41,7 @@ void NoisyHeight_Editor::edit(){
             //std::cout << *it << std::endl;
             i++;
         }
-        std::cout << "Height : " << height << std::endl;
+        //std::cout << "Height : " << height << std::endl;
 
         if(height < 0) {
             Eigen::Vector3f vect{0.0f, 0.0f, 0.5f};

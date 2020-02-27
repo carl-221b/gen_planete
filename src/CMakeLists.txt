@@ -2,10 +2,16 @@ project(pdp_planet)
 
 cmake_minimum_required(VERSION 3.1)
 
+###################
+#Exterior library
+
 add_subdirectory(ext/glfw)
 add_subdirectory(ext/glbinding)
 add_subdirectory(ext/libnoise)
 add_subdirectory(ext/googletest)
+
+###################
+#Include
 
 include_directories(ext/glfw/include)
 include_directories(ext/glbinding/include)
@@ -19,6 +25,9 @@ include_directories(ext/googletest/include)
 
 include_directories(include)
 
+###################
+#Compil flags
+
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall --debug")
@@ -29,7 +38,9 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 endif()
 
-# the list of source files
+###################
+#Sources
+
 set(SRC_FILES
     model/basic_editor.cpp
     model/noisyheight_editor.cpp
@@ -56,22 +67,27 @@ set(HEADERS
     include/common.h
     include/opengl.h
     include/advanced_editor.h
-    )
+)
+
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
 add_executable(gen_planet main.cpp ${SRC_FILES} ${HEADERS})
 target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding libnoise)
 
+###################
 #Test
-ENABLE_TESTING()
 
+ENABLE_TESTING()
 set(TESTS
     tests/test_main.cpp
     tests/test_geometry.cpp
+    tests/test_editor.cpp
 )
 add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
 target_link_libraries( unit_tests glbinding libnoise gtest)
 add_test( NAME unit_tests COMMAND unit_tests)
 
+###################
+#External files
 
 function(IndicateExternalFile _target)
     foreach(_file IN ITEMS ${ARGN})
