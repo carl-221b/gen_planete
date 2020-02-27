@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 3.1)
 add_subdirectory(ext/glfw)
 add_subdirectory(ext/glbinding)
 add_subdirectory(ext/libnoise)
+add_subdirectory(ext/googletest)
 
 include_directories(ext/glfw/include)
 include_directories(ext/glbinding/include)
@@ -12,6 +13,9 @@ include_directories(ext/eigen3)
 include_directories(ext/libnoise)
 include_directories(ext/libnoise/include)
 include_directories(ext)
+
+include_directories(ext/googletest)
+include_directories(ext/googletest/include)
 
 include_directories(include)
 
@@ -36,7 +40,6 @@ set(SRC_FILES
     view/trackball.cpp
     view/camera.cpp
     view/viewer.cpp
-    main.cpp
 )
 
 set(HEADERS
@@ -54,12 +57,21 @@ set(HEADERS
     include/opengl.h
     include/advanced_editor.h
     )
-
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
-
-add_executable(gen_planet ${SRC_FILES} ${HEADERS})
-
+add_executable(gen_planet main.cpp ${SRC_FILES} ${HEADERS})
 target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding libnoise)
+
+#Test
+ENABLE_TESTING()
+
+set(TESTS
+    tests/test_main.cpp
+    tests/test_geometry.cpp
+)
+add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
+target_link_libraries( unit_tests glbinding libnoise gtest)
+add_test( NAME unit_tests COMMAND unit_tests)
+
 
 function(IndicateExternalFile _target)
     foreach(_file IN ITEMS ${ARGN})

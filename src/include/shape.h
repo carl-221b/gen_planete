@@ -60,7 +60,6 @@ public:
      */
     virtual void saveOFF() = 0;
 
-
     /**
      * @brief Get the Vertices object
      *
