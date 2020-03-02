@@ -5,18 +5,18 @@
 
 #include <surface_mesh/surface_mesh.h>
 
-#define NB_SUBDIVISE 5
+#define DEFAULT_NB_SUBDIVISION 5
 
 /**
  * @brief Class that contains the needed data for the planet generation
  * 
  */
 
-class Mesh : public Shape
+class Icosphere : public Shape
 {
 public:
-    Mesh(const std::string& filename);
-    ~Mesh();
+    Icosphere(int nbSubdivision);
+    ~Icosphere();
 
     /**
      * @brief Creates the _halfEdge attribute from an OBJ file
@@ -81,13 +81,13 @@ public:
      * @brief Saves the planet into a .obj format file, does not include the color yet
      *
      */
-    void saveOBJ();
+    void saveOBJ(const std::string& filename);
     
     /**
      * @brief Saves the planet into a .off format file, does not include the color yet
      * 
      */
-    void saveOFF();
+    void saveOFF(const std::string& filename);
 
     /**
      * @brief Get the Vertices object

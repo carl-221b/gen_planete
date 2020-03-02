@@ -198,7 +198,7 @@ void Viewer::keyPressed(int key, int action, int mods)
         if (key == GLFW_KEY_R)
             loadPrograms();
         else if(key == GLFW_KEY_S){
-            _shape->saveOBJ();
+            _shape->saveOBJ("planet");
         }
         else if(key == GLFW_KEY_W)
         {

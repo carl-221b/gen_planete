@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include "shader.h"
-#include "mesh.h"
+#include "icosphere.h"
 #include "trackball.h"
 
 #include "basic_editor.h"

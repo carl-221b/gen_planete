@@ -1,4 +1,4 @@
-#include "mesh.h"
+#include "icosphere.h"
 
 #include <iostream>
 #include <fstream>
@@ -10,17 +10,17 @@ using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
 
-Mesh::Mesh(const string& filename) {
+Icosphere::Icosphere(int nbSubdivision) {
     _vertices = new Vertices;
 
     load(DATA_DIR"/models/icosa.obj");
 
-    for(int i = 0; i < NB_SUBDIVISE; i++){
+    for(int i = 1; i < nbSubdivision; i++){
         this->subdivide();
     }
 }
 
-Mesh::~Mesh()
+Icosphere::~Icosphere()
 {
     if(_ready){
         glDeleteBuffers(1, &_facesBuffer);
@@ -31,15 +31,15 @@ Mesh::~Mesh()
     delete _vertices;
 }
 
-void Mesh::load(const string& filename)
+void Icosphere::load(const string& filename)
 {
-    cerr << "Loading: " << filename << endl;
+    //cerr << "Loading: " << filename << endl;
 
     _halfEdge.read(filename);
     updateMeshFromSurfaceMesh();
 }
 
-void Mesh::updateMeshFromSurfaceMesh()
+void Icosphere::updateMeshFromSurfaceMesh()
 {
     if(!_halfEdge.is_triangle_mesh())
         _halfEdge.triangulate();
@@ -94,14 +94,14 @@ void Mesh::updateMeshFromSurfaceMesh()
             _faces.push_back(Vector3i(v0.idx(), v1.idx(), v2.idx()));
         } while (++fvit != fvend);
     }
-    saveOBJ();
-    saveOFF();
+    //saveOBJ();
+    //saveOFF();
 }
 
-void Mesh::saveOBJ()
+void Icosphere::saveOBJ(const string &filename)
 {
     std::ofstream myfile;
-    myfile.open ("planet.obj");
+    myfile.open (filename + ".obj");
     myfile << "o planet\n";
 
     for(unsigned int i=0; i<_vertices->_positions.size(); i++){
@@ -117,13 +117,12 @@ void Mesh::saveOBJ()
         myfile << "f " << ( std::to_string(f.x()+1)+"//"+std::to_string(f.x()+1) ) << " " << ( std::to_string(f.y()+1)+"//"+std::to_string(f.y()+1) ) << " " << ( std::to_string(f.z()+1)+ "//" +std::to_string(f.z()+1) ) << "\n";
     }
 
-
     myfile.close();
 }
 
-void Mesh::saveOFF(){
+void Icosphere::saveOFF(const string &filename){
     std::ofstream myfile;
-    myfile.open ("planet.off");
+    myfile.open (filename + ".off");
     myfile << "OFF\n";
     myfile << _vertices->_positions.size() << " " << numFaces() << " 0\n"; // 0 is the (ignored) number of edges
 
@@ -136,9 +135,11 @@ void Mesh::saveOFF(){
         Eigen::Vector3i f = _faces.at(i);
         myfile << "3 " << f.x() << " " << f.y() << " " << f.z() << "\n";
     }
+
+    myfile.close();
 }
 
-void Mesh::init()
+void Icosphere::init()
 {
     glGenVertexArrays(1, &_vao);
     glGenBuffers(3, _vbo);
@@ -164,7 +165,7 @@ void Mesh::init()
     _ready = true;
 }
 
-void Mesh::specifyVertexData(Shader *shader)
+void Icosphere::specifyVertexData(Shader *shader)
 {
     glBindBuffer(GL_ARRAY_BUFFER, _vbo[0]);
     int pos_loc = shader->getAttribLocation("vtx_position");
@@ -187,7 +188,7 @@ void Mesh::specifyVertexData(Shader *shader)
     }
 }
 
-void Mesh::display(Shader *shader)
+void Icosphere::display(Shader *shader)
 {
     if (!_ready)
         init();
@@ -201,7 +202,7 @@ void Mesh::display(Shader *shader)
     glBindVertexArray(0);
 }
 
-void Mesh::subdivide()
+void Icosphere::subdivide()
 {
     Surface_mesh _nextHalfEdge;
 
@@ -328,6 +329,6 @@ void Mesh::subdivide()
 }
 
 
-Mesh::Vertices* Mesh::getVertices(){
+Icosphere::Vertices* Icosphere::getVertices(){
     return _vertices;
 }

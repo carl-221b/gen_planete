@@ -52,13 +52,13 @@ public:
      * @brief Saves the planet into a .obj format file, does not include the color yet
      *
      */
-    virtual void saveOBJ() = 0;
+    virtual void saveOBJ(const std::string& filename) = 0;
 
     /**
      * @brief Saves the planet into a .off format file, does not include the color yet
      *
      */
-    virtual void saveOFF() = 0;
+    virtual void saveOFF(const std::string& filename) = 0;
 
     /**
      * @brief Get the Vertices object

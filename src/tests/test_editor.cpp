@@ -1,20 +1,20 @@
 #include "../include/noisyheight_editor.h"
-#include "../include/mesh.h"
+#include "../include/icosphere.h"
 
 #include <gtest/gtest.h>
 
 TEST(EditorTest, creation) {
 
-    Shape* shape = new Mesh(DATA_DIR"/models/icosa.obj");
+    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
     Editor* ed = new NoisyHeight_Editor(shape);
     EXPECT_NE (ed,  nullptr);
     delete ed;
     delete shape;
 }
 
-TEST(EditorTest, edit) {
+TEST(EditorTest, edit_noisyheight) {
 
-    Shape* shape = new Mesh(DATA_DIR"/models/icosa.obj");
+    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
     Editor* ed = new NoisyHeight_Editor(shape);
     ed->edit();
     EXPECT_NO_FATAL_FAILURE();

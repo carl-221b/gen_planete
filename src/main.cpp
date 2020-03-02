@@ -89,7 +89,7 @@ int main (int argc, char **argv)
     glfwGetFramebufferSize(window, &w, &h);
     v = new Viewer();
 
-    Shape* shape = new Mesh(DATA_DIR"/models/icosa.obj");
+    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
 
 
     Editor* noisy = new NoisyHeight_Editor(shape);

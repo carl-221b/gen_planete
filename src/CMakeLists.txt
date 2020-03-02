@@ -47,7 +47,7 @@ set(SRC_FILES
     model/basic_editor.cpp
     model/noisyheight_editor.cpp
     model/heightnoise.cpp
-    model/mesh.cpp
+    model/icosphere.cpp
     model/advanced_editor.cpp
     view/shader.cpp
     view/trackball.cpp
@@ -61,7 +61,7 @@ set(HEADERS
     include/noisyheight_editor.h
     include/shape.h
     include/editor.h
-    include/mesh.h
+    include/icosphere.h
     include/shader.h
     include/trackball.h
     include/viewer.h
@@ -83,6 +83,7 @@ set(TESTS
     tests/test_main.cpp
     tests/test_geometry.cpp
     tests/test_editor.cpp
+    tests/test_save_load.cpp
 )
 add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
 target_link_libraries( unit_tests glbinding libnoise gtest)
