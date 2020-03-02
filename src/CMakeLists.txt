@@ -84,6 +84,7 @@ set(TESTS
     tests/test_geometry.cpp
     tests/test_editor.cpp
     tests/test_save_load.cpp
+    tests/test_time_generation.cpp
 )
 add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
 target_link_libraries( unit_tests glbinding libnoise gtest)

@@ -17,7 +17,7 @@ public:
      * @return the value noise in float associated to the key.
      * Domain between [-1, 1]
      */
-    float getValue(const Eigen::Vector3f &keygen);
+    double getValue(const Eigen::Vector3f &keygen);
 };
 
 #endif // HEIGHTNOISE_H

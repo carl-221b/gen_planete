@@ -22,10 +22,6 @@ void NoisyHeight_Editor::edit(){
     int i = 0;
     for(std::vector<Eigen::Vector3f>::iterator it = vertices->_positions.begin() ; it != vertices->_positions.end(); ++it){
 
-        if(i == 0){
-            std::cout << *it << std::endl;
-        }
-
         HeightNoise noise;
         double height = noise.getValue(*it);
 
@@ -37,10 +33,6 @@ void NoisyHeight_Editor::edit(){
             *it *= (.5); //modif pos
         }
 
-        if(i == 0){
-            //std::cout << *it << std::endl;
-            i++;
-        }
         //std::cout << "Height : " << height << std::endl;
 
         if(height < 0) {

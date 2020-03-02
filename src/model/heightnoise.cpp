@@ -16,7 +16,7 @@ HeightNoise::~HeightNoise()
 
 }
 
-float HeightNoise::getValue(const Vector3f &keygen)
+double HeightNoise::getValue(const Vector3f &keygen)
 {
     module::Perlin myModule;
     myModule.SetFrequency(1.f);
