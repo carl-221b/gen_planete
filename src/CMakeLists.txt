@@ -5,6 +5,8 @@ cmake_minimum_required(VERSION 3.1)
 ###################
 #Exterior library
 
+execute_process(COMMAND git submodule update)
+
 add_subdirectory(ext/glfw)
 add_subdirectory(ext/glbinding)
 add_subdirectory(ext/libnoise)
