@@ -2,7 +2,6 @@
 #define SHAPE_H
 
 #include "shader.h"
-//#include "editor.h"
 
 #include <Eigen/Geometry>
 
@@ -42,11 +41,11 @@ public:
     virtual void init() = 0;
 
     /**
-     * @brief Displays the data computed init
+     * @brief Draws the data computed init
      *
      * @param shader shader used to display the data
      */
-    virtual void display(Shader *shader) = 0;
+    virtual void draw(Shader *shader) = 0;
 
     /**
      * @brief Saves the planet into a .obj format file, does not include the color yet

@@ -2,8 +2,9 @@
 
 using namespace Eigen;
 
-Viewer::Viewer()
+Viewer::Viewer(Rendering* rendering)
 {
+   _rendering = rendering;
 }
 
 Viewer::~Viewer()
@@ -19,7 +20,8 @@ Viewer::~Viewer()
 void Viewer::init(int w, int h, Shape* shape){
     _winWidth = w;
     _winHeight = h;
-    glViewport(0, 0, w, h);
+
+    _rendering->initViewPort(0,0,w,h);
 
     _ligthDir = Vector3f(-1,1,1).normalized();
 
@@ -38,17 +40,13 @@ void Viewer::init(int w, int h, Shape* shape){
                             _cam.sceneRadius() * 100.f);
     _cam.setScreenViewport(AlignedBox2f(Vector2f(0.0,0.0), Vector2f(w,h)));
 
-    glClearColor(0.3f,0.3f,0.3f,0.);
-
-    glEnable(GL_DEPTH_TEST);
-    glDisable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
+    _rendering->initView();
 }
 
 void Viewer::reshape(int w, int h){
     _winWidth = w;
     _winHeight = h;
-    glViewport(0, 0, w, h);
+    _rendering->initViewPort(0,0,w,h);
     _cam.setScreenViewport(AlignedBox2f(Vector2f(0.0,0.0), Vector2f(w,h)));
 }
 
@@ -60,44 +58,34 @@ void Viewer::reshape(int w, int h){
  */
 void Viewer::display()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-    glEnable(GL_POLYGON_OFFSET_FILL);
-    glPolygonOffset(1.f, 1.f);
+    _rendering->initDisplay();
 
     Matrix4f view_matrix = _cam.computeViewMatrix();
     Matrix4f model_view = (view_matrix*_shape->getTransformationMatrix()).matrix();
     Matrix3f normal_matrix = (view_matrix*_shape->getTransformationMatrix()).linear().inverse().transpose();
 
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    _rendering->polygonModeFill();
 
     _simple_shader->activate();
 
-    glUniformMatrix4fv(_simple_shader->getUniformLocation("projection_matrix"), 1, GL_FALSE, _cam.computeProjectionMatrix().data());
-    glUniform3fv(_simple_shader->getUniformLocation("light_dir_world"),1,_ligthDir.data());
-    glUniformMatrix4fv(_simple_shader->getUniformLocation("model_view_matrix"), 1, GL_FALSE, model_view.data());
-    glUniformMatrix3fv(_simple_shader->getUniformLocation("normal_matrix"), 1, GL_FALSE, normal_matrix.data());
+    _rendering->UniformValues(_simple_shader, _cam, _ligthDir, normal_matrix, model_view);
 
-    _shape->display(_simple_shader);
+    _shape->draw(_simple_shader);
 
     _simple_shader->deactivate();
 
     if(_wireframe){
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        _rendering->polygonModeLine();
         _line_shader->activate();
 
-        glUniformMatrix4fv(_line_shader->getUniformLocation("projection_matrix"), 1, GL_FALSE, _cam.computeProjectionMatrix().data());
-        glUniform3fv(_line_shader->getUniformLocation("light_dir_world"),1,_ligthDir.data());
-        glUniformMatrix4fv(_line_shader->getUniformLocation("model_view_matrix"), 1, GL_FALSE, model_view.data());
-        glUniformMatrix3fv(_line_shader->getUniformLocation("normal_matrix"), 1, GL_FALSE, normal_matrix.data());
+        _rendering->UniformValues(_line_shader, _cam, _ligthDir, normal_matrix, model_view);
 
-        _shape->display(_line_shader);
+        _shape->draw(_line_shader);
 
     }
 
     _line_shader->deactivate();
-    checkError();
+    _rendering->checkErrors();
 }
 
 

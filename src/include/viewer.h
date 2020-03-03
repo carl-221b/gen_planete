@@ -1,13 +1,12 @@
 #ifndef VIEWER_H
 #define VIEWER_H
 
-#include "opengl.h"
-
 #include <iostream>
 
 #include "shader.h"
 #include "icosphere.h"
 #include "trackball.h"
+#include "rendering.h"
 
 #include "basic_editor.h"
 
@@ -19,7 +18,7 @@ class Viewer
 {
 public:
     //! Constructor
-    Viewer();
+    Viewer(Rendering* rendering);
     virtual ~Viewer();
 
     //gl interaction
@@ -84,6 +83,9 @@ private:
     // Mouse parameters
     Eigen::Vector2f _lastMousePos;
     int _button = -1;
+
+    //Render
+    Rendering* _rendering;
 };
 
 #endif

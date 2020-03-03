@@ -188,7 +188,7 @@ void Icosphere::specifyVertexData(Shader *shader)
     }
 }
 
-void Icosphere::display(Shader *shader)
+void Icosphere::draw(Shader *shader)
 {
     if (!_ready)
         init();

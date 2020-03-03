@@ -2,6 +2,7 @@
 #include "viewer.h"
 
 #include "noisyheight_editor.h"
+#include "rendering_opengl.h"
 
 Viewer* v;
 
@@ -85,9 +86,10 @@ int main (int argc, char **argv)
     glfwSetErrorCallback(error_callback);
 
     GLFWwindow* window = initGLFW();
+    Rendering* rendering = new Rendering_OpenGL();
     int w, h;
     glfwGetFramebufferSize(window, &w, &h);
-    v = new Viewer();
+    v = new Viewer(rendering);
 
     Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
 

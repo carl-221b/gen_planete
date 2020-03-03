@@ -32,11 +32,11 @@ public:
     void init();
 
     /**
-     * @brief Displays the data computed init
+     * @brief Draws the data computed init
      *  
-     * @param shader : shader used to display the data
+     * @param shader : shader used to draws the data
      */
-    void display(Shader *shader);
+    void draw(Shader *shader);
 
     /**
      * @brief Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother
