@@ -5,12 +5,11 @@ cmake_minimum_required(VERSION 3.1)
 ###################
 #Exterior library
 
-execute_process(COMMAND git submodule update)
-
 add_subdirectory(ext/glfw)
 add_subdirectory(ext/glbinding)
 add_subdirectory(ext/libnoise)
 add_subdirectory(ext/googletest)
+add_subdirectory(ext/pugixml)
 
 ###################
 #Include
@@ -20,6 +19,8 @@ include_directories(ext/glbinding/include)
 include_directories(ext/eigen3)
 include_directories(ext/libnoise)
 include_directories(ext/libnoise/include)
+include_directories(ext/pugixml)
+include_directories(ext/pugixml/include)
 include_directories(ext)
 
 include_directories(ext/googletest)
@@ -76,7 +77,7 @@ set(HEADERS
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
 add_executable(gen_planet main.cpp ${SRC_FILES} ${HEADERS})
-target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding libnoise)
+target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding libnoise pugixml)
 
 ###################
 #Test
@@ -106,4 +107,6 @@ function(IndicateExternalFile _target)
 endfunction()
 
 file(GLOB SHADERS "data/shaders/*.vert" "data/shaders/*.frag")
+file(GLOB PARAMS "gen_parameters.xml")
 IndicateExternalFile("gen_planet" ${SHADERS})
+IndicateExternalFile("gen_planet" ${PARAMS})
