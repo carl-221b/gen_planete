@@ -1,0 +1,46 @@
+RDV Client n°1
+________________
+
+Nom de projet : Jupiter
+
+Besoins primaires :
+	Fonctionnels :
+		* Générer procéduralement une planète selon un modèle.
+		* Appliquer des transformations à une planète existante. (nécessite pas d’interface ou de changements dynamique)
+		* Visualiser une planète avec informations réalistes (montagnes, mers, rivière, …)
+		* Modifier le point de vue (caméra rotation et zoom)
+		* Faire en sorte que le client peut le build.
+	Non fonctionnels :
+		* Possibilité d’implémentation par le client d’un modèle.
+		* Possibilité de plusieurs générateurs.
+		* Rendu statique (0.5 s, pas forcément temps réel) 
+		* Low-poly
+		* Mémoire affichage (10 000 polygones objectif)
+		* Portage Linux
+		* Spécifier les dépendances à télécharger.
+
+Besoins optionnels:
+	Fonctionnels :
+		* Sauvegarder les planètes générés.
+		* Quadrillage voronoï
+		* Eclairage
+		* Couches (ciel, magma, etc)
+		* Changer le style de visualisation
+
+	Non fonctionnels :
+		* Temps réel
+		* Portage windows
+		* Système de fichier partagé avec l’autre groupe
+		* Utilisation par d’autres logiciels (sauvegarde UVMap, Mesh, HeightMap, …)
+		* Rendu adaptatif
+
+Possibilités techniques:
+	OpenGL
+	Bibliothèque GML
+	Moteur de rendu 3D existant
+	Utilisation de coordonnées polaires
+
+Autres :
+Rdv 1 fois/mois
+
+
