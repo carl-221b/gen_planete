@@ -5,12 +5,10 @@
 
 XMLGenerator::XMLGenerator()
 {
-
 }
 
 XMLGenerator::~XMLGenerator()
 {
-
 }
 
 Shape* XMLGenerator::generate(std::string fileconfig)
