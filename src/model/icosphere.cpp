@@ -180,7 +180,7 @@ void Icosphere::specifyVertexData(Shader *shader)
     }
 
     glBindBuffer(GL_ARRAY_BUFFER, _vbo[2]);
-    int color_loc = shader->getAttribLocation("color_f");
+    int color_loc = shader->getAttribLocation("vtx_color");
     if(color_loc>=0)
     {
         glEnableVertexAttribArray(color_loc);

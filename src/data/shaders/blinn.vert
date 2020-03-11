@@ -11,6 +11,7 @@ in vec3 vtx_normal;
 
 out vec4 vert_pos_view;
 out vec3 vert_normal_view;
+out vec3 v_color;
 
 void main()
 {
@@ -18,4 +19,5 @@ void main()
 
     vert_pos_view  = normalize(model_view_matrix * vec4(vtx_position,1.0));
     vert_normal_view = normalize(normal_matrix * vtx_normal);
+    v_color=vtx_color;
 }

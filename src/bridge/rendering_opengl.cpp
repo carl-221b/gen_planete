@@ -8,7 +8,7 @@ Rendering_OpenGL::~Rendering_OpenGL(){
 
 
 void Rendering_OpenGL::initView(){
-    glClearColor(0.3f,0.3f,0.3f,0.);
+    glClearColor(0.0f,0.0f,0.0f,0.);
 
     glEnable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
