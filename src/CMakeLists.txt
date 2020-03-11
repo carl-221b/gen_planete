@@ -20,7 +20,7 @@ include_directories(ext/eigen3)
 include_directories(ext/libnoise)
 include_directories(ext/libnoise/include)
 include_directories(ext/pugixml)
-include_directories(ext/pugixml/include)
+include_directories(ext/pugixml/src)
 include_directories(ext)
 
 include_directories(ext/googletest)
@@ -50,6 +50,8 @@ set(SRC_FILES
     model/heightnoise.cpp
     model/icosphere.cpp
     model/advanced_editor.cpp
+    model/generator.cpp
+    model/xmlgenerator.cpp
     view/shader.cpp
     view/trackball.cpp
     view/camera.cpp
@@ -73,6 +75,8 @@ set(HEADERS
     include/advanced_editor.h
     include/rendering.h
     include/rendering_opengl.h
+    include/generator.h
+    include/xmlgenerator.h
 )
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
@@ -91,7 +95,7 @@ set(TESTS
     tests/test_time_generation.cpp
 )
 add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
-target_link_libraries( unit_tests glbinding libnoise gtest)
+target_link_libraries( unit_tests glbinding libnoise gtest pugixml)
 add_test( NAME unit_tests COMMAND unit_tests)
 
 ###################
@@ -107,6 +111,6 @@ function(IndicateExternalFile _target)
 endfunction()
 
 file(GLOB SHADERS "data/shaders/*.vert" "data/shaders/*.frag")
-file(GLOB PARAMS "gen_parameters.xml")
+file(GLOB PARAMS "data/generators/*.xml")
 IndicateExternalFile("gen_planet" ${SHADERS})
 IndicateExternalFile("gen_planet" ${PARAMS})

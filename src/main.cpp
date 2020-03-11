@@ -1,11 +1,13 @@
 #include <getopt.h>
-#include <pugixml.hpp>
 
 #include "opengl.h"
 #include "viewer.h"
 
 #include "noisyheight_editor.h"
 #include "rendering_opengl.h"
+#include "xmlgenerator.h"
+
+#define DEFAULT_SAVE_PATH "./planet"
 
 Viewer* v;
 
@@ -83,71 +85,54 @@ static void error_callback(int error, const char* description)
     fputs(description, stderr);
 }
 
-enum basic_shape{
-    ICOSPHERE,
-};
-
-enum editor{
-    BASIC_HEIGHT,
-    NOISY_HEIGHT
-};
-
 static void usage(){
 
-    printf("Use: ./gen_planet [options] [-s base_shape options...] [-e editor options...] \n");
+    printf("Use: ./gen_planet [options] [config_file_path]\n");
     printf("The program generate and construct a whole planet with differents options.\n");
+    printf("In order to .\n");
     printf("\n");
     printf("Options: \n");
     printf("-h         Displays this help\n");
     printf("-o         The filename output when saving.\n");
-    printf("Base shape: \n");
-    printf("            *icosphere :\n");
-    printf("                Use an icosphere.\n");
-    printf("                -nb_subdv :\n");
-    printf("                Determine the number of subdivision.\n");
-    printf("\n");
-    printf("Editors: \n");
-    printf("                *basic_height.\n");
-    printf("                    - :\n");
-    printf("                        Nothing.\n");
-    printf("                *noisy_height.\n");
-    printf("                    - :\n");
-    printf("                        Nothing.\n");
 }
 
 
 int main (int argc, char **argv)
 {
-    int nb_subdivision = DEFAULT_NB_SUBDIVISION;
-    basic_shape choice_shape = ICOSPHERE;
-    editor choice_ed = NOISY_HEIGHT;
-    /*
-    pugi::xml_document doc;
-    pugi::xml_parse_result result = doc.load_file("gen_parameters.xml");
-    pugi::xml_node root = doc.document_element();
-    pugi::xml_node shapenode = root.child("shape");
-    pugi::xml_attribute attr;
-    std::cout << root.name() << std::endl;
-    if (attr = shapenode.attribute("name")) // attribute really exists
-    {
-         // Read value as string
-         std::cout << "read as string: shape=" << attr.value() << std::endl;
+
+    //Options and main parameters
+    int opt = 0;
+
+    char* file_save = DEFAULT_SAVE_PATH;
+    while ((opt = getopt(argc, argv, "ho:")) != -1) {
+        switch (opt) {
+        case 'h':
+            usage();
+            break;
+        case 'o':
+            file_save = optarg;
+            printf("New save path : %s\n", file_save);
+            break;
+        default:
+            usage();
+            exit(EXIT_FAILURE);
+        }
     }
-    */
+
+    if (optind >= argc) {
+        fprintf(stderr, "Expected one argument after options\n");
+        usage();
+        exit(EXIT_FAILURE);
+    }
+
+    std::string config_path = std::string(argv[optind]);
+    std::cout << "File config generator : " << config_path << std::endl;
 
     //Generation
 
-    Shape* shape = new Icosphere(nb_subdivision);
-
-    Editor* noisy = new NoisyHeight_Editor(shape);
-    noisy->edit();
-    delete noisy;
-
-    /*
-       Editor* basic_editor = new Basic_Editor(shape);
-       basic_editor->edit();
-       delete basic_editor;
-    */
+    SimpleGenerator parameters(config_path);
+    parameters.loadFileConfig(config_path);
+    Shape* shape = parameters.generate();
 
     // Visualisation
 
