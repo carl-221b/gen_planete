@@ -12,9 +12,8 @@ void NoisyHeight_Editor::assignColor(Shape::Vertices* vertices, Eigen::Vector3f 
 }
 
 float altered_channel(float c){
-    float res = c -0.015f + (std::rand()%300/10000.0);
-    printf("%f\n",res);
-    return std::max(0.0f, std::min(1.0f, res));
+    return c -0.015f + (std::rand()%300/10000.0);
+
 }
 
 void NoisyHeight_Editor::edit(){
@@ -31,18 +30,18 @@ void NoisyHeight_Editor::edit(){
         double height = noise.getValue(*it);
 
         if(height>0){
-            *it *= (1 +height * 0.1); //modif pos
+            *it *= (1 +height * 0.08); //modif pos
         }
 
         if(height < 0) {
-            Eigen::Vector3f vect{altered_channel(0.0f), altered_channel(0.0f), altered_channel(0.5f)};
+            Eigen::Vector3f vect{0.0f, 0.0f, altered_channel(0.5f)};
             assignColor(vertices,vect);
         }
-        else if(height < 0.45){
-            Eigen::Vector3f vect{altered_channel(0.0f), altered_channel(0.33f), altered_channel(0.0f)};
+        else if(height < 0.5){
+            Eigen::Vector3f vect{0.0f, altered_channel(0.33f), 0.0f};
             assignColor(vertices, vect);
         }
-        else if(height < 0.84){
+        else if(height < 0.91){
             Eigen::Vector3f vect{altered_channel(0.44f), altered_channel(0.3f), altered_channel(0.14f)};
             assignColor(vertices, vect);
         }
