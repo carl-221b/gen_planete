@@ -26,11 +26,15 @@ public:
     void UniformValues(Shader* shader, Trackball cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model);
     void checkErrors();
 
+    void deleteBuffers();
     void draw(int nb_elements, Shader* shader);
     void specifyVertexData(Shader* shader);
-    void loadBuffer(Shape::Vertices* vertices, std::vector<Eigen::Vector3i>);
+    void loadBuffer(Shape::Vertices* vertices, std::vector<Eigen::Vector3i> faces);
 
 private:
+    /**
+     * @brief Variables used for openGL buffers
+     */
     GLuint _facesBuffer;
     GLuint _vao;
     GLuint _vbo[3]; // positions, normals, colors

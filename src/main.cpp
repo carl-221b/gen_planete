@@ -89,10 +89,8 @@ int main (int argc, char **argv)
     Rendering* rendering = new Rendering_OpenGL();
     int w, h;
     glfwGetFramebufferSize(window, &w, &h);
-    v = new Viewer(rendering);
 
-    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
-
+    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION, rendering);
 
     Editor* noisy = new NoisyHeight_Editor(shape);
     noisy->edit();
@@ -105,6 +103,7 @@ int main (int argc, char **argv)
 
     shape->init();
 
+    v = new Viewer(rendering);
     v->init(w, h, shape);
 
     while (!glfwWindowShouldClose(window))
@@ -118,6 +117,7 @@ int main (int argc, char **argv)
 
     delete v;
     delete shape;
+    delete rendering;
 
     glfwDestroyWindow(window);
     glfwTerminate();

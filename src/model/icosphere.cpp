@@ -20,12 +20,22 @@ Icosphere::Icosphere(int nbSubdivision) {
     }
 }
 
+Icosphere::Icosphere(int nbSubdivision, Rendering* rendering) {
+    _vertices = new Vertices;
+
+    load(DATA_DIR"/models/icosa.obj");
+
+    for(int i = 1; i < nbSubdivision; i++){
+        this->subdivide();
+    }
+
+    _rendering = rendering;
+}
+
 Icosphere::~Icosphere()
 {
     if(_ready){
-        glDeleteBuffers(1, &_facesBuffer);
-        glDeleteBuffers(2, _vbo);
-        glDeleteVertexArrays(1,&_vao);
+        _rendering->deleteBuffers();
     }
 
     delete _vertices;
@@ -141,51 +151,13 @@ void Icosphere::saveOFF(const string &filename){
 
 void Icosphere::init()
 {
-    glGenVertexArrays(1, &_vao);
-    glGenBuffers(3, _vbo);
-
-    glBindVertexArray(_vao);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f)*_vertices->_positions.size(), _vertices->_positions.data(), GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f)*_vertices->_normals.size(), _vertices->_normals.data(), GL_STATIC_DRAW);
-
-    //GLuint colorbuffer;
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo[2]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Vector4f)*_vertices->_colors.size(), _vertices->_colors.data(), GL_STATIC_DRAW);
-
-    glGenBuffers(1, &_facesBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _facesBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Vector3i)*_faces.size(), _faces.data(),  GL_STATIC_DRAW);
-
-    glBindVertexArray(0);
-
+    _rendering->loadBuffer(_vertices, _faces);
     _ready = true;
 }
 
 void Icosphere::specifyVertexData(Shader *shader)
 {
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[0]);
-    int pos_loc = shader->getAttribLocation("vtx_position");
-    glEnableVertexAttribArray(pos_loc);
-    glVertexAttribPointer(pos_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), (void*)0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[1]);
-    int normal_loc = shader->getAttribLocation("vtx_normal");
-    if(normal_loc>=0){
-        glEnableVertexAttribArray(normal_loc);
-        glVertexAttribPointer(normal_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), (void*)0);
-    }
-
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[2]);
-    int color_loc = shader->getAttribLocation("vtx_color");
-    if(color_loc>=0)
-    {
-        glEnableVertexAttribArray(color_loc);
-        glVertexAttribPointer(color_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), (void*)0);
-    }
+    _rendering->specifyVertexData(shader);
 }
 
 void Icosphere::draw(Shader *shader)
@@ -193,13 +165,7 @@ void Icosphere::draw(Shader *shader)
     if (!_ready)
         init();
 
-    glBindVertexArray(_vao);
-
-    specifyVertexData(shader);
-
-    glDrawElements(GL_TRIANGLES, _faces.size()*3,  GL_UNSIGNED_INT, 0);
-
-    glBindVertexArray(0);
+    _rendering->draw(_faces.size(), shader);
 }
 
 void Icosphere::subdivide()
