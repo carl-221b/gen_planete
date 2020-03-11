@@ -5,7 +5,7 @@
 
 #include <surface_mesh/surface_mesh.h>
 
-#define DEFAULT_NB_SUBDIVISION 5
+#define DEFAULT_NB_SUBDIVISION 8
 
 /**
  * @brief Class that contains the needed data for the planet generation

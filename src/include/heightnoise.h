@@ -2,6 +2,9 @@
 #define HEIGHTNOISE_H
 
 #include <Eigen/Geometry>
+#include <noise/noise.h>
+
+using namespace noise;
 
 /**
  * @brief The HeightNoise class generate noise.
@@ -18,6 +21,9 @@ public:
      * Domain between [-1, 1]
      */
     double getValue(const Eigen::Vector3f &keygen);
+
+private:
+    module::Perlin myModule;
 };
 
 #endif // HEIGHTNOISE_H

@@ -91,7 +91,7 @@ int main (int argc, char **argv)
     glfwGetFramebufferSize(window, &w, &h);
     v = new Viewer(rendering);
 
-    Shape* shape = new Icosphere(8);
+    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
 
 
     Editor* noisy = new NoisyHeight_Editor(shape);

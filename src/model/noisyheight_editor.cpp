@@ -26,29 +26,23 @@ void NoisyHeight_Editor::edit(){
         double height = noise.getValue(*it);
 
         if(height>0){
-            *it *= (.5 +height * 0.05); //modif pos
+            *it *= (1 +height * 0.05); //modif pos
         }
-        else
-        {
-            *it *= (.5); //modif pos
-        }
-
-        //std::cout << "Height : " << height << std::endl;
 
         if(height < 0) {
             Eigen::Vector3f vect{0.0f, 0.0f, 0.5f};
             assignColor(vertices,vect);
         }
-        else if(height < 1){
+        else if(height < 0.45){
             Eigen::Vector3f vect{0.0f, 0.33f, 0.0f};
             assignColor(vertices, vect);
         }
-        else if(height >= 1){
+        else if(height < 0.8){
             Eigen::Vector3f vect{0.5f, 0.25f, 0.0f};
             assignColor(vertices, vect);
         }
         else{
-            Eigen::Vector3f vect{0.8f, 0.8f, 0.8f};
+            Eigen::Vector3f vect{0.6f, 0.6f, 0.6f};
             assignColor(vertices, vect);
         }
 
