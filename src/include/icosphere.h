@@ -2,6 +2,7 @@
 #define MESH_H
 
 #include "shape.h"
+#include "rendering.h"
 
 #include <surface_mesh/surface_mesh.h>
 
@@ -16,6 +17,7 @@ class Icosphere : public Shape
 {
 public:
     Icosphere(int nbSubdivision);
+    Icosphere(int nbSubdivision, Rendering* rendering);
     ~Icosphere();
 
     /**
@@ -125,13 +127,8 @@ private:
      */
     surface_mesh::Surface_mesh _halfEdge;
 
-
-    /**
-     * @brief Variables used for openGL buffers
-     */
-    GLuint _facesBuffer;
-    GLuint _vao;
-    GLuint _vbo[3]; // positions, normals, colors
+    //Render
+    Rendering* _rendering;
 
 protected:
 
