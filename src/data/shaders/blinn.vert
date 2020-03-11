@@ -11,7 +11,7 @@ in vec3 vtx_normal;
 
 out vec4 vert_pos_view;
 out vec3 vert_normal_view;
-flat out vec3 v_color;
+out vec3 v_color;
 
 void main()
 {
