@@ -2,38 +2,26 @@
 #define GENERATOR_H
 
 #include <iostream>
-
-#include "noisyheight_editor.h"
-
-#include "icosphere.h"
+#include <string.h>
 
 #include "shape.h"
 
-enum enum_basic_shape{
-    ICOSPHERE,
-};
-
-enum enum_editor{
-    BASIC_HEIGHT,
-    NOISY_HEIGHT
-};
-
+#define DEFAULT_CONFIG_FILE "../src/data/generators/simple.xml"
+/**
+ * @brief The Generator class, permit to read a given configuration file and generate a planet.
+ */
 class Generator
 {
 public:
-    Generator();
-    virtual ~Generator();
+    Generator(){}
+    virtual ~Generator(){}
 
-    virtual void loadFileConfig(std::string& filepath) = 0;
-
-    virtual Shape* generate() = 0;
-
-private:
-
-    Shape* InstantiateBasicShape(std::string& name_shape);
-
-    Shape* applyEditor(std::string& name_ed);
-
+    /**
+     * @brief generate a planet while reading a configuration file.
+     * @param fileconfig the path to the configuration file.
+     * @return Shape* the planet allocated, must be free whent not needed anymore.
+     */
+    virtual Shape* generate(std::string fileconfig) = 0;
 };
 
 #endif // GENERATOR_H

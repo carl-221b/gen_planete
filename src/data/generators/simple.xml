@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <params>
-    <shape name="icosphere" />
+    <basic_shape name="icosphere" nb_subdivision="5"/>
     <editor name="noisy_height" />
 </params>

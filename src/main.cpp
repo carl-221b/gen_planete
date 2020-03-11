@@ -130,9 +130,8 @@ int main (int argc, char **argv)
 
     //Generation
 
-    SimpleGenerator parameters(config_path);
-    parameters.loadFileConfig(config_path);
-    Shape* shape = parameters.generate();
+    XMLGenerator parameters;
+    Shape* shape = parameters.generate(config_path);
 
     // Visualisation
 

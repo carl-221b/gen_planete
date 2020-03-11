@@ -50,7 +50,6 @@ set(SRC_FILES
     model/heightnoise.cpp
     model/icosphere.cpp
     model/advanced_editor.cpp
-    model/generator.cpp
     model/xmlgenerator.cpp
     view/shader.cpp
     view/trackball.cpp
@@ -93,6 +92,7 @@ set(TESTS
     tests/test_editor.cpp
     tests/test_save_load.cpp
     tests/test_time_generation.cpp
+    tests/test_generator.cpp
 )
 add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
 target_link_libraries( unit_tests glbinding libnoise gtest pugixml)

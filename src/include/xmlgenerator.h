@@ -3,15 +3,40 @@
 
 #include "generator.h"
 
-class SimpleGenerator : public Generator
+#include <pugixml.hpp>
+
+#include "noisyheight_editor.h"
+#include "icosphere.h"
+
+/**
+ * @brief The XMLGenerator class, the xml implementation of generator.
+ */
+class XMLGenerator : public Generator
 {
 public:
-    SimpleGenerator(std::string& path_config);
-    ~SimpleGenerator();
+    XMLGenerator();
+    ~XMLGenerator();
 
-    void loadFileConfig(std::string& filepath);
+    /**
+     * @see generator.h
+     */
+    Shape* generate(std::string fileconfig);
 
-    Shape* generate();
+private:
+
+    /**
+     * @brief basicShapeContruct check the corresponding node and construct the basic shape.
+     * @param root the root node of the xml document.
+     * @return the basic shape.
+     */
+    Shape* basicShapeContruct(pugi::xml_node& root);
+
+    /**
+     * @brief applyEditor apply the editor in configuration file.
+     * @param root the root node of the xml document.
+     * @param shape the shape to modify.
+     */
+    void applyEditor(pugi::xml_node& root, Shape* shape);
 };
 
 #endif // XMLGENERATOR_H
