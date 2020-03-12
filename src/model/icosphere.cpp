@@ -20,23 +20,8 @@ Icosphere::Icosphere(int nbSubdivision) {
     }
 }
 
-Icosphere::Icosphere(int nbSubdivision, Rendering* rendering) {
-    _vertices = new Vertices;
-
-    load(DATA_DIR"/models/icosa.obj");
-
-    for(int i = 1; i < nbSubdivision; i++){
-        this->subdivide();
-    }
-
-    _rendering = rendering;
-}
-
 Icosphere::~Icosphere()
 {
-    if(_ready){
-        _rendering->deleteBuffers();
-    }
 
     delete _vertices;
 }
@@ -147,25 +132,6 @@ void Icosphere::saveOFF(const string &filename){
     }
 
     myfile.close();
-}
-
-void Icosphere::init()
-{
-    _rendering->loadBuffer(_vertices, _faces);
-    _ready = true;
-}
-
-void Icosphere::specifyVertexData(Shader *shader)
-{
-    _rendering->specifyVertexData(shader);
-}
-
-void Icosphere::draw(Shader *shader)
-{
-    if (!_ready)
-        init();
-
-    _rendering->draw(_faces.size(), shader);
 }
 
 void Icosphere::subdivide()

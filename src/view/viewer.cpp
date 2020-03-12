@@ -73,7 +73,11 @@ void Viewer::display()
 
     _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view);
 
-    _shape->draw(_simple_shader);
+    if(!_ready){
+        _rendering->loadBuffer(_shape->getVertices(), _shape->getFaces());
+        _ready = true;
+    }
+    _rendering->draw(_shape->getFaces().size(),_simple_shader);
 
     _simple_shader->deactivate();
 
@@ -83,7 +87,7 @@ void Viewer::display()
 
         _rendering->UniformValues(_line_shader, _cam, _lightDir, normal_matrix, model_view);
 
-        _shape->draw(_line_shader);
+        _rendering->draw(_shape->getFaces().size(),_line_shader);
 
     }
 

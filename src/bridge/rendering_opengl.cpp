@@ -47,11 +47,6 @@ void Rendering_OpenGL::checkErrors(){
 }
 
 
-
-
-
-
-
 void Rendering_OpenGL::deleteBuffers(){
     glDeleteBuffers(1, &_facesBuffer);
     glDeleteBuffers(2, _vbo);
@@ -59,6 +54,7 @@ void Rendering_OpenGL::deleteBuffers(){
 }
 
 void Rendering_OpenGL::draw(int nb_elements, Shader* shader){
+
     glBindVertexArray(_vao);
 
     this->specifyVertexData(shader);

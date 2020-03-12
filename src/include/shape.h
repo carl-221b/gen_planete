@@ -24,7 +24,7 @@ public:
         std::vector<Eigen::Vector3f> _colors;
     };
 
-    Shape() : _ready(false), _transformation(Eigen::Matrix4f::Identity()) {}
+    Shape() : _transformation(Eigen::Matrix4f::Identity()) {}
     virtual ~Shape() {}
 
     /**
@@ -33,19 +33,6 @@ public:
      * @param filename Path to the file to load
      */
     virtual void load(const std::string& filename) = 0;
-
-    /**
-     * @brief Computes all the data needed by OpenGL for the display (_positions,_normals,_colors,_indices)
-     *
-     */
-    virtual void init() = 0;
-
-    /**
-     * @brief Draws the data computed init
-     *
-     * @param shader shader used to display the data
-     */
-    virtual void draw(Shader *shader) = 0;
 
     /**
      * @brief Saves the planet into a .obj format file, does not include the color yet
@@ -74,7 +61,7 @@ public:
 
     /**
      * @brief getTransformationMatrix
-     * @return
+     * @return a transformation matrix
      */
     const Eigen::Affine3f& getTransformationMatrix() const { return _transformation; }
 
@@ -85,9 +72,13 @@ public:
 
     void setTransformationMatrix(const Eigen::Affine3f& transfo) { _transformation = transfo; }
 
-protected:
-    bool _ready;
+    /**
+     * @brief getFaces
+     * @return a vector of the faces used on the shape
+     */
+    const std::vector<Eigen::Vector3i> getFaces() const { return _faces; }
 
+protected:
     /**
      * @brief bounding box used for rasterization
      * 
@@ -107,10 +98,6 @@ protected:
 
     /* List of vertices */
     Vertices* _vertices;
-
-
-
-private:
 
 };
 

@@ -86,6 +86,7 @@ private:
 
     //Render
     Rendering* _rendering;
+    bool _ready = false;
 };
 
 #endif

@@ -17,7 +17,6 @@ class Icosphere : public Shape
 {
 public:
     Icosphere(int nbSubdivision);
-    Icosphere(int nbSubdivision, Rendering* rendering);
     ~Icosphere();
 
     /**
@@ -26,19 +25,6 @@ public:
      * @param filename Path to the file to load
      */
     void load(const std::string& filename);
-
-    /**
-     * @brief Computes all the data needed by OpenGL for the display (_positions,_normals,_colors,_indices)
-     * 
-     */
-    void init();
-
-    /**
-     * @brief Draws the data computed init
-     *  
-     * @param shader : shader used to draws the data
-     */
-    void draw(Shader *shader);
 
     /**
      * @brief Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother
@@ -105,9 +91,6 @@ public:
      * @return int the number of faces
      */
     int numFaces() const { return _halfEdge.faces_size(); }
-    
-    /// Copy vertex attributes from the CPU to GPU memory (needs to be called after editing any vertex attributes: positions, normals, texcoords, masks, etc.)
-    void updateVBO();
 
 private:
 
@@ -117,18 +100,9 @@ private:
     void updateMeshFromSurfaceMesh();
 
     /**
-     * @brief Sends vertices data to the shader
-     * @param shader : shader used to display the data
-     */
-    void specifyVertexData(Shader *shader);
-
-    /**
      * @brief _halfEdge : structure used to know the connectivity between the different faces and vertices.
      */
     surface_mesh::Surface_mesh _halfEdge;
-
-    //Render
-    Rendering* _rendering;
 
 protected:
 
