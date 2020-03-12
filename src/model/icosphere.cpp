@@ -93,47 +93,6 @@ void Icosphere::updateMeshFromSurfaceMesh()
     //saveOFF();
 }
 
-void Icosphere::saveOBJ(const string &filename)
-{
-    std::ofstream myfile;
-    myfile.open (filename + ".obj");
-    myfile << "o planet\n";
-
-    for(unsigned int i=0; i<_vertices->_positions.size(); i++){
-        Eigen::Vector3f p = _vertices->_positions.at(i);
-        myfile << "v " << p.x() << " " << p.y() << " " << p.z() << "\n";
-        Eigen::Vector3f n = _vertices->_normals.at(i);
-        myfile << "vn " << n.x() << " " << n.y() << " " << n.z() << "\n";
-
-    }
-
-    for(unsigned int i=0; i<_faces.size(); i++){
-        Eigen::Vector3i f = _faces.at(i);
-        myfile << "f " << ( std::to_string(f.x()+1)+"//"+std::to_string(f.x()+1) ) << " " << ( std::to_string(f.y()+1)+"//"+std::to_string(f.y()+1) ) << " " << ( std::to_string(f.z()+1)+ "//" +std::to_string(f.z()+1) ) << "\n";
-    }
-
-    myfile.close();
-}
-
-void Icosphere::saveOFF(const string &filename){
-    std::ofstream myfile;
-    myfile.open (filename + ".off");
-    myfile << "OFF\n";
-    myfile << _vertices->_positions.size() << " " << numFaces() << " 0\n"; // 0 is the (ignored) number of edges
-
-    for(unsigned int i=0; i<_vertices->_positions.size(); i++){
-        Eigen::Vector3f p = _vertices->_positions.at(i);
-        myfile << p.x() << " " << p.y() << " " << p.z() << "\n";
-    }
-
-    for(unsigned int i=0; i<_faces.size(); i++){
-        Eigen::Vector3i f = _faces.at(i);
-        myfile << "3 " << f.x() << " " << f.y() << " " << f.z() << "\n";
-    }
-
-    myfile.close();
-}
-
 void Icosphere::subdivide()
 {
     Surface_mesh _nextHalfEdge;

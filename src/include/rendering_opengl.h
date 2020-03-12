@@ -26,22 +26,10 @@ public:
     void UniformValues(Shader* shader, Trackball cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model);
     void checkErrors();
 
+
     void deleteBuffers();
-    /**
-     * @brief Draws the data computed init
-     *
-     * @param shader : shader used to draws the data
-     */
     void draw(int nb_elements, Shader* shader);
-    /**
-     * @brief Sends vertices data to the shader
-     * @param shader : shader used to display the data
-     */
     void specifyVertexData(Shader* shader);
-    /**
-     * @brief Computes all the data needed by OpenGL for the display (_positions,_normals,_colors,_indices)
-     *
-     */
     void loadBuffer(Shape::Vertices* vertices, std::vector<Eigen::Vector3i> faces);
 
 private:

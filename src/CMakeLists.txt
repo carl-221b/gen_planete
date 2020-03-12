@@ -53,7 +53,8 @@ set(SRC_FILES
     view/trackball.cpp
     view/camera.cpp
     view/viewer.cpp
-    bridge/rendering_opengl.cpp
+    view/rendering_opengl.cpp
+    repository/shape_repository.cpp
 )
 
 set(HEADERS
@@ -72,6 +73,7 @@ set(HEADERS
     include/advanced_editor.h
     include/rendering.h
     include/rendering_opengl.h
+    include/shape_repository.h
 )
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")

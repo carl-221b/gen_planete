@@ -66,24 +66,11 @@ public:
     void subdivide();
 
     /**
-     * @brief Saves the planet into a .obj format file, does not include the color yet
-     *
-     */
-    void saveOBJ(const std::string& filename);
-    
-    /**
-     * @brief Saves the planet into a .off format file, does not include the color yet
-     * 
-     */
-    void saveOFF(const std::string& filename);
-
-    /**
      * @brief Get the Vertices object
      * 
      * @return Vertices*
      */
     Vertices* getVertices();
-    
 
     /**
      * @brief Get the number of faces

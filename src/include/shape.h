@@ -6,11 +6,9 @@
 #include <Eigen/Geometry>
 
 /**
- * @brief interface implemented by mesh which contains the needed data for the planet generation
+ * @brief interface implemented by icoshpere which contains the needed data for the planet generation
  *
  */
-
-
 class Shape {
 public:
 
@@ -35,18 +33,6 @@ public:
     virtual void load(const std::string& filename) = 0;
 
     /**
-     * @brief Saves the planet into a .obj format file, does not include the color yet
-     *
-     */
-    virtual void saveOBJ(const std::string& filename) = 0;
-
-    /**
-     * @brief Saves the planet into a .off format file, does not include the color yet
-     *
-     */
-    virtual void saveOFF(const std::string& filename) = 0;
-
-    /**
      * @brief Get the Vertices object
      *
      * @return Vertices*
@@ -69,7 +55,6 @@ public:
      * @brief setTransformationMatrix
      * @param changes the _transformation attribute into the transfo parameter
      */
-
     void setTransformationMatrix(const Eigen::Affine3f& transfo) { _transformation = transfo; }
 
     /**
@@ -79,17 +64,15 @@ public:
     const std::vector<Eigen::Vector3i> getFaces() const { return _faces; }
 
 protected:
+
     /**
      * @brief bounding box used for rasterization
-     * 
      */
     Eigen::AlignedBox3f _bbox;
 
     /**
      * @brief transformation matrix used for the coordinate tranformations
-     * 
      */
-
     Eigen::Affine3f _transformation;
 
     //Contains the differents points of a face
