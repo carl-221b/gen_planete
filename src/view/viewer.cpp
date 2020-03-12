@@ -75,7 +75,8 @@ void Viewer::display()
     _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view);
 
     if(!_ready){
-        _rendering->loadBuffer(_shape->getVertices(), _shape->getFaces());
+        const Shape::Vertices* shape_vertices = _shape->getVertices();
+        _rendering->loadBuffer(shape_vertices, _shape->getFaces());
         _ready = true;
     }
     _rendering->draw(_shape->getFaces().size(),_simple_shader);

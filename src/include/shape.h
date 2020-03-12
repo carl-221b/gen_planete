@@ -40,6 +40,13 @@ public:
     virtual Vertices* getVertices() = 0;
 
     /**
+     * @brief Get the Vertices object (const)
+     *
+     * @return const Vertices*
+     */
+    const Vertices* getVertices() const {return _vertices;}
+
+    /**
      * @brief boundingBox used for the rasterzation
      * @return the boundingBox which contains the vertex of the shape
      */

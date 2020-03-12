@@ -86,8 +86,7 @@ void Rendering_OpenGL::specifyVertexData(Shader* shader){
     }
 }
 
-void Rendering_OpenGL::loadBuffer(Shape::Vertices* vertices, std::vector<Vector3i> faces){
-
+void Rendering_OpenGL::loadBuffer(const Shape::Vertices* vertices, std::vector<Vector3i> faces){
     glGenVertexArrays(1, &_vao);
     glGenBuffers(3, _vbo);
 

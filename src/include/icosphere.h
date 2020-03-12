@@ -27,6 +27,22 @@ public:
     void load(const std::string& filename);
 
     /**
+     * @brief Get the Vertices object (editable)
+     * 
+     * @return Vertices*
+     */
+    Vertices* getVertices();
+
+    /**
+     * @brief Get the number of faces
+     * 
+     * @return int the number of faces
+     */
+    int numFaces() const { return _halfEdge.faces_size(); }
+
+private:
+
+    /**
      * @brief Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother
      *
      * The algorithm  is from : https://www.labri.fr/perso/pbenard/teaching/mondes3d/td9.html
@@ -64,22 +80,6 @@ public:
      * Step 4 : it replaces the old Surface_mesh by the new one, and updates the attributes of the mesh from it
      */
     void subdivide();
-
-    /**
-     * @brief Get the Vertices object
-     * 
-     * @return Vertices*
-     */
-    Vertices* getVertices();
-
-    /**
-     * @brief Get the number of faces
-     * 
-     * @return int the number of faces
-     */
-    int numFaces() const { return _halfEdge.faces_size(); }
-
-private:
 
     /**
      * @brief Updates mesh's attributes (vertices and faces) from its Surface_mesh

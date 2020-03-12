@@ -83,7 +83,7 @@ public:
      * @param vertices : vertices of the shape
      * @param faces : faces of the shape
      */
-    virtual void loadBuffer(Shape::Vertices* vertices, std::vector<Eigen::Vector3i> faces) = 0;
+    virtual void loadBuffer(const Shape::Vertices* vertices, std::vector<Eigen::Vector3i> faces) = 0;
 
 
 

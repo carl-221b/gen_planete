@@ -30,7 +30,7 @@ public:
     void deleteBuffers();
     void draw(int nb_elements, Shader* shader);
     void specifyVertexData(Shader* shader);
-    void loadBuffer(Shape::Vertices* vertices, std::vector<Eigen::Vector3i> faces);
+    void loadBuffer(const Shape::Vertices* vertices, std::vector<Eigen::Vector3i> faces);
 
 private:
     /**
