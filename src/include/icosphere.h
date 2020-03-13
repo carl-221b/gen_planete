@@ -17,6 +17,7 @@ class Icosphere : public Shape
 {
 public:
     Icosphere(int nbSubdivision);
+    Icosphere(int nbSubdivision, bool organicLook);
     ~Icosphere();
 
     /**
@@ -85,6 +86,11 @@ private:
      * @brief Updates mesh's attributes (vertices and faces) from its Surface_mesh
      */
     void updateMeshFromSurfaceMesh();
+
+    /**
+     * @brief Move vertices positions to make the planet look more organic
+     */
+    void organicTriangulation();
 
     /**
      * @brief _halfEdge : structure used to know the connectivity between the different faces and vertices.

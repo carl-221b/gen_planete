@@ -20,6 +20,20 @@ Icosphere::Icosphere(int nbSubdivision) {
     }
 }
 
+Icosphere::Icosphere(int nbSubdivision, bool organicLook) {
+    _vertices = new Vertices;
+
+    load(DATA_DIR"/models/icosa.obj");
+
+    for(int i = 1; i < nbSubdivision; i++){
+        this->subdivide();
+    }
+
+    if(organicLook){
+        this->organicTriangulation();
+    }
+}
+
 Icosphere::~Icosphere()
 {
 
@@ -222,4 +236,17 @@ void Icosphere::subdivide()
 
 Icosphere::Vertices* Icosphere::getVertices(){
     return _vertices;
+}
+
+
+void Icosphere::organicTriangulation(){
+    Vertices* vertices = this->getVertices();
+
+    for(int i = 0; i < vertices->_positions.size(); i++){
+        float factor = (980.0+ std::rand()%50) / 1000.0;
+        vertices->_positions[i] += vertices->_normals[i] * factor; //faire perpendiculaire à _normals
+        //ou solution Marc (discord)
+        //ou : https://experilous.com/1/blog/post/procedural-planet-generation
+    }
+    //updateMeshFromSurfaceMesh();
 }

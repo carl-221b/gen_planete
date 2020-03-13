@@ -90,16 +90,17 @@ int main (int argc, char **argv)
     int w, h;
     glfwGetFramebufferSize(window, &w, &h);
 
-    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
+    bool organicLook = false;
+    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION, organicLook);
+
+
+    /*Editor* basic_editor = new Basic_Editor(shape);
+    basic_editor->edit();
+    delete basic_editor;*/
 
     Editor* noisy = new NoisyHeight_Editor(shape);
     noisy->edit();
     delete noisy;
-
-    /*
-    Editor* basic_editor = new Basic_Editor(shape);
-    basic_editor->edit();
-    delete basic_editor;*/
 
     v = new Viewer(rendering);
     v->init(w, h, shape);
