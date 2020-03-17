@@ -31,13 +31,27 @@ private :
     std::chrono::time_point<Clock> _start, _end;
 };
 
+//TO DEPLACE
+// return a uniformly distributed random value
+static double rand_gen() {
+   return ( (double)(rand()) + 1. )/( (double)(RAND_MAX) + 1. );
+}
+
+//  TO DEPLACE
+// return a normally distributed random value
+static double normalRandom() {
+   double v1=rand_gen();
+   double v2=rand_gen();
+   return cos(2*3.14*v2)*sqrt(-2.*log(v1));
+}
+
 /**
  * @brief cartesianToPolarCoord, transform cartesian coordinates to polar.
  * Convention : use radians to output.
  * @param cartesian coordinates
  * @return Vector3f with rho, theta, phi in this order.
  */
-static Eigen::Vector3f cartesianToPolarCoord(const Eigen::Vector3f& cartesian)
+static Eigen::Vector3f cartesianToSphericalCoord(const Eigen::Vector3f& cartesian)
 {
     float rho = cartesian.norm();
     if(rho == 0)
@@ -56,7 +70,7 @@ static Eigen::Vector3f cartesianToPolarCoord(const Eigen::Vector3f& cartesian)
  * @param polar coordinates
  * @return the cartesian coordinates x, y , z.
  */
-static Eigen::Vector3f polarToCartesianCoord(const Eigen::Vector3f& polar)
+static Eigen::Vector3f sphericalToCartesianCoord(const Eigen::Vector3f& polar)
 {
     float r = polar.x();
     if(r == 0)
