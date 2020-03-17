@@ -142,7 +142,7 @@ int main (int argc, char **argv)
     int w, h;
     glfwGetFramebufferSize(window, &w, &h);
 
-    shape->init();
+    v = new Viewer(rendering);
     v->init(w, h, shape);
 
     while (!glfwWindowShouldClose(window))

@@ -17,6 +17,11 @@ Shape* XMLGenerator::generate(std::string fileconfig)
 
     xml_document doc;
     xml_parse_result result = doc.load_file(fileconfig.c_str());
+    std::cout << "Load result: " << result.description() << std::endl;
+    if(result.status != status_ok)
+    {
+        throw new std::runtime_error("Problem opening config file.");
+    }
     xml_node root = doc.document_element();
 
     //Basic_shape
@@ -46,14 +51,22 @@ Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
     //Switch parameters
     if(name == "icosphere")
     {
-        xml_attribute nb_subdiv_attr;
+        xml_attribute attr_opt;
         int nb_subdivision = DEFAULT_NB_SUBDIVISION;
-        if (nb_subdiv_attr = shapenode.attribute("nb_subdivision")) // attribute really exists
+        if (attr_opt = shapenode.attribute("nb_subdivision")) // attribute really exists
         {
-             nb_subdivision = nb_subdiv_attr.as_int();
+             nb_subdivision = attr_opt.as_int();
         }
+
+        bool organic = false;
+        if (attr_opt = shapenode.attribute("organic")) // attribute really exists
+        {
+             organic = attr_opt.as_bool();
+        }
+
         std::cout << "Basic shape : " << name <<" subdivided "<< nb_subdivision <<" times \n";
-        return new Icosphere(nb_subdivision);
+        std::cout << "With : organic " << organic <<"\n";
+        return new Icosphere(nb_subdivision, organic);
 
     }
     else throw std::runtime_error("Not implemented basic_shape.");

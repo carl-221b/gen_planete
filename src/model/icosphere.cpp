@@ -10,16 +10,6 @@ using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
 
-Icosphere::Icosphere(int nbSubdivision) {
-    _vertices = new Vertices;
-
-    load(DATA_DIR"/models/icosa.obj");
-
-    for(int i = 1; i < nbSubdivision; i++){
-        this->subdivide();
-    }
-}
-
 Icosphere::Icosphere(int nbSubdivision, bool organicLook) {
     _vertices = new Vertices;
 
