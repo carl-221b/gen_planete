@@ -26,6 +26,18 @@ TEST(CoordinatesTest, polarToCart) {
     ASSERT_NEAR(cart_expected.z(), res.z(), PRECISION_NEED);
 }
 
+TEST(CoordinatesTest, cart0) {
+
+    Eigen::Vector3f cart(0, 0, 0);
+    ASSERT_THROW(cartesianToPolarCoord(cart), std::runtime_error);
+}
+
+TEST(CoordinatesTest, polar0) {
+
+    Eigen::Vector3f polar(0, 1, 1);
+    ASSERT_THROW(polarToCartesianCoord(polar), std::runtime_error);
+}
+
 TEST(CoordinatesTest, cumulated) {
 
     for (double x = -1; x<=1; x+=0.2)
@@ -34,7 +46,7 @@ TEST(CoordinatesTest, cumulated) {
         {
             for (double z = -1; z<=1; z+=0.2)
             {
-                if(x ==0 && y ==0 && z==0.2)
+                if(x ==0 && y ==0 && z==0.0)
                 {
                     continue;
                 }
@@ -50,16 +62,3 @@ TEST(CoordinatesTest, cumulated) {
         }
     }
 }
-
-TEST(CoordinatesTest, cart0) {
-
-    Eigen::Vector3f cart(0, 0, 0);
-    ASSERT_THROW(cartesianToPolarCoord(cart), std::runtime_error);
-}
-
-TEST(CoordinatesTest, polar0) {
-
-    Eigen::Vector3f polar(0, 1, 1);
-    ASSERT_THROW(polarToCartesianCoord(polar), std::runtime_error);
-}
-
