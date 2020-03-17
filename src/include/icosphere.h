@@ -16,8 +16,7 @@
 class Icosphere : public Shape
 {
 public:
-    Icosphere(int nbSubdivision);
-    Icosphere(int nbSubdivision, bool organicLook);
+    Icosphere(int nbSubdivision, bool organicLook = false);
     ~Icosphere();
 
     /**

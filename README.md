@@ -7,9 +7,53 @@ $ mkdir build
 $ cd build
 $ cmake ../
 $ make -j6 
-$ ./gen_planet
 ```
+
+## Lancer le générateur
+Commandes à faire dans le dossier build :
+```
+$ ./gen_planet [options] [config_file_path]
+```
+Mettez pour *config_file_path* le chemin vers le fichier de configuration contenant les paramètres de génération.
+
 Une fenêtre openGL s'ouvre alors avec la planète générée à partir d'un bruit aléatoire.
+
+Exemple :
+```
+$ ./gen_planet ../src/data/generators/simple.xml
+```
+
+Pour plus d'informations, utilisez la commande *-h* pour voire l'aide complète.
+
+## Modifier les paramètres
+la construction et les différentes options pour le fichier de configuration du générateur est de la forme :
+
+```
+<params>
+    <shape name=... option1=... option2=... />
+    <editor name=... option1=... option2=... />
+</params>
+```
+
+Un exemple minimaliste est le suivant :
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<params>
+    <basic_shape name="icosphere" nb_subdivision="5"/>
+    <editor name="noisy_height" />
+</params>
+```
+
+On a du coup les différentes options de la forme basique ainsi que pour l'éditeur à la suite des uns des autres.
+
+Actuellement on a comme option, pour les formes de base :
+	* icosphere
+	Un type sphère géodésique à partir d'un icosahèdre.
+		-nb_subdivision le nombre de subdivision de l'icosahèdre de départ.
+
+Pour les éditeurs :
+	*noisy_height
+	Utilise le bruit de perlin pour faire des altitudes et où on attribue une couleur en rapport.
 
 ## Interaction fenêtre openGL 
  - Clic and drag : Rotation de la planète
