@@ -65,7 +65,7 @@ Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
         }
 
         std::cout << "Basic shape : " << name <<" subdivided "<< nb_subdivision <<" times \n";
-        std::cout << "With : organic " << organic?"true":"false" <<"\n";
+        std::cout << "With : organic " << (organic?"true":"false") <<"\n";
         return new Icosphere(nb_subdivision, organic);
 
     }
