@@ -6,11 +6,9 @@
 #include <Eigen/Geometry>
 
 /**
- * @brief interface implemented by mesh which contains the needed data for the planet generation
+ * @brief interface implemented by icoshpere which contains the needed data for the planet generation
  *
  */
-
-
 class Shape {
 public:
 
@@ -24,7 +22,7 @@ public:
         std::vector<Eigen::Vector3f> _colors;
     };
 
-    Shape() : _ready(false), _transformation(Eigen::Matrix4f::Identity()) {}
+    Shape() : _transformation(Eigen::Matrix4f::Identity()) {}
     virtual ~Shape() {}
 
     /**
@@ -35,36 +33,18 @@ public:
     virtual void load(const std::string& filename) = 0;
 
     /**
-     * @brief Computes all the data needed by OpenGL for the display (_positions,_normals,_colors,_indices)
-     *
-     */
-    virtual void init() = 0;
-
-    /**
-     * @brief Draws the data computed init
-     *
-     * @param shader shader used to display the data
-     */
-    virtual void draw(Shader *shader) = 0;
-
-    /**
-     * @brief Saves the planet into a .obj format file, does not include the color yet
-     *
-     */
-    virtual void saveOBJ(const std::string& filename) = 0;
-
-    /**
-     * @brief Saves the planet into a .off format file, does not include the color yet
-     *
-     */
-    virtual void saveOFF(const std::string& filename) = 0;
-
-    /**
      * @brief Get the Vertices object
      *
      * @return Vertices*
      */
     virtual Vertices* getVertices() = 0;
+
+    /**
+     * @brief Get the Vertices object (const)
+     *
+     * @return const Vertices*
+     */
+    const Vertices* getVertices() const {return _vertices;}
 
     /**
      * @brief boundingBox used for the rasterzation
@@ -74,7 +54,7 @@ public:
 
     /**
      * @brief getTransformationMatrix
-     * @return
+     * @return a transformation matrix
      */
     const Eigen::Affine3f& getTransformationMatrix() const { return _transformation; }
 
@@ -82,23 +62,24 @@ public:
      * @brief setTransformationMatrix
      * @param changes the _transformation attribute into the transfo parameter
      */
-
     void setTransformationMatrix(const Eigen::Affine3f& transfo) { _transformation = transfo; }
 
+    /**
+     * @brief getFaces
+     * @return a vector of the faces used on the shape
+     */
+    const std::vector<Eigen::Vector3i> getFaces() const { return _faces; }
+
 protected:
-    bool _ready;
 
     /**
      * @brief bounding box used for rasterization
-     * 
      */
     Eigen::AlignedBox3f _bbox;
 
     /**
      * @brief transformation matrix used for the coordinate tranformations
-     * 
      */
-
     Eigen::Affine3f _transformation;
 
     //Contains the differents points of a face
@@ -107,10 +88,6 @@ protected:
 
     /* List of vertices */
     Vertices* _vertices;
-
-
-
-private:
 
 };
 

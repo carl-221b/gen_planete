@@ -2,10 +2,11 @@
 #define MESH_H
 
 #include "shape.h"
+#include "rendering.h"
 
 #include <surface_mesh/surface_mesh.h>
 
-#define DEFAULT_NB_SUBDIVISION 5
+#define DEFAULT_NB_SUBDIVISION 8
 
 /**
  * @brief Class that contains the needed data for the planet generation
@@ -16,6 +17,7 @@ class Icosphere : public Shape
 {
 public:
     Icosphere(int nbSubdivision);
+    Icosphere(int nbSubdivision, bool organicLook);
     ~Icosphere();
 
     /**
@@ -26,17 +28,20 @@ public:
     void load(const std::string& filename);
 
     /**
-     * @brief Computes all the data needed by OpenGL for the display (_positions,_normals,_colors,_indices)
+     * @brief Get the Vertices object (editable)
      * 
+     * @return Vertices*
      */
-    void init();
+    Vertices* getVertices();
 
     /**
-     * @brief Draws the data computed init
-     *  
-     * @param shader : shader used to draws the data
+     * @brief Get the number of faces
+     * 
+     * @return int the number of faces
      */
-    void draw(Shader *shader);
+    int numFaces() const { return _halfEdge.faces_size(); }
+
+private:
 
     /**
      * @brief Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother
@@ -78,60 +83,19 @@ public:
     void subdivide();
 
     /**
-     * @brief Saves the planet into a .obj format file, does not include the color yet
-     *
-     */
-    void saveOBJ(const std::string& filename);
-    
-    /**
-     * @brief Saves the planet into a .off format file, does not include the color yet
-     * 
-     */
-    void saveOFF(const std::string& filename);
-
-    /**
-     * @brief Get the Vertices object
-     * 
-     * @return Vertices*
-     */
-    Vertices* getVertices();
-    
-
-    /**
-     * @brief Get the number of faces
-     * 
-     * @return int the number of faces
-     */
-    int numFaces() const { return _halfEdge.faces_size(); }
-    
-    /// Copy vertex attributes from the CPU to GPU memory (needs to be called after editing any vertex attributes: positions, normals, texcoords, masks, etc.)
-    void updateVBO();
-
-private:
-
-    /**
      * @brief Updates mesh's attributes (vertices and faces) from its Surface_mesh
      */
     void updateMeshFromSurfaceMesh();
 
     /**
-     * @brief Sends vertices data to the shader
-     * @param shader : shader used to display the data
+     * @brief Move vertices positions to make the planet look more organic
      */
-    void specifyVertexData(Shader *shader);
+    void organicTriangulation();
 
     /**
      * @brief _halfEdge : structure used to know the connectivity between the different faces and vertices.
      */
     surface_mesh::Surface_mesh _halfEdge;
-
-
-    /**
-     * @brief Variables used for openGL buffers
-     */
-    GLuint _facesBuffer;
-    GLuint _vao;
-    GLuint _vbo[3]; // positions, normals, colors
 
 protected:
 

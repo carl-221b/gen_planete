@@ -5,11 +5,11 @@ uniform mat4 model_view_matrix;
 
 in vec3 vtx_position;
 
-in vec3 color_f;
+in vec3 vtx_color;
 out vec3 color_frag;
 
 void main()
 {
     gl_Position = projection_matrix * model_view_matrix * vec4(vtx_position, 1.);
-    color_frag = color_f;
+    color_frag = vtx_color;
 }

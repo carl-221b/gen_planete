@@ -78,7 +78,7 @@ private:
 
     bool _wireframe = false;
 
-    Eigen::Vector3f _ligthDir;
+    Eigen::Vector3f _lightDir;
 
     // Mouse parameters
     Eigen::Vector2f _lastMousePos;
@@ -86,6 +86,7 @@ private:
 
     //Render
     Rendering* _rendering;
+    bool _ready = false;
 };
 
 #endif

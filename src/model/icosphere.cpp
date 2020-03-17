@@ -20,13 +20,22 @@ Icosphere::Icosphere(int nbSubdivision) {
     }
 }
 
+Icosphere::Icosphere(int nbSubdivision, bool organicLook) {
+    _vertices = new Vertices;
+
+    load(DATA_DIR"/models/icosa.obj");
+
+    for(int i = 1; i < nbSubdivision; i++){
+        this->subdivide();
+    }
+
+    if(organicLook){
+        this->organicTriangulation();
+    }
+}
+
 Icosphere::~Icosphere()
 {
-    if(_ready){
-        glDeleteBuffers(1, &_facesBuffer);
-        glDeleteBuffers(2, _vbo);
-        glDeleteVertexArrays(1,&_vao);
-    }
 
     delete _vertices;
 }
@@ -96,110 +105,6 @@ void Icosphere::updateMeshFromSurfaceMesh()
     }
     //saveOBJ();
     //saveOFF();
-}
-
-void Icosphere::saveOBJ(const string &filename)
-{
-    std::ofstream myfile;
-    myfile.open (filename + ".obj");
-    myfile << "o planet\n";
-
-    for(unsigned int i=0; i<_vertices->_positions.size(); i++){
-        Eigen::Vector3f p = _vertices->_positions.at(i);
-        myfile << "v " << p.x() << " " << p.y() << " " << p.z() << "\n";
-        Eigen::Vector3f n = _vertices->_normals.at(i);
-        myfile << "vn " << n.x() << " " << n.y() << " " << n.z() << "\n";
-
-    }
-
-    for(unsigned int i=0; i<_faces.size(); i++){
-        Eigen::Vector3i f = _faces.at(i);
-        myfile << "f " << ( std::to_string(f.x()+1)+"//"+std::to_string(f.x()+1) ) << " " << ( std::to_string(f.y()+1)+"//"+std::to_string(f.y()+1) ) << " " << ( std::to_string(f.z()+1)+ "//" +std::to_string(f.z()+1) ) << "\n";
-    }
-
-    myfile.close();
-}
-
-void Icosphere::saveOFF(const string &filename){
-    std::ofstream myfile;
-    myfile.open (filename + ".off");
-    myfile << "OFF\n";
-    myfile << _vertices->_positions.size() << " " << numFaces() << " 0\n"; // 0 is the (ignored) number of edges
-
-    for(unsigned int i=0; i<_vertices->_positions.size(); i++){
-        Eigen::Vector3f p = _vertices->_positions.at(i);
-        myfile << p.x() << " " << p.y() << " " << p.z() << "\n";
-    }
-
-    for(unsigned int i=0; i<_faces.size(); i++){
-        Eigen::Vector3i f = _faces.at(i);
-        myfile << "3 " << f.x() << " " << f.y() << " " << f.z() << "\n";
-    }
-
-    myfile.close();
-}
-
-void Icosphere::init()
-{
-    glGenVertexArrays(1, &_vao);
-    glGenBuffers(3, _vbo);
-
-    glBindVertexArray(_vao);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f)*_vertices->_positions.size(), _vertices->_positions.data(), GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[1]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3f)*_vertices->_normals.size(), _vertices->_normals.data(), GL_STATIC_DRAW);
-
-    //GLuint colorbuffer;
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _vbo[2]);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Vector4f)*_vertices->_colors.size(), _vertices->_colors.data(), GL_STATIC_DRAW);
-
-    glGenBuffers(1, &_facesBuffer);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _facesBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Vector3i)*_faces.size(), _faces.data(),  GL_STATIC_DRAW);
-
-    glBindVertexArray(0);
-
-    _ready = true;
-}
-
-void Icosphere::specifyVertexData(Shader *shader)
-{
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[0]);
-    int pos_loc = shader->getAttribLocation("vtx_position");
-    glEnableVertexAttribArray(pos_loc);
-    glVertexAttribPointer(pos_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), (void*)0);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[1]);
-    int normal_loc = shader->getAttribLocation("vtx_normal");
-    if(normal_loc>=0){
-        glEnableVertexAttribArray(normal_loc);
-        glVertexAttribPointer(normal_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), (void*)0);
-    }
-
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo[2]);
-    int color_loc = shader->getAttribLocation("color_f");
-    if(color_loc>=0)
-    {
-        glEnableVertexAttribArray(color_loc);
-        glVertexAttribPointer(color_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3f), (void*)0);
-    }
-}
-
-void Icosphere::draw(Shader *shader)
-{
-    if (!_ready)
-        init();
-
-    glBindVertexArray(_vao);
-
-    specifyVertexData(shader);
-
-    glDrawElements(GL_TRIANGLES, _faces.size()*3,  GL_UNSIGNED_INT, 0);
-
-    glBindVertexArray(0);
 }
 
 void Icosphere::subdivide()
@@ -331,4 +236,17 @@ void Icosphere::subdivide()
 
 Icosphere::Vertices* Icosphere::getVertices(){
     return _vertices;
+}
+
+
+void Icosphere::organicTriangulation(){
+    Vertices* vertices = this->getVertices();
+
+    for(int i = 0; i < vertices->_positions.size(); i++){
+        float factor = (980.0+ std::rand()%50) / 1000.0;
+        vertices->_positions[i] += vertices->_normals[i] * factor; //faire perpendiculaire à _normals
+        //ou solution Marc (discord)
+        //ou : https://experilous.com/1/blog/post/procedural-planet-generation
+    }
+    //updateMeshFromSurfaceMesh();
 }

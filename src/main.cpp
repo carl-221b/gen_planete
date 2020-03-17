@@ -141,7 +141,6 @@ int main (int argc, char **argv)
     Rendering* rendering = new Rendering_OpenGL();
     int w, h;
     glfwGetFramebufferSize(window, &w, &h);
-    v = new Viewer(rendering);
 
     shape->init();
     v->init(w, h, shape);
@@ -157,6 +156,7 @@ int main (int argc, char **argv)
 
     delete v;
     delete shape;
+    delete rendering;
 
     glfwDestroyWindow(window);
     glfwTerminate();

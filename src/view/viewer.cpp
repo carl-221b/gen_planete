@@ -1,4 +1,5 @@
 #include "viewer.h"
+#include "shape_repository.h"
 
 using namespace Eigen;
 
@@ -23,7 +24,6 @@ void Viewer::init(int w, int h, Shape* shape){
 
     _rendering->initViewPort(0,0,w,h);
 
-    _ligthDir = Vector3f(-1,1,1).normalized();
 
     _simple_shader = new Shader();
     _line_shader = new Shader();
@@ -64,13 +64,22 @@ void Viewer::display()
     Matrix4f model_view = (view_matrix*_shape->getTransformationMatrix()).matrix();
     Matrix3f normal_matrix = (view_matrix*_shape->getTransformationMatrix()).linear().inverse().transpose();
 
+    _lightDir =  Vector3f(1,0,1).normalized();
+    _lightDir= (view_matrix.topLeftCorner<3,3>()*_lightDir).normalized();
+
+
     _rendering->polygonModeFill();
 
     _simple_shader->activate();
 
-    _rendering->UniformValues(_simple_shader, _cam, _ligthDir, normal_matrix, model_view);
+    _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view);
 
-    _shape->draw(_simple_shader);
+    if(!_ready){
+        const Shape::Vertices* shape_vertices = _shape->getVertices();
+        _rendering->loadBuffer(shape_vertices, _shape->getFaces());
+        _ready = true;
+    }
+    _rendering->draw(_shape->getFaces().size(),_simple_shader);
 
     _simple_shader->deactivate();
 
@@ -78,9 +87,9 @@ void Viewer::display()
         _rendering->polygonModeLine();
         _line_shader->activate();
 
-        _rendering->UniformValues(_line_shader, _cam, _ligthDir, normal_matrix, model_view);
+        _rendering->UniformValues(_line_shader, _cam, _lightDir, normal_matrix, model_view);
 
-        _shape->draw(_line_shader);
+        _rendering->draw(_shape->getFaces().size(),_line_shader);
 
     }
 
@@ -96,7 +105,7 @@ void Viewer::updateScene()
 
 void Viewer::loadPrograms()
 {
-    _simple_shader->loadFromFiles(DATA_DIR"/shaders/simple.vert",DATA_DIR"/shaders/simple.frag");
+    _simple_shader->loadFromFiles(DATA_DIR"/shaders/blinn.vert",DATA_DIR"/shaders/blinn.frag");
     _line_shader->loadFromFiles(DATA_DIR"/shaders/line.vert",DATA_DIR"/shaders/simple.frag");
 }
 
@@ -150,7 +159,7 @@ void Viewer::mouseMoved(int x, int y)
     }
     else if(_button == GLFW_MOUSE_BUTTON_RIGHT)
     {
-        _cam.dragTranslate(Vector2f(x,y));
+//        _cam.dragTranslate(Vector2f(x,y));
     }
     _lastMousePos = Vector2f(x,y);
 }
@@ -186,7 +195,8 @@ void Viewer::keyPressed(int key, int action, int mods)
         if (key == GLFW_KEY_R)
             loadPrograms();
         else if(key == GLFW_KEY_S){
-            _shape->saveOBJ("planet");
+            //_shape->saveOBJ("planet");
+            Shape_Repository::saveOBJ(_shape, DATA_DIR"/planet");
         }
         else if(key == GLFW_KEY_W)
         {

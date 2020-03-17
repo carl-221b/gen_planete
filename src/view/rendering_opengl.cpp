@@ -8,7 +8,7 @@ Rendering_OpenGL::~Rendering_OpenGL(){
 
 
 void Rendering_OpenGL::initView(){
-    glClearColor(0.3f,0.3f,0.3f,0.);
+    glClearColor(0.0f,0.0f,0.0f,0.);
 
     glEnable(GL_DEPTH_TEST);
     glDisable(GL_CULL_FACE);
@@ -47,10 +47,17 @@ void Rendering_OpenGL::checkErrors(){
 }
 
 
+void Rendering_OpenGL::deleteBuffers(){
+    glDeleteBuffers(1, &_facesBuffer);
+    glDeleteBuffers(2, _vbo);
+    glDeleteVertexArrays(1,&_vao);
+}
+
 void Rendering_OpenGL::draw(int nb_elements, Shader* shader){
+
     glBindVertexArray(_vao);
 
-    specifyVertexData(shader);
+    this->specifyVertexData(shader);
 
     glDrawElements(GL_TRIANGLES, nb_elements*3,  GL_UNSIGNED_INT, 0);
 
@@ -71,7 +78,7 @@ void Rendering_OpenGL::specifyVertexData(Shader* shader){
     }
 
     glBindBuffer(GL_ARRAY_BUFFER, _vbo[2]);
-    int color_loc = shader->getAttribLocation("color_f");
+    int color_loc = shader->getAttribLocation("vtx_color");
     if(color_loc>=0)
     {
         glEnableVertexAttribArray(color_loc);
@@ -79,7 +86,7 @@ void Rendering_OpenGL::specifyVertexData(Shader* shader){
     }
 }
 
-void Rendering_OpenGL::loadBuffer(Shape::Vertices* vertices, std::vector<Vector3i> faces){
+void Rendering_OpenGL::loadBuffer(const Shape::Vertices* vertices, std::vector<Vector3i> faces){
     glGenVertexArrays(1, &_vao);
     glGenBuffers(3, _vbo);
 
