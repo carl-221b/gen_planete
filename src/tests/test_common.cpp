@@ -26,6 +26,31 @@ TEST(CoordinatesTest, polarToCart) {
     ASSERT_NEAR(cart_expected.z(), res.z(), PRECISION_NEED);
 }
 
+TEST(CoordinatesTest, cumulated) {
+
+    for (double x = -1; x<=1; x+=0.2)
+    {
+        for (double y = -1; y<=1; y+=0.2)
+        {
+            for (double z = -1; z<=1; z+=0.2)
+            {
+                if(x ==0 && y ==0 && z==0.2)
+                {
+                    continue;
+                }
+
+                Eigen::Vector3f cart(x, y, z);
+                Eigen::Vector3f tmp = cartesianToPolarCoord(cart);
+                Eigen::Vector3f res = polarToCartesianCoord(tmp);
+
+                ASSERT_NEAR(cart.x(), res.x(), PRECISION_NEED);
+                ASSERT_NEAR(cart.y(), res.y(), PRECISION_NEED);
+                ASSERT_NEAR(cart.z(), res.z(), PRECISION_NEED);
+            }
+        }
+    }
+}
+
 TEST(CoordinatesTest, cart0) {
 
     Eigen::Vector3f cart(0, 0, 0);
