@@ -2,9 +2,7 @@
 #include "../include/icosphere.h"
 
 #include <gtest/gtest.h>
-
-#include <chrono>
-typedef std::chrono::high_resolution_clock Clock;
+#include "common.h"
 
 #define AIM_MAX_TIME_MS (0.2 * 10.e3)
 
@@ -16,7 +14,8 @@ TEST(TimeGeneration, limits_subdivision) {
     {
         sub ++;
 
-        auto start = Clock::now();
+        Timer timer;
+        timer.startTimer();
 
         Shape* shape = new Icosphere(sub);
         Editor* ed = new NoisyHeight_Editor(shape);
@@ -25,9 +24,9 @@ TEST(TimeGeneration, limits_subdivision) {
         delete ed;
         delete shape;
 
-        auto end = Clock::now();
+        timer.endTimer();
 
-        duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        duration = timer.getDurationMs();
     }
 
     std::cout<<"Maximum subdivision with NoisyHeight_Editor : "<< sub<<" for "<< (duration) <<" ms.\n";

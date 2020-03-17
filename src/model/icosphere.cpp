@@ -250,7 +250,7 @@ void Icosphere::organicTriangulation(){
             if(vect.norm() < dist_min)
             {
                 dist_min = vect.norm();
-                std::cout<< dist_min <<std::endl;
+                //std::cout<< dist_min <<std::endl;
             }
         }
         // Random displacement in a sphere of radius dist_min
