@@ -5,6 +5,7 @@
 #include <sstream>
 #include <cstdio>
 #include <math.h>
+#include <limits>
 
 using namespace std;
 using namespace Eigen;
@@ -232,11 +233,41 @@ Icosphere::Vertices* Icosphere::getVertices(){
 void Icosphere::organicTriangulation(){
     Vertices* vertices = this->getVertices();
 
+    float dist_min =  MAXFLOAT;
+    // Iterate vertices
+    for( Surface_mesh::Vertex v: _halfEdge.vertices())
+    {
+        Vector3f origin = vertices->_positions[v.idx()];
+
+        // Iterate neighbours
+        Surface_mesh::Vertex_around_vertex_circulator circ(&_halfEdge, v);
+        for(Surface_mesh::Vertex vd : circ)
+        {
+            Vector3f dest = vertices->_positions[vd.idx()];
+            Vector3f vect = dest - origin;
+
+            //Find radius sphere minimal.
+            if(vect.norm() < dist_min)
+            {
+                dist_min = vect.norm();
+                std::cout<< dist_min <<std::endl;
+            }
+        }
+        // Random displacement in a sphere of radius dist_min
+        origin.x() += rand() % 2*dist_min -dist_min;
+        origin.y() += rand() % 2*dist_min -dist_min;
+        origin.z() += rand() % 2*dist_min -dist_min;
+        vertices->_positions[v.idx()]= origin;
+    }
+
+    /*
     for(int i = 0; i < vertices->_positions.size(); i++){
         float factor = (980.0+ std::rand()%50) / 1000.0;
         vertices->_positions[i] += vertices->_normals[i] * factor; //faire perpendiculaire à _normals
         //ou solution Marc (discord)
         //ou : https://experilous.com/1/blog/post/procedural-planet-generation
     }
+    */
+
     //updateMeshFromSurfaceMesh();
 }
