@@ -7,6 +7,8 @@
 #include <math.h>
 #include <limits>
 
+#include "common.h"
+
 using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
@@ -289,21 +291,29 @@ void Icosphere::organicTriangulation(){
                 //std::cout<< dist_min <<std::endl;
             }
         }
+
+        Vector3f oldUv = cartesianToSphericalCoord(origin);
+
         // Random displacement in a sphere of radius dist_min
-        origin.x() += rand() % 2*dist_min -dist_min;
-        origin.y() += rand() % 2*dist_min -dist_min;
-        origin.z() += rand() % 2*dist_min -dist_min;
+        /*
+        origin.x() += rand_gen() * (2.*dist_min) -dist_min;
+        origin.y() += rand_gen() * (2.*dist_min) -dist_min;
+        origin.z() += rand_gen() * (2.*dist_min) -dist_min;
+        */
+
+        // Normal random version
+        origin.x() += (normalRandom()-0.5) * (dist_min/2.);
+        origin.y() += (normalRandom()-0.5) * (dist_min/2.);
+        origin.z() += (normalRandom()-0.5) * (dist_min/2.);
+
+
+        //Fix the height to previous
+        Vector3f newUv = cartesianToSphericalCoord(origin);
+        newUv.x() = oldUv.x();
+
+        origin = sphericalToCartesianCoord(newUv);
+
+
         vertices->_positions[v.idx()]= origin;
     }
-
-    /*
-    for(int i = 0; i < vertices->_positions.size(); i++){
-        float factor = (980.0+ std::rand()%50) / 1000.0;
-        vertices->_positions[i] += vertices->_normals[i] * factor; //faire perpendiculaire à _normals
-        //ou solution Marc (discord)
-        //ou : https://experilous.com/1/blog/post/procedural-planet-generation
-    }
-    */
-
-    //updateMeshFromSurfaceMesh();
 }
