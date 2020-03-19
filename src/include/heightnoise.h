@@ -12,7 +12,8 @@ using namespace noise;
 class HeightNoise
 {
 public:
-    HeightNoise();
+    HeightNoise(){};
+    HeightNoise(int frequence, int octave, int persistence);
     ~HeightNoise();
     /**
      * @brief getValue get the value noise.

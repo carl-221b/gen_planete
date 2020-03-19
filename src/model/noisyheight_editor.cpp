@@ -2,6 +2,18 @@
 #include <time.h>
 
 
+NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape):Editor(shape){
+    _octave = 4+std::rand()%3;
+    _frequence = 0.5+ (std::rand()%1500)/1000.0;
+    _persistence = 0.5 + std::rand()%250/1000.0;
+}
+
+NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape, int octave, int frequence, int persistence): Editor(shape){
+    _octave = octave;
+    _frequence = frequence;
+    _persistence = persistence;
+}
+
 NoisyHeight_Editor::~NoisyHeight_Editor()
 {
 
@@ -23,7 +35,7 @@ void NoisyHeight_Editor::edit(){
 
     std::srand(time(NULL));
 
-    HeightNoise noise;
+    HeightNoise noise(_frequence ,_octave ,_persistence);
 
     for(std::vector<Eigen::Vector3f>::iterator it = vertices->_positions.begin() ; it != vertices->_positions.end(); ++it){
 
