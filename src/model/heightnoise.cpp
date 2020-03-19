@@ -5,8 +5,9 @@
 
 using namespace Eigen;
 
-HeightNoise::HeightNoise(int frequence, int octave, int persistence)
+HeightNoise::HeightNoise(/*int seed,*/ int frequence, int octave, int persistence)
 {
+    //myModule.SetSeed(seed);
     myModule.SetFrequency(frequence);
     myModule.SetOctaveCount(octave);
     myModule.SetPersistence(persistence);

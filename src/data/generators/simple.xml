@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <params>
-    <basic_shape name="icosphere" nb_subdivision="5" organic="true"/>
-    <editor name="noisy_height" />
+
+    <basic_shape name="icosphere"/>
+
+    <shape_params>
+        <nb_subdivision value="5"/>
+        <organic value="true"/>
+    </shape_params>
+
+    <editor name="random" />
+
 </params>

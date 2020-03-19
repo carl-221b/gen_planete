@@ -4,11 +4,9 @@
 #include <iostream>
 
 #include "shader.h"
-#include "icosphere.h"
+#include "shape.h"
 #include "trackball.h"
 #include "rendering.h"
-
-#include "basic_editor.h"
 
 /**
  * @brief 

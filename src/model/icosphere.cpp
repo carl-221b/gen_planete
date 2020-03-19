@@ -302,9 +302,9 @@ void Icosphere::organicTriangulation(){
         */
 
         // Normal random version
-        origin.x() += (normalRandom()-0.5) * (dist_min/2.);
-        origin.y() += (normalRandom()-0.5) * (dist_min/2.);
-        origin.z() += (normalRandom()-0.5) * (dist_min/2.);
+        origin.x() += (normalRandom()-0.5f) * (dist_min*0.4f);
+        origin.y() += (normalRandom()-0.5f) * (dist_min*0.4f);
+        origin.z() += (normalRandom()-0.5f) * (dist_min*0.4f);
 
 
         //Fix the height to previous

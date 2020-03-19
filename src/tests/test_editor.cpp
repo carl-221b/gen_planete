@@ -35,6 +35,7 @@ TEST(EditorTest, edit_sameplanet_with_samevalue) {
     Shape::Vertices* vertices_shape_bis =  shape_bis->getVertices();
 
     for(int i = 0; i < length; i++){
+        //Comparaison problème
         EXPECT_EQ(vertices_shape_bis->_positions[i], vertices_shape->_positions[i]);
         EXPECT_EQ(vertices_shape_bis->_colors[i], vertices_shape->_colors[i]);
         EXPECT_EQ(vertices_shape_bis->_normals[i], vertices_shape->_normals[i]);

@@ -45,7 +45,7 @@ endif()
 #Sources
 
 set(SRC_FILES
-    model/basic_editor.cpp
+    model/random_editor.cpp
     model/noisyheight_editor.cpp
     model/heightnoise.cpp
     model/icosphere.cpp
@@ -60,8 +60,9 @@ set(SRC_FILES
 )
 
 set(HEADERS
+    include/thresholdtable.h
     include/heightnoise.h
-    include/basic_editor.h
+    include/random_editor.h
     include/noisyheight_editor.h
     include/shape.h
     include/editor.h
