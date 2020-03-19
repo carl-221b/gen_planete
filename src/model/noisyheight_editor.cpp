@@ -63,6 +63,6 @@ void NoisyHeight_Editor::edit(){
         }
 
     }
-
+    _shape->computeNormals();
     //_shape->updateVertices(vertices);
 }

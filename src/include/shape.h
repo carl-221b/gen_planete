@@ -39,6 +39,8 @@ public:
      */
     virtual Vertices* getVertices() = 0;
 
+    virtual void computeNormals() = 0;
+
     /**
      * @brief Get the Vertices object (const)
      *

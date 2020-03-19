@@ -87,6 +87,11 @@ private:
     void updateMeshFromSurfaceMesh();
 
     /**
+     * @brief Compute normal for each face
+     */
+    void computeNormals();
+
+    /**
      * @brief Move vertices positions to make the planet look more organic
      */
     void organicTriangulation();
