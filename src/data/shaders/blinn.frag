@@ -5,7 +5,7 @@ uniform vec3 light_dir_world;
 
 in vec4 vert_pos_view;
 in vec3 vert_normal_view;
-in vec3 v_color;
+flat in vec3 v_color;
 
 out vec4 out_color;
 
