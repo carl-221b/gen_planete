@@ -98,13 +98,17 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
     //Switch parameters
     if(name == "noisy_height")
     {
+        //Default parameters
+        double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO;
+        ColorThresholdTable* colors_threshold = nullptr;
+
         ed = new NoisyHeight_Editor(shape);
     }
     else if(name == "random")
     {
         //Default parameters
-        double maximum_displacement_ratio = RANDOM_ED_DEFAULT_MAXIMUM_DISPLACEMENT_RATIO;
-        ColorThresholdTable* colors_treshold = nullptr;
+        double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO;
+        ColorThresholdTable* colors_threshold = nullptr;
 
         xml_node editor_params;
         if((editor_params = root.child("editor_params")))
@@ -117,10 +121,11 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
 
             if ((child = editor_params.child("colors_treshold")))
             {
-                colors_treshold = readColorThresholdTable(child);
+                colors_threshold = readColorThresholdTable(child);
             }
         }
-        ed = new Random_Editor(shape, maximum_displacement_ratio, colors_treshold);
+
+        ed = new Random_Editor(shape, maximum_displacement_ratio, colors_threshold);
     }
     else throw std::runtime_error("Not implemented editor.");
 
@@ -133,16 +138,16 @@ ColorThresholdTable *XMLGenerator::readColorThresholdTable(pugi::xml_node &node)
 {
     using namespace pugi;
 
-    ColorThresholdTable* colors_treshold = nullptr;
+    ColorThresholdTable* colors_threshold = nullptr;
 
     Eigen::Vector3f color;
     xml_node chilNode;
     if ((chilNode = node.child("default_color")))
     {
         color = readVector3f(chilNode);
-        colors_treshold = new ColorThresholdTable(color);
+        colors_threshold = new ColorThresholdTable(color);
     }
-    else colors_treshold = new ColorThresholdTable();
+    else colors_threshold = new ColorThresholdTable();
 
     if ((chilNode = node.child("table")))
     {
@@ -153,10 +158,10 @@ ColorThresholdTable *XMLGenerator::readColorThresholdTable(pugi::xml_node &node)
 
             child = treshold.child("color");
             color = readVector3f(child);
-            colors_treshold->addLayer(value, color);
+            colors_threshold->addLayer(value, color);
         }
     }
-    return colors_treshold;
+    return colors_threshold;
 }
 
 bool XMLGenerator::readBool(pugi::xml_node &node)

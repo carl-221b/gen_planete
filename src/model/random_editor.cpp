@@ -8,22 +8,8 @@ Random_Editor::Random_Editor(Shape *shape, double maximum_displacement_ratio, Co
     _name = "random";
     if(layers == nullptr)
     {
-        //Default colors for layer
-
-        Eigen::Vector3f defaultCol{0.2f, 0.2f, 0.2f};
-        _layers = new ThresholdTable<Eigen::Vector3f>(defaultCol);
-
-        Eigen::Vector3f sea{0.0f, 0.0f, 0.5f};
-        _layers->addLayer(0, sea);
-
-        Eigen::Vector3f ground{0.0f, 0.33f, 0.0f};
-        _layers->addLayer(0.5, ground);
-
-        Eigen::Vector3f montain{0.5f, 0.25f, 0.0f};
-        _layers->addLayer(0.9, montain);
-
-        Eigen::Vector3f ice{0.8f, 0.8f, 0.8f};
-        _layers->addLayer(1.0, ice);
+        //Default colors layer
+        _layers = DefaultColorThresholdTable();
     }
     else
     {
@@ -52,15 +38,14 @@ void Random_Editor::edit(){
 
     for(Eigen::Vector3f& point : vertices->_positions)
     {
-        double factor = distribution(generator);
-        //std::cout << factor<<std::endl;
-        if(factor > 0.0){
-            point *= 1.0 + factor * _maximum_displacement_ratio;
+        double heightFactor = distribution(generator);
+        if(heightFactor > 0.0){
+            point *= 1.0 + heightFactor * _maximum_displacement_ratio;
         }
-        Eigen::Vector3f color = _layers->getColorLayerByValue(factor);
-        //std::cout <<"C "<< color<<std::endl;
+        Eigen::Vector3f color = _layers->getColorLayerByValue(heightFactor);
         assignColor(vertices, color);
     }
+     _shape->computeNormals();
 }
 
 std::string Random_Editor::info() const

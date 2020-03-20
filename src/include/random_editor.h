@@ -3,7 +3,6 @@
 
 #include "editor.h"
 
-#define RANDOM_ED_DEFAULT_MAXIMUM_DISPLACEMENT_RATIO 0.1
 
 /**
  * @brief Applies a random modification to the position (x,y,z) of each vertex and applies color depending on the new position.
@@ -13,7 +12,7 @@ class Random_Editor : public Editor {
 public:
 
     Random_Editor(Shape* shape,
-                  double maximum_displacement_ratio = RANDOM_ED_DEFAULT_MAXIMUM_DISPLACEMENT_RATIO,
+                  double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO,
                   ColorThresholdTable *layers = nullptr);
     ~Random_Editor();
 

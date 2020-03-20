@@ -4,6 +4,8 @@
 #include "shape.h"
 #include "thresholdtable.h"
 
+#define DEFAULT_MAXIMUM_DISPLACEMENT_RATIO 0.1
+
 /**
  * @brief Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet
  *

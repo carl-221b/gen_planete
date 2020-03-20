@@ -45,9 +45,10 @@ endif()
 #Sources
 
 set(SRC_FILES
+    model/thresholdtable.cpp
     model/random_editor.cpp
     model/noisyheight_editor.cpp
-    model/heightnoise.cpp
+    model/noiserandom.cpp
     model/icosphere.cpp
     model/advanced_editor.cpp
     model/xmlgenerator.cpp
@@ -61,7 +62,7 @@ set(SRC_FILES
 
 set(HEADERS
     include/thresholdtable.h
-    include/heightnoise.h
+    include/noiserandom.h
     include/random_editor.h
     include/noisyheight_editor.h
     include/shape.h

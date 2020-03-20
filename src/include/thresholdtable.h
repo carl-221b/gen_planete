@@ -51,7 +51,8 @@ public:
     void addLayer(double value, T data){
         if(value < -1. || value > 1.)
         {
-            std::cerr << "Warning : Adding value to treshold table in scale outside convention [-1, 1].\n";
+            std::cerr << "Warning : Adding value to treshold table in scale outside convention [-1, 1].\n"
+                      << "Value : "<< value << ".\n";
         }
         this->addLayer(Threshold<T>(value, data));
     }
@@ -63,10 +64,11 @@ public:
      * Print a warning if convention [-1,1] is noit respected.
      */
     T getColorLayerByValue(double value) const{
-        if(value < -1. || value > 1.)
+        if(value <= -1. || value >= 1.)
         {
-            std::cerr << "Warning : Get value to treshold table in scale outside convention [-1, 1].\n"
-                      << "Can be a result not desired.\n";
+            std::cerr << "Warning : Get value to treshold table in scale outside convention ]-1, 1[.\n"
+                      << "Can be a result not desired.\n"
+                      << "Value : "<< value << ".\n";
         }
         Threshold<T> val(value, T());
         auto it = _layers.upper_bound(val);
@@ -110,4 +112,7 @@ private:
  */
 typedef ThresholdTable<Eigen::Vector3f> ColorThresholdTable;
 
+ColorThresholdTable *DefaultColorThresholdTable();
+
 #endif // THRESHOLDTABLE_H
+
