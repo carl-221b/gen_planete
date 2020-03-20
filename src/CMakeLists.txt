@@ -45,6 +45,7 @@ endif()
 #Sources
 
 set(SRC_FILES
+    model/aleatorymode.cpp
     model/thresholdtable.cpp
     model/random_editor.cpp
     model/noisyheight_editor.cpp
@@ -61,6 +62,7 @@ set(SRC_FILES
 )
 
 set(HEADERS
+    include/aleatorymode.h
     include/thresholdtable.h
     include/noiserandom.h
     include/random_editor.h

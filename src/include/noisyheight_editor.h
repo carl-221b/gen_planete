@@ -4,7 +4,6 @@
 #include "editor.h"
 #include "noiserandom.h"
 
-
 /**
  * @brief The NoisyHeight_Editor class permit to use a noise in order to displace vertices
  * and apply a color from the resulting height.

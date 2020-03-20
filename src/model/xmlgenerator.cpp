@@ -100,18 +100,62 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
     {
         //Default parameters
         double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO;
+        Mode_Aleatory_Flags flags =
+                ALEA_OCTAVE      |
+                ALEA_FREQUENCE   |
+                ALEA_PERSISTENCE |
+                ALEA_SEED        ;
+
+        int octave;
+        double frequence;
+        double persistence;
+        int seed;
         ColorThresholdTable* colors_threshold = nullptr;
 
-        ed = new NoisyHeight_Editor(shape);
+        xml_node editor_params;
+        if((editor_params = root.child("editor_params")))
+        {
+            xml_node child;
+            if ((child = editor_params.child("maximum_displacement_ratio")))
+            {
+                maximum_displacement_ratio = readDouble(child);
+            }
+
+            if ((child = editor_params.child("octave")))
+            {
+                octave = readInt(child);
+                flags = flags & ~ALEA_OCTAVE;
+            }
+
+            if ((child = editor_params.child("frequence")))
+            {
+                frequence = readDouble(child);
+                flags = flags & ~ALEA_FREQUENCE;
+            }
+
+            if ((child = editor_params.child("persistence")))
+            {
+                persistence = readDouble(child);
+                flags = flags & ~ALEA_PERSISTENCE;
+            }
+
+            if ((child = editor_params.child("seed")))
+            {
+                seed = readInt(child);
+                flags = flags & ~ALEA_SEED;
+            }
+
+            if ((child = editor_params.child("colors_treshold")))
+            {
+                colors_threshold = readColorThresholdTable(child);
+            }
+        }
+        ed = new NoisyHeight_Editor(shape, maximum_displacement_ratio, flags, octave, frequence, persistence, seed, colors_threshold);
     }
     else if(name == "random")
     {
         //Default parameters
         double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO;
-        int octave;
-        double frequence;
-        double persistence;
-        int seed;
         ColorThresholdTable* colors_threshold = nullptr;
 
         xml_node editor_params;
