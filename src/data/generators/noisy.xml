@@ -14,6 +14,11 @@
 
    <editor_params>
        <maximum_displacement_ratio value="0.1"/>
+       <octave value="6"/>
+       <frequence value="1.0"/>
+       <persistence value="0.5"/>
+       <!-- <seed value="200"/> -->
+
        <colors_treshold>
            <default_color>
                <vector3f x="0." y="0." z="0."/>
