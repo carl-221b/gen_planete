@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<params>
+
+   <!-- Basic shape -->
+   <basic_shape name="icosphere"/>
+
+   <shape_params>
+       <nb_subdivision value="8"/>
+       <organic value="true"/>
+   </shape_params>
+
+   <!-- Editor -->
+   <editor name="noisy_height" />
+
+   <editor_params>
+       <maximum_displacement_ratio value="0.1"/>
+       <octave value="6"/>
+       <frequence value="5"/>
+       <persistence value="0.7"/>
+       <seed value="200"/>
+
+       <colors_treshold>
+           <default_color>
+               <vector3f x="0." y="0." z="0."/>
+           </default_color>
+           <table>
+               <layer>
+                   <max_treshold value="0."/>
+                   <color>
+                       <vector3f x="0.1" y="0." z="0.6"/>
+                   </color>
+               </layer>
+               <layer>
+                   <max_treshold value="0.1"/>
+                   <color>
+                       <vector3f x="0.5" y="0.5" z="0."/>
+                   </color>
+               </layer>
+               <layer>
+                   <max_treshold value="0.7"/>
+                   <color>
+                       <vector3f x="0.1" y="0.5" z="0.1"/>
+                   </color>
+               </layer>
+               <layer>
+                   <max_treshold value="0.95"/>
+                   <color>
+                       <vector3f x="0.75" y="0.5" z="0."/>
+                   </color>
+               </layer>
+               <layer>
+                   <max_treshold value="1.0"/>
+                   <color>
+                       <vector3f x="1.0" y="1." z="1.0"/>
+                   </color>
+               </layer>
+           </table>
+       </colors_treshold>
+   </editor_params>
+
+</params>

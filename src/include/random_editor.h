@@ -1,21 +1,27 @@
-#ifndef BASIC_EDITOR_H
-#define BASIC_EDITOR_H
+#ifndef RANDOM_EDITOR_H
+#define RANDOM_EDITOR_H
 
 #include "editor.h"
+
+
 /**
  * @brief Applies a random modification to the position (x,y,z) of each vertex and applies color depending on the new position.
  * This class allows to transform a generic icosphere into a simple planet
  */
-
-class Basic_Editor : public Editor {
+class Random_Editor : public Editor {
 public:
-    Basic_Editor(Shape* shape): Editor(shape) {}
-    ~Basic_Editor();
+
+    Random_Editor(Shape* shape,
+                  double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO,
+                  ColorThresholdTable *layers = nullptr);
+    ~Random_Editor();
 
     /**
      * @brief Applies vertex deplacement and colors the shape
      */
-    void edit();
+    virtual void edit();
+
+    virtual std::string info() const;
 
 protected:
 
@@ -29,8 +35,14 @@ private:
      * Each float value is in [0,1].
      */
     void assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors);
+
+private:
+
+    double _maximum_displacement_ratio;
+    ColorThresholdTable* _layers;
+
 };
 
-#endif // BASIC_EDITOR_H
+#endif // RANDOM_EDITOR_H
 
 

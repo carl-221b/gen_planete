@@ -31,20 +31,6 @@ private :
     std::chrono::time_point<Clock> _start, _end;
 };
 
-//TO DEPLACE
-// return a uniformly distributed random value
-static double rand_gen() {
-   return ( (double)(rand()) + 1. )/( (double)(RAND_MAX) + 1. );
-}
-
-//  TO DEPLACE
-// return a normally distributed random value
-static double normalRandom() {
-   double v1=rand_gen();
-   double v2=rand_gen();
-   return cos(2*3.14*v2)*sqrt(-2.*log(v1));
-}
-
 /**
  * @brief cartesianToPolarCoord, transform cartesian coordinates to polar.
  * Convention : use radians to output.
