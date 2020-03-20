@@ -2,7 +2,9 @@
 
 #include <gtest/gtest.h>
 
-#define PRECISION_NEED (10e-4)
+#include "thresholdtable.h"
+
+//TODO
 
 TEST(TresholdTest, creation) {
 
