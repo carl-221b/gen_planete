@@ -11,7 +11,7 @@ template <typename T>
 struct Threshold
 {
     Threshold(double max, T data)
-        : _max(max), _data(data.data()){}
+        : _max(max), _data(data){}
 
     double _max;
     T _data;
@@ -56,11 +56,11 @@ public:
     }
 
     T getDefaultColor() const{
-        return _layers;
+        return _layers.end()->_data;
     }
 
     const std::set<Threshold<T>>& getLayers() const{
-        return _layers.end()->_color;
+        return _layers;
     }
 
 private:

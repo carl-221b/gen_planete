@@ -6,7 +6,7 @@
 
 /**
  * @brief Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet
- * 
+ *
  */
 class Editor {
 public:
@@ -15,14 +15,25 @@ public:
 
     /**
      * @brief Applies vertex deplacement and colors the shape
-     * 
      */
     virtual void edit() = 0;
 
+    virtual std::string info() const
+    {
+        return _name;
+    }
+
+    std::string name() const
+    {
+        return _name;
+    }
+
 protected:
+    std::string _name;
     Shape* _shape;
 };
 
 
 
 #endif // EDITOR_H
+

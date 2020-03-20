@@ -76,6 +76,8 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
 {
     using namespace pugi;
 
+    Editor* ed;
+
     xml_node editorenode = root.child("editor");
 
     //Choose basic_shape
@@ -90,9 +92,7 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
     //Switch parameters
     if(name == "noisy_height")
     {
-        std::cout << "Editor : " << name <<" \n";
-        NoisyHeight_Editor ed(shape);
-        ed.edit();
+        ed = new NoisyHeight_Editor(shape);
     }
     else if(name == "random")
     {
@@ -114,12 +114,13 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
                 colors_treshold = readColorThresholdTable(child);
             }
         }
-
-        std::cout << "Editor : " << name <<" \n";
-        Random_Editor ed(shape, maximum_displacement_ratio, colors_treshold);
-        ed.edit();
+        ed = new Random_Editor(shape, maximum_displacement_ratio, colors_treshold);
     }
     else throw std::runtime_error("Not implemented editor.");
+
+    std::cout << "Editor : " << ed->info() <<" \n";
+    ed->edit();
+    delete ed;
 }
 
 ColorThresholdTable *XMLGenerator::readColorThresholdTable(pugi::xml_node &node)
@@ -139,16 +140,15 @@ ColorThresholdTable *XMLGenerator::readColorThresholdTable(pugi::xml_node &node)
 
     if ((chilNode = node.child("table")))
     {
-        double value;
         for(xml_node treshold : chilNode.children("layer"))
         {
             xml_node child= treshold.child("max_treshold");
-            value = readDouble(child);
+            double value = readDouble(child);
 
             child = treshold.child("color");
             color = readVector3f(child);
+            colors_treshold->addLayer(value, color);
         }
-        colors_treshold->addLayer(value, color);
     }
     return colors_treshold;
 }
@@ -180,7 +180,7 @@ Eigen::Vector3f XMLGenerator::readVector3f(pugi::xml_node &node)
     using namespace pugi;
     Eigen::Vector3f vect;
     int i = 0;
-    for(xml_attribute val_attr: node.attributes())
+    for(xml_attribute val_attr: node.child("vector3f").attributes())
     {
         vect(i) = val_attr.as_double();
         i++;

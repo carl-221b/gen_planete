@@ -12,19 +12,21 @@ class NoisyHeight_Editor : public Editor
 {
 public:
     NoisyHeight_Editor(Shape* shape);
-    NoisyHeight_Editor(Shape* shape, int octave, int frequence, int persistence);
+    NoisyHeight_Editor(Shape* shape, double octave, double frequence, double persistence);
     ~NoisyHeight_Editor();
 
-    void edit();
+    virtual void edit();
+
+    virtual std::string info() const;
 
 protected:
 
 private:
     void assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors);
-
-    int _octave;
-    int _frequence;
-    int _persistence;
+    double _octave;
+    double _frequence;
+    double _persistence;
+    //double _seed;
 };
 
 #endif // NOISYHEIGHT_EDITOR_H

@@ -22,6 +22,8 @@ public:
      */
     virtual void edit();
 
+    virtual std::string info() const;
+
 protected:
 
 private:

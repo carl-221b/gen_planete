@@ -45,7 +45,9 @@ private:
     ColorThresholdTable* readColorThresholdTable(pugi::xml_node& node);
 
     bool readBool(pugi::xml_node& node);
+
     int readInt(pugi::xml_node& node);
+
     double readDouble(pugi::xml_node& node);
 
     Eigen::Vector3f readVector3f(pugi::xml_node& node);

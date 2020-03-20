@@ -8,6 +8,6 @@
         <organic value="true"/>
     </shape_params>
 
-    <editor name="random" />
+    <editor name="noisy_height" />
 
 </params>

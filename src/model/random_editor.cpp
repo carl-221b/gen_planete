@@ -5,6 +5,7 @@
 Random_Editor::Random_Editor(Shape *shape, double maximum_displacement_ratio, ColorThresholdTable *layers)
     :Editor(shape), _maximum_displacement_ratio(maximum_displacement_ratio)
 {
+    _name = "random";
     if(layers == nullptr)
     {
         Eigen::Vector3f defaultCol{0.2f, 0.2f, 0.2f};
@@ -50,9 +51,27 @@ void Random_Editor::edit(){
     for(Eigen::Vector3f& point : vertices->_positions)
     {
         double factor = distribution(generator);
+        //std::cout << factor<<std::endl;
         if(factor > 0.0){
             point *= 1.0 + factor * _maximum_displacement_ratio;
         }
-        assignColor(vertices, _layers->getColorLayerByValue(factor));
+        Eigen::Vector3f color = _layers->getColorLayerByValue(factor);
+        //std::cout <<"C "<< color<<std::endl;
+        assignColor(vertices, color);
     }
+}
+
+std::string Random_Editor::info() const
+{
+    std::stringstream ss;
+    ss <<  Editor::info() << "\nWith parameters\n"
+          << "maximum_displacement_ratio " << _maximum_displacement_ratio << "\n"
+          << "Layers : \n";
+
+    for (Threshold<Eigen::Vector3f> tr : _layers->getLayers())
+    {
+        ss << "max : " << tr._max <<" \ncolor :\n"<< tr._data << "\n\n";
+    }
+
+    return ss.str();
 }
