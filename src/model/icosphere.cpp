@@ -295,9 +295,9 @@ void Icosphere::organicTriangulation(){
         Vector3f oldUv = cartesianToSphericalCoord(origin);
 
         // Random displacement in a sphere of radius dist_min
-        origin.x() += NoiseRandom::random() * dist_min;
-        origin.y() += NoiseRandom::random() * dist_min;
-        origin.z() += NoiseRandom::random() * dist_min;
+        origin.x() += NoiseRandom::random(-dist_min, dist_min);
+        origin.y() += NoiseRandom::random(-dist_min, dist_min);
+        origin.z() += NoiseRandom::random(-dist_min, dist_min);
 
         // Normal random version
         //origin.x() += NoiseRandom::normalRandom(0.0, dist_min/2);

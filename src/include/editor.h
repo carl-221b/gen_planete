@@ -6,6 +6,21 @@
 
 #define DEFAULT_MAXIMUM_DISPLACEMENT_RATIO 0.1
 
+
+enum Mode_Aleatory_Flags
+{
+    NO_ALEATORY         = 0,
+    ALEA_OCTAVE         = 1 << 0,
+    ALEA_FREQUENCE      = 1 << 1,
+    ALEA_PERSISTENCE    = 1 << 2,
+    ALEA_SEED           = 1 << 3,
+};
+
+inline Mode_Aleatory_Flags operator|(Mode_Aleatory_Flags a, Mode_Aleatory_Flags b)
+{
+    return static_cast<Mode_Aleatory_Flags>(static_cast<int>(a) | static_cast<int>(b));
+}
+
 /**
  * @brief Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet
  *

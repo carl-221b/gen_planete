@@ -108,6 +108,10 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
     {
         //Default parameters
         double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO;
+        int octave;
+        double frequence;
+        double persistence;
+        int seed;
         ColorThresholdTable* colors_threshold = nullptr;
 
         xml_node editor_params;

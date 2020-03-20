@@ -22,12 +22,13 @@ TEST(EditorTest, edit_noisyheight) {
     delete shape;
 }
 
-TEST(EditorTest, edit_sameplanet_with_samevalue) {
-
+TEST(EditorTest, edit_sameplanet_with_samevalue)
+{
+    Mode_Aleatory_Flags alea = NO_ALEATORY;
     Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
     Shape* shape_bis = new Icosphere(DEFAULT_NB_SUBDIVISION);
-    Editor* ed = new NoisyHeight_Editor(shape,10, 10,10,10, 10, nullptr);
-    Editor* ed_bis = new NoisyHeight_Editor(shape_bis,10, 10,10,10, 10, nullptr);
+    Editor* ed = new NoisyHeight_Editor(shape,10, alea, 10,10,10, 10, nullptr);
+    Editor* ed_bis = new NoisyHeight_Editor(shape_bis,10, alea, 10,10,10, 10, nullptr);
     ed->edit();
     ed_bis->edit();
     int length = shape->getVertices()->_positions.size();

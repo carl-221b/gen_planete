@@ -14,7 +14,7 @@ namespace NoiseRandom
  * @brief random
  * @return a random number. value between [-1, 1]
  */
-double random();
+double random(double min, double max);
 
 /**
  * @brief normalRandom

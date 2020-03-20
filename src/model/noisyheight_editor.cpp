@@ -5,15 +5,38 @@
 #include "common.h"
 
 NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape)
-    :NoisyHeight_Editor(shape, DEFAULT_MAXIMUM_DISPLACEMENT_RATIO, 4+std::rand()%3, 0.5+ (std::rand()%1500)/1000.0, 0.5 + std::rand()%250/1000.0,
-    time(nullptr))
+    :NoisyHeight_Editor(shape, DEFAULT_MAXIMUM_DISPLACEMENT_RATIO,
+                        ALEA_OCTAVE      |
+                        ALEA_FREQUENCE   |
+                        ALEA_PERSISTENCE |
+                        ALEA_SEED        ,
+                        0,
+                        0,
+                        0,
+                        0)
 {
 }
 
-NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape, double maximum_displacement_ratio, int octave, double frequence, double persistence, int seed, ColorThresholdTable *layers):
+NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape,
+                                       double maximum_displacement_ratio,
+                                       Mode_Aleatory_Flags flags,
+                                       int octave,
+                                       double frequence,
+                                       double persistence,
+                                       int seed,
+                                       ColorThresholdTable *layers):
     Editor(shape), _maximum_displacement_ratio(maximum_displacement_ratio), _octave(octave), _frequence(frequence), _persistence(persistence), _seed(seed)
 {
     _name = "noisy_height";
+
+    if(ALEA_OCTAVE & flags)
+        _octave = (int)NoiseRandom::random(1, 20);
+    if(ALEA_FREQUENCE & flags)
+        _frequence = NoiseRandom::random(0.2, 8.0);
+    if(ALEA_PERSISTENCE & flags)
+        _persistence = NoiseRandom::random(0.0, 1.0);
+    if(ALEA_SEED & flags)
+        _seed = (int)NoiseRandom::random(std::numeric_limits<int>::min(), std::numeric_limits<int>::max());
 
     if(layers == nullptr)
     {
@@ -40,7 +63,7 @@ void NoisyHeight_Editor::edit()
     Shape::Vertices* vertices = _shape->getVertices();
     vertices->_colors.resize(0);
 
-    NoiseRandom::HeightNoise noise(_seed, 2.0 ,6 ,0.5);
+    NoiseRandom::HeightNoise noise(_seed, _frequence, _octave, _persistence);
 
     for(Eigen::Vector3f& point : vertices->_positions)
     {
@@ -50,7 +73,7 @@ void NoisyHeight_Editor::edit()
             point *= (1 + heightFactor * _maximum_displacement_ratio);
         }
         Eigen::Vector3f color = _layers->getColorLayerByValue(heightFactor);
-        color = color + color * NoiseRandom::random() * 0.15;
+        color = color + color * NoiseRandom::random(-0.15, 0.15);
         assignColor(vertices, color);
     }
     _shape->computeNormals();

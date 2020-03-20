@@ -37,7 +37,8 @@ double NoiseRandom::normalRandom(double mean, double deviation)
     return distribution(_randomGen);
 }
 
-double NoiseRandom::random()
+double NoiseRandom::random(double min, double max)
 {
-    return 2*( (double)(std::rand()) + 1. )/( (double)(RAND_MAX) + 1. ) - 1;
+    std::uniform_real_distribution<double>distribution(min, max);
+    return distribution(_randomGen);
 }
