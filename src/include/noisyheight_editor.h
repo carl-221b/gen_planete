@@ -11,7 +11,9 @@
 class NoisyHeight_Editor : public Editor
 {
 public:
+
     NoisyHeight_Editor(Shape* shape);
+
     NoisyHeight_Editor(Shape* shape, int octave, double frequence, double persistence/*, int seed*/);
     ~NoisyHeight_Editor();
 

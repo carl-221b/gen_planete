@@ -33,18 +33,12 @@ template <class T>
 class ThresholdTable
 {
 public:
-    /**
-     * @brief Defult constructor with default value = default data constructor.
-     */
-    ThresholdTable(){
-         ThresholdTable(T());
-    }
 
     /**
      * @brief ThresholdTable
      * @param defaultData the default value to set.
      */
-    ThresholdTable(T defaultData){
+    ThresholdTable(T defaultData = T()){
         Threshold<T> defaulLayer(std::numeric_limits<double>::max(), defaultData);
         addLayer(defaulLayer);
     }

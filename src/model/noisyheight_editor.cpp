@@ -26,6 +26,7 @@ void NoisyHeight_Editor::assignColor(Shape::Vertices* vertices, Eigen::Vector3f 
 }
 
 float altered_channel(float c){
+    //-1.5% à 1.5% d'altération
     return c -0.015f + (std::rand()%300/10000.0);
 
 }

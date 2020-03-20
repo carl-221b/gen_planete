@@ -42,7 +42,7 @@ Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
     //Choose basic_shape
     xml_attribute name_attr;
     std::string name;
-    if (name_attr = shapenode.attribute("name")) // attribute really exists
+    if ((name_attr = shapenode.attribute("name"))) // attribute really exists
     {
         name = name_attr.as_string();
     }
@@ -53,13 +53,13 @@ Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
     {
         xml_attribute attr_opt;
         int nb_subdivision = DEFAULT_NB_SUBDIVISION;
-        if (attr_opt = shapenode.attribute("nb_subdivision")) // attribute really exists
+        if ((attr_opt = shapenode.attribute("nb_subdivision"))) // attribute really exists
         {
             nb_subdivision = attr_opt.as_int();
         }
 
         bool organic = false;
-        if (attr_opt = shapenode.attribute("organic")) // attribute really exists
+        if ((attr_opt = shapenode.attribute("organic"))) // attribute really exists
         {
             organic = attr_opt.as_bool();
         }
