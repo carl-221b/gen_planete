@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <params>
-   <!-- TODO -->
+
+   <!-- Basic shape -->
    <basic_shape name="icosphere"/>
 
    <shape_params>
@@ -8,6 +9,7 @@
        <organic value="true"/>
    </shape_params>
 
+   <!-- Editor -->
    <editor name="noisy_height" />
 
    <editor_params>

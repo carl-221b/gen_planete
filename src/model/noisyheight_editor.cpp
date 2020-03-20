@@ -8,11 +8,12 @@ NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape):Editor(shape)
     NoisyHeight_Editor(shape, 4+std::rand()%3, 0.5+ (std::rand()%1500)/1000.0, 0.5 + std::rand()%250/1000.0);
 }
 
-NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape, double octave, double frequence, double persistence): Editor(shape){
+NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape, int octave, double frequence, double persistence/*, int seed*/): Editor(shape){
     _name = "noisy_height";
     _octave = octave;
     _frequence = frequence;
     _persistence = persistence;
+    //_seed = seed;
 }
 
 NoisyHeight_Editor::~NoisyHeight_Editor()
@@ -70,12 +71,12 @@ void NoisyHeight_Editor::edit(){
 
 std::string NoisyHeight_Editor::info() const
 {
-    std::string text;
-    text =  Editor::info() + "\nWith parameters\n"
-          + "Octave " + std::to_string(_octave) + "\n"
-          + "Frequence " + std::to_string(_frequence) + "\n"
-          + "Persistence " + std::to_string(_persistence) + "\n"
-          //+ "Seed " +std::to_string(_seed) + "\n"
-             ;
-    return text;
+    std::stringstream ss;
+    ss <<  Editor::info() << "\nWith parameters\n"
+          << "Octave " << _octave << "\n"
+          << "Frequence " << _frequence << "\n"
+          << "Persistence " << _persistence << "\n"
+          /*<< "Seed " << _seed + "\n"*/;
+
+    return ss.str();
 }
