@@ -8,8 +8,8 @@ using namespace Eigen;
 HeightNoise::HeightNoise(/*int seed,*/ int frequence, int octave, int persistence)
 {
     //myModule.SetSeed(seed);
-    myModule.SetFrequency(6);
-    myModule.SetOctaveCount(1.0);
+    myModule.SetFrequency(2.0);
+    myModule.SetOctaveCount(6);
     myModule.SetPersistence(0.5);
 }
 

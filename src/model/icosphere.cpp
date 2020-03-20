@@ -45,19 +45,19 @@ void Icosphere::computeNormals()
 
     for(unsigned int i = 0; i <  _faces.size(); i++)
     {
-         Vector3i& face = _faces[i];
+        Vector3i& face = _faces[i];
 
-         Vector3f& p0 =  _vertices->_positions[face.x()];
-         Vector3f& p1 =  _vertices->_positions[face.y()];
-         Vector3f& p2 =  _vertices->_positions[face.z()];
+        Vector3f& p0 =  _vertices->_positions[face.x()];
+        Vector3f& p1 =  _vertices->_positions[face.y()];
+        Vector3f& p2 =  _vertices->_positions[face.z()];
 
 
-         Vector3f q1 = p1-p0;
-         Vector3f q2 = p2-p0;
+        Vector3f q1 = p1-p0;
+        Vector3f q2 = p2-p0;
 
-         _vertices->_normals[face.x()] += q1.cross(q2);
-         _vertices->_normals[face.y()] += q1.cross(q2);
-         _vertices->_normals[face.z()] += q1.cross(q2);
+        _vertices->_normals[face.x()] += q1.cross(q2);
+        _vertices->_normals[face.y()] += q1.cross(q2);
+        _vertices->_normals[face.z()] += q1.cross(q2);
 
     }
     // pass 3: normalize
@@ -295,11 +295,10 @@ void Icosphere::organicTriangulation(){
         Vector3f oldUv = cartesianToSphericalCoord(origin);
 
         // Random displacement in a sphere of radius dist_min
-        /*
-        origin.x() += rand_gen() * (2.*dist_min) -dist_min;
-        origin.y() += rand_gen() * (2.*dist_min) -dist_min;
-        origin.z() += rand_gen() * (2.*dist_min) -dist_min;
-        */
+        //origin.x() += rand_gen() * (2.*dist_min) -dist_min;
+        //origin.y() += rand_gen() * (2.*dist_min) -dist_min;
+        //origin.z() += rand_gen() * (2.*dist_min) -dist_min;
+
 
         // Normal random version
         origin.x() += (normalRandom()-0.5f) * (dist_min*0.4f);

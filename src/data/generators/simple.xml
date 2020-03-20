@@ -5,7 +5,7 @@
     <basic_shape name="icosphere"/>
 
     <shape_params>
-        <nb_subdivision value="5"/>
+        <nb_subdivision value="8"/>
         <organic value="true"/>
     </shape_params>
 

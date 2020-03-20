@@ -51,17 +51,23 @@ Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
     //Switch parameters
     if(name == "icosphere")
     {
-        xml_attribute attr_opt;
+        //Default parameters
         int nb_subdivision = DEFAULT_NB_SUBDIVISION;
-        if ((attr_opt = shapenode.attribute("nb_subdivision"))) // attribute really exists
-        {
-            nb_subdivision = attr_opt.as_int();
-        }
-
         bool organic = false;
-        if ((attr_opt = shapenode.attribute("organic"))) // attribute really exists
+
+        xml_node shape_params;
+        if((shape_params = root.child("shape_params")))
         {
-            organic = attr_opt.as_bool();
+            xml_node opt;
+
+            if ((opt = shape_params.child("nb_subdivision"))) // attribute really exists
+            {
+                nb_subdivision = readInt(opt);
+            }
+            if ((opt = shape_params.child("organic"))) // attribute really exists
+            {
+                organic = readBool(opt);
+            }
         }
 
         std::cout << "Basic shape : " << name <<" subdivided "<< nb_subdivision <<" times \n";
