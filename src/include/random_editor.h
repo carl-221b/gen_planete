@@ -10,7 +10,12 @@
  */
 class Random_Editor : public Editor {
 public:
-
+    /**
+     * @brief Random_Editor
+     * @param shape the shpe to modify.
+     * @param maximum_displacement_ratio the maximum displacement.
+     * @param layers the colors with associated bounds of heights.
+     */
     Random_Editor(Shape* shape,
                   double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO,
                   ColorThresholdTable *layers = nullptr);

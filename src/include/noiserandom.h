@@ -5,14 +5,15 @@
 #include <random>
 #include <noise/noise.h>
 
+/**
+ *  Namespace for handle all random number and noise generation.
+ */
 namespace NoiseRandom
 {
 
-#define CLAMP_EPSILON 10e-6
-
 /**
  * @brief random
- * @return a random number. value between [-1, 1]
+ * @return a random number. Value between [-1, 1].
  */
 double random(double min, double max);
 
@@ -20,9 +21,12 @@ double random(double min, double max);
  * @brief normalRandom
  * @param mean the mean of the normal law
  * @param deviation the deviation of the norma law
- * @return a normal random number thyat suit to the normal law.
+ * @return a normal random number that suit to the normal law.
  */
 double normalRandom(double mean, double deviation);
+
+
+#define CLAMP_EPSILON 10e-6
 
 /**
  * @brief The HeightNoise class generate noise.

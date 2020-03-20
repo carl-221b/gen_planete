@@ -17,7 +17,7 @@
        <octave value="6"/>
        <frequence value="5"/>
        <persistence value="0.7"/>
-       <seed value="200"/>
+       <!-- <seed value="200"/> -->
 
        <colors_treshold>
            <default_color>

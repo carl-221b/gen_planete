@@ -3,6 +3,21 @@
 #include <math.h>
 #include <time.h>
 
+static std::random_device _randomDevice;
+static std::mt19937 _randomGen(_randomDevice());
+
+double NoiseRandom::normalRandom(double mean, double deviation)
+{
+    std::normal_distribution<double> distribution(mean, deviation);
+    return distribution(_randomGen);
+}
+
+double NoiseRandom::random(double min, double max)
+{
+    std::uniform_real_distribution<double>distribution(min, max);
+    return distribution(_randomGen);
+}
+
 using namespace Eigen;
 using namespace NoiseRandom;
 
@@ -25,20 +40,4 @@ HeightNoise::~HeightNoise()
 double HeightNoise::getValue(const Vector3f &keygen)
 {
     return _out.GetValue(keygen.x(), keygen.y(), keygen.z());
-}
-
-
-static std::random_device _randomDevice;
-static std::mt19937 _randomGen(_randomDevice());
-
-double NoiseRandom::normalRandom(double mean, double deviation)
-{
-    std::normal_distribution<double> distribution(mean, deviation);
-    return distribution(_randomGen);
-}
-
-double NoiseRandom::random(double min, double max)
-{
-    std::uniform_real_distribution<double>distribution(min, max);
-    return distribution(_randomGen);
 }

@@ -3,7 +3,6 @@
 
 #include "shape.h"
 #include "thresholdtable.h"
-#include "aleatorymode.h"
 
 #define DEFAULT_MAXIMUM_DISPLACEMENT_RATIO 0.1
 
@@ -21,12 +20,11 @@ public:
      */
     virtual void edit() = 0;
 
+    /**
+     * @brief info
+     * @return the informations of editors, overload it to display parameters informations.
+     */
     virtual std::string info() const
-    {
-        return _name;
-    }
-
-    std::string name() const
     {
         return _name;
     }

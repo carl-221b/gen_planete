@@ -46,7 +46,7 @@ Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
     {
         name = name_attr.as_string();
     }
-    else throw std::runtime_error("No attribute \"name\ in node basic_shape");
+    else throw std::runtime_error("No attribute \"name\" in node basic_shape");
 
     //Switch parameters
     if(name == "icosphere")
@@ -106,10 +106,10 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
                 ALEA_PERSISTENCE |
                 ALEA_SEED        ;
 
-        int octave;
-        double frequence;
-        double persistence;
-        int seed;
+        int octave =0;
+        double frequence=0;
+        double persistence=0;
+        int seed=0;
         ColorThresholdTable* colors_threshold = nullptr;
 
         xml_node editor_params;
