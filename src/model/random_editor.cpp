@@ -8,6 +8,7 @@ Random_Editor::Random_Editor(Shape *shape, double maximum_displacement_ratio, Co
     _name = "random";
     if(layers == nullptr)
     {
+        //Default colors
         Eigen::Vector3f defaultCol{0.2f, 0.2f, 0.2f};
         _layers = new ThresholdTable<Eigen::Vector3f>(defaultCol);
 
