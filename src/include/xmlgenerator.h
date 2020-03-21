@@ -7,7 +7,7 @@
 
 // Editors
 #include "noisyheight_editor.h"
-#include "random_editor.h".h"
+#include "random_editor.h"
 
 //Basic shapes
 #include "icosphere.h"

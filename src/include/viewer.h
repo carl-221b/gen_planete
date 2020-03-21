@@ -77,6 +77,8 @@ private:
     bool _wireframe = false;
 
     Eigen::Vector3f _lightDir;
+    float _theta;
+    bool _rotate;
 
     // Mouse parameters
     Eigen::Vector2f _lastMousePos;

@@ -41,6 +41,8 @@ public:
                        int seed,
                        ColorThresholdTable *layers = nullptr);
 
+    NoisyHeight_Editor(Shape* shape);
+
     ~NoisyHeight_Editor();
 
     virtual void edit();

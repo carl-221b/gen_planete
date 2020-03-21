@@ -6,6 +6,8 @@ using namespace Eigen;
 Viewer::Viewer(Rendering* rendering)
 {
    _rendering = rendering;
+   _theta=0;
+   _rotate=true;
 }
 
 Viewer::~Viewer()
@@ -64,7 +66,11 @@ void Viewer::display()
     Matrix4f model_view = (view_matrix*_shape->getTransformationMatrix()).matrix();
     Matrix3f normal_matrix = (view_matrix*_shape->getTransformationMatrix()).linear().inverse().transpose();
 
-    _lightDir =  Vector3f(1,0,1).normalized();
+    Vector3f lightinit(1,0,1);
+    Affine3f affine_light = Translation3f(Vector3f(0,0,0))
+                            * AngleAxisf(_theta, Vector3f::UnitY());
+
+    _lightDir =  (affine_light*lightinit).normalized();
     _lightDir= (view_matrix.topLeftCorner<3,3>()*_lightDir).normalized();
 
 
@@ -72,13 +78,18 @@ void Viewer::display()
 
     _simple_shader->activate();
 
-    _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view);
+    _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view,0);
 
     if(!_ready){
         const Shape::Vertices* shape_vertices = _shape->getVertices();
         _rendering->loadBuffer(shape_vertices, _shape->getFaces());
         _ready = true;
     }
+    _rendering->draw(_shape->getFaces().size(),_simple_shader);
+    _simple_shader->deactivate();
+
+    _simple_shader->activate();
+    _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view,1);
     _rendering->draw(_shape->getFaces().size(),_simple_shader);
 
     _simple_shader->deactivate();
@@ -87,7 +98,7 @@ void Viewer::display()
         _rendering->polygonModeLine();
         _line_shader->activate();
 
-        _rendering->UniformValues(_line_shader, _cam, _lightDir, normal_matrix, model_view);
+        _rendering->UniformValues(_line_shader, _cam, _lightDir, normal_matrix, model_view,0);
 
         _rendering->draw(_shape->getFaces().size(),_line_shader);
 
@@ -100,6 +111,7 @@ void Viewer::display()
 
 void Viewer::updateScene() 
 {
+    if(_rotate) _theta+= 0.02*M_PI;
     display();
 }
 
@@ -202,6 +214,11 @@ void Viewer::keyPressed(int key, int action, int mods)
         {
             _wireframe = !_wireframe;
         }
+        else if(key == GLFW_KEY_A)
+        {
+            _rotate = !_rotate;
+        }
+        
     }
 }
 

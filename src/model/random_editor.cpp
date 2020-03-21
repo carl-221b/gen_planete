@@ -39,9 +39,9 @@ void Random_Editor::edit(){
     for(Eigen::Vector3f& point : vertices->_positions)
     {
         double heightFactor = distribution(generator);
-        if(heightFactor > 0.0){
-            point *= 1.0 + heightFactor * _maximum_displacement_ratio;
-        }
+
+        point *= 1.0 + heightFactor * _maximum_displacement_ratio;
+        
         Eigen::Vector3f color = _layers->getColorLayerByValue(heightFactor);
         assignColor(vertices, color);
     }

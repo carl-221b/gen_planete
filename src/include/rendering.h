@@ -53,7 +53,7 @@ public:
      * @param normal : normal's transformation matrix
      * @param model : model's transformation matrix
      */
-    virtual void UniformValues(Shader* shader, Trackball cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model) = 0;
+    virtual void UniformValues(Shader* shader, Trackball cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model, int sea_mode) = 0;
 
     /**
      * @brief check errors

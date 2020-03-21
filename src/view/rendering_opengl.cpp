@@ -24,6 +24,8 @@ void Rendering_OpenGL::initDisplay(){
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glEnable(GL_POLYGON_OFFSET_FILL);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glPolygonOffset(1.f, 1.f);
 }
 
@@ -35,11 +37,12 @@ void Rendering_OpenGL::polygonModeLine(){
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
-void Rendering_OpenGL::UniformValues(Shader* shader, Trackball cam, Vector3f ligthDir, Matrix3f normal, Matrix4f model){
+void Rendering_OpenGL::UniformValues(Shader* shader, Trackball cam, Vector3f ligthDir, Matrix3f normal, Matrix4f model, int sea_mode){
     glUniformMatrix4fv(shader->getUniformLocation("projection_matrix"), 1, GL_FALSE, cam.computeProjectionMatrix().data());
     glUniform3fv(shader->getUniformLocation("light_dir_world"),1,ligthDir.data());
     glUniformMatrix4fv(shader->getUniformLocation("model_view_matrix"), 1, GL_FALSE, model.data());
     glUniformMatrix3fv(shader->getUniformLocation("normal_matrix"), 1, GL_FALSE, normal.data());
+    glUniform1i(shader->getUniformLocation("sea_mode"),sea_mode);
 }
 
 void Rendering_OpenGL::checkErrors(){
