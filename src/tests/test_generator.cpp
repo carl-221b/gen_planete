@@ -9,3 +9,5 @@ TEST(GeneratorTest, creation) {
     EXPECT_NE (shape,  nullptr);
     delete shape;
 }
+
+//NEED MORE TEST ON READ CORRECT
