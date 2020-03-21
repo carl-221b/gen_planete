@@ -12,6 +12,11 @@
 class NoisyHeight_Editor : public Editor
 {
 public:
+    /**
+     * @brief NoisyHeight_Editor, default constructor, all parameters random.
+     * @param shape the shape to modify.
+     */
+    NoisyHeight_Editor(Shape* shape);
 
     /**
      * @brief NoisyHeight_Editor
@@ -41,8 +46,6 @@ public:
                        int seed,
                        ColorThresholdTable *layers = nullptr);
 
-    NoisyHeight_Editor(Shape* shape);
-
     ~NoisyHeight_Editor();
 
     virtual void edit();
@@ -56,7 +59,6 @@ protected:
 private:
     double _maximum_displacement_ratio;
     int _octave;
-
     double _frequence;
     double _persistence;
     int _seed;
