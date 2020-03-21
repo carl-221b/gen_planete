@@ -31,7 +31,7 @@ NoisyHeight_Editor::NoisyHeight_Editor(Shape* shape,
     if(ALEA_OCTAVE & flags)
         _octave = (int)NoiseRandom::random(1, 20);
     if(ALEA_FREQUENCE & flags)
-        _frequence = NoiseRandom::random(0.2, 8.0);
+        _frequence = NoiseRandom::random(1.0, 8.0);
     if(ALEA_PERSISTENCE & flags)
         _persistence = NoiseRandom::random(0.0, 1.0);
     if(ALEA_SEED & flags)
