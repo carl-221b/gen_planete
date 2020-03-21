@@ -13,7 +13,7 @@ class HeightNoise
 {
 public:
     HeightNoise(){};
-    HeightNoise(int frequence, int octave, int persistence);
+    HeightNoise(int frequence, float octave, float persistence);
     ~HeightNoise();
     /**
      * @brief getValue get the value noise.

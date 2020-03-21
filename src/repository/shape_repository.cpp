@@ -30,15 +30,16 @@ void Shape_Repository::saveOBJ(Shape* shape, const std::string& filename){
 void Shape_Repository::saveOFF(Shape* shape, const std::string& filename){
     std::ofstream myfile;
     myfile.open (filename + ".off");
-    myfile << "OFF\n";
-
+    myfile << "COFF\n";
     const Shape::Vertices* vertices = shape->getVertices();
 
     myfile << vertices->_positions.size() << " " << shape->getFaces().size() << " 0\n"; // 0 is the (ignored) number of edges
 
     for(unsigned int i=0; i < vertices->_positions.size(); i++){
         Eigen::Vector3f p = vertices->_positions.at(i);
-        myfile << p.x() << " " << p.y() << " " << p.z() << "\n";
+        Eigen::Vector3f c = vertices->_colors.at(i);
+        myfile << p.x() << " " << p.y() << " " << p.z() << " " << (int) (c.x()*255) << " " << (int) (c.y()*255) << " " << (int) (c.z()*255) << " 1\n";
+
     }
 
     const std::vector<Eigen::Vector3i> faces = shape->getFaces();
