@@ -5,6 +5,7 @@
 #include "rendering.h"
 
 #include <surface_mesh/surface_mesh.h>
+#include "noiserandom.h"
 
 #define DEFAULT_NB_SUBDIVISION 8
 

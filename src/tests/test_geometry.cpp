@@ -31,12 +31,10 @@ TEST(IcosphereTest, subdivide_0) {
     int sizeVertices = v->_positions.size();
     EXPECT_EQ(sizeVertices, 12);
 
-    //int sizeFaces = shape->getFaces().size();
-    //EXPECT_EQ(sizeFaces, 20);
+    int sizeFaces = shape->getFaces().size();
+    EXPECT_EQ(sizeFaces, 20);
 
-    //Maybe not necessary
-    //int sizeEdges = shape->getEdges().size();
-    //EXPECT_EQ(sizeEdges, 30);
+    //Edge not neccessary
 
     delete shape;
 }

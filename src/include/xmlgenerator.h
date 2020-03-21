@@ -5,7 +5,11 @@
 
 #include <pugixml.hpp>
 
+// Editors
 #include "noisyheight_editor.h"
+#include "random_editor.h".h"
+
+//Basic shapes
 #include "icosphere.h"
 
 /**
@@ -37,6 +41,13 @@ private:
      * @param shape the shape to modify.
      */
     void applyEditor(pugi::xml_node& root, Shape* shape);
+
+    //Readers of specifics nodes
+    ColorThresholdTable* readColorThresholdTable(pugi::xml_node& node);
+    bool readBool(pugi::xml_node& node);
+    int readInt(pugi::xml_node& node);
+    double readDouble(pugi::xml_node& node);
+    Eigen::Vector3f readVector3f(pugi::xml_node& node);
 };
 
 #endif // XMLGENERATOR_H

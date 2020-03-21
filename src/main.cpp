@@ -6,8 +6,7 @@
 #include "noisyheight_editor.h"
 #include "rendering_opengl.h"
 #include "xmlgenerator.h"
-
-#define DEFAULT_SAVE_PATH "./planet"
+#include "shape_repository.h"
 
 Viewer* v;
 
@@ -102,16 +101,15 @@ int main (int argc, char **argv)
 
     //Options and main parameters
     int opt = 0;
-
-    char* file_save = DEFAULT_SAVE_PATH;
+    FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
     while ((opt = getopt(argc, argv, "ho:")) != -1) {
         switch (opt) {
         case 'h':
             usage();
             break;
         case 'o':
-            file_save = optarg;
-            printf("New save path : %s\n", file_save);
+            FILE_SAVE_OUTPUT = optarg;
+            printf("New save path : %s\n", FILE_SAVE_OUTPUT);
             break;
         default:
             usage();

@@ -122,7 +122,7 @@ void Viewer::mousePressed(GLFWwindow *window, int button, int action)
     if(action == GLFW_PRESS) {
         if(button == GLFW_MOUSE_BUTTON_LEFT)
         {
-            std::cout << "Debug: " << "myQuaternion.vec() = " << _cam.sceneOrientation().vec() << std::endl;
+            //std::cout << "Debug: " << "myQuaternion.vec() = " << _cam.sceneOrientation().vec() << std::endl;
             _cam.startRotation(_lastMousePos);
         }
         else if(button == GLFW_MOUSE_BUTTON_RIGHT)
@@ -134,7 +134,7 @@ void Viewer::mousePressed(GLFWwindow *window, int button, int action)
     else if(action == GLFW_RELEASE) {
         if(_button == GLFW_MOUSE_BUTTON_LEFT)
         {
-            std::cout << "Debug: " << "myQuaternion camera vec value = " << _cam.sceneOrientation().vec() << std::endl;
+            //std::cout << "Debug: " << "myQuaternion camera vec value = " << _cam.sceneOrientation().vec() << std::endl;
             _cam.endRotation();
         }
         else if(_button == GLFW_MOUSE_BUTTON_RIGHT)
@@ -195,9 +195,8 @@ void Viewer::keyPressed(int key, int action, int mods)
         if (key == GLFW_KEY_R)
             loadPrograms();
         else if(key == GLFW_KEY_S){
-            //_shape->saveOBJ("planet");
-            Shape_Repository::saveOFF(_shape, DATA_DIR"/planet");
-            Shape_Repository::saveOBJ(_shape, DATA_DIR"/planet");
+            Shape_Repository::saveOBJ(_shape, FILE_SAVE_OUTPUT);
+            Shape_Repository::saveOFF(_shape, FILE_SAVE_OUTPUT);
         }
         else if(key == GLFW_KEY_W)
         {

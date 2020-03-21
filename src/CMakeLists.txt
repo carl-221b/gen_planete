@@ -45,9 +45,11 @@ endif()
 #Sources
 
 set(SRC_FILES
-    model/basic_editor.cpp
+    model/aleatorymode.cpp
+    model/thresholdtable.cpp
+    model/random_editor.cpp
     model/noisyheight_editor.cpp
-    model/heightnoise.cpp
+    model/noiserandom.cpp
     model/icosphere.cpp
     model/advanced_editor.cpp
     model/xmlgenerator.cpp
@@ -60,8 +62,10 @@ set(SRC_FILES
 )
 
 set(HEADERS
-    include/heightnoise.h
-    include/basic_editor.h
+    include/aleatorymode.h
+    include/thresholdtable.h
+    include/noiserandom.h
+    include/random_editor.h
     include/noisyheight_editor.h
     include/shape.h
     include/editor.h
@@ -96,6 +100,8 @@ set(TESTS
     tests/test_time_generation.cpp
     tests/test_generator.cpp
     tests/test_common.cpp
+    tests/test_treshold.cpp
+    tests/test_random.cpp
 )
 add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
 target_link_libraries( unit_tests glbinding libnoise gtest pugixml)
