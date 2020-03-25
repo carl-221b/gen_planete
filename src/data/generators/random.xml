@@ -5,7 +5,9 @@
     <basic_shape name="icosphere"/>
 
     <shape_params>
+	<!-- Nombre de subdivision pour plus de polygones, conseillé entre 0 et 10 -->
         <nb_subdivision value="8"/>
+	<!-- Rajout d'aléatoire pour un maillage moins régulier -->
         <organic value="true"/>
     </shape_params>
 
@@ -14,11 +16,17 @@
     <editor name="random" />
 
     <editor_params>
+
+       	<!-- Ratio de hauteur maximal relativement au rayon de la planet -->
         <maximum_displacement_ratio value="0.1"/>
+	
+       	<!-- Table des couleurs en fonction de la hauteur-->
         <colors_treshold>
+	    <!-- Par défaut-->
             <default_color>
                 <vector3f x="0." y="0." z="0."/>
             </default_color>
+	    <!-- Chaque layer avec son seuil maximal, et sa couleur RGB-->
             <table>
                 <layer>
                     <max_treshold value="0."/>

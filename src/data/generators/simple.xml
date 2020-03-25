@@ -5,7 +5,9 @@
     <basic_shape name="icosphere"/>
 
     <shape_params>
+	<!-- Nombre de subdivision pour plus de polygones, conseillé entre 0 et 10 -->
         <nb_subdivision value="8"/>
+	<!-- Rajout d'aléatoire pour un maillage moins régulier -->
         <organic value="true"/>
     </shape_params>
 

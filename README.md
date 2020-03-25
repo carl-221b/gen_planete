@@ -70,7 +70,9 @@ Un exemple minimaliste est le suivant :
 </params>
 ```
 
-Pour un exemple complet des paramètres disponibles pour un éditeur, regardez le dossier src/data/generators qui contient un fichier de configuration complet par éditeur avec des explications par paramêtre.
+Pour un exemple complet des paramètres disponibles pour un éditeur particulier, regardez le dossier src/data/generators qui contient un fichier de configuration complet par éditeur avec une explications courte par paramètre. 
+
+Pour des paramètres particulier sur les bruits, je vous invite à regarder la doc de la bibliothèque [libnoise](http://libnoise.sourceforge.net/).
 
 ## Interaction fenêtre openGL 
  - Clic and drag : Rotation de la planète
