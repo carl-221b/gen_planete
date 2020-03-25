@@ -1,0 +1,303 @@
+\hypertarget{class_shader}{}\section{Référence de la classe Shader}
+\label{class_shader}\index{Shader@{Shader}}
+
+
+{\ttfamily \#include $<$shader.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_shader_a0d654ebaca4e0555197c0724c6d30610}{Shader} ()
+\item 
+bool \hyperlink{class_shader_ab3326b4493672d0e456e05d9b64c7b28}{load\+From\+Files} (const std\+::string \&fileV, const std\+::string \&fileF)
+\item 
+bool \hyperlink{class_shader_ac849c6315a283ebf04571ca62000c187}{load\+Sources} (const std\+::string \&vsrc, const std\+::string \&fsrc)
+\item 
+void \hyperlink{class_shader_aac46b11981aef0616f45e191201f519a}{activate} () const
+\item 
+void \hyperlink{class_shader_ae7a6e4cdb7719dc501a61d6ef732ad98}{deactivate} () const
+\item 
+int \hyperlink{class_shader_ae42ef5734471e2cdf1e5045c8883961d}{get\+Uniform\+Location} (const char $\ast$name) const
+\item 
+void \hyperlink{class_shader_ae6ebc266e4706be4b040fe23aced651a}{set\+Sampler\+Unit} (const char $\ast$sampler\+Name, int texture\+Unit) const
+\item 
+int \hyperlink{class_shader_a4287e8012d956746f99cf8d1d6a126f8}{get\+Attrib\+Location} (const char $\ast$name) const
+\item 
+int \hyperlink{class_shader_ac6f8837bdac2997de1a79c9a518c664c}{id} () const
+\item 
+bool \hyperlink{class_shader_ade2fdfa75d4447eaac246b8d3b799cec}{valid} () const
+\item 
+void \hyperlink{class_shader_af4bd705b0eb25ec610dffb4b5d694641}{dump\+Infos} () const
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées statiques}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_shader_ab46602912ae536c070edf4720a254c31}{print\+Program\+Info\+Log} (G\+Luint object\+ID)
+\item 
+static void \hyperlink{class_shader_af36e2a57d8f789e95b7d014a8ddfaf97}{print\+Shader\+Info\+Log} (G\+Luint object\+ID)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_shader_a2cf5f11fb1cfd53e9106285b6b9da0b4}{m\+Is\+Valid}
+\item 
+G\+Luint \hyperlink{class_shader_ad3c569bb2c0755c647ca139863d44b55}{m\+Program\+ID}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Permet de manipuler des shaders en G\+L\+SL Exemple d\textquotesingle{}utilisation\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// shader creation:}
+\hyperlink{class_shader}{Shader}* myShader = \textcolor{keyword}{new} \hyperlink{class_shader_a0d654ebaca4e0555197c0724c6d30610}{Shader}();
+\textcolor{comment}{// loading from files (compilation + linking):}
+myShader->\hyperlink{class_shader_ab3326b4493672d0e456e05d9b64c7b28}{loadFromFiles}(\textcolor{stringliteral}{"myShaderFile.vtx"}, \textcolor{stringliteral}{"myShaderFile.frg"});
+
+\textcolor{comment}{// ...}
+
+\textcolor{comment}{// at rending time:}
+myShader->\hyperlink{class_shader_aac46b11981aef0616f45e191201f519a}{activate}();
+\textcolor{comment}{// draw objects}
+\end{DoxyCode}
+ 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_shader_a0d654ebaca4e0555197c0724c6d30610}\label{class_shader_a0d654ebaca4e0555197c0724c6d30610}} 
+\index{Shader@{Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{Shader()}{Shader()}}
+{\footnotesize\ttfamily Shader\+::\+Shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_a0d654ebaca4e0555197c0724c6d30610_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_shader_aac46b11981aef0616f45e191201f519a}\label{class_shader_aac46b11981aef0616f45e191201f519a}} 
+\index{Shader@{Shader}!activate@{activate}}
+\index{activate@{activate}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{activate()}{activate()}}
+{\footnotesize\ttfamily void Shader\+::activate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Enable / Disable the shader Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_aac46b11981aef0616f45e191201f519a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_ae7a6e4cdb7719dc501a61d6ef732ad98}\label{class_shader_ae7a6e4cdb7719dc501a61d6ef732ad98}} 
+\index{Shader@{Shader}!deactivate@{deactivate}}
+\index{deactivate@{deactivate}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{deactivate()}{deactivate()}}
+{\footnotesize\ttfamily void Shader\+::deactivate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{class_shader_ae7a6e4cdb7719dc501a61d6ef732ad98_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_af4bd705b0eb25ec610dffb4b5d694641}\label{class_shader_af4bd705b0eb25ec610dffb4b5d694641}} 
+\index{Shader@{Shader}!dump\+Infos@{dump\+Infos}}
+\index{dump\+Infos@{dump\+Infos}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{dump\+Infos()}{dumpInfos()}}
+{\footnotesize\ttfamily void Shader\+::dump\+Infos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{class_shader_af4bd705b0eb25ec610dffb4b5d694641_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_a4287e8012d956746f99cf8d1d6a126f8}\label{class_shader_a4287e8012d956746f99cf8d1d6a126f8}} 
+\index{Shader@{Shader}!get\+Attrib\+Location@{get\+Attrib\+Location}}
+\index{get\+Attrib\+Location@{get\+Attrib\+Location}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{get\+Attrib\+Location()}{getAttribLocation()}}
+{\footnotesize\ttfamily int Shader\+::get\+Attrib\+Location (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Renvoie}
+the index of the generic attribute {\itshape name} To be used with gl\+Vertex\+Attrib\+Pointer(...) Example\+: 
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} tangentAttribID = myShader->\hyperlink{class_shader_a4287e8012d956746f99cf8d1d6a126f8}{getAttribLocation}(\textcolor{stringliteral}{"tangent"});
+Vector3f* tangents = \textcolor{keyword}{new} Vector3f[...];
+glVertexAttribPointer(tangentAttribID, 3, GL\_FLOAT, GL\_FALSE, 0, tangents);
+glEnableVertexAttribArray(tangentAttribID);
+\end{DoxyCode}
+ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_a4287e8012d956746f99cf8d1d6a126f8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_ae42ef5734471e2cdf1e5045c8883961d}\label{class_shader_ae42ef5734471e2cdf1e5045c8883961d}} 
+\index{Shader@{Shader}!get\+Uniform\+Location@{get\+Uniform\+Location}}
+\index{get\+Uniform\+Location@{get\+Uniform\+Location}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{get\+Uniform\+Location()}{getUniformLocation()}}
+{\footnotesize\ttfamily int Shader\+::get\+Uniform\+Location (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Renvoie}
+the index of the uniform variable {\itshape name} 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_ae42ef5734471e2cdf1e5045c8883961d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_ac6f8837bdac2997de1a79c9a518c664c}\label{class_shader_ac6f8837bdac2997de1a79c9a518c664c}} 
+\index{Shader@{Shader}!id@{id}}
+\index{id@{id}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily int Shader\+::id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Renvoie}
+the Open\+GL object id of the G\+L\+SL program 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shader_ab3326b4493672d0e456e05d9b64c7b28}\label{class_shader_ab3326b4493672d0e456e05d9b64c7b28}} 
+\index{Shader@{Shader}!load\+From\+Files@{load\+From\+Files}}
+\index{load\+From\+Files@{load\+From\+Files}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{load\+From\+Files()}{loadFromFiles()}}
+{\footnotesize\ttfamily bool Shader\+::load\+From\+Files (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fileV,  }\item[{const std\+::string \&}]{fileF }\end{DoxyParamCaption})}
+
+Compiles and links the shader from 2 source files 
+\begin{DoxyParams}{Paramètres}
+{\em fileV} & vertex shader (\char`\"{}\char`\"{} if no vertex shader) \\
+\hline
+{\em fileF} & fragment shader (\char`\"{}\char`\"{} if no fragment shader) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true if no error occurs 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_ab3326b4493672d0e456e05d9b64c7b28_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_shader_ab3326b4493672d0e456e05d9b64c7b28_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_ac849c6315a283ebf04571ca62000c187}\label{class_shader_ac849c6315a283ebf04571ca62000c187}} 
+\index{Shader@{Shader}!load\+Sources@{load\+Sources}}
+\index{load\+Sources@{load\+Sources}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{load\+Sources()}{loadSources()}}
+{\footnotesize\ttfamily bool Shader\+::load\+Sources (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{vsrc,  }\item[{const std\+::string \&}]{fsrc }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_ac849c6315a283ebf04571ca62000c187_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_ac849c6315a283ebf04571ca62000c187_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_ab46602912ae536c070edf4720a254c31}\label{class_shader_ab46602912ae536c070edf4720a254c31}} 
+\index{Shader@{Shader}!print\+Program\+Info\+Log@{print\+Program\+Info\+Log}}
+\index{print\+Program\+Info\+Log@{print\+Program\+Info\+Log}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{print\+Program\+Info\+Log()}{printProgramInfoLog()}}
+{\footnotesize\ttfamily void Shader\+::print\+Program\+Info\+Log (\begin{DoxyParamCaption}\item[{G\+Luint}]{object\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_ab46602912ae536c070edf4720a254c31_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_af36e2a57d8f789e95b7d014a8ddfaf97}\label{class_shader_af36e2a57d8f789e95b7d014a8ddfaf97}} 
+\index{Shader@{Shader}!print\+Shader\+Info\+Log@{print\+Shader\+Info\+Log}}
+\index{print\+Shader\+Info\+Log@{print\+Shader\+Info\+Log}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{print\+Shader\+Info\+Log()}{printShaderInfoLog()}}
+{\footnotesize\ttfamily void Shader\+::print\+Shader\+Info\+Log (\begin{DoxyParamCaption}\item[{G\+Luint}]{object\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_af36e2a57d8f789e95b7d014a8ddfaf97_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_ae6ebc266e4706be4b040fe23aced651a}\label{class_shader_ae6ebc266e4706be4b040fe23aced651a}} 
+\index{Shader@{Shader}!set\+Sampler\+Unit@{set\+Sampler\+Unit}}
+\index{set\+Sampler\+Unit@{set\+Sampler\+Unit}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{set\+Sampler\+Unit()}{setSamplerUnit()}}
+{\footnotesize\ttfamily void Shader\+::set\+Sampler\+Unit (\begin{DoxyParamCaption}\item[{const char $\ast$}]{sampler\+Name,  }\item[{int}]{texture\+Unit }\end{DoxyParamCaption}) const}
+
+Forces a sampler to a given unit Example\+: 
+\begin{DoxyCode}
+glActiveTexture(GL\_TEXTURE2);
+glBindTexture(GL\_TEXTURE2D, myTextureID);
+myShader->\hyperlink{class_shader_ae6ebc266e4706be4b040fe23aced651a}{setSamplerUnit}(\textcolor{stringliteral}{"mySampler"}, 2);
+\end{DoxyCode}
+ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shader_ae6ebc266e4706be4b040fe23aced651a_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{class_shader_ae6ebc266e4706be4b040fe23aced651a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shader_ade2fdfa75d4447eaac246b8d3b799cec}\label{class_shader_ade2fdfa75d4447eaac246b8d3b799cec}} 
+\index{Shader@{Shader}!valid@{valid}}
+\index{valid@{valid}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{valid()}{valid()}}
+{\footnotesize\ttfamily bool Shader\+::valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{class_shader_ade2fdfa75d4447eaac246b8d3b799cec_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_shader_a2cf5f11fb1cfd53e9106285b6b9da0b4}\label{class_shader_a2cf5f11fb1cfd53e9106285b6b9da0b4}} 
+\index{Shader@{Shader}!m\+Is\+Valid@{m\+Is\+Valid}}
+\index{m\+Is\+Valid@{m\+Is\+Valid}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{m\+Is\+Valid}{mIsValid}}
+{\footnotesize\ttfamily bool Shader\+::m\+Is\+Valid\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_shader_ad3c569bb2c0755c647ca139863d44b55}\label{class_shader_ad3c569bb2c0755c647ca139863d44b55}} 
+\index{Shader@{Shader}!m\+Program\+ID@{m\+Program\+ID}}
+\index{m\+Program\+ID@{m\+Program\+ID}!Shader@{Shader}}
+\subsubsection{\texorpdfstring{m\+Program\+ID}{mProgramID}}
+{\footnotesize\ttfamily G\+Luint Shader\+::m\+Program\+ID\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{shader_8h}{shader.\+h}\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/view/\hyperlink{shader_8cpp}{shader.\+cpp}\end{DoxyCompactItemize}

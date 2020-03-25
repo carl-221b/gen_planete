@@ -1,0 +1,178 @@
+\hypertarget{class_noisy_height___editor}{}\section{Référence de la classe Noisy\+Height\+\_\+\+Editor}
+\label{class_noisy_height___editor}\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+
+
+The \hyperlink{class_noisy_height___editor}{Noisy\+Height\+\_\+\+Editor} class permit to use a noise in order to displace vertices and apply a color from the resulting height.  
+
+
+
+
+{\ttfamily \#include $<$noisyheight\+\_\+editor.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Noisy\+Height\+\_\+\+Editor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{class_noisy_height___editor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Noisy\+Height\+\_\+\+Editor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{class_noisy_height___editor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_noisy_height___editor_ae4535fb17b29bd29d09dcadd5b9384e3}{Noisy\+Height\+\_\+\+Editor} (\hyperlink{class_shape}{Shape} $\ast$shape)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_noisy_height___editor}{Noisy\+Height\+\_\+\+Editor}, default constructor, all parameters random. \end{DoxyCompactList}\item 
+\hyperlink{class_noisy_height___editor_ac56426a50e5adf94c8b2a4211d0b0c77}{Noisy\+Height\+\_\+\+Editor} (\hyperlink{class_shape}{Shape} $\ast$shape, double maximum\+\_\+displacement\+\_\+ratio, \hyperlink{aleatorymode_8h_a8dc9582d5186e7d1ba17c0f21779d3d6}{Mode\+\_\+\+Aleatory\+\_\+\+Flags} flags, int octave, double frequence, double persistence, int seed, \hyperlink{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}{Color\+Threshold\+Table} $\ast$layers=nullptr)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_noisy_height___editor}{Noisy\+Height\+\_\+\+Editor}. \end{DoxyCompactList}\item 
+\hyperlink{class_noisy_height___editor_afd295143a12d4d63773f69c1b5d1318b}{$\sim$\+Noisy\+Height\+\_\+\+Editor} ()
+\item 
+virtual void \hyperlink{class_noisy_height___editor_a3ed5c7267dec56ff2f21366ce2ae9818}{edit} ()
+\begin{DoxyCompactList}\small\item\em Applies vertex deplacement and colors the shape. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{class_noisy_height___editor_a4749fe8cb3306252a8f48c8147854578}{info} () const
+\begin{DoxyCompactList}\small\item\em info \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_noisy_height___editor_a4cb46efb3183c7558f450368b962d3fc}{assign\+Color} (\hyperlink{struct_shape_1_1_vertices}{Shape\+::\+Vertices} $\ast$vertices, Eigen\+::\+Vector3f colors)
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+The \hyperlink{class_noisy_height___editor}{Noisy\+Height\+\_\+\+Editor} class permit to use a noise in order to displace vertices and apply a color from the resulting height. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_noisy_height___editor_ae4535fb17b29bd29d09dcadd5b9384e3}\label{class_noisy_height___editor_ae4535fb17b29bd29d09dcadd5b9384e3}} 
+\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}!Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}!Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{Noisy\+Height\+\_\+\+Editor()}{NoisyHeight\_Editor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Noisy\+Height\+\_\+\+Editor\+::\+Noisy\+Height\+\_\+\+Editor (\begin{DoxyParamCaption}\item[{\hyperlink{class_shape}{Shape} $\ast$}]{shape }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_noisy_height___editor}{Noisy\+Height\+\_\+\+Editor}, default constructor, all parameters random. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em shape} & the shape to modify. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_noisy_height___editor_ac56426a50e5adf94c8b2a4211d0b0c77}\label{class_noisy_height___editor_ac56426a50e5adf94c8b2a4211d0b0c77}} 
+\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}!Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}!Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{Noisy\+Height\+\_\+\+Editor()}{NoisyHeight\_Editor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Noisy\+Height\+\_\+\+Editor\+::\+Noisy\+Height\+\_\+\+Editor (\begin{DoxyParamCaption}\item[{\hyperlink{class_shape}{Shape} $\ast$}]{shape,  }\item[{double}]{maximum\+\_\+displacement\+\_\+ratio,  }\item[{\hyperlink{aleatorymode_8h_a8dc9582d5186e7d1ba17c0f21779d3d6}{Mode\+\_\+\+Aleatory\+\_\+\+Flags}}]{flags,  }\item[{int}]{octave,  }\item[{double}]{frequence,  }\item[{double}]{persistence,  }\item[{int}]{seed,  }\item[{\hyperlink{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}{Color\+Threshold\+Table} $\ast$}]{layers = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_noisy_height___editor}{Noisy\+Height\+\_\+\+Editor}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em shape} & the shape to modify. \\
+\hline
+{\em maximum\+\_\+displacement\+\_\+ratio} & the maximum displacement factor, determine the height of montains relative to the planet radius. \\
+\hline
+{\em flags} & the different flags in order to aleatory pick parameters. Combine like for example A\+L\+E\+A\+\_\+\+O\+C\+T\+A\+VE $\vert$ A\+L\+E\+A\+\_\+\+S\+E\+ED. The available for this editor \+: N\+O\+\_\+\+A\+L\+E\+A\+T\+O\+RY A\+L\+E\+A\+\_\+\+O\+C\+T\+A\+VE A\+L\+E\+A\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CE A\+L\+E\+A\+\_\+\+P\+E\+R\+S\+I\+S\+T\+E\+N\+CE A\+L\+E\+A\+\_\+\+S\+E\+ED \\
+\hline
+{\em octave} & \\
+\hline
+{\em frequence} & \\
+\hline
+{\em persistence} & \\
+\hline
+{\em seed} & \\
+\hline
+{\em layers} & the colors with associated bounds of heights. \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_noisy_height___editor_ac56426a50e5adf94c8b2a4211d0b0c77_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_noisy_height___editor_afd295143a12d4d63773f69c1b5d1318b}\label{class_noisy_height___editor_afd295143a12d4d63773f69c1b5d1318b}} 
+\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}!````~Noisy\+Height\+\_\+\+Editor@{$\sim$\+Noisy\+Height\+\_\+\+Editor}}
+\index{````~Noisy\+Height\+\_\+\+Editor@{$\sim$\+Noisy\+Height\+\_\+\+Editor}!Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{$\sim$\+Noisy\+Height\+\_\+\+Editor()}{~NoisyHeight\_Editor()}}
+{\footnotesize\ttfamily Noisy\+Height\+\_\+\+Editor\+::$\sim$\+Noisy\+Height\+\_\+\+Editor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_noisy_height___editor_a4cb46efb3183c7558f450368b962d3fc}\label{class_noisy_height___editor_a4cb46efb3183c7558f450368b962d3fc}} 
+\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}!assign\+Color@{assign\+Color}}
+\index{assign\+Color@{assign\+Color}!Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{assign\+Color()}{assignColor()}}
+{\footnotesize\ttfamily void Noisy\+Height\+\_\+\+Editor\+::assign\+Color (\begin{DoxyParamCaption}\item[{\hyperlink{struct_shape_1_1_vertices}{Shape\+::\+Vertices} $\ast$}]{vertices,  }\item[{Eigen\+::\+Vector3f}]{colors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{class_noisy_height___editor_a4cb46efb3183c7558f450368b962d3fc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_noisy_height___editor_a3ed5c7267dec56ff2f21366ce2ae9818}\label{class_noisy_height___editor_a3ed5c7267dec56ff2f21366ce2ae9818}} 
+\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}!edit@{edit}}
+\index{edit@{edit}!Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{edit()}{edit()}}
+{\footnotesize\ttfamily void Noisy\+Height\+\_\+\+Editor\+::edit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Applies vertex deplacement and colors the shape. 
+
+
+
+Implémente \hyperlink{class_editor_abca97ba11536c494a0c26bac77917792}{Editor}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_noisy_height___editor_a3ed5c7267dec56ff2f21366ce2ae9818_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_noisy_height___editor_a4749fe8cb3306252a8f48c8147854578}\label{class_noisy_height___editor_a4749fe8cb3306252a8f48c8147854578}} 
+\index{Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}!info@{info}}
+\index{info@{info}!Noisy\+Height\+\_\+\+Editor@{Noisy\+Height\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily std\+::string Noisy\+Height\+\_\+\+Editor\+::info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+info 
+
+\begin{DoxyReturn}{Renvoie}
+the informations of editors, overload it to display parameters informations. 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \hyperlink{class_editor_a5747cd74b71d67f6d39b094071058382}{Editor}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_noisy_height___editor_a4749fe8cb3306252a8f48c8147854578_cgraph}
+\end{center}
+\end{figure}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{noisyheight__editor_8h}{noisyheight\+\_\+editor.\+h}\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/model/\hyperlink{noisyheight__editor_8cpp}{noisyheight\+\_\+editor.\+cpp}\end{DoxyCompactItemize}

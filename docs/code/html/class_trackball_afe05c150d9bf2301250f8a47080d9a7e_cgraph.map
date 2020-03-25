@@ -1,0 +1,4 @@
+<map id="Trackball::zoom" name="Trackball::zoom">
+<area shape="rect" id="node2" href="$class_trackball.html#a8199e95d37088ed5d9ba36891d70aaa7" title="Trackball::isPerspective" alt="" coords="168,5,331,32"/>
+<area shape="rect" id="node3" href="$class_trackball.html#a3712c12a5a5468301593a01b0df4c6be" title="Trackball::isOrthographic" alt="" coords="379,5,545,32"/>
+</map>

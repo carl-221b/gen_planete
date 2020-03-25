@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>gen_planet:  Fichier source de /home/marc-cerutti/Documents/pdp-21-2/src/include/xmlgenerator.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">gen_planet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">xmlgenerator.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="xmlgenerator_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef XMLGENERATOR_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define XMLGENERATOR_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="generator_8h.html">generator.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;pugixml.hpp&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// Editors</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noisyheight__editor_8h.html">noisyheight_editor.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="random__editor_8h.html">random_editor.h</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">//Basic shapes</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="icosphere_8h.html">icosphere.h</a>&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_x_m_l_generator.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_x_m_l_generator.html">XMLGenerator</a> : <span class="keyword">public</span> <a class="code" href="class_generator.html">Generator</a></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_x_m_l_generator.html#ae88722c986a3d984f0050be10d69e6aa">XMLGenerator</a>();</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_x_m_l_generator.html#a8f947bac9f682ba5a22ccb98ff88ff81">~XMLGenerator</a>();</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_shape.html">Shape</a>* <a class="code" href="class_x_m_l_generator.html#aea905ef316503fe716d368ae21f25b9b">generate</a>(std::string fileconfig);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_shape.html">Shape</a>* basicShapeContruct(pugi::xml_node&amp; root);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> applyEditor(pugi::xml_node&amp; root, <a class="code" href="class_shape.html">Shape</a>* shape);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">//Readers of specifics nodes</span></div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_threshold_table.html">ColorThresholdTable</a>* readColorThresholdTable(pugi::xml_node&amp; node);</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">bool</span> readBool(pugi::xml_node&amp; node);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> readInt(pugi::xml_node&amp; node);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">double</span> readDouble(pugi::xml_node&amp; node);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    Eigen::Vector3f readVector3f(pugi::xml_node&amp; node);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif // XMLGENERATOR_H</span></div><div class="ttc" id="generator_8h_html"><div class="ttname"><a href="generator_8h.html">generator.h</a></div></div>
+<div class="ttc" id="random__editor_8h_html"><div class="ttname"><a href="random__editor_8h.html">random_editor.h</a></div></div>
+<div class="ttc" id="class_x_m_l_generator_html_a8f947bac9f682ba5a22ccb98ff88ff81"><div class="ttname"><a href="class_x_m_l_generator.html#a8f947bac9f682ba5a22ccb98ff88ff81">XMLGenerator::~XMLGenerator</a></div><div class="ttdeci">~XMLGenerator()</div><div class="ttdef"><b>Definition:</b> xmlgenerator.cpp:10</div></div>
+<div class="ttc" id="class_x_m_l_generator_html_ae88722c986a3d984f0050be10d69e6aa"><div class="ttname"><a href="class_x_m_l_generator.html#ae88722c986a3d984f0050be10d69e6aa">XMLGenerator::XMLGenerator</a></div><div class="ttdeci">XMLGenerator()</div><div class="ttdef"><b>Definition:</b> xmlgenerator.cpp:6</div></div>
+<div class="ttc" id="class_generator_html"><div class="ttname"><a href="class_generator.html">Generator</a></div><div class="ttdoc">The Generator class, permit to read a given configuration file and generate a planet. </div><div class="ttdef"><b>Definition:</b> generator.h:13</div></div>
+<div class="ttc" id="class_x_m_l_generator_html"><div class="ttname"><a href="class_x_m_l_generator.html">XMLGenerator</a></div><div class="ttdoc">The XMLGenerator class, the xml implementation of generator. </div><div class="ttdef"><b>Definition:</b> xmlgenerator.h:18</div></div>
+<div class="ttc" id="noisyheight__editor_8h_html"><div class="ttname"><a href="noisyheight__editor_8h.html">noisyheight_editor.h</a></div></div>
+<div class="ttc" id="class_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdoc">interface implemented by icoshpere which contains the needed data for the planet generation ...</div><div class="ttdef"><b>Definition:</b> shape.h:12</div></div>
+<div class="ttc" id="class_threshold_table_html"><div class="ttname"><a href="class_threshold_table.html">ThresholdTable</a></div><div class="ttdoc">The ColorThresholdTable class Construction like [-LIMIT_DOUBLE, 1st value[ for first data...</div><div class="ttdef"><b>Definition:</b> thresholdtable.h:33</div></div>
+<div class="ttc" id="icosphere_8h_html"><div class="ttname"><a href="icosphere_8h.html">icosphere.h</a></div></div>
+<div class="ttc" id="class_x_m_l_generator_html_aea905ef316503fe716d368ae21f25b9b"><div class="ttname"><a href="class_x_m_l_generator.html#aea905ef316503fe716d368ae21f25b9b">XMLGenerator::generate</a></div><div class="ttdeci">Shape * generate(std::string fileconfig)</div><div class="ttdef"><b>Definition:</b> xmlgenerator.cpp:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

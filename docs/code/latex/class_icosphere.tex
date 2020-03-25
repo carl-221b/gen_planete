@@ -1,0 +1,119 @@
+\hypertarget{class_icosphere}{}\section{Référence de la classe Icosphere}
+\label{class_icosphere}\index{Icosphere@{Icosphere}}
+
+
+Class that contains the needed data for the planet generation.  
+
+
+
+
+{\ttfamily \#include $<$icosphere.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Icosphere\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{class_icosphere__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Icosphere\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_icosphere__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_icosphere_acbbb6a69f296101cbf883e8b17d0e24f}{Icosphere} (int nb\+Subdivision, bool organic\+Look=false)
+\item 
+\hyperlink{class_icosphere_ac9473c8c8d6085b6370d95772b898a45}{$\sim$\+Icosphere} ()
+\item 
+void \hyperlink{class_icosphere_a1b20bf118a66f5202228a5a4522bd7fd}{load} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Creates the \+\_\+half\+Edge attribute from an O\+BJ file. \end{DoxyCompactList}\item 
+\hyperlink{struct_shape_1_1_vertices}{Vertices} $\ast$ \hyperlink{class_icosphere_aae0a9d0e0cff48ca120bd401e2cb14f4}{get\+Vertices} ()
+\begin{DoxyCompactList}\small\item\em Get the Vertices object (editable) \end{DoxyCompactList}\item 
+int \hyperlink{class_icosphere_a4bacbf52b66b1c6b3e80380a0bb4c9e5}{num\+Faces} () const
+\begin{DoxyCompactList}\small\item\em Get the number of faces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Description détaillée}
+Class that contains the needed data for the planet generation. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_icosphere_acbbb6a69f296101cbf883e8b17d0e24f}\label{class_icosphere_acbbb6a69f296101cbf883e8b17d0e24f}} 
+\index{Icosphere@{Icosphere}!Icosphere@{Icosphere}}
+\index{Icosphere@{Icosphere}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{Icosphere()}{Icosphere()}}
+{\footnotesize\ttfamily Icosphere\+::\+Icosphere (\begin{DoxyParamCaption}\item[{int}]{nb\+Subdivision,  }\item[{bool}]{organic\+Look = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_icosphere_ac9473c8c8d6085b6370d95772b898a45}\label{class_icosphere_ac9473c8c8d6085b6370d95772b898a45}} 
+\index{Icosphere@{Icosphere}!````~Icosphere@{$\sim$\+Icosphere}}
+\index{````~Icosphere@{$\sim$\+Icosphere}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{$\sim$\+Icosphere()}{~Icosphere()}}
+{\footnotesize\ttfamily Icosphere\+::$\sim$\+Icosphere (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_icosphere_aae0a9d0e0cff48ca120bd401e2cb14f4}\label{class_icosphere_aae0a9d0e0cff48ca120bd401e2cb14f4}} 
+\index{Icosphere@{Icosphere}!get\+Vertices@{get\+Vertices}}
+\index{get\+Vertices@{get\+Vertices}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}}
+{\footnotesize\ttfamily \hyperlink{struct_shape_1_1_vertices}{Icosphere\+::\+Vertices} $\ast$ Icosphere\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Get the Vertices object (editable) 
+
+\begin{DoxyReturn}{Renvoie}
+Vertices$\ast$ 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{class_shape_a08ba4a861e979b8adffdbe615d048203}{Shape}.
+
+\mbox{\Hypertarget{class_icosphere_a1b20bf118a66f5202228a5a4522bd7fd}\label{class_icosphere_a1b20bf118a66f5202228a5a4522bd7fd}} 
+\index{Icosphere@{Icosphere}!load@{load}}
+\index{load@{load}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void Icosphere\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creates the \+\_\+half\+Edge attribute from an O\+BJ file. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em filename} & Path to the file to load \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{class_shape_a20d654ec232b682c36cd8b28d2cba750}{Shape}.
+
+\mbox{\Hypertarget{class_icosphere_a4bacbf52b66b1c6b3e80380a0bb4c9e5}\label{class_icosphere_a4bacbf52b66b1c6b3e80380a0bb4c9e5}} 
+\index{Icosphere@{Icosphere}!num\+Faces@{num\+Faces}}
+\index{num\+Faces@{num\+Faces}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{num\+Faces()}{numFaces()}}
+{\footnotesize\ttfamily int Icosphere\+::num\+Faces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of faces. 
+
+\begin{DoxyReturn}{Renvoie}
+int the number of faces 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{icosphere_8h}{icosphere.\+h}\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/model/\hyperlink{icosphere_8cpp}{icosphere.\+cpp}\end{DoxyCompactItemize}

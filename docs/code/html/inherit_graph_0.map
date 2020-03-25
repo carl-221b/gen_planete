@@ -1,0 +1,6 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="node1" href="$class_editor.html" title="Interface to be implemented by an editor that will transform a generic icosphere into a given type of..." alt="" coords="5,56,61,83"/>
+<area shape="rect" id="node2" href="$class_advanced___editor.html" title="Applies a random modification to the position (x,y,z) of each vertex and applies color depending on t..." alt="" coords="116,5,237,32"/>
+<area shape="rect" id="node3" href="$class_noisy_height___editor.html" title="The NoisyHeight_Editor class permit to use a noise in order to displace vertices and apply a color fr..." alt="" coords="109,56,244,83"/>
+<area shape="rect" id="node4" href="$class_random___editor.html" title="Applies a random modification to the position (x,y,z) of each vertex and applies color depending on t..." alt="" coords="121,107,233,133"/>
+</map>

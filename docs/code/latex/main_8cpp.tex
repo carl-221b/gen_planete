@@ -1,0 +1,113 @@
+\hypertarget{main_8cpp}{}\section{Référence du fichier /home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/main.cpp}
+\label{main_8cpp}\index{/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/main.\+cpp@{/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/main.\+cpp}}
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}opengl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}viewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}noisyheight\+\_\+editor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rendering\+\_\+opengl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xmlgenerator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}shape\+\_\+repository.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de main.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86}{mouse\+\_\+button\+\_\+callback} (G\+L\+F\+Wwindow $\ast$window, int button, int action, int mods)
+\item 
+void \hyperlink{main_8cpp_a7f826672b2e807ee0884fd509b3d0e53}{cursor\+Pos\+\_\+callback} (G\+L\+F\+Wwindow $\ast$window, double x, double y)
+\item 
+void \hyperlink{main_8cpp_a5885e20ce6a4f119da690251a775a5a8}{reshape\+\_\+callback} (G\+L\+F\+Wwindow $\ast$window, int width, int height)
+\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{main_8cpp_aa8d5f21af07689c56bc4119ff9b6bc2a}{init\+G\+L\+FW} ()
+\item 
+int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_viewer}{Viewer} $\ast$ \hyperlink{main_8cpp_a7628a0a581bec6b6b10487eb59247fc6}{v}
+\item 
+const int \hyperlink{main_8cpp_a9649ab8139c4c2ea5c93625b30d92a05}{W\+I\+D\+TH} = 1000
+\item 
+const int \hyperlink{main_8cpp_af728b7647e0b8c49832983a31f9a2e9b}{H\+E\+I\+G\+HT} = 1200
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{main_8cpp_a7f826672b2e807ee0884fd509b3d0e53}\label{main_8cpp_a7f826672b2e807ee0884fd509b3d0e53}} 
+\index{main.\+cpp@{main.\+cpp}!cursor\+Pos\+\_\+callback@{cursor\+Pos\+\_\+callback}}
+\index{cursor\+Pos\+\_\+callback@{cursor\+Pos\+\_\+callback}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{cursor\+Pos\+\_\+callback()}{cursorPos\_callback()}}
+{\footnotesize\ttfamily void cursor\+Pos\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{main_8cpp_a7f826672b2e807ee0884fd509b3d0e53_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8cpp_aa8d5f21af07689c56bc4119ff9b6bc2a}\label{main_8cpp_aa8d5f21af07689c56bc4119ff9b6bc2a}} 
+\index{main.\+cpp@{main.\+cpp}!init\+G\+L\+FW@{init\+G\+L\+FW}}
+\index{init\+G\+L\+FW@{init\+G\+L\+FW}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{init\+G\+L\+F\+W()}{initGLFW()}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow$\ast$ init\+G\+L\+FW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86}\label{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86}} 
+\index{main.\+cpp@{main.\+cpp}!mouse\+\_\+button\+\_\+callback@{mouse\+\_\+button\+\_\+callback}}
+\index{mouse\+\_\+button\+\_\+callback@{mouse\+\_\+button\+\_\+callback}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{mouse\+\_\+button\+\_\+callback()}{mouse\_button\_callback()}}
+{\footnotesize\ttfamily void mouse\+\_\+button\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{button,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp_a5515d805e76ce6728de3c0dc5e187c86_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8cpp_a5885e20ce6a4f119da690251a775a5a8}\label{main_8cpp_a5885e20ce6a4f119da690251a775a5a8}} 
+\index{main.\+cpp@{main.\+cpp}!reshape\+\_\+callback@{reshape\+\_\+callback}}
+\index{reshape\+\_\+callback@{reshape\+\_\+callback}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{reshape\+\_\+callback()}{reshape\_callback()}}
+{\footnotesize\ttfamily void reshape\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{main_8cpp_a5885e20ce6a4f119da690251a775a5a8_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{main_8cpp_af728b7647e0b8c49832983a31f9a2e9b}\label{main_8cpp_af728b7647e0b8c49832983a31f9a2e9b}} 
+\index{main.\+cpp@{main.\+cpp}!H\+E\+I\+G\+HT@{H\+E\+I\+G\+HT}}
+\index{H\+E\+I\+G\+HT@{H\+E\+I\+G\+HT}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{H\+E\+I\+G\+HT}{HEIGHT}}
+{\footnotesize\ttfamily const int H\+E\+I\+G\+HT = 1200}
+
+\mbox{\Hypertarget{main_8cpp_a7628a0a581bec6b6b10487eb59247fc6}\label{main_8cpp_a7628a0a581bec6b6b10487eb59247fc6}} 
+\index{main.\+cpp@{main.\+cpp}!v@{v}}
+\index{v@{v}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{v}{v}}
+{\footnotesize\ttfamily \hyperlink{class_viewer}{Viewer}$\ast$ v}
+
+\mbox{\Hypertarget{main_8cpp_a9649ab8139c4c2ea5c93625b30d92a05}\label{main_8cpp_a9649ab8139c4c2ea5c93625b30d92a05}} 
+\index{main.\+cpp@{main.\+cpp}!W\+I\+D\+TH@{W\+I\+D\+TH}}
+\index{W\+I\+D\+TH@{W\+I\+D\+TH}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{W\+I\+D\+TH}{WIDTH}}
+{\footnotesize\ttfamily const int W\+I\+D\+TH = 1000}
+

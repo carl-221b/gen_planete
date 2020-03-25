@@ -1,0 +1,7 @@
+<map id="Trackball::isPerspective" name="Trackball::isPerspective">
+<area shape="rect" id="node2" href="$class_trackball.html#acb8ad68c2077f4ff149e501acfe67d50" title="Trackball::computeViewMatrix" alt="" coords="216,5,415,32"/>
+<area shape="rect" id="node3" href="$class_trackball.html#a4d156f831f9c5eac08ca40283327fb3d" title="Trackball::computeProjection\lMatrix" alt="" coords="220,57,411,98"/>
+<area shape="rect" id="node6" href="$class_trackball.html#afe05c150d9bf2301250f8a47080d9a7e" title="Move camera forward or backward without changing fov. (So it changes radius.) " alt="" coords="258,123,373,149"/>
+<area shape="rect" id="node4" href="$class_rendering___open_g_l.html#a3d370bebbf4e66ba7bd4ea61dc59bef1" title="Uniform values for renderer. " alt="" coords="463,57,653,98"/>
+<area shape="rect" id="node5" href="$class_rendering___open_g_l.html#a0db708eaeae23e85a18d9c40995b27ae" title="Rendering_OpenGL::Rendering\l_OpenGL" alt="" coords="701,57,904,98"/>
+</map>

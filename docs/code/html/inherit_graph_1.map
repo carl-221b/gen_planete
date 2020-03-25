@@ -1,0 +1,4 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="node1" href="$class_generator.html" title="The Generator class, permit to read a given configuration file and generate a planet. " alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node2" href="$class_x_m_l_generator.html" title="The XMLGenerator class, the xml implementation of generator. " alt="" coords="132,5,239,32"/>
+</map>

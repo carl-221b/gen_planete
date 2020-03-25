@@ -1,0 +1,185 @@
+\hypertarget{class_viewer}{}\section{Référence de la classe Viewer}
+\label{class_viewer}\index{Viewer@{Viewer}}
+
+
+{\ttfamily \#include $<$viewer.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_viewer_a29d3e7c2922835cbd92c285c709dbe30}{Viewer} (\hyperlink{class_rendering}{Rendering} $\ast$rendering)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_viewer_a324e5a6a1532fe5eac3f3b0e4792b2da}{$\sim$\+Viewer} ()
+\item 
+void \hyperlink{class_viewer_a2d57e05f6d9c450431e01ffd82eb3b5e}{init} (int w, int h, \hyperlink{class_shape}{Shape} $\ast$shape)
+\begin{DoxyCompactList}\small\item\em creates a new window to display shape onto \end{DoxyCompactList}\item 
+void \hyperlink{class_viewer_a277a934adb86150b09d044b7cee822f8}{display} ()
+\begin{DoxyCompactList}\small\item\em draw on the window \end{DoxyCompactList}\item 
+void \hyperlink{class_viewer_a7deac2bd87e6c5a76c6eb600306d6096}{update\+Scene} ()
+\begin{DoxyCompactList}\small\item\em refresh the window if called \end{DoxyCompactList}\item 
+void \hyperlink{class_viewer_ab4e8ad8f2d8c73cc9312785e6aed9e75}{reshape} (int w, int h)
+\begin{DoxyCompactList}\small\item\em reshape window \end{DoxyCompactList}\item 
+void \hyperlink{class_viewer_a7afbf6081ffc5d44f4939b0d579d0b58}{load\+Programs} ()
+\begin{DoxyCompactList}\small\item\em loads all the shader needed for the display \end{DoxyCompactList}\item 
+void \hyperlink{class_viewer_ac2e3964b994ed24680586369b2b7a750}{mouse\+Pressed} (G\+L\+F\+Wwindow $\ast$window, int button, int action)
+\item 
+void \hyperlink{class_viewer_a5b0b70ce7a638a6bd3184ca4b4e73e4b}{mouse\+Moved} (int x, int y)
+\item 
+void \hyperlink{class_viewer_abd042d0aa5ae88ef0261d83c15ce8d4b}{mouse\+Scroll} (double x, double y)
+\item 
+void \hyperlink{class_viewer_a79192db7ddae958fc0ae2ee2e90cb995}{key\+Pressed} (int key, int action, int mods)
+\item 
+void \hyperlink{class_viewer_a12155081915ec2fcf3554534b8aa52d6}{char\+Pressed} (int key)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_viewer_a29d3e7c2922835cbd92c285c709dbe30}\label{class_viewer_a29d3e7c2922835cbd92c285c709dbe30}} 
+\index{Viewer@{Viewer}!Viewer@{Viewer}}
+\index{Viewer@{Viewer}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{Viewer()}{Viewer()}}
+{\footnotesize\ttfamily Viewer\+::\+Viewer (\begin{DoxyParamCaption}\item[{\hyperlink{class_rendering}{Rendering} $\ast$}]{rendering }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\mbox{\Hypertarget{class_viewer_a324e5a6a1532fe5eac3f3b0e4792b2da}\label{class_viewer_a324e5a6a1532fe5eac3f3b0e4792b2da}} 
+\index{Viewer@{Viewer}!````~Viewer@{$\sim$\+Viewer}}
+\index{````~Viewer@{$\sim$\+Viewer}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{$\sim$\+Viewer()}{~Viewer()}}
+{\footnotesize\ttfamily Viewer\+::$\sim$\+Viewer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_viewer_a12155081915ec2fcf3554534b8aa52d6}\label{class_viewer_a12155081915ec2fcf3554534b8aa52d6}} 
+\index{Viewer@{Viewer}!char\+Pressed@{char\+Pressed}}
+\index{char\+Pressed@{char\+Pressed}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{char\+Pressed()}{charPressed()}}
+{\footnotesize\ttfamily void Viewer\+::char\+Pressed (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_viewer_a277a934adb86150b09d044b7cee822f8}\label{class_viewer_a277a934adb86150b09d044b7cee822f8}} 
+\index{Viewer@{Viewer}!display@{display}}
+\index{display@{display}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Viewer\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+draw on the window 
+
+callback to draw graphic primitives you may edit it if you want to change de drawing procedure (add new objects for example). \mbox{\Hypertarget{class_viewer_a2d57e05f6d9c450431e01ffd82eb3b5e}\label{class_viewer_a2d57e05f6d9c450431e01ffd82eb3b5e}} 
+\index{Viewer@{Viewer}!init@{init}}
+\index{init@{init}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Viewer\+::init (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{h,  }\item[{\hyperlink{class_shape}{Shape} $\ast$}]{shape }\end{DoxyParamCaption})}
+
+
+
+creates a new window to display shape onto 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em w} & width of the window \\
+\hline
+{\em h} & height of the window \\
+\hline
+{\em shape} & shape object to be displayed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_viewer_a79192db7ddae958fc0ae2ee2e90cb995}\label{class_viewer_a79192db7ddae958fc0ae2ee2e90cb995}} 
+\index{Viewer@{Viewer}!key\+Pressed@{key\+Pressed}}
+\index{key\+Pressed@{key\+Pressed}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{key\+Pressed()}{keyPressed()}}
+{\footnotesize\ttfamily void Viewer\+::key\+Pressed (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})}
+
+callback to manage keyboard interactions You can change in this function the way the user interact with the system. Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_viewer_a79192db7ddae958fc0ae2ee2e90cb995_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_viewer_a7afbf6081ffc5d44f4939b0d579d0b58}\label{class_viewer_a7afbf6081ffc5d44f4939b0d579d0b58}} 
+\index{Viewer@{Viewer}!load\+Programs@{load\+Programs}}
+\index{load\+Programs@{load\+Programs}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{load\+Programs()}{loadPrograms()}}
+{\footnotesize\ttfamily void Viewer\+::load\+Programs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+loads all the shader needed for the display 
+
+\mbox{\Hypertarget{class_viewer_a5b0b70ce7a638a6bd3184ca4b4e73e4b}\label{class_viewer_a5b0b70ce7a638a6bd3184ca4b4e73e4b}} 
+\index{Viewer@{Viewer}!mouse\+Moved@{mouse\+Moved}}
+\index{mouse\+Moved@{mouse\+Moved}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{mouse\+Moved()}{mouseMoved()}}
+{\footnotesize\ttfamily void Viewer\+::mouse\+Moved (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+callback to manage mouse \+: called when user move mouse with button pressed You can change in this function the way the user interact with the system. Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{class_viewer_a5b0b70ce7a638a6bd3184ca4b4e73e4b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_viewer_ac2e3964b994ed24680586369b2b7a750}\label{class_viewer_ac2e3964b994ed24680586369b2b7a750}} 
+\index{Viewer@{Viewer}!mouse\+Pressed@{mouse\+Pressed}}
+\index{mouse\+Pressed@{mouse\+Pressed}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{mouse\+Pressed()}{mousePressed()}}
+{\footnotesize\ttfamily void Viewer\+::mouse\+Pressed (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{button,  }\item[{int}]{action }\end{DoxyParamCaption})}
+
+callback to manage mouse \+: called when user press or release mouse button You can change in this function the way the user interact with the system. Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_viewer_ac2e3964b994ed24680586369b2b7a750_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_viewer_abd042d0aa5ae88ef0261d83c15ce8d4b}\label{class_viewer_abd042d0aa5ae88ef0261d83c15ce8d4b}} 
+\index{Viewer@{Viewer}!mouse\+Scroll@{mouse\+Scroll}}
+\index{mouse\+Scroll@{mouse\+Scroll}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{mouse\+Scroll()}{mouseScroll()}}
+{\footnotesize\ttfamily void Viewer\+::mouse\+Scroll (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_viewer_ab4e8ad8f2d8c73cc9312785e6aed9e75}\label{class_viewer_ab4e8ad8f2d8c73cc9312785e6aed9e75}} 
+\index{Viewer@{Viewer}!reshape@{reshape}}
+\index{reshape@{reshape}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{reshape()}{reshape()}}
+{\footnotesize\ttfamily void Viewer\+::reshape (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+reshape window 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em w} & width of the reshaped window \\
+\hline
+{\em h} & height of the reshaped window \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{class_viewer_ab4e8ad8f2d8c73cc9312785e6aed9e75_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_viewer_a7deac2bd87e6c5a76c6eb600306d6096}\label{class_viewer_a7deac2bd87e6c5a76c6eb600306d6096}} 
+\index{Viewer@{Viewer}!update\+Scene@{update\+Scene}}
+\index{update\+Scene@{update\+Scene}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{update\+Scene()}{updateScene()}}
+{\footnotesize\ttfamily void Viewer\+::update\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+refresh the window if called 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{viewer_8h}{viewer.\+h}\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/view/\hyperlink{viewer_8cpp}{viewer.\+cpp}\end{DoxyCompactItemize}

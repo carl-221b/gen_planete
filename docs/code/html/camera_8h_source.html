@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>gen_planet:  Fichier source de /home/marc-cerutti/Documents/pdp-21-2/src/include/camera.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">gen_planet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">camera.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="camera_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CAMERA_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CAMERA_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="trackball_8h.html">trackball.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_camera.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_camera.html">Camera</a> : <span class="keyword">public</span> <a class="code" href="class_trackball.html">Trackball</a></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_camera.html#a01f94c3543f56ede7af49dc778f19331">    9</a></span>&#160;    <a class="code" href="class_camera.html#a01f94c3543f56ede7af49dc778f19331">Camera</a>() {}</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">static</span> Eigen::Matrix4f <a class="code" href="class_camera.html#aa63f48a3280871eba3a6f74a3c0f2e2e">perspective</a>(<span class="keywordtype">float</span> fovy, <span class="keywordtype">float</span> aspect, <span class="keywordtype">float</span> zNear, <span class="keywordtype">float</span> zFar);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">static</span> Eigen::Matrix4f <a class="code" href="class_camera.html#a683a2e432969a485412c28e18567c174">lookAt</a>(<span class="keyword">const</span> Eigen::Vector3f&amp; position, <span class="keyword">const</span> Eigen::Vector3f&amp; target, <span class="keyword">const</span> Eigen::Vector3f&amp; up);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif // CAMERA_H</span></div><div class="ttc" id="class_camera_html_a683a2e432969a485412c28e18567c174"><div class="ttname"><a href="class_camera.html#a683a2e432969a485412c28e18567c174">Camera::lookAt</a></div><div class="ttdeci">static Eigen::Matrix4f lookAt(const Eigen::Vector3f &amp;position, const Eigen::Vector3f &amp;target, const Eigen::Vector3f &amp;up)</div><div class="ttdef"><b>Definition:</b> camera.cpp:17</div></div>
+<div class="ttc" id="class_trackball_html"><div class="ttname"><a href="class_trackball.html">Trackball</a></div><div class="ttdoc">A (relatively) simple trackball. </div><div class="ttdef"><b>Definition:</b> trackball.h:109</div></div>
+<div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.h:6</div></div>
+<div class="ttc" id="class_camera_html_a01f94c3543f56ede7af49dc778f19331"><div class="ttname"><a href="class_camera.html#a01f94c3543f56ede7af49dc778f19331">Camera::Camera</a></div><div class="ttdeci">Camera()</div><div class="ttdef"><b>Definition:</b> camera.h:9</div></div>
+<div class="ttc" id="class_camera_html_aa63f48a3280871eba3a6f74a3c0f2e2e"><div class="ttname"><a href="class_camera.html#aa63f48a3280871eba3a6f74a3c0f2e2e">Camera::perspective</a></div><div class="ttdeci">static Eigen::Matrix4f perspective(float fovy, float aspect, float zNear, float zFar)</div><div class="ttdef"><b>Definition:</b> camera.cpp:5</div></div>
+<div class="ttc" id="trackball_8h_html"><div class="ttname"><a href="trackball_8h.html">trackball.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

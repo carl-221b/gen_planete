@@ -1,0 +1,72 @@
+\hypertarget{thresholdtable_8h}{}\section{Référence du fichier /home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/thresholdtable.h}
+\label{thresholdtable_8h}\index{/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/thresholdtable.\+h@{/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/thresholdtable.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$Eigen/\+Core$>$}\newline
+Graphe des dépendances par inclusion de thresholdtable.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{thresholdtable_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thresholdtable_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_threshold}{Threshold$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em The Color\+Threshold struct, permit to make different threshold with a data on each step. On a scale\mbox{[}-\/1, 1\mbox{]} by convention but no warning if use an other. \end{DoxyCompactList}\item 
+class \hyperlink{class_threshold_table}{Threshold\+Table$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em The Color\+Threshold\+Table class Construction like \mbox{[}-\/\+L\+I\+M\+I\+T\+\_\+\+D\+O\+U\+B\+LE, 1st value\mbox{[} for first data, \mbox{[}1st value, 2nd value\mbox{[} for 2nd data, ..., \mbox{[}n-\/1, n \mbox{[} for n data layer, and \mbox{[}n, L\+I\+M\+I\+T\+\_\+\+D\+O\+U\+B\+LE\mbox{]} for default value. The default data is for higher value than max of the table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{class_threshold_table}{Threshold\+Table}$<$ Eigen\+::\+Vector3f $>$ \hyperlink{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}{Color\+Threshold\+Table}
+\begin{DoxyCompactList}\small\item\em Color\+Threshold\+Table use for a threshold scale foàr colors. Exemple \+: the treshold can be height factor displacement associated to a color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}{Color\+Threshold\+Table} $\ast$ \hyperlink{thresholdtable_8h_a555b8f200a4f6e35f544d24ccc98b1e3}{Default\+Color\+Threshold\+Table} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des définitions de type}
+\mbox{\Hypertarget{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}\label{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}} 
+\index{thresholdtable.\+h@{thresholdtable.\+h}!Color\+Threshold\+Table@{Color\+Threshold\+Table}}
+\index{Color\+Threshold\+Table@{Color\+Threshold\+Table}!thresholdtable.\+h@{thresholdtable.\+h}}
+\subsubsection{\texorpdfstring{Color\+Threshold\+Table}{ColorThresholdTable}}
+{\footnotesize\ttfamily typedef \hyperlink{class_threshold_table}{Threshold\+Table}$<$Eigen\+::\+Vector3f$>$ \hyperlink{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}{Color\+Threshold\+Table}}
+
+
+
+Color\+Threshold\+Table use for a threshold scale foàr colors. Exemple \+: the treshold can be height factor displacement associated to a color. 
+
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{thresholdtable_8h_a555b8f200a4f6e35f544d24ccc98b1e3}\label{thresholdtable_8h_a555b8f200a4f6e35f544d24ccc98b1e3}} 
+\index{thresholdtable.\+h@{thresholdtable.\+h}!Default\+Color\+Threshold\+Table@{Default\+Color\+Threshold\+Table}}
+\index{Default\+Color\+Threshold\+Table@{Default\+Color\+Threshold\+Table}!thresholdtable.\+h@{thresholdtable.\+h}}
+\subsubsection{\texorpdfstring{Default\+Color\+Threshold\+Table()}{DefaultColorThresholdTable()}}
+{\footnotesize\ttfamily \hyperlink{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}{Color\+Threshold\+Table}$\ast$ Default\+Color\+Threshold\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thresholdtable_8h_a555b8f200a4f6e35f544d24ccc98b1e3_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thresholdtable_8h_a555b8f200a4f6e35f544d24ccc98b1e3_icgraph}
+\end{center}
+\end{figure}

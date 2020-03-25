@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>gen_planet:  Fichier source de /home/marc-cerutti/Documents/pdp-21-2/src/include/advanced_editor.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">gen_planet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">advanced_editor.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="advanced__editor_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ADVANCED_EDITOR_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ADVANCED_EDITOR_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="editor_8h.html">editor.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_advanced___editor.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_advanced___editor.html">Advanced_Editor</a> : <span class="keyword">public</span> <a class="code" href="class_editor.html">Editor</a> {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_advanced___editor.html#a5727b0fb3127ff32135d4b0e39a605e5">   13</a></span>&#160;    <a class="code" href="class_advanced___editor.html#a5727b0fb3127ff32135d4b0e39a605e5">Advanced_Editor</a>(<a class="code" href="class_shape.html">Shape</a>* shape): <a class="code" href="class_editor.html">Editor</a>(shape) {}</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_advanced___editor.html#ade8499e109f05ddbb4430f12a9cd12d2">~Advanced_Editor</a>();</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_advanced___editor.html#afc51cb1199403cb6785bfd3d7e290a1b">edit</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> assignColor(<a class="code" href="struct_shape_1_1_vertices.html">Shape::Vertices</a>* vertices, Eigen::Vector3f colors);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif // Advanced_Editor_H</span></div><div class="ttc" id="class_advanced___editor_html"><div class="ttname"><a href="class_advanced___editor.html">Advanced_Editor</a></div><div class="ttdoc">Applies a random modification to the position (x,y,z) of each vertex and applies color depending on t...</div><div class="ttdef"><b>Definition:</b> advanced_editor.h:11</div></div>
+<div class="ttc" id="editor_8h_html"><div class="ttname"><a href="editor_8h.html">editor.h</a></div></div>
+<div class="ttc" id="class_advanced___editor_html_afc51cb1199403cb6785bfd3d7e290a1b"><div class="ttname"><a href="class_advanced___editor.html#afc51cb1199403cb6785bfd3d7e290a1b">Advanced_Editor::edit</a></div><div class="ttdeci">void edit()</div><div class="ttdoc">Applies vertex deplacement and colors the shape. </div><div class="ttdef"><b>Definition:</b> advanced_editor.cpp:16</div></div>
+<div class="ttc" id="class_advanced___editor_html_ade8499e109f05ddbb4430f12a9cd12d2"><div class="ttname"><a href="class_advanced___editor.html#ade8499e109f05ddbb4430f12a9cd12d2">Advanced_Editor::~Advanced_Editor</a></div><div class="ttdeci">~Advanced_Editor()</div><div class="ttdef"><b>Definition:</b> advanced_editor.cpp:6</div></div>
+<div class="ttc" id="class_advanced___editor_html_a5727b0fb3127ff32135d4b0e39a605e5"><div class="ttname"><a href="class_advanced___editor.html#a5727b0fb3127ff32135d4b0e39a605e5">Advanced_Editor::Advanced_Editor</a></div><div class="ttdeci">Advanced_Editor(Shape *shape)</div><div class="ttdef"><b>Definition:</b> advanced_editor.h:13</div></div>
+<div class="ttc" id="class_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdoc">interface implemented by icoshpere which contains the needed data for the planet generation ...</div><div class="ttdef"><b>Definition:</b> shape.h:12</div></div>
+<div class="ttc" id="class_editor_html"><div class="ttname"><a href="class_editor.html">Editor</a></div><div class="ttdoc">Interface to be implemented by an editor that will transform a generic icosphere into a given type of...</div><div class="ttdef"><b>Definition:</b> editor.h:13</div></div>
+<div class="ttc" id="struct_shape_1_1_vertices_html"><div class="ttname"><a href="struct_shape_1_1_vertices.html">Shape::Vertices</a></div><div class="ttdoc">The Vertices struct containing positions normals and colo for each vertex. </div><div class="ttdef"><b>Definition:</b> shape.h:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,356 @@
+\hypertarget{class_rendering}{}\section{Référence de la classe Rendering}
+\label{class_rendering}\index{Rendering@{Rendering}}
+
+
+Interface of Bridge pattern use to block the dependance with library like open\+GL.  
+
+
+
+
+{\ttfamily \#include $<$rendering.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Rendering\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_rendering__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_rendering_a2d6135f6f0563031d59f12e81c15416d}{Rendering} ()
+\item 
+virtual \hyperlink{class_rendering_aefe02eb379fb45f7270bd0887c6c3d5e}{$\sim$\+Rendering} ()
+\item 
+virtual void \hyperlink{class_rendering_abf05def5b7eb02669008cf44c3520dae}{init\+View} ()=0
+\begin{DoxyCompactList}\small\item\em initialize View \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_a87a6dd12561315a07ec111ea2939a3c2}{init\+View\+Port} (int x, int y, int w, int h)=0
+\begin{DoxyCompactList}\small\item\em initialize Viewport \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_ae3ad4a7f4c5559cb258d72886123c3e0}{init\+Display} ()=0
+\begin{DoxyCompactList}\small\item\em initialize Display \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_a9ea983c02e590c78d564908d6171335e}{polygon\+Mode\+Fill} ()=0
+\begin{DoxyCompactList}\small\item\em Switch to polygone mode fill. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_aeb3922ecc539c6d8e9339fb3760cd560}{polygon\+Mode\+Line} ()=0
+\begin{DoxyCompactList}\small\item\em Switch to polygone mode line. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_a09a77bbedf75aff7535c419b6f8e4915}{Uniform\+Values} (\hyperlink{class_shader}{Shader} $\ast$shader, \hyperlink{class_trackball}{Trackball} cam, Eigen\+::\+Vector3f light\+Dir, Eigen\+::\+Matrix3f normal, Eigen\+::\+Matrix4f model, int sea\+\_\+mode)=0
+\begin{DoxyCompactList}\small\item\em Uniform values for renderer. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_a93693702cf5a7709a7b1ddc7a7d3d8d3}{check\+Errors} ()=0
+\begin{DoxyCompactList}\small\item\em check errors \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_a43cc4c8b7b4d9813773b42c97a7405d5}{delete\+Buffers} ()=0
+\begin{DoxyCompactList}\small\item\em delete buffers \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_abeffb3c261cd9b5c6b885aaf8e321ef2}{draw} (int nb\+\_\+elements, \hyperlink{class_shader}{Shader} $\ast$shader)=0
+\begin{DoxyCompactList}\small\item\em Draws the data computed init. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_aecb85f0a1da2d14cde84a918e2636841}{specify\+Vertex\+Data} (\hyperlink{class_shader}{Shader} $\ast$shader)=0
+\begin{DoxyCompactList}\small\item\em Sends vertices data to the shader. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_rendering_aa753ed0c94b2ece92afd26a58aef4f79}{load\+Buffer} (const \hyperlink{struct_shape_1_1_vertices}{Shape\+::\+Vertices} $\ast$vertices, std\+::vector$<$ Eigen\+::\+Vector3i $>$ faces)=0
+\begin{DoxyCompactList}\small\item\em Computes all the data needed by Open\+GL for the display (\+\_\+positions,\+\_\+normals,\+\_\+colors,\+\_\+indices) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Interface of Bridge pattern use to block the dependance with library like open\+GL. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_rendering_a2d6135f6f0563031d59f12e81c15416d}\label{class_rendering_a2d6135f6f0563031d59f12e81c15416d}} 
+\index{Rendering@{Rendering}!Rendering@{Rendering}}
+\index{Rendering@{Rendering}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{Rendering()}{Rendering()}}
+{\footnotesize\ttfamily Rendering\+::\+Rendering (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_rendering_aefe02eb379fb45f7270bd0887c6c3d5e}\label{class_rendering_aefe02eb379fb45f7270bd0887c6c3d5e}} 
+\index{Rendering@{Rendering}!````~Rendering@{$\sim$\+Rendering}}
+\index{````~Rendering@{$\sim$\+Rendering}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{$\sim$\+Rendering()}{~Rendering()}}
+{\footnotesize\ttfamily virtual Rendering\+::$\sim$\+Rendering (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rendering_aefe02eb379fb45f7270bd0887c6c3d5e_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_rendering_a93693702cf5a7709a7b1ddc7a7d3d8d3}\label{class_rendering_a93693702cf5a7709a7b1ddc7a7d3d8d3}} 
+\index{Rendering@{Rendering}!check\+Errors@{check\+Errors}}
+\index{check\+Errors@{check\+Errors}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{check\+Errors()}{checkErrors()}}
+{\footnotesize\ttfamily virtual void Rendering\+::check\+Errors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+check errors 
+
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_a9621079239b6b621dfc8f9c4e93bdd7a}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rendering_a93693702cf5a7709a7b1ddc7a7d3d8d3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_a43cc4c8b7b4d9813773b42c97a7405d5}\label{class_rendering_a43cc4c8b7b4d9813773b42c97a7405d5}} 
+\index{Rendering@{Rendering}!delete\+Buffers@{delete\+Buffers}}
+\index{delete\+Buffers@{delete\+Buffers}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{delete\+Buffers()}{deleteBuffers()}}
+{\footnotesize\ttfamily virtual void Rendering\+::delete\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+delete buffers 
+
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_aab5b195bb52751243f4944417f9ae7d5}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rendering_a43cc4c8b7b4d9813773b42c97a7405d5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_abeffb3c261cd9b5c6b885aaf8e321ef2}\label{class_rendering_abeffb3c261cd9b5c6b885aaf8e321ef2}} 
+\index{Rendering@{Rendering}!draw@{draw}}
+\index{draw@{draw}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void Rendering\+::draw (\begin{DoxyParamCaption}\item[{int}]{nb\+\_\+elements,  }\item[{\hyperlink{class_shader}{Shader} $\ast$}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Draws the data computed init. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+\_\+elements} & \+: number of elements (faces) to draw \\
+\hline
+{\em shader} & \+: shader used to draws the data \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_a94abb636d4264637628e4b9b97c087d2}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{class_rendering_abeffb3c261cd9b5c6b885aaf8e321ef2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_ae3ad4a7f4c5559cb258d72886123c3e0}\label{class_rendering_ae3ad4a7f4c5559cb258d72886123c3e0}} 
+\index{Rendering@{Rendering}!init\+Display@{init\+Display}}
+\index{init\+Display@{init\+Display}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{init\+Display()}{initDisplay()}}
+{\footnotesize\ttfamily virtual void Rendering\+::init\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+initialize Display 
+
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_a2df315de627ccedc056c5834e65bda6d}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{class_rendering_ae3ad4a7f4c5559cb258d72886123c3e0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_abf05def5b7eb02669008cf44c3520dae}\label{class_rendering_abf05def5b7eb02669008cf44c3520dae}} 
+\index{Rendering@{Rendering}!init\+View@{init\+View}}
+\index{init\+View@{init\+View}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{init\+View()}{initView()}}
+{\footnotesize\ttfamily virtual void Rendering\+::init\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+initialize View 
+
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_aa41657730fef1c0034233a9977a31531}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{class_rendering_abf05def5b7eb02669008cf44c3520dae_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_a87a6dd12561315a07ec111ea2939a3c2}\label{class_rendering_a87a6dd12561315a07ec111ea2939a3c2}} 
+\index{Rendering@{Rendering}!init\+View\+Port@{init\+View\+Port}}
+\index{init\+View\+Port@{init\+View\+Port}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{init\+View\+Port()}{initViewPort()}}
+{\footnotesize\ttfamily virtual void Rendering\+::init\+View\+Port (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+initialize Viewport 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & \+: abscissa of origin point \\
+\hline
+{\em y} & \+: ordinate of origin point \\
+\hline
+{\em w} & \+: width of the window \\
+\hline
+{\em h} & \+: height of the window \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_ac6c10061853d88c1ab6e40d6c172c69c}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rendering_a87a6dd12561315a07ec111ea2939a3c2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_aa753ed0c94b2ece92afd26a58aef4f79}\label{class_rendering_aa753ed0c94b2ece92afd26a58aef4f79}} 
+\index{Rendering@{Rendering}!load\+Buffer@{load\+Buffer}}
+\index{load\+Buffer@{load\+Buffer}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{load\+Buffer()}{loadBuffer()}}
+{\footnotesize\ttfamily virtual void Rendering\+::load\+Buffer (\begin{DoxyParamCaption}\item[{const \hyperlink{struct_shape_1_1_vertices}{Shape\+::\+Vertices} $\ast$}]{vertices,  }\item[{std\+::vector$<$ Eigen\+::\+Vector3i $>$}]{faces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Computes all the data needed by Open\+GL for the display (\+\_\+positions,\+\_\+normals,\+\_\+colors,\+\_\+indices) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vertices} & \+: vertices of the shape \\
+\hline
+{\em faces} & \+: faces of the shape \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_aee7a6085edb4e6927282067b6cde59bf}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_rendering_aa753ed0c94b2ece92afd26a58aef4f79_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_a9ea983c02e590c78d564908d6171335e}\label{class_rendering_a9ea983c02e590c78d564908d6171335e}} 
+\index{Rendering@{Rendering}!polygon\+Mode\+Fill@{polygon\+Mode\+Fill}}
+\index{polygon\+Mode\+Fill@{polygon\+Mode\+Fill}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{polygon\+Mode\+Fill()}{polygonModeFill()}}
+{\footnotesize\ttfamily virtual void Rendering\+::polygon\+Mode\+Fill (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Switch to polygone mode fill. 
+
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_a4e3a8195e4249bf0d7c8b33400611399}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rendering_a9ea983c02e590c78d564908d6171335e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_aeb3922ecc539c6d8e9339fb3760cd560}\label{class_rendering_aeb3922ecc539c6d8e9339fb3760cd560}} 
+\index{Rendering@{Rendering}!polygon\+Mode\+Line@{polygon\+Mode\+Line}}
+\index{polygon\+Mode\+Line@{polygon\+Mode\+Line}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{polygon\+Mode\+Line()}{polygonModeLine()}}
+{\footnotesize\ttfamily virtual void Rendering\+::polygon\+Mode\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Switch to polygone mode line. 
+
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_a7742b4b96b3e06a021f143d17fd432df}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rendering_aeb3922ecc539c6d8e9339fb3760cd560_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_aecb85f0a1da2d14cde84a918e2636841}\label{class_rendering_aecb85f0a1da2d14cde84a918e2636841}} 
+\index{Rendering@{Rendering}!specify\+Vertex\+Data@{specify\+Vertex\+Data}}
+\index{specify\+Vertex\+Data@{specify\+Vertex\+Data}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{specify\+Vertex\+Data()}{specifyVertexData()}}
+{\footnotesize\ttfamily virtual void Rendering\+::specify\+Vertex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{class_shader}{Shader} $\ast$}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sends vertices data to the shader. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em shader} & \+: shader used to display the data \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_a8ad1a3e698d694782f4174d94b745cd5}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rendering_aecb85f0a1da2d14cde84a918e2636841_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_rendering_a09a77bbedf75aff7535c419b6f8e4915}\label{class_rendering_a09a77bbedf75aff7535c419b6f8e4915}} 
+\index{Rendering@{Rendering}!Uniform\+Values@{Uniform\+Values}}
+\index{Uniform\+Values@{Uniform\+Values}!Rendering@{Rendering}}
+\subsubsection{\texorpdfstring{Uniform\+Values()}{UniformValues()}}
+{\footnotesize\ttfamily virtual void Rendering\+::\+Uniform\+Values (\begin{DoxyParamCaption}\item[{\hyperlink{class_shader}{Shader} $\ast$}]{shader,  }\item[{\hyperlink{class_trackball}{Trackball}}]{cam,  }\item[{Eigen\+::\+Vector3f}]{light\+Dir,  }\item[{Eigen\+::\+Matrix3f}]{normal,  }\item[{Eigen\+::\+Matrix4f}]{model,  }\item[{int}]{sea\+\_\+mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Uniform values for renderer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em shader} & \+: shader used to draws the data \\
+\hline
+{\em cam} & \+: camera used for the scene \\
+\hline
+{\em light\+Dir} & \+: light\textquotesingle{}s direction \\
+\hline
+{\em normal} & \+: normal\textquotesingle{}s transformation matrix \\
+\hline
+{\em model} & \+: model\textquotesingle{}s transformation matrix \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{class_rendering___open_g_l_a3d370bebbf4e66ba7bd4ea61dc59bef1}{Rendering\+\_\+\+Open\+GL}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rendering_a09a77bbedf75aff7535c419b6f8e4915_icgraph}
+\end{center}
+\end{figure}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{rendering_8h}{rendering.\+h}\end{DoxyCompactItemize}

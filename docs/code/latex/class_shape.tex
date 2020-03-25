@@ -1,0 +1,273 @@
+\hypertarget{class_shape}{}\section{Référence de la classe Shape}
+\label{class_shape}\index{Shape@{Shape}}
+
+
+interface implemented by icoshpere which contains the needed data for the planet generation  
+
+
+
+
+{\ttfamily \#include $<$shape.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Shape\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{class_shape__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Shape\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_shape__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_shape_1_1_vertices}{Vertices}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{struct_shape_1_1_vertices}{Vertices} struct containing positions normals and colo for each vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_shape_aaa8d87171e65e0d8ba3c5459978992a7}{Shape} ()
+\item 
+virtual \hyperlink{class_shape_ac3b9fc48965274893f25b18aa14ba665}{$\sim$\+Shape} ()
+\item 
+virtual void \hyperlink{class_shape_a20d654ec232b682c36cd8b28d2cba750}{load} (const std\+::string \&filename)=0
+\begin{DoxyCompactList}\small\item\em Creates the \+\_\+half\+Edge attribute from an O\+BJ file. \end{DoxyCompactList}\item 
+virtual \hyperlink{struct_shape_1_1_vertices}{Vertices} $\ast$ \hyperlink{class_shape_a08ba4a861e979b8adffdbe615d048203}{get\+Vertices} ()=0
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_shape_afd886ad433d08a566003073bfd837f40}{compute\+Normals} ()=0
+\item 
+const \hyperlink{struct_shape_1_1_vertices}{Vertices} $\ast$ \hyperlink{class_shape_ac40943613d4b7480d305d807abeb01e0}{get\+Vertices} () const
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object (const) \end{DoxyCompactList}\item 
+const Eigen\+::\+Aligned\+Box3f \& \hyperlink{class_shape_acd24561b01d6769b4a0c96cd0237a961}{bounding\+Box} () const
+\begin{DoxyCompactList}\small\item\em bounding\+Box used for the rasterzation \end{DoxyCompactList}\item 
+const Eigen\+::\+Affine3f \& \hyperlink{class_shape_a9a1f2d5c370b8c9194fc51ea37a03cac}{get\+Transformation\+Matrix} () const
+\begin{DoxyCompactList}\small\item\em get\+Transformation\+Matrix \end{DoxyCompactList}\item 
+void \hyperlink{class_shape_a04294d1d80623bb8c5a7d4037549fa27}{set\+Transformation\+Matrix} (const Eigen\+::\+Affine3f \&transfo)
+\begin{DoxyCompactList}\small\item\em set\+Transformation\+Matrix \end{DoxyCompactList}\item 
+const std\+::vector$<$ Eigen\+::\+Vector3i $>$ \hyperlink{class_shape_aeeb67de72adb9667c1eb48129f3e5ffb}{get\+Faces} () const
+\begin{DoxyCompactList}\small\item\em get\+Faces \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Aligned\+Box3f \hyperlink{class_shape_aa2399d2b2884c25ebc2e8f87584cc529}{\+\_\+bbox}
+\begin{DoxyCompactList}\small\item\em bounding box used for rasterization \end{DoxyCompactList}\item 
+Eigen\+::\+Affine3f \hyperlink{class_shape_a67c0ffb0290a2a1ff5e602c324130332}{\+\_\+transformation}
+\begin{DoxyCompactList}\small\item\em transformation matrix used for the coordinate tranformations \end{DoxyCompactList}\item 
+std\+::vector$<$ Eigen\+::\+Vector3i $>$ \hyperlink{class_shape_abb07b26e344946f745964c019a2c598e}{\+\_\+faces}
+\item 
+\hyperlink{struct_shape_1_1_vertices}{Vertices} $\ast$ \hyperlink{class_shape_ac2f7f1148a34325d99be6d983fcf9bb0}{\+\_\+vertices}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+interface implemented by icoshpere which contains the needed data for the planet generation 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_shape_aaa8d87171e65e0d8ba3c5459978992a7}\label{class_shape_aaa8d87171e65e0d8ba3c5459978992a7}} 
+\index{Shape@{Shape}!Shape@{Shape}}
+\index{Shape@{Shape}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{Shape()}{Shape()}}
+{\footnotesize\ttfamily Shape\+::\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_shape_ac3b9fc48965274893f25b18aa14ba665}\label{class_shape_ac3b9fc48965274893f25b18aa14ba665}} 
+\index{Shape@{Shape}!````~Shape@{$\sim$\+Shape}}
+\index{````~Shape@{$\sim$\+Shape}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{$\sim$\+Shape()}{~Shape()}}
+{\footnotesize\ttfamily virtual Shape\+::$\sim$\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_shape_ac3b9fc48965274893f25b18aa14ba665_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_shape_acd24561b01d6769b4a0c96cd0237a961}\label{class_shape_acd24561b01d6769b4a0c96cd0237a961}} 
+\index{Shape@{Shape}!bounding\+Box@{bounding\+Box}}
+\index{bounding\+Box@{bounding\+Box}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{bounding\+Box()}{boundingBox()}}
+{\footnotesize\ttfamily const Eigen\+::\+Aligned\+Box3f\& Shape\+::bounding\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+bounding\+Box used for the rasterzation 
+
+\begin{DoxyReturn}{Renvoie}
+the bounding\+Box which contains the vertex of the shape 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_afd886ad433d08a566003073bfd837f40}\label{class_shape_afd886ad433d08a566003073bfd837f40}} 
+\index{Shape@{Shape}!compute\+Normals@{compute\+Normals}}
+\index{compute\+Normals@{compute\+Normals}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{compute\+Normals()}{computeNormals()}}
+{\footnotesize\ttfamily virtual void Shape\+::compute\+Normals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{class_shape_afd886ad433d08a566003073bfd837f40_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shape_aeeb67de72adb9667c1eb48129f3e5ffb}\label{class_shape_aeeb67de72adb9667c1eb48129f3e5ffb}} 
+\index{Shape@{Shape}!get\+Faces@{get\+Faces}}
+\index{get\+Faces@{get\+Faces}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{get\+Faces()}{getFaces()}}
+{\footnotesize\ttfamily const std\+::vector$<$Eigen\+::\+Vector3i$>$ Shape\+::get\+Faces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Faces 
+
+\begin{DoxyReturn}{Renvoie}
+a vector of the faces used on the shape 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shape_aeeb67de72adb9667c1eb48129f3e5ffb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shape_a9a1f2d5c370b8c9194fc51ea37a03cac}\label{class_shape_a9a1f2d5c370b8c9194fc51ea37a03cac}} 
+\index{Shape@{Shape}!get\+Transformation\+Matrix@{get\+Transformation\+Matrix}}
+\index{get\+Transformation\+Matrix@{get\+Transformation\+Matrix}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{get\+Transformation\+Matrix()}{getTransformationMatrix()}}
+{\footnotesize\ttfamily const Eigen\+::\+Affine3f\& Shape\+::get\+Transformation\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Transformation\+Matrix 
+
+\begin{DoxyReturn}{Renvoie}
+a transformation matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_a08ba4a861e979b8adffdbe615d048203}\label{class_shape_a08ba4a861e979b8adffdbe615d048203}} 
+\index{Shape@{Shape}!get\+Vertices@{get\+Vertices}}
+\index{get\+Vertices@{get\+Vertices}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \hyperlink{struct_shape_1_1_vertices}{Vertices}$\ast$ Shape\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object. 
+
+\begin{DoxyReturn}{Renvoie}
+Vertices$\ast$ 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{class_icosphere_aae0a9d0e0cff48ca120bd401e2cb14f4}{Icosphere}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_shape_a08ba4a861e979b8adffdbe615d048203_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shape_ac40943613d4b7480d305d807abeb01e0}\label{class_shape_ac40943613d4b7480d305d807abeb01e0}} 
+\index{Shape@{Shape}!get\+Vertices@{get\+Vertices}}
+\index{get\+Vertices@{get\+Vertices}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \hyperlink{struct_shape_1_1_vertices}{Vertices}$\ast$ Shape\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object (const) 
+
+\begin{DoxyReturn}{Renvoie}
+const Vertices$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_shape_a20d654ec232b682c36cd8b28d2cba750}\label{class_shape_a20d654ec232b682c36cd8b28d2cba750}} 
+\index{Shape@{Shape}!load@{load}}
+\index{load@{load}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily virtual void Shape\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Creates the \+\_\+half\+Edge attribute from an O\+BJ file. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em filename} & Path to the file to load \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{class_icosphere_a1b20bf118a66f5202228a5a4522bd7fd}{Icosphere}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{class_shape_a20d654ec232b682c36cd8b28d2cba750_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shape_a04294d1d80623bb8c5a7d4037549fa27}\label{class_shape_a04294d1d80623bb8c5a7d4037549fa27}} 
+\index{Shape@{Shape}!set\+Transformation\+Matrix@{set\+Transformation\+Matrix}}
+\index{set\+Transformation\+Matrix@{set\+Transformation\+Matrix}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{set\+Transformation\+Matrix()}{setTransformationMatrix()}}
+{\footnotesize\ttfamily void Shape\+::set\+Transformation\+Matrix (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Affine3f \&}]{transfo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Transformation\+Matrix 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em changes} & the \+\_\+transformation attribute into the transfo parameter \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_shape_aa2399d2b2884c25ebc2e8f87584cc529}\label{class_shape_aa2399d2b2884c25ebc2e8f87584cc529}} 
+\index{Shape@{Shape}!\+\_\+bbox@{\+\_\+bbox}}
+\index{\+\_\+bbox@{\+\_\+bbox}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{\+\_\+bbox}{\_bbox}}
+{\footnotesize\ttfamily Eigen\+::\+Aligned\+Box3f Shape\+::\+\_\+bbox\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+bounding box used for rasterization 
+
+\mbox{\Hypertarget{class_shape_abb07b26e344946f745964c019a2c598e}\label{class_shape_abb07b26e344946f745964c019a2c598e}} 
+\index{Shape@{Shape}!\+\_\+faces@{\+\_\+faces}}
+\index{\+\_\+faces@{\+\_\+faces}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{\+\_\+faces}{\_faces}}
+{\footnotesize\ttfamily std\+::vector$<$Eigen\+::\+Vector3i$>$ Shape\+::\+\_\+faces\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_shape_a67c0ffb0290a2a1ff5e602c324130332}\label{class_shape_a67c0ffb0290a2a1ff5e602c324130332}} 
+\index{Shape@{Shape}!\+\_\+transformation@{\+\_\+transformation}}
+\index{\+\_\+transformation@{\+\_\+transformation}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{\+\_\+transformation}{\_transformation}}
+{\footnotesize\ttfamily Eigen\+::\+Affine3f Shape\+::\+\_\+transformation\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+transformation matrix used for the coordinate tranformations 
+
+\mbox{\Hypertarget{class_shape_ac2f7f1148a34325d99be6d983fcf9bb0}\label{class_shape_ac2f7f1148a34325d99be6d983fcf9bb0}} 
+\index{Shape@{Shape}!\+\_\+vertices@{\+\_\+vertices}}
+\index{\+\_\+vertices@{\+\_\+vertices}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{\+\_\+vertices}{\_vertices}}
+{\footnotesize\ttfamily \hyperlink{struct_shape_1_1_vertices}{Vertices}$\ast$ Shape\+::\+\_\+vertices\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{shape_8h}{shape.\+h}\end{DoxyCompactItemize}

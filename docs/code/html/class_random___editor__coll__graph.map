@@ -1,0 +1,5 @@
+<map id="Random_Editor" name="Random_Editor">
+<area shape="rect" id="node2" href="$class_editor.html" title="Interface to be implemented by an editor that will transform a generic icosphere into a given type of..." alt="" coords="35,184,91,211"/>
+<area shape="rect" id="node3" href="$class_shape.html" title="interface implemented by icoshpere which contains the needed data for the planet generation ..." alt="" coords="33,95,92,121"/>
+<area shape="rect" id="node4" href="$struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colo for each vertex. " alt="" coords="5,5,120,32"/>
+</map>
