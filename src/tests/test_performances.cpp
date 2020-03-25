@@ -11,8 +11,7 @@
 #define MAX_SUBDIVISION_NOMODIF 10
 #define MAX_SUBDIVISION_MODIF 10
 
-//PERFS DIAGRAM TEST
-
+//Test to create performance diagramm
 TEST(DISABLED_TimePerformances, nomodif)
 {
     std::ofstream out;
@@ -52,7 +51,7 @@ TEST(DISABLED_TimePerformances, nomodif)
     out.close();
 }
 
-TEST(TimePerformances, withmodif)
+TEST(DISABLED_TimePerformances, withmodif)
 {
     std::ofstream out;
     out.open("test_perf_modif.txt");
