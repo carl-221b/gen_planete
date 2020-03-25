@@ -44,7 +44,7 @@ public:
      * @return the value noise in float associated to the key.
      * Domain between [-1, 1]
      */
-    double getValue(const Eigen::Vector3f &keygen);
+    double getValue(const Eigen::Vector3f &keygen) const;
 
 private:
     noise::module::Perlin _generator;

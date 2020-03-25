@@ -37,7 +37,7 @@ HeightNoise::~HeightNoise()
 
 }
 
-double HeightNoise::getValue(const Vector3f &keygen)
+double HeightNoise::getValue(const Vector3f &keygen) const
 {
     return _out.GetValue(keygen.x(), keygen.y(), keygen.z());
 }
