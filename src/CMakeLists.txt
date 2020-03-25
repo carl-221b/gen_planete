@@ -102,6 +102,7 @@ set(TESTS
     tests/test_common.cpp
     tests/test_treshold.cpp
     tests/test_random.cpp
+    tests/test_performances.cpp
 )
 add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
 target_link_libraries( unit_tests glbinding libnoise gtest pugixml)

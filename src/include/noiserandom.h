@@ -36,7 +36,7 @@ class HeightNoise
 
 public:
 
-    HeightNoise(int seed, int frequence, int octave, int persistence);
+    HeightNoise(int seed, double frequence, int octave, double persistence);
     ~HeightNoise();
     /**
      * @brief getValue get the value noise.

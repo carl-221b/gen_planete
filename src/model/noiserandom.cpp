@@ -21,7 +21,7 @@ double NoiseRandom::random(double min, double max)
 using namespace Eigen;
 using namespace NoiseRandom;
 
-HeightNoise::HeightNoise(int seed, int frequence, int octave, int persistence)
+HeightNoise::HeightNoise(int seed, double frequence, int octave, double persistence)
 {
     _generator.SetSeed(seed);
     _generator.SetFrequency(frequence);
