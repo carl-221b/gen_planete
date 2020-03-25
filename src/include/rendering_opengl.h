@@ -23,13 +23,14 @@ public:
     void initDisplay();
     void polygonModeLine();
     void polygonModeFill();
-    void UniformValues(Shader* shader, Trackball cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model);
+    void UniformValues(Shader* shader, Trackball cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model, int sea_mode);
     void checkErrors();
+
 
     void deleteBuffers();
     void draw(int nb_elements, Shader* shader);
     void specifyVertexData(Shader* shader);
-    void loadBuffer(Shape::Vertices* vertices, std::vector<Eigen::Vector3i> faces);
+    void loadBuffer(const Shape::Vertices* vertices, std::vector<Eigen::Vector3i> faces);
 
 private:
     /**

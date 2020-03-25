@@ -1,5 +1,6 @@
 #include "../include/noisyheight_editor.h"
 #include "../include/icosphere.h"
+#include "shape_repository.h"
 
 #include <gtest/gtest.h>
 
@@ -10,7 +11,8 @@ TEST(Serialisation, save_basic_obj) {
 
     Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
     EXPECT_NE (shape,  nullptr);
-    shape->saveOBJ("planet_gtest");
+    //shape->saveOBJ("planet_gtest");
+    Shape_Repository::saveOBJ(shape, DATA_DIR"/planet_gtest");
 
     std::ofstream filewrite ("planet_gtest.obj");
     ASSERT_TRUE(filewrite.is_open());

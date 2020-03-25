@@ -5,12 +5,11 @@ cmake_minimum_required(VERSION 3.1)
 ###################
 #Exterior library
 
-execute_process(COMMAND git submodule update)
-
 add_subdirectory(ext/glfw)
 add_subdirectory(ext/glbinding)
 add_subdirectory(ext/libnoise)
 add_subdirectory(ext/googletest)
+add_subdirectory(ext/pugixml)
 
 ###################
 #Include
@@ -20,6 +19,8 @@ include_directories(ext/glbinding/include)
 include_directories(ext/eigen3)
 include_directories(ext/libnoise)
 include_directories(ext/libnoise/include)
+include_directories(ext/pugixml)
+include_directories(ext/pugixml/src)
 include_directories(ext)
 
 include_directories(ext/googletest)
@@ -44,21 +45,27 @@ endif()
 #Sources
 
 set(SRC_FILES
-    model/basic_editor.cpp
+    model/aleatorymode.cpp
+    model/thresholdtable.cpp
+    model/random_editor.cpp
     model/noisyheight_editor.cpp
-    model/heightnoise.cpp
+    model/noiserandom.cpp
     model/icosphere.cpp
     model/advanced_editor.cpp
+    model/xmlgenerator.cpp
     view/shader.cpp
     view/trackball.cpp
     view/camera.cpp
     view/viewer.cpp
-    bridge/rendering_opengl.cpp
+    view/rendering_opengl.cpp
+    repository/shape_repository.cpp
 )
 
 set(HEADERS
-    include/heightnoise.h
-    include/basic_editor.h
+    include/aleatorymode.h
+    include/thresholdtable.h
+    include/noiserandom.h
+    include/random_editor.h
     include/noisyheight_editor.h
     include/shape.h
     include/editor.h
@@ -72,11 +79,14 @@ set(HEADERS
     include/advanced_editor.h
     include/rendering.h
     include/rendering_opengl.h
+    include/shape_repository.h
+    include/generator.h
+    include/xmlgenerator.h
 )
 
 add_definitions(-DDATA_DIR="${PROJECT_SOURCE_DIR}/data")
 add_executable(gen_planet main.cpp ${SRC_FILES} ${HEADERS})
-target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding libnoise)
+target_link_libraries(gen_planet glfw ${GLFW_LIBRARIES} glbinding libnoise pugixml)
 
 ###################
 #Test
@@ -88,9 +98,14 @@ set(TESTS
     tests/test_editor.cpp
     tests/test_save_load.cpp
     tests/test_time_generation.cpp
+    tests/test_generator.cpp
+    tests/test_common.cpp
+    tests/test_treshold.cpp
+    tests/test_random.cpp
+    tests/test_performances.cpp
 )
 add_executable(unit_tests ${TESTS} ${SRC_FILES} ${HEADERS})
-target_link_libraries( unit_tests glbinding libnoise gtest)
+target_link_libraries( unit_tests glbinding libnoise gtest pugixml)
 add_test( NAME unit_tests COMMAND unit_tests)
 
 ###################
@@ -106,4 +121,6 @@ function(IndicateExternalFile _target)
 endfunction()
 
 file(GLOB SHADERS "data/shaders/*.vert" "data/shaders/*.frag")
+file(GLOB PARAMS "data/generators/*.xml")
 IndicateExternalFile("gen_planet" ${SHADERS})
+IndicateExternalFile("gen_planet" ${PARAMS})

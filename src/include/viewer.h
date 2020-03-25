@@ -4,11 +4,9 @@
 #include <iostream>
 
 #include "shader.h"
-#include "icosphere.h"
+#include "shape.h"
 #include "trackball.h"
 #include "rendering.h"
-
-#include "basic_editor.h"
 
 /**
  * @brief 
@@ -79,6 +77,8 @@ private:
     bool _wireframe = false;
 
     Eigen::Vector3f _lightDir;
+    float _theta;
+    bool _rotate;
 
     // Mouse parameters
     Eigen::Vector2f _lastMousePos;
@@ -86,6 +86,7 @@ private:
 
     //Render
     Rendering* _rendering;
+    bool _ready = false;
 };
 
 #endif

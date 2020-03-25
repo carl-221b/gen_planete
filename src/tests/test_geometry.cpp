@@ -15,7 +15,7 @@ TEST(IcosphereTest, creation) {
 TEST(IcosphereyTest, vertices) {
 
     Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION);
-    Shape::Vertices* v = shape->getVertices();
+    const Shape::Vertices* v = shape->getVertices();
     int size = v->_positions.size();
 
     EXPECT_NE(size, 0);
@@ -27,16 +27,14 @@ TEST(IcosphereyTest, vertices) {
 TEST(IcosphereTest, subdivide_0) {
 
     Shape* shape = new Icosphere(0);
-    Shape::Vertices* v = shape->getVertices();
+    const Shape::Vertices* v = shape->getVertices();
     int sizeVertices = v->_positions.size();
     EXPECT_EQ(sizeVertices, 12);
 
-    //int sizeFaces = shape->getFaces().size();
-    //EXPECT_EQ(sizeFaces, 20);
+    int sizeFaces = shape->getFaces().size();
+    EXPECT_EQ(sizeFaces, 20);
 
-    //Maybe not necessary
-    //int sizeEdges = shape->getEdges().size();
-    //EXPECT_EQ(sizeEdges, 30);
+    //Edge not neccessary
 
     delete shape;
 }
@@ -48,7 +46,7 @@ TEST(IcosphereTest, subdivide_random) {
     std::cout << "Number subdivision : " << nbsub << std::endl;
 
     Shape* shape = new Icosphere(nbsub);
-    Shape::Vertices* v = shape->getVertices();
+    const Shape::Vertices* v = shape->getVertices();
     int sizeVertices = v->_positions.size();
 
     std::cout << "Number vertices : " << sizeVertices << std::endl;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<params>
+
+    <!-- Basic shape -->
+    <basic_shape name="icosphere"/>
+
+    <shape_params>
+        <nb_subdivision value="8"/>
+        <organic value="true"/>
+    </shape_params>
+
+    <!-- Editor -->
+    <editor name="noisy_height" />
+
+</params>

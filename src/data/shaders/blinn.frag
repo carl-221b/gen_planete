@@ -3,9 +3,12 @@
 uniform vec3 light_dir_world;
 //uniform vec3 colorV = vec3(1,1,1);
 
+in float v_diffuse;
+in float v_spec;
+in float v_shininess;
 in vec4 vert_pos_view;
 in vec3 vert_normal_view;
-in vec3 v_color;
+flat in vec4 v_color;
 
 out vec4 out_color;
 
@@ -32,6 +35,6 @@ void main(void)
 {
     vec3 light_color = vec3(1.0,1.0,1.0);
     
-    out_color.rgb = shade(normalize(vert_normal_view), normalize(light_dir_world),normalize(vert_pos_view).xyz,v_color,0.4,0.9,2.0,light_color,100.0);
-    out_color.a = 1.0;
+    out_color.rgb = shade(normalize(vert_normal_view), normalize(light_dir_world),normalize(vert_pos_view).xyz,v_color.xyz,0.4,v_diffuse,v_spec,light_color,v_shininess);
+    out_color.a = v_color.a;
 }

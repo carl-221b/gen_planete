@@ -1,8 +1,12 @@
+#include <getopt.h>
+
 #include "opengl.h"
 #include "viewer.h"
 
 #include "noisyheight_editor.h"
 #include "rendering_opengl.h"
+#include "xmlgenerator.h"
+#include "shape_repository.h"
 
 Viewer* v;
 
@@ -80,28 +84,61 @@ static void error_callback(int error, const char* description)
     fputs(description, stderr);
 }
 
+static void usage(){
+
+    printf("Use: ./gen_planet [options] [config_file_path]\n");
+    printf("The program generate and construct a whole planet with differents options.\n");
+    printf("In order to .\n");
+    printf("\n");
+    printf("Options: \n");
+    printf("-h         Displays this help\n");
+    printf("-o         The filename output when saving.\n");
+}
+
 
 int main (int argc, char **argv)
 {
+
+    //Options and main parameters
+    int opt = 0;
+    FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
+    while ((opt = getopt(argc, argv, "ho:")) != -1) {
+        switch (opt) {
+        case 'h':
+            usage();
+            break;
+        case 'o':
+            FILE_SAVE_OUTPUT = optarg;
+            printf("New save path : %s\n", FILE_SAVE_OUTPUT);
+            break;
+        default:
+            usage();
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    if (optind >= argc) {
+        fprintf(stderr, "Expected one argument after options\n");
+        usage();
+        exit(EXIT_FAILURE);
+    }
+
+    std::string config_path = std::string(argv[optind]);
+    std::cout << "File config generator : " << config_path << std::endl;
+
+    //Generation
+
+    XMLGenerator parameters;
+    Shape* shape = parameters.generate(config_path);
+
+    // Visualisation
+
     glfwSetErrorCallback(error_callback);
 
     GLFWwindow* window = initGLFW();
     Rendering* rendering = new Rendering_OpenGL();
     int w, h;
     glfwGetFramebufferSize(window, &w, &h);
-
-    Shape* shape = new Icosphere(DEFAULT_NB_SUBDIVISION, rendering);
-
-    Editor* noisy = new NoisyHeight_Editor(shape);
-    noisy->edit();
-    delete noisy;
-
-    /*
-    Editor* basic_editor = new Basic_Editor(shape);
-    basic_editor->edit();
-    delete basic_editor;*/
-
-    shape->init();
 
     v = new Viewer(rendering);
     v->init(w, h, shape);

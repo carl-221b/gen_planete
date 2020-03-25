@@ -5,22 +5,15 @@
 #include <sstream>
 #include <cstdio>
 #include <math.h>
+#include <limits>
+
+#include "common.h"
 
 using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
 
-Icosphere::Icosphere(int nbSubdivision) {
-    _vertices = new Vertices;
-
-    load(DATA_DIR"/models/icosa.obj");
-
-    for(int i = 1; i < nbSubdivision; i++){
-        this->subdivide();
-    }
-}
-
-Icosphere::Icosphere(int nbSubdivision, Rendering* rendering) {
+Icosphere::Icosphere(int nbSubdivision, bool organicLook) {
     _vertices = new Vertices;
 
     load(DATA_DIR"/models/icosa.obj");
@@ -29,17 +22,52 @@ Icosphere::Icosphere(int nbSubdivision, Rendering* rendering) {
         this->subdivide();
     }
 
-    _rendering = rendering;
+    if(organicLook){
+        this->organicTriangulation();
+    }
 }
 
 Icosphere::~Icosphere()
 {
-    if(_ready){
-        _rendering->deleteBuffers();
-    }
 
     delete _vertices;
 }
+
+void Icosphere::computeNormals()
+{
+    // pass 1: set the normal tangent and bitangent to 0
+
+    for(unsigned int i = 0; i <  _vertices->_normals.size(); i++){
+        _vertices->_normals[i]=Vector3f(0,0,0);
+    }
+
+    // pass 2: compute face normals and accumulate
+
+    for(unsigned int i = 0; i <  _faces.size(); i++)
+    {
+        Vector3i& face = _faces[i];
+
+        Vector3f& p0 =  _vertices->_positions[face.x()];
+        Vector3f& p1 =  _vertices->_positions[face.y()];
+        Vector3f& p2 =  _vertices->_positions[face.z()];
+
+
+        Vector3f q1 = p1-p0;
+        Vector3f q2 = p2-p0;
+
+        _vertices->_normals[face.x()] += q1.cross(q2);
+        _vertices->_normals[face.y()] += q1.cross(q2);
+        _vertices->_normals[face.z()] += q1.cross(q2);
+
+    }
+    // pass 3: normalize
+
+    for(unsigned int i = 0; i <  _vertices->_normals.size(); i++){
+        _vertices->_normals[i]=_vertices->_normals[i].normalized();
+    }
+
+}
+
 
 void Icosphere::load(const string& filename)
 {
@@ -106,66 +134,6 @@ void Icosphere::updateMeshFromSurfaceMesh()
     }
     //saveOBJ();
     //saveOFF();
-}
-
-void Icosphere::saveOBJ(const string &filename)
-{
-    std::ofstream myfile;
-    myfile.open (filename + ".obj");
-    myfile << "o planet\n";
-
-    for(unsigned int i=0; i<_vertices->_positions.size(); i++){
-        Eigen::Vector3f p = _vertices->_positions.at(i);
-        myfile << "v " << p.x() << " " << p.y() << " " << p.z() << "\n";
-        Eigen::Vector3f n = _vertices->_normals.at(i);
-        myfile << "vn " << n.x() << " " << n.y() << " " << n.z() << "\n";
-
-    }
-
-    for(unsigned int i=0; i<_faces.size(); i++){
-        Eigen::Vector3i f = _faces.at(i);
-        myfile << "f " << ( std::to_string(f.x()+1)+"//"+std::to_string(f.x()+1) ) << " " << ( std::to_string(f.y()+1)+"//"+std::to_string(f.y()+1) ) << " " << ( std::to_string(f.z()+1)+ "//" +std::to_string(f.z()+1) ) << "\n";
-    }
-
-    myfile.close();
-}
-
-void Icosphere::saveOFF(const string &filename){
-    std::ofstream myfile;
-    myfile.open (filename + ".off");
-    myfile << "OFF\n";
-    myfile << _vertices->_positions.size() << " " << numFaces() << " 0\n"; // 0 is the (ignored) number of edges
-
-    for(unsigned int i=0; i<_vertices->_positions.size(); i++){
-        Eigen::Vector3f p = _vertices->_positions.at(i);
-        myfile << p.x() << " " << p.y() << " " << p.z() << "\n";
-    }
-
-    for(unsigned int i=0; i<_faces.size(); i++){
-        Eigen::Vector3i f = _faces.at(i);
-        myfile << "3 " << f.x() << " " << f.y() << " " << f.z() << "\n";
-    }
-
-    myfile.close();
-}
-
-void Icosphere::init()
-{
-    _rendering->loadBuffer(_vertices, _faces);
-    _ready = true;
-}
-
-void Icosphere::specifyVertexData(Shader *shader)
-{
-    _rendering->specifyVertexData(shader);
-}
-
-void Icosphere::draw(Shader *shader)
-{
-    if (!_ready)
-        init();
-
-    _rendering->draw(_faces.size(), shader);
 }
 
 void Icosphere::subdivide()
@@ -297,4 +265,53 @@ void Icosphere::subdivide()
 
 Icosphere::Vertices* Icosphere::getVertices(){
     return _vertices;
+}
+
+
+void Icosphere::organicTriangulation(){
+    Vertices* vertices = this->getVertices();
+
+    float dist_min =  MAXFLOAT;
+    // Iterate vertices
+    for( Surface_mesh::Vertex v: _halfEdge.vertices())
+    {
+        Vector3f origin = vertices->_positions[v.idx()];
+
+        // Iterate neighbours
+        Surface_mesh::Vertex_around_vertex_circulator circ(&_halfEdge, v);
+        for(Surface_mesh::Vertex vd : circ)
+        {
+            Vector3f dest = vertices->_positions[vd.idx()];
+            Vector3f vect = dest - origin;
+
+            //Find radius sphere minimal.
+            if(vect.norm() < dist_min)
+            {
+                dist_min = vect.norm();
+                //std::cout<< dist_min <<std::endl;
+            }
+        }
+
+        Vector3f oldUv = cartesianToSphericalCoord(origin);
+
+        // Random displacement in a sphere of radius dist_min
+        origin.x() += NoiseRandom::random(-dist_min, dist_min);
+        origin.y() += NoiseRandom::random(-dist_min, dist_min);
+        origin.z() += NoiseRandom::random(-dist_min, dist_min);
+
+        // Normal random version
+        //origin.x() += NoiseRandom::normalRandom(0.0, dist_min/2);
+        //origin.y() += NoiseRandom::normalRandom(0.0, dist_min/2);
+        //origin.z() += NoiseRandom::normalRandom(0.0, dist_min/2);
+
+
+        //Fix the height to previous
+        Vector3f newUv = cartesianToSphericalCoord(origin);
+        newUv.x() = oldUv.x();
+
+        origin = sphericalToCartesianCoord(newUv);
+
+
+        vertices->_positions[v.idx()]= origin;
+    }
 }
