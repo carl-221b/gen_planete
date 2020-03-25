@@ -1,5 +1,5 @@
 <map id="Editor" name="Editor">
-<area shape="rect" id="node2" href="$class_advanced___editor.html" title="Applies a random modification to the position (x,y,z) of each vertex and applies color depending on t..." alt="" coords="5,80,127,107"/>
-<area shape="rect" id="node3" href="$class_noisy_height___editor.html" title="The NoisyHeight_Editor class permit to use a noise in order to displace vertices and apply a color fr..." alt="" coords="151,80,285,107"/>
-<area shape="rect" id="node4" href="$class_random___editor.html" title="Applies a random modification to the position (x,y,z) of each vertex and applies color depending on t..." alt="" coords="310,80,422,107"/>
+<area shape="rect" id="node2" href="$class_advanced___editor.html" title="Applies a random modification to the position (x,y,z) of each vertex and applies color depending on t..." alt="" coords="5,211,155,318"/>
+<area shape="rect" id="node3" href="$class_noisy_height___editor.html" title="The NoisyHeight_Editor class permit to use a noise in order to displace vertices and apply a color fr..." alt="" coords="179,189,341,340"/>
+<area shape="rect" id="node4" href="$class_random___editor.html" title="Applies a random modification to the position (x,y,z) of each vertex and applies color depending on t..." alt="" coords="366,204,506,325"/>
 </map>
