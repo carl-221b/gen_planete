@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>gen_planet:  Fichier source de /home/marc-cerutti/Documents/pdp-21-2/src/include/viewer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">gen_planet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">viewer.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="viewer_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef VIEWER_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define VIEWER_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8h.html">shader.h</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape_8h.html">shape.h</a>&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="trackball_8h.html">trackball.h</a>&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rendering_8h.html">rendering.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_viewer.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_viewer.html">Viewer</a></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_viewer.html#a29d3e7c2922835cbd92c285c709dbe30">Viewer</a>(<a class="code" href="class_rendering.html">Rendering</a>* rendering);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_viewer.html#a324e5a6a1532fe5eac3f3b0e4792b2da">~Viewer</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//gl interaction</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#a2d57e05f6d9c450431e01ffd82eb3b5e">init</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <a class="code" href="class_shape.html">Shape</a>* shape);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#a277a934adb86150b09d044b7cee822f8">display</a>();</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#a7deac2bd87e6c5a76c6eb600306d6096">updateScene</a>();</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#ab4e8ad8f2d8c73cc9312785e6aed9e75">reshape</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#a7afbf6081ffc5d44f4939b0d579d0b58">loadPrograms</a>();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// Used to handle mouse interaction with the window</span></div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#ac2e3964b994ed24680586369b2b7a750">mousePressed</a>(GLFWwindow* window, <span class="keywordtype">int</span> button, <span class="keywordtype">int</span> action);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#a5b0b70ce7a638a6bd3184ca4b4e73e4b">mouseMoved</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#abd042d0aa5ae88ef0261d83c15ce8d4b">mouseScroll</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// Used to handle key interaction with the window</span></div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#a79192db7ddae958fc0ae2ee2e90cb995">keyPressed</a>(<span class="keywordtype">int</span> key, <span class="keywordtype">int</span> action, <span class="keywordtype">int</span> mods);</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_viewer.html#a12155081915ec2fcf3554534b8aa52d6">charPressed</a>(<span class="keywordtype">int</span> key);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="class_trackball.html">Trackball</a> _cam;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">int</span> _winWidth, _winHeight;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="class_shader.html">Shader</a>* _simple_shader;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="class_shader.html">Shader</a>* _line_shader;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="class_shape.html">Shape</a>* _shape;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> _wireframe = <span class="keyword">false</span>;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    Eigen::Vector3f _lightDir;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">float</span> _theta;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">bool</span> _rotate;</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// Mouse parameters</span></div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    Eigen::Vector2f _lastMousePos;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> _button = -1;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">//Render</span></div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="class_rendering.html">Rendering</a>* _rendering;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">bool</span> _ready = <span class="keyword">false</span>;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_viewer_html_a7deac2bd87e6c5a76c6eb600306d6096"><div class="ttname"><a href="class_viewer.html#a7deac2bd87e6c5a76c6eb600306d6096">Viewer::updateScene</a></div><div class="ttdeci">void updateScene()</div><div class="ttdoc">refresh the window if called </div><div class="ttdef"><b>Definition:</b> viewer.cpp:112</div></div>
+<div class="ttc" id="class_viewer_html_abd042d0aa5ae88ef0261d83c15ce8d4b"><div class="ttname"><a href="class_viewer.html#abd042d0aa5ae88ef0261d83c15ce8d4b">Viewer::mouseScroll</a></div><div class="ttdeci">void mouseScroll(double x, double y)</div><div class="ttdef"><b>Definition:</b> viewer.cpp:179</div></div>
+<div class="ttc" id="class_viewer_html_a7afbf6081ffc5d44f4939b0d579d0b58"><div class="ttname"><a href="class_viewer.html#a7afbf6081ffc5d44f4939b0d579d0b58">Viewer::loadPrograms</a></div><div class="ttdeci">void loadPrograms()</div><div class="ttdoc">loads all the shader needed for the display </div><div class="ttdef"><b>Definition:</b> viewer.cpp:118</div></div>
+<div class="ttc" id="class_trackball_html"><div class="ttname"><a href="class_trackball.html">Trackball</a></div><div class="ttdoc">A (relatively) simple trackball. </div><div class="ttdef"><b>Definition:</b> trackball.h:109</div></div>
+<div class="ttc" id="class_viewer_html_a324e5a6a1532fe5eac3f3b0e4792b2da"><div class="ttname"><a href="class_viewer.html#a324e5a6a1532fe5eac3f3b0e4792b2da">Viewer::~Viewer</a></div><div class="ttdeci">virtual ~Viewer()</div><div class="ttdef"><b>Definition:</b> viewer.cpp:13</div></div>
+<div class="ttc" id="class_viewer_html_ab4e8ad8f2d8c73cc9312785e6aed9e75"><div class="ttname"><a href="class_viewer.html#ab4e8ad8f2d8c73cc9312785e6aed9e75">Viewer::reshape</a></div><div class="ttdeci">void reshape(int w, int h)</div><div class="ttdoc">reshape window </div><div class="ttdef"><b>Definition:</b> viewer.cpp:48</div></div>
+<div class="ttc" id="class_viewer_html_a12155081915ec2fcf3554534b8aa52d6"><div class="ttname"><a href="class_viewer.html#a12155081915ec2fcf3554534b8aa52d6">Viewer::charPressed</a></div><div class="ttdeci">void charPressed(int key)</div><div class="ttdef"><b>Definition:</b> viewer.cpp:225</div></div>
+<div class="ttc" id="class_rendering_html"><div class="ttname"><a href="class_rendering.html">Rendering</a></div><div class="ttdoc">Interface of Bridge pattern use to block the dependance with library like openGL. ...</div><div class="ttdef"><b>Definition:</b> rendering.h:14</div></div>
+<div class="ttc" id="shader_8h_html"><div class="ttname"><a href="shader_8h.html">shader.h</a></div></div>
+<div class="ttc" id="class_viewer_html_a277a934adb86150b09d044b7cee822f8"><div class="ttname"><a href="class_viewer.html#a277a934adb86150b09d044b7cee822f8">Viewer::display</a></div><div class="ttdeci">void display()</div><div class="ttdoc">draw on the window </div><div class="ttdef"><b>Definition:</b> viewer.cpp:61</div></div>
+<div class="ttc" id="class_viewer_html_a2d57e05f6d9c450431e01ffd82eb3b5e"><div class="ttname"><a href="class_viewer.html#a2d57e05f6d9c450431e01ffd82eb3b5e">Viewer::init</a></div><div class="ttdeci">void init(int w, int h, Shape *shape)</div><div class="ttdoc">creates a new window to display shape onto </div><div class="ttdef"><b>Definition:</b> viewer.cpp:23</div></div>
+<div class="ttc" id="class_viewer_html_ac2e3964b994ed24680586369b2b7a750"><div class="ttname"><a href="class_viewer.html#ac2e3964b994ed24680586369b2b7a750">Viewer::mousePressed</a></div><div class="ttdeci">void mousePressed(GLFWwindow *window, int button, int action)</div><div class="ttdef"><b>Definition:</b> viewer.cpp:132</div></div>
+<div class="ttc" id="class_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdoc">interface implemented by icoshpere which contains the needed data for the planet generation ...</div><div class="ttdef"><b>Definition:</b> shape.h:12</div></div>
+<div class="ttc" id="rendering_8h_html"><div class="ttname"><a href="rendering_8h.html">rendering.h</a></div></div>
+<div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> shader.h:24</div></div>
+<div class="ttc" id="class_viewer_html_a79192db7ddae958fc0ae2ee2e90cb995"><div class="ttname"><a href="class_viewer.html#a79192db7ddae958fc0ae2ee2e90cb995">Viewer::keyPressed</a></div><div class="ttdeci">void keyPressed(int key, int action, int mods)</div><div class="ttdef"><b>Definition:</b> viewer.cpp:204</div></div>
+<div class="ttc" id="class_viewer_html_a5b0b70ce7a638a6bd3184ca4b4e73e4b"><div class="ttname"><a href="class_viewer.html#a5b0b70ce7a638a6bd3184ca4b4e73e4b">Viewer::mouseMoved</a></div><div class="ttdeci">void mouseMoved(int x, int y)</div><div class="ttdef"><b>Definition:</b> viewer.cpp:166</div></div>
+<div class="ttc" id="shape_8h_html"><div class="ttname"><a href="shape_8h.html">shape.h</a></div></div>
+<div class="ttc" id="class_viewer_html"><div class="ttname"><a href="class_viewer.html">Viewer</a></div><div class="ttdef"><b>Definition:</b> viewer.h:15</div></div>
+<div class="ttc" id="class_viewer_html_a29d3e7c2922835cbd92c285c709dbe30"><div class="ttname"><a href="class_viewer.html#a29d3e7c2922835cbd92c285c709dbe30">Viewer::Viewer</a></div><div class="ttdeci">Viewer(Rendering *rendering)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> viewer.cpp:6</div></div>
+<div class="ttc" id="trackball_8h_html"><div class="ttname"><a href="trackball_8h.html">trackball.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

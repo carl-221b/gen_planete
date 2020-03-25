@@ -1,0 +1,5 @@
+<map id="NoisyHeight_Editor::NoisyHeight_Editor" name="NoisyHeight_Editor::NoisyHeight_Editor">
+<area shape="rect" id="node2" href="$namespace_noise_random.html#a9830d40f986d564ef30504f8dfb9ed90" title="random " alt="" coords="210,5,366,32"/>
+<area shape="rect" id="node3" href="$thresholdtable_8h.html#a555b8f200a4f6e35f544d24ccc98b1e3" title="DefaultColorThresholdTable" alt="" coords="196,56,380,83"/>
+<area shape="rect" id="node4" href="$class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37" title="addLayer add a layer with upperbound=value and will be sorted in the table. " alt="" coords="428,56,600,83"/>
+</map>

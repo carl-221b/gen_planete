@@ -1,0 +1,142 @@
+\hypertarget{class_editor}{}\section{Référence de la classe Editor}
+\label{class_editor}\index{Editor@{Editor}}
+
+
+Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet.  
+
+
+
+
+{\ttfamily \#include $<$editor.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Editor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_editor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Editor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_editor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a}{Editor} (\hyperlink{class_shape}{Shape} $\ast$shape)
+\item 
+virtual \hyperlink{class_editor_ab9aea98e4964b437a937354d2f3edd42}{$\sim$\+Editor} ()
+\item 
+virtual void \hyperlink{class_editor_abca97ba11536c494a0c26bac77917792}{edit} ()=0
+\begin{DoxyCompactList}\small\item\em Applies vertex deplacement and colors the shape. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{class_editor_a5747cd74b71d67f6d39b094071058382}{info} () const
+\begin{DoxyCompactList}\small\item\em info \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_editor_a0ae04e135284b48561a538397106f42a}{\+\_\+name}
+\item 
+\hyperlink{class_shape}{Shape} $\ast$ \hyperlink{class_editor_ad9f31fcae91fb4a91b5ff5ecb4308bdf}{\+\_\+shape}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a}\label{class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a}} 
+\index{Editor@{Editor}!Editor@{Editor}}
+\index{Editor@{Editor}!Editor@{Editor}}
+\subsubsection{\texorpdfstring{Editor()}{Editor()}}
+{\footnotesize\ttfamily Editor\+::\+Editor (\begin{DoxyParamCaption}\item[{\hyperlink{class_shape}{Shape} $\ast$}]{shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_editor_ab9aea98e4964b437a937354d2f3edd42}\label{class_editor_ab9aea98e4964b437a937354d2f3edd42}} 
+\index{Editor@{Editor}!````~Editor@{$\sim$\+Editor}}
+\index{````~Editor@{$\sim$\+Editor}!Editor@{Editor}}
+\subsubsection{\texorpdfstring{$\sim$\+Editor()}{~Editor()}}
+{\footnotesize\ttfamily virtual Editor\+::$\sim$\+Editor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{class_editor_ab9aea98e4964b437a937354d2f3edd42_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_editor_abca97ba11536c494a0c26bac77917792}\label{class_editor_abca97ba11536c494a0c26bac77917792}} 
+\index{Editor@{Editor}!edit@{edit}}
+\index{edit@{edit}!Editor@{Editor}}
+\subsubsection{\texorpdfstring{edit()}{edit()}}
+{\footnotesize\ttfamily virtual void Editor\+::edit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Applies vertex deplacement and colors the shape. 
+
+
+
+Implémenté dans \hyperlink{class_noisy_height___editor_a3ed5c7267dec56ff2f21366ce2ae9818}{Noisy\+Height\+\_\+\+Editor}, \hyperlink{class_random___editor_abea41199b1502f89be0b2914b3c191fc}{Random\+\_\+\+Editor}, et \hyperlink{class_advanced___editor_afc51cb1199403cb6785bfd3d7e290a1b}{Advanced\+\_\+\+Editor}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{class_editor_abca97ba11536c494a0c26bac77917792_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_editor_a5747cd74b71d67f6d39b094071058382}\label{class_editor_a5747cd74b71d67f6d39b094071058382}} 
+\index{Editor@{Editor}!info@{info}}
+\index{info@{info}!Editor@{Editor}}
+\subsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily virtual std\+::string Editor\+::info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+info 
+
+\begin{DoxyReturn}{Renvoie}
+the informations of editors, overload it to display parameters informations. 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \hyperlink{class_noisy_height___editor_a4749fe8cb3306252a8f48c8147854578}{Noisy\+Height\+\_\+\+Editor}, et \hyperlink{class_random___editor_aa194991b2926aeab96ad5470f549f087}{Random\+\_\+\+Editor}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{class_editor_a5747cd74b71d67f6d39b094071058382_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_editor_a0ae04e135284b48561a538397106f42a}\label{class_editor_a0ae04e135284b48561a538397106f42a}} 
+\index{Editor@{Editor}!\+\_\+name@{\+\_\+name}}
+\index{\+\_\+name@{\+\_\+name}!Editor@{Editor}}
+\subsubsection{\texorpdfstring{\+\_\+name}{\_name}}
+{\footnotesize\ttfamily std\+::string Editor\+::\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_editor_ad9f31fcae91fb4a91b5ff5ecb4308bdf}\label{class_editor_ad9f31fcae91fb4a91b5ff5ecb4308bdf}} 
+\index{Editor@{Editor}!\+\_\+shape@{\+\_\+shape}}
+\index{\+\_\+shape@{\+\_\+shape}!Editor@{Editor}}
+\subsubsection{\texorpdfstring{\+\_\+shape}{\_shape}}
+{\footnotesize\ttfamily \hyperlink{class_shape}{Shape}$\ast$ Editor\+::\+\_\+shape\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{editor_8h}{editor.\+h}\end{DoxyCompactItemize}

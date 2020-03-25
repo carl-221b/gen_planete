@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>gen_planet:  Fichier source de /home/marc-cerutti/Documents/pdp-21-2/src/include/rendering.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">gen_planet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">rendering.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="rendering_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RENDERING_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RENDERING_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8h.html">shader.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="trackball_8h.html">trackball.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape_8h.html">shape.h</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;Eigen/Geometry&gt;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_rendering.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_rendering.html">Rendering</a> {</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_rendering.html#a2d6135f6f0563031d59f12e81c15416d">   16</a></span>&#160;    <a class="code" href="class_rendering.html#a2d6135f6f0563031d59f12e81c15416d">Rendering</a>(){}</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_rendering.html#aefe02eb379fb45f7270bd0887c6c3d5e">   17</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_rendering.html#aefe02eb379fb45f7270bd0887c6c3d5e">~Rendering</a>(){}</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#abf05def5b7eb02669008cf44c3520dae">initView</a>() = 0;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#a87a6dd12561315a07ec111ea2939a3c2">initViewPort</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) = 0;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#ae3ad4a7f4c5559cb258d72886123c3e0">initDisplay</a>() = 0;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#a9ea983c02e590c78d564908d6171335e">polygonModeFill</a>() = 0;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#aeb3922ecc539c6d8e9339fb3760cd560">polygonModeLine</a>() = 0;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#a09a77bbedf75aff7535c419b6f8e4915">UniformValues</a>(<a class="code" href="class_shader.html">Shader</a>* shader, <a class="code" href="class_trackball.html">Trackball</a> cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model, <span class="keywordtype">int</span> sea_mode) = 0;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#a93693702cf5a7709a7b1ddc7a7d3d8d3">checkErrors</a>() = 0;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#a43cc4c8b7b4d9813773b42c97a7405d5">deleteBuffers</a>() = 0;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#abeffb3c261cd9b5c6b885aaf8e321ef2">draw</a>(<span class="keywordtype">int</span> nb_elements, <a class="code" href="class_shader.html">Shader</a>* shader) = 0;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#aecb85f0a1da2d14cde84a918e2636841">specifyVertexData</a>(<a class="code" href="class_shader.html">Shader</a>* shader) = 0;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_rendering.html#aa753ed0c94b2ece92afd26a58aef4f79">loadBuffer</a>(<span class="keyword">const</span> <a class="code" href="struct_shape_1_1_vertices.html">Shape::Vertices</a>* vertices, std::vector&lt;Eigen::Vector3i&gt; faces) = 0;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif // RENDERING_H</span></div><div class="ttc" id="class_rendering_html_aeb3922ecc539c6d8e9339fb3760cd560"><div class="ttname"><a href="class_rendering.html#aeb3922ecc539c6d8e9339fb3760cd560">Rendering::polygonModeLine</a></div><div class="ttdeci">virtual void polygonModeLine()=0</div><div class="ttdoc">Switch to polygone mode line. </div></div>
+<div class="ttc" id="class_rendering_html_aefe02eb379fb45f7270bd0887c6c3d5e"><div class="ttname"><a href="class_rendering.html#aefe02eb379fb45f7270bd0887c6c3d5e">Rendering::~Rendering</a></div><div class="ttdeci">virtual ~Rendering()</div><div class="ttdef"><b>Definition:</b> rendering.h:17</div></div>
+<div class="ttc" id="class_rendering_html_aa753ed0c94b2ece92afd26a58aef4f79"><div class="ttname"><a href="class_rendering.html#aa753ed0c94b2ece92afd26a58aef4f79">Rendering::loadBuffer</a></div><div class="ttdeci">virtual void loadBuffer(const Shape::Vertices *vertices, std::vector&lt; Eigen::Vector3i &gt; faces)=0</div><div class="ttdoc">Computes all the data needed by OpenGL for the display (_positions,_normals,_colors,_indices) </div></div>
+<div class="ttc" id="class_rendering_html_a2d6135f6f0563031d59f12e81c15416d"><div class="ttname"><a href="class_rendering.html#a2d6135f6f0563031d59f12e81c15416d">Rendering::Rendering</a></div><div class="ttdeci">Rendering()</div><div class="ttdef"><b>Definition:</b> rendering.h:16</div></div>
+<div class="ttc" id="class_trackball_html"><div class="ttname"><a href="class_trackball.html">Trackball</a></div><div class="ttdoc">A (relatively) simple trackball. </div><div class="ttdef"><b>Definition:</b> trackball.h:109</div></div>
+<div class="ttc" id="class_rendering_html_a9ea983c02e590c78d564908d6171335e"><div class="ttname"><a href="class_rendering.html#a9ea983c02e590c78d564908d6171335e">Rendering::polygonModeFill</a></div><div class="ttdeci">virtual void polygonModeFill()=0</div><div class="ttdoc">Switch to polygone mode fill. </div></div>
+<div class="ttc" id="class_rendering_html_a09a77bbedf75aff7535c419b6f8e4915"><div class="ttname"><a href="class_rendering.html#a09a77bbedf75aff7535c419b6f8e4915">Rendering::UniformValues</a></div><div class="ttdeci">virtual void UniformValues(Shader *shader, Trackball cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model, int sea_mode)=0</div><div class="ttdoc">Uniform values for renderer. </div></div>
+<div class="ttc" id="class_rendering_html"><div class="ttname"><a href="class_rendering.html">Rendering</a></div><div class="ttdoc">Interface of Bridge pattern use to block the dependance with library like openGL. ...</div><div class="ttdef"><b>Definition:</b> rendering.h:14</div></div>
+<div class="ttc" id="shader_8h_html"><div class="ttname"><a href="shader_8h.html">shader.h</a></div></div>
+<div class="ttc" id="class_rendering_html_a87a6dd12561315a07ec111ea2939a3c2"><div class="ttname"><a href="class_rendering.html#a87a6dd12561315a07ec111ea2939a3c2">Rendering::initViewPort</a></div><div class="ttdeci">virtual void initViewPort(int x, int y, int w, int h)=0</div><div class="ttdoc">initialize Viewport </div></div>
+<div class="ttc" id="class_rendering_html_ae3ad4a7f4c5559cb258d72886123c3e0"><div class="ttname"><a href="class_rendering.html#ae3ad4a7f4c5559cb258d72886123c3e0">Rendering::initDisplay</a></div><div class="ttdeci">virtual void initDisplay()=0</div><div class="ttdoc">initialize Display </div></div>
+<div class="ttc" id="class_rendering_html_abeffb3c261cd9b5c6b885aaf8e321ef2"><div class="ttname"><a href="class_rendering.html#abeffb3c261cd9b5c6b885aaf8e321ef2">Rendering::draw</a></div><div class="ttdeci">virtual void draw(int nb_elements, Shader *shader)=0</div><div class="ttdoc">Draws the data computed init. </div></div>
+<div class="ttc" id="class_rendering_html_a43cc4c8b7b4d9813773b42c97a7405d5"><div class="ttname"><a href="class_rendering.html#a43cc4c8b7b4d9813773b42c97a7405d5">Rendering::deleteBuffers</a></div><div class="ttdeci">virtual void deleteBuffers()=0</div><div class="ttdoc">delete buffers </div></div>
+<div class="ttc" id="class_rendering_html_abf05def5b7eb02669008cf44c3520dae"><div class="ttname"><a href="class_rendering.html#abf05def5b7eb02669008cf44c3520dae">Rendering::initView</a></div><div class="ttdeci">virtual void initView()=0</div><div class="ttdoc">initialize View </div></div>
+<div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> shader.h:24</div></div>
+<div class="ttc" id="class_rendering_html_a93693702cf5a7709a7b1ddc7a7d3d8d3"><div class="ttname"><a href="class_rendering.html#a93693702cf5a7709a7b1ddc7a7d3d8d3">Rendering::checkErrors</a></div><div class="ttdeci">virtual void checkErrors()=0</div><div class="ttdoc">check errors </div></div>
+<div class="ttc" id="shape_8h_html"><div class="ttname"><a href="shape_8h.html">shape.h</a></div></div>
+<div class="ttc" id="class_rendering_html_aecb85f0a1da2d14cde84a918e2636841"><div class="ttname"><a href="class_rendering.html#aecb85f0a1da2d14cde84a918e2636841">Rendering::specifyVertexData</a></div><div class="ttdeci">virtual void specifyVertexData(Shader *shader)=0</div><div class="ttdoc">Sends vertices data to the shader. </div></div>
+<div class="ttc" id="struct_shape_1_1_vertices_html"><div class="ttname"><a href="struct_shape_1_1_vertices.html">Shape::Vertices</a></div><div class="ttdoc">The Vertices struct containing positions normals and colo for each vertex. </div><div class="ttdef"><b>Definition:</b> shape.h:19</div></div>
+<div class="ttc" id="trackball_8h_html"><div class="ttname"><a href="trackball_8h.html">trackball.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

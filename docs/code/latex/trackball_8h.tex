@@ -1,0 +1,78 @@
+\hypertarget{trackball_8h}{}\section{Référence du fichier /home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/trackball.h}
+\label{trackball_8h}\index{/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/trackball.\+h@{/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/trackball.\+h}}
+{\ttfamily \#include $<$Eigen/\+Geometry$>$}\newline
+Graphe des dépendances par inclusion de trackball.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{trackball_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{trackball_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_trackball}{Trackball}
+\begin{DoxyCompactList}\small\item\em A (relatively) simple trackball. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+Eigen\+::\+Matrix4f \hyperlink{trackball_8h_a018f3f47208c8a8293e45991ba56d028}{orthographic\+Projection} (float l, float r, float b, float t, float n, float f)
+\begin{DoxyCompactList}\small\item\em Compute an orthographic projection matrix. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix4f \hyperlink{trackball_8h_af9b4ac9e8531cf6c51ac7268daa59d87}{orthographic\+Projection} (const Eigen\+::\+Aligned\+Box3f \&view\+Box)
+\begin{DoxyCompactList}\small\item\em Compute an orthographic projection matrix. \end{DoxyCompactList}\item 
+Eigen\+::\+Matrix4f \hyperlink{trackball_8h_ab80bc6f50e15ca6418abf08c70194413}{perspective\+Projection} (float l, float r, float b, float t, float n, float f)
+\begin{DoxyCompactList}\small\item\em Compute a projection matrix. l, r, b and t are defined on the near plane. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{trackball_8h_a018f3f47208c8a8293e45991ba56d028}\label{trackball_8h_a018f3f47208c8a8293e45991ba56d028}} 
+\index{trackball.\+h@{trackball.\+h}!orthographic\+Projection@{orthographic\+Projection}}
+\index{orthographic\+Projection@{orthographic\+Projection}!trackball.\+h@{trackball.\+h}}
+\subsubsection{\texorpdfstring{orthographic\+Projection()}{orthographicProjection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix4f orthographic\+Projection (\begin{DoxyParamCaption}\item[{float}]{l,  }\item[{float}]{r,  }\item[{float}]{b,  }\item[{float}]{t,  }\item[{float}]{n,  }\item[{float}]{f }\end{DoxyParamCaption})}
+
+
+
+Compute an orthographic projection matrix. 
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{trackball_8h_a018f3f47208c8a8293e45991ba56d028_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{trackball_8h_af9b4ac9e8531cf6c51ac7268daa59d87}\label{trackball_8h_af9b4ac9e8531cf6c51ac7268daa59d87}} 
+\index{trackball.\+h@{trackball.\+h}!orthographic\+Projection@{orthographic\+Projection}}
+\index{orthographic\+Projection@{orthographic\+Projection}!trackball.\+h@{trackball.\+h}}
+\subsubsection{\texorpdfstring{orthographic\+Projection()}{orthographicProjection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix4f orthographic\+Projection (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Aligned\+Box3f \&}]{view\+Box }\end{DoxyParamCaption})}
+
+
+
+Compute an orthographic projection matrix. 
+
+\mbox{\Hypertarget{trackball_8h_ab80bc6f50e15ca6418abf08c70194413}\label{trackball_8h_ab80bc6f50e15ca6418abf08c70194413}} 
+\index{trackball.\+h@{trackball.\+h}!perspective\+Projection@{perspective\+Projection}}
+\index{perspective\+Projection@{perspective\+Projection}!trackball.\+h@{trackball.\+h}}
+\subsubsection{\texorpdfstring{perspective\+Projection()}{perspectiveProjection()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix4f perspective\+Projection (\begin{DoxyParamCaption}\item[{float}]{l,  }\item[{float}]{r,  }\item[{float}]{b,  }\item[{float}]{t,  }\item[{float}]{n,  }\item[{float}]{f }\end{DoxyParamCaption})}
+
+
+
+Compute a projection matrix. l, r, b and t are defined on the near plane. 
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{trackball_8h_ab80bc6f50e15ca6418abf08c70194413_icgraph}
+\end{center}
+\end{figure}

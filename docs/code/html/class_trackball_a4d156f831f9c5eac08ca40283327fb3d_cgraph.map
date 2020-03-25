@@ -1,0 +1,7 @@
+<map id="Trackball::computeProjectionMatrix" name="Trackball::computeProjectionMatrix">
+<area shape="rect" id="node2" href="$class_trackball.html#ac50d8b300e7c77162c6134986f9a8a50" title="Trackball::minScreenViewportSize" alt="" coords="244,5,467,32"/>
+<area shape="rect" id="node3" href="$class_trackball.html#a8199e95d37088ed5d9ba36891d70aaa7" title="Trackball::isPerspective" alt="" coords="274,56,437,83"/>
+<area shape="rect" id="node5" href="$trackball_8cpp.html#ab80bc6f50e15ca6418abf08c70194413" title="Compute a projection matrix. l, r, b and t are defined on the near plane. " alt="" coords="282,107,429,133"/>
+<area shape="rect" id="node6" href="$trackball_8cpp.html#a018f3f47208c8a8293e45991ba56d028" title="Compute an orthographic projection matrix. " alt="" coords="280,157,431,184"/>
+<area shape="rect" id="node4" href="$class_trackball.html#a3712c12a5a5468301593a01b0df4c6be" title="Trackball::isOrthographic" alt="" coords="515,56,681,83"/>
+</map>

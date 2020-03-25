@@ -1,0 +1,4 @@
+<map id="Camera::Camera" name="Camera::Camera">
+<area shape="rect" id="node2" href="$class_camera.html#aa63f48a3280871eba3a6f74a3c0f2e2e" title="Camera::perspective" alt="" coords="176,5,319,32"/>
+<area shape="rect" id="node3" href="$class_camera.html#a683a2e432969a485412c28e18567c174" title="Camera::lookAt" alt="" coords="191,56,304,83"/>
+</map>

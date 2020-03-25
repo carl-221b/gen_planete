@@ -1,0 +1,102 @@
+\hypertarget{class_generator}{}\section{Référence de la classe Generator}
+\label{class_generator}\index{Generator@{Generator}}
+
+
+The \hyperlink{class_generator}{Generator} class, permit to read a given configuration file and generate a planet.  
+
+
+
+
+{\ttfamily \#include $<$generator.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{class_generator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Generator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_generator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}{Generator} ()
+\item 
+virtual \hyperlink{class_generator_aeb355d65ed59bc5738a5b3e9637186e1}{$\sim$\+Generator} ()
+\item 
+virtual \hyperlink{class_shape}{Shape} $\ast$ \hyperlink{class_generator_a91197ce0544ad549cf3646957c33c0e9}{generate} (std\+::string fileconfig)=0
+\begin{DoxyCompactList}\small\item\em generate a planet while reading a configuration file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+The \hyperlink{class_generator}{Generator} class, permit to read a given configuration file and generate a planet. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}\label{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}} 
+\index{Generator@{Generator}!Generator@{Generator}}
+\index{Generator@{Generator}!Generator@{Generator}}
+\subsubsection{\texorpdfstring{Generator()}{Generator()}}
+{\footnotesize\ttfamily Generator\+::\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_generator_aeb355d65ed59bc5738a5b3e9637186e1}\label{class_generator_aeb355d65ed59bc5738a5b3e9637186e1}} 
+\index{Generator@{Generator}!````~Generator@{$\sim$\+Generator}}
+\index{````~Generator@{$\sim$\+Generator}!Generator@{Generator}}
+\subsubsection{\texorpdfstring{$\sim$\+Generator()}{~Generator()}}
+{\footnotesize\ttfamily virtual Generator\+::$\sim$\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_generator_aeb355d65ed59bc5738a5b3e9637186e1_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_generator_a91197ce0544ad549cf3646957c33c0e9}\label{class_generator_a91197ce0544ad549cf3646957c33c0e9}} 
+\index{Generator@{Generator}!generate@{generate}}
+\index{generate@{generate}!Generator@{Generator}}
+\subsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily virtual \hyperlink{class_shape}{Shape}$\ast$ Generator\+::generate (\begin{DoxyParamCaption}\item[{std\+::string}]{fileconfig }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+generate a planet while reading a configuration file. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fileconfig} & the path to the configuration file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Shape$\ast$ the planet allocated, must be free whent not needed anymore. 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{class_x_m_l_generator_aea905ef316503fe716d368ae21f25b9b}{X\+M\+L\+Generator}.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_generator_a91197ce0544ad549cf3646957c33c0e9_icgraph}
+\end{center}
+\end{figure}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{generator_8h}{generator.\+h}\end{DoxyCompactItemize}

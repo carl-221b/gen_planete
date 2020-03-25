@@ -1,0 +1,588 @@
+\hypertarget{class_trackball}{}\section{Référence de la classe Trackball}
+\label{class_trackball}\index{Trackball@{Trackball}}
+
+
+A (relatively) simple trackball.  
+
+
+
+
+{\ttfamily \#include $<$trackball.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Trackball\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_trackball__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Trackball\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_trackball__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_trackball_a102216413a87cb37801044063a1b05be}{State} \{ \hyperlink{class_trackball_a102216413a87cb37801044063a1b05bea88bef1e83c8258b076d64eff20ca5e5e}{Idle}, 
+\hyperlink{class_trackball_a102216413a87cb37801044063a1b05bea50dbabb8cff2af19785a0d60f981a350}{Rotating}, 
+\hyperlink{class_trackball_a102216413a87cb37801044063a1b05bea8a733b5b2990e439a541b6615351d382}{Translating}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_trackball_a11588efe7e24d7deb177f4df3dbd9916}{Trackball} ()
+\item 
+const Eigen\+::\+Vector3f \& \hyperlink{class_trackball_ad658224ce2f6a47a1f607852c887654b}{scene\+Center} () const
+\begin{DoxyCompactList}\small\item\em The center of the view. \hyperlink{class_trackball}{Trackball} rotate around this point. \end{DoxyCompactList}\item 
+float \hyperlink{class_trackball_a9b40eb48561c425f30498a8a9f10ca1f}{scene\+Distance} () const
+\begin{DoxyCompactList}\small\item\em The distance between {\ttfamily center} and the camera. \end{DoxyCompactList}\item 
+float \hyperlink{class_trackball_acd26e3c6e72d935e556e6b10bd2a0c1d}{scene\+Radius} () const
+\begin{DoxyCompactList}\small\item\em The radius of a circle centered on a object plane that define the fov. \end{DoxyCompactList}\item 
+const Eigen\+::\+Quaternionf \& \hyperlink{class_trackball_a3ee1a7c88f90ac00ffab791dd8704ef2}{scene\+Orientation} () const
+\begin{DoxyCompactList}\small\item\em The orientation of the camera. \end{DoxyCompactList}\item 
+const Eigen\+::\+Aligned\+Box2f \& \hyperlink{class_trackball_a42799fa68d03eab4dbcee55e3dfea55e}{screen\+Viewport} () const
+\begin{DoxyCompactList}\small\item\em The viewport box in screen-\/space. \end{DoxyCompactList}\item 
+float \hyperlink{class_trackball_ae10b18ba9b38e588e996e35a709bab29}{min\+Near} () const
+\begin{DoxyCompactList}\small\item\em The smallest possible near distance. \end{DoxyCompactList}\item 
+float \hyperlink{class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8}{near\+Offset} () const
+\item 
+float \hyperlink{class_trackball_ab674f03c640a2f3d434afc4bcad241c9}{far\+Offset} () const
+\item 
+float \hyperlink{class_trackball_ac50d8b300e7c77162c6134986f9a8a50}{min\+Screen\+Viewport\+Size} () const
+\item 
+bool \hyperlink{class_trackball_a3712c12a5a5468301593a01b0df4c6be}{is\+Orthographic} () const
+\item 
+bool \hyperlink{class_trackball_a8199e95d37088ed5d9ba36891d70aaa7}{is\+Perspective} () const
+\item 
+Eigen\+::\+Matrix4f \hyperlink{class_trackball_acb8ad68c2077f4ff149e501acfe67d50}{compute\+View\+Matrix} () const
+\item 
+Eigen\+::\+Matrix4f \hyperlink{class_trackball_a4d156f831f9c5eac08ca40283327fb3d}{compute\+Projection\+Matrix} () const
+\item 
+void \hyperlink{class_trackball_a279072f30b8e41189b05ce0a1caf36a0}{set\+Scene\+Center} (const Eigen\+::\+Vector3f \&scn\+Center)
+\item 
+void \hyperlink{class_trackball_a20407b903581f2e34ca12592f8e0c41a}{set\+Scene\+Distance} (float scn\+Distance)
+\item 
+void \hyperlink{class_trackball_ab546e1363934d09d8ed292dbd8b34e51}{set\+Scene\+Radius} (float scn\+Radius)
+\item 
+void \hyperlink{class_trackball_a0260225e8b58034f6bbc030a35c400e1}{set\+Scene\+Orientation} (const Eigen\+::\+Quaternionf \&scn\+Orientation)
+\item 
+void \hyperlink{class_trackball_aac926ad4f5144195a88b47203e3b5ca7}{set\+Screen\+Viewport} (const Eigen\+::\+Aligned\+Box2f \&scn\+Viewport)
+\item 
+void \hyperlink{class_trackball_a0b23783bdc371a21bce72b633bc1c27a}{set\+Min\+Near} (float \hyperlink{class_trackball_ae10b18ba9b38e588e996e35a709bab29}{min\+Near})
+\item 
+void \hyperlink{class_trackball_adb8173ceaf1d83d324751a6379f769ef}{set\+Near\+Far\+Offsets} (float \hyperlink{class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8}{near\+Offset}, float \hyperlink{class_trackball_ab674f03c640a2f3d434afc4bcad241c9}{far\+Offset})
+\item 
+\hyperlink{class_trackball_a102216413a87cb37801044063a1b05be}{State} \hyperlink{class_trackball_af8dc66630b00cd3d92b999630691ff05}{state} () const
+\item 
+bool \hyperlink{class_trackball_a29102c33e22690b2ad3990c516800220}{is\+Idle} () const
+\item 
+void \hyperlink{class_trackball_aa0dee57906be9ccd12183d0d6e820c3d}{rotate} (const Eigen\+::\+Quaternionf \&rot)
+\begin{DoxyCompactList}\small\item\em Rotate around {\ttfamily center}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_trackball_a78fa30a8e6ffad74df3488aa3cc009c4}{is\+Rotating} () const
+\item 
+void \hyperlink{class_trackball_afa938da0cd322cc44cfb9e73add017df}{start\+Rotation} (const Eigen\+::\+Vector2f \&scr\+Pos)
+\item 
+void \hyperlink{class_trackball_a1dcd5aef16fd43aabfc0099183202437}{drag\+Rotate} (const Eigen\+::\+Vector2f \&scr\+Pos)
+\item 
+void \hyperlink{class_trackball_afb154690785d4cd7fd54c698649c03e4}{cancel\+Rotation} ()
+\item 
+void \hyperlink{class_trackball_a1d2f2f29955059d93bb64fe5f83b0afc}{end\+Rotation} ()
+\item 
+void \hyperlink{class_trackball_aa4f8422c14007f8b27a3b469abe7b1e2}{translate} (const Eigen\+::\+Vector2f \&scn\+Vec)
+\begin{DoxyCompactList}\small\item\em Translate in the view plane. \end{DoxyCompactList}\item 
+void \hyperlink{class_trackball_a1a40442f993381ffcba90edacb1d1957}{translate} (const Eigen\+::\+Vector3f \&scn\+Vec)
+\item 
+bool \hyperlink{class_trackball_ab60138170269b87ee0c131a978e98c4b}{is\+Translating} () const
+\item 
+void \hyperlink{class_trackball_afd0be3e6f9c79903d35af33fb2a6451c}{start\+Translation} (const Eigen\+::\+Vector2f \&scr\+Pos)
+\item 
+void \hyperlink{class_trackball_ab4271070a39f9c771b526e9e0116894e}{drag\+Translate} (const Eigen\+::\+Vector2f \&scr\+Pos)
+\item 
+void \hyperlink{class_trackball_a0666f601bf5171b96051074a59a3df73}{cancel\+Translation} ()
+\item 
+void \hyperlink{class_trackball_ae8ba33700d707ed2621f39bc8fbd3686}{end\+Translation} ()
+\item 
+void \hyperlink{class_trackball_afe05c150d9bf2301250f8a47080d9a7e}{zoom} (float factor)
+\begin{DoxyCompactList}\small\item\em Move camera forward or backward without changing fov. (So it changes radius.) \end{DoxyCompactList}\item 
+void \hyperlink{class_trackball_a4ac38af7646e5998ac341051d0458c58}{grow} (float factor)
+\begin{DoxyCompactList}\small\item\em Grow or shrink radius, changing the fov. \end{DoxyCompactList}\item 
+void \hyperlink{class_trackball_a12d2e0436352bb7d222e2a3aed39e41c}{dolly\+Zoom} (float factor)
+\begin{DoxyCompactList}\small\item\em Do a dolly zoom\+: move the camera and change the fov so that the subject stay in the same frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+A (relatively) simple trackball. 
+
+\begin{DoxyVerb}*        -  -
+*        |  |
+* radius |  |
+*        |  |
+*        -  o----------------> camera
+*    center |    distance
+*           |
+*           |
+*           -
+ *     object plane
+* \end{DoxyVerb}
+
+
+F\+OV is set such that a circle of radius \hyperlink{class_trackball_acd26e3c6e72d935e556e6b10bd2a0c1d}{scene\+Radius()} drawn around the center fit the screen (the circle touch the borders). When distance grow beyond some threshold, the perspective projection is replaced by an orthographic projection.
+
+The near and far plane are computed such that everything in the range \mbox{[}center -\/ near\+Offset, center + far\+Offset\mbox{]} is visible. It should be set according to the radius of the scene. If the camera is inside the depth range, near is set to \hyperlink{class_trackball_ae10b18ba9b38e588e996e35a709bab29}{min\+Near()}.
+
+There is a typical trackball initialization code\+: 
+\begin{DoxyCode}
+\hyperlink{class_trackball}{Trackball} trackball;
+Eigen::AlignedBox3f bb = [ subject bounding box ];
+
+trackball.\hyperlink{class_trackball_a279072f30b8e41189b05ce0a1caf36a0}{setSceneCenter}(bb.center());
+\textcolor{comment}{// The camera will see the whole object by default.}
+trackball.\hyperlink{class_trackball_ab546e1363934d09d8ed292dbd8b34e51}{setSceneRadius}(bb.sizes().maxCoeff());
+\textcolor{comment}{// This place the camera at the distance required for a 60 degree FOV.}
+trackball.\hyperlink{class_trackball_a20407b903581f2e34ca12592f8e0c41a}{setSceneDistance}(trackball.\hyperlink{class_trackball_acd26e3c6e72d935e556e6b10bd2a0c1d}{sceneRadius}() * 3.f);
+\textcolor{comment}{// A big margin for near/far planes allow to move the object far from the}
+\textcolor{comment}{// center. A smaller margin is acceptable most of the time.}
+trackball.\hyperlink{class_trackball_adb8173ceaf1d83d324751a6379f769ef}{setNearFarOffsets}(-trackball.\hyperlink{class_trackball_acd26e3c6e72d935e556e6b10bd2a0c1d}{sceneRadius}() * 100.f,
+                               trackball.\hyperlink{class_trackball_acd26e3c6e72d935e556e6b10bd2a0c1d}{sceneRadius}() * 100.f);
+\textcolor{comment}{// Setup the size of the viewport, in pixels. Used to convert screen}
+\textcolor{comment}{// coordinates into scene coordinates during interaction and for}
+\textcolor{comment}{// aspect-ratio (assume square pixels).}
+trackball.\hyperlink{class_trackball_aac926ad4f5144195a88b47203e3b5ca7}{setScreenViewport}(Eigen::AlignedBox2f(
+        Eigen::Vector2f(0, 0),
+        Eigen::Vector2f(m\_info.windowWidth, m\_info.windowHeight)));
+\end{DoxyCode}
+
+
+Mouse interaction is stateful. You can start view pan/rotate with the start$\ast$() functions. While the mouse move, you can update transform using drag$\ast$() functions. To return to Idle state (no interaction), you must use either an end$\ast$() function to keep the transformation or a cancel$\ast$() function to get back to the original state.
+
+Rotation interaction is made such that placing the mouse back to the mouse press position result in no rotation.
+
+Translation interaction is designed such that the point on the object plane when the mouse is pressed stay under the cursor. This ensure a correct sensitivity in most cases (when the subject is near to the view center).
+
+The methods zoom, grow and dolly\+Zoom allow to manipulate the zoom level. zoom change the camera distance and the object radius, thus leaving the fov unchanged. grow change the object radius, changing the fov without moving the camera. Finaly, dolly\+Zoom move the camera without changing the radius, changing the perspective.
+
+View and projection matrices are obtained using the methods \hyperlink{class_trackball_acb8ad68c2077f4ff149e501acfe67d50}{compute\+View\+Matrix()} and \hyperlink{class_trackball_a4d156f831f9c5eac08ca40283327fb3d}{compute\+Projection\+Matrix()}. The matrices are recomputed each time, so it might be a good idea to cache the result if you often need them.
+
+Note\+: the prefix \char`\"{}scene\char`\"{} (scn for attributes) mean that the coordinates are in scene space. \char`\"{}screen\char`\"{} (src for attributes) is used for screen coordinates (in pixels).
+
+Potential enhancements\+: add methods and state(s) for interactive zoom, better rotation trackball, methods to convert points to/from different spaces. 
+
+\subsection{Documentation des énumérations membres}
+\mbox{\Hypertarget{class_trackball_a102216413a87cb37801044063a1b05be}\label{class_trackball_a102216413a87cb37801044063a1b05be}} 
+\index{Trackball@{Trackball}!State@{State}}
+\index{State@{State}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \hyperlink{class_trackball_a102216413a87cb37801044063a1b05be}{Trackball\+::\+State}}
+
+\begin{DoxyEnumFields}{Valeurs énumérées}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Idle@{Idle}!Trackball@{Trackball}}\index{Trackball@{Trackball}!Idle@{Idle}}}\mbox{\Hypertarget{class_trackball_a102216413a87cb37801044063a1b05bea88bef1e83c8258b076d64eff20ca5e5e}\label{class_trackball_a102216413a87cb37801044063a1b05bea88bef1e83c8258b076d64eff20ca5e5e}} 
+Idle&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rotating@{Rotating}!Trackball@{Trackball}}\index{Trackball@{Trackball}!Rotating@{Rotating}}}\mbox{\Hypertarget{class_trackball_a102216413a87cb37801044063a1b05bea50dbabb8cff2af19785a0d60f981a350}\label{class_trackball_a102216413a87cb37801044063a1b05bea50dbabb8cff2af19785a0d60f981a350}} 
+Rotating&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Translating@{Translating}!Trackball@{Trackball}}\index{Trackball@{Trackball}!Translating@{Translating}}}\mbox{\Hypertarget{class_trackball_a102216413a87cb37801044063a1b05bea8a733b5b2990e439a541b6615351d382}\label{class_trackball_a102216413a87cb37801044063a1b05bea8a733b5b2990e439a541b6615351d382}} 
+Translating&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_trackball_a11588efe7e24d7deb177f4df3dbd9916}\label{class_trackball_a11588efe7e24d7deb177f4df3dbd9916}} 
+\index{Trackball@{Trackball}!Trackball@{Trackball}}
+\index{Trackball@{Trackball}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{Trackball()}{Trackball()}}
+{\footnotesize\ttfamily Trackball\+::\+Trackball (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_trackball_afb154690785d4cd7fd54c698649c03e4}\label{class_trackball_afb154690785d4cd7fd54c698649c03e4}} 
+\index{Trackball@{Trackball}!cancel\+Rotation@{cancel\+Rotation}}
+\index{cancel\+Rotation@{cancel\+Rotation}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{cancel\+Rotation()}{cancelRotation()}}
+{\footnotesize\ttfamily void Trackball\+::cancel\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_a0666f601bf5171b96051074a59a3df73}\label{class_trackball_a0666f601bf5171b96051074a59a3df73}} 
+\index{Trackball@{Trackball}!cancel\+Translation@{cancel\+Translation}}
+\index{cancel\+Translation@{cancel\+Translation}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{cancel\+Translation()}{cancelTranslation()}}
+{\footnotesize\ttfamily void Trackball\+::cancel\+Translation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_a4d156f831f9c5eac08ca40283327fb3d}\label{class_trackball_a4d156f831f9c5eac08ca40283327fb3d}} 
+\index{Trackball@{Trackball}!compute\+Projection\+Matrix@{compute\+Projection\+Matrix}}
+\index{compute\+Projection\+Matrix@{compute\+Projection\+Matrix}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{compute\+Projection\+Matrix()}{computeProjectionMatrix()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix4f Trackball\+::compute\+Projection\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_a4d156f831f9c5eac08ca40283327fb3d_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_a4d156f831f9c5eac08ca40283327fb3d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_acb8ad68c2077f4ff149e501acfe67d50}\label{class_trackball_acb8ad68c2077f4ff149e501acfe67d50}} 
+\index{Trackball@{Trackball}!compute\+View\+Matrix@{compute\+View\+Matrix}}
+\index{compute\+View\+Matrix@{compute\+View\+Matrix}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{compute\+View\+Matrix()}{computeViewMatrix()}}
+{\footnotesize\ttfamily Eigen\+::\+Matrix4f Trackball\+::compute\+View\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_acb8ad68c2077f4ff149e501acfe67d50_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_a12d2e0436352bb7d222e2a3aed39e41c}\label{class_trackball_a12d2e0436352bb7d222e2a3aed39e41c}} 
+\index{Trackball@{Trackball}!dolly\+Zoom@{dolly\+Zoom}}
+\index{dolly\+Zoom@{dolly\+Zoom}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{dolly\+Zoom()}{dollyZoom()}}
+{\footnotesize\ttfamily void Trackball\+::dolly\+Zoom (\begin{DoxyParamCaption}\item[{float}]{factor }\end{DoxyParamCaption})}
+
+
+
+Do a dolly zoom\+: move the camera and change the fov so that the subject stay in the same frame. 
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_a12d2e0436352bb7d222e2a3aed39e41c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_a1dcd5aef16fd43aabfc0099183202437}\label{class_trackball_a1dcd5aef16fd43aabfc0099183202437}} 
+\index{Trackball@{Trackball}!drag\+Rotate@{drag\+Rotate}}
+\index{drag\+Rotate@{drag\+Rotate}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{drag\+Rotate()}{dragRotate()}}
+{\footnotesize\ttfamily void Trackball\+::drag\+Rotate (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector2f \&}]{scr\+Pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_ab4271070a39f9c771b526e9e0116894e}\label{class_trackball_ab4271070a39f9c771b526e9e0116894e}} 
+\index{Trackball@{Trackball}!drag\+Translate@{drag\+Translate}}
+\index{drag\+Translate@{drag\+Translate}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{drag\+Translate()}{dragTranslate()}}
+{\footnotesize\ttfamily void Trackball\+::drag\+Translate (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector2f \&}]{scr\+Pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_a1d2f2f29955059d93bb64fe5f83b0afc}\label{class_trackball_a1d2f2f29955059d93bb64fe5f83b0afc}} 
+\index{Trackball@{Trackball}!end\+Rotation@{end\+Rotation}}
+\index{end\+Rotation@{end\+Rotation}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{end\+Rotation()}{endRotation()}}
+{\footnotesize\ttfamily void Trackball\+::end\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_ae8ba33700d707ed2621f39bc8fbd3686}\label{class_trackball_ae8ba33700d707ed2621f39bc8fbd3686}} 
+\index{Trackball@{Trackball}!end\+Translation@{end\+Translation}}
+\index{end\+Translation@{end\+Translation}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{end\+Translation()}{endTranslation()}}
+{\footnotesize\ttfamily void Trackball\+::end\+Translation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_ab674f03c640a2f3d434afc4bcad241c9}\label{class_trackball_ab674f03c640a2f3d434afc4bcad241c9}} 
+\index{Trackball@{Trackball}!far\+Offset@{far\+Offset}}
+\index{far\+Offset@{far\+Offset}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{far\+Offset()}{farOffset()}}
+{\footnotesize\ttfamily float Trackball\+::far\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_ab674f03c640a2f3d434afc4bcad241c9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_a4ac38af7646e5998ac341051d0458c58}\label{class_trackball_a4ac38af7646e5998ac341051d0458c58}} 
+\index{Trackball@{Trackball}!grow@{grow}}
+\index{grow@{grow}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{grow()}{grow()}}
+{\footnotesize\ttfamily void Trackball\+::grow (\begin{DoxyParamCaption}\item[{float}]{factor }\end{DoxyParamCaption})}
+
+
+
+Grow or shrink radius, changing the fov. 
+
+\mbox{\Hypertarget{class_trackball_a29102c33e22690b2ad3990c516800220}\label{class_trackball_a29102c33e22690b2ad3990c516800220}} 
+\index{Trackball@{Trackball}!is\+Idle@{is\+Idle}}
+\index{is\+Idle@{is\+Idle}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{is\+Idle()}{isIdle()}}
+{\footnotesize\ttfamily bool Trackball\+::is\+Idle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_trackball_a3712c12a5a5468301593a01b0df4c6be}\label{class_trackball_a3712c12a5a5468301593a01b0df4c6be}} 
+\index{Trackball@{Trackball}!is\+Orthographic@{is\+Orthographic}}
+\index{is\+Orthographic@{is\+Orthographic}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{is\+Orthographic()}{isOrthographic()}}
+{\footnotesize\ttfamily bool Trackball\+::is\+Orthographic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_a3712c12a5a5468301593a01b0df4c6be_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_a8199e95d37088ed5d9ba36891d70aaa7}\label{class_trackball_a8199e95d37088ed5d9ba36891d70aaa7}} 
+\index{Trackball@{Trackball}!is\+Perspective@{is\+Perspective}}
+\index{is\+Perspective@{is\+Perspective}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{is\+Perspective()}{isPerspective()}}
+{\footnotesize\ttfamily bool Trackball\+::is\+Perspective (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_a8199e95d37088ed5d9ba36891d70aaa7_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_a8199e95d37088ed5d9ba36891d70aaa7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_a78fa30a8e6ffad74df3488aa3cc009c4}\label{class_trackball_a78fa30a8e6ffad74df3488aa3cc009c4}} 
+\index{Trackball@{Trackball}!is\+Rotating@{is\+Rotating}}
+\index{is\+Rotating@{is\+Rotating}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{is\+Rotating()}{isRotating()}}
+{\footnotesize\ttfamily bool Trackball\+::is\+Rotating (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_trackball_ab60138170269b87ee0c131a978e98c4b}\label{class_trackball_ab60138170269b87ee0c131a978e98c4b}} 
+\index{Trackball@{Trackball}!is\+Translating@{is\+Translating}}
+\index{is\+Translating@{is\+Translating}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{is\+Translating()}{isTranslating()}}
+{\footnotesize\ttfamily bool Trackball\+::is\+Translating (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_trackball_ae10b18ba9b38e588e996e35a709bab29}\label{class_trackball_ae10b18ba9b38e588e996e35a709bab29}} 
+\index{Trackball@{Trackball}!min\+Near@{min\+Near}}
+\index{min\+Near@{min\+Near}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{min\+Near()}{minNear()}}
+{\footnotesize\ttfamily float Trackball\+::min\+Near (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The smallest possible near distance. 
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{class_trackball_ae10b18ba9b38e588e996e35a709bab29_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_ac50d8b300e7c77162c6134986f9a8a50}\label{class_trackball_ac50d8b300e7c77162c6134986f9a8a50}} 
+\index{Trackball@{Trackball}!min\+Screen\+Viewport\+Size@{min\+Screen\+Viewport\+Size}}
+\index{min\+Screen\+Viewport\+Size@{min\+Screen\+Viewport\+Size}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{min\+Screen\+Viewport\+Size()}{minScreenViewportSize()}}
+{\footnotesize\ttfamily float Trackball\+::min\+Screen\+Viewport\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_ac50d8b300e7c77162c6134986f9a8a50_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8}\label{class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8}} 
+\index{Trackball@{Trackball}!near\+Offset@{near\+Offset}}
+\index{near\+Offset@{near\+Offset}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{near\+Offset()}{nearOffset()}}
+{\footnotesize\ttfamily float Trackball\+::near\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_aa0dee57906be9ccd12183d0d6e820c3d}\label{class_trackball_aa0dee57906be9ccd12183d0d6e820c3d}} 
+\index{Trackball@{Trackball}!rotate@{rotate}}
+\index{rotate@{rotate}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void Trackball\+::rotate (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Quaternionf \&}]{rot }\end{DoxyParamCaption})}
+
+
+
+Rotate around {\ttfamily center}. 
+
+\mbox{\Hypertarget{class_trackball_ad658224ce2f6a47a1f607852c887654b}\label{class_trackball_ad658224ce2f6a47a1f607852c887654b}} 
+\index{Trackball@{Trackball}!scene\+Center@{scene\+Center}}
+\index{scene\+Center@{scene\+Center}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{scene\+Center()}{sceneCenter()}}
+{\footnotesize\ttfamily const Eigen\+::\+Vector3f \& Trackball\+::scene\+Center (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The center of the view. \hyperlink{class_trackball}{Trackball} rotate around this point. 
+
+\mbox{\Hypertarget{class_trackball_a9b40eb48561c425f30498a8a9f10ca1f}\label{class_trackball_a9b40eb48561c425f30498a8a9f10ca1f}} 
+\index{Trackball@{Trackball}!scene\+Distance@{scene\+Distance}}
+\index{scene\+Distance@{scene\+Distance}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{scene\+Distance()}{sceneDistance()}}
+{\footnotesize\ttfamily float Trackball\+::scene\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The distance between {\ttfamily center} and the camera. 
+
+\mbox{\Hypertarget{class_trackball_a3ee1a7c88f90ac00ffab791dd8704ef2}\label{class_trackball_a3ee1a7c88f90ac00ffab791dd8704ef2}} 
+\index{Trackball@{Trackball}!scene\+Orientation@{scene\+Orientation}}
+\index{scene\+Orientation@{scene\+Orientation}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{scene\+Orientation()}{sceneOrientation()}}
+{\footnotesize\ttfamily const Eigen\+::\+Quaternionf \& Trackball\+::scene\+Orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The orientation of the camera. 
+
+\mbox{\Hypertarget{class_trackball_acd26e3c6e72d935e556e6b10bd2a0c1d}\label{class_trackball_acd26e3c6e72d935e556e6b10bd2a0c1d}} 
+\index{Trackball@{Trackball}!scene\+Radius@{scene\+Radius}}
+\index{scene\+Radius@{scene\+Radius}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{scene\+Radius()}{sceneRadius()}}
+{\footnotesize\ttfamily float Trackball\+::scene\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The radius of a circle centered on a object plane that define the fov. 
+
+\mbox{\Hypertarget{class_trackball_a42799fa68d03eab4dbcee55e3dfea55e}\label{class_trackball_a42799fa68d03eab4dbcee55e3dfea55e}} 
+\index{Trackball@{Trackball}!screen\+Viewport@{screen\+Viewport}}
+\index{screen\+Viewport@{screen\+Viewport}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{screen\+Viewport()}{screenViewport()}}
+{\footnotesize\ttfamily const Eigen\+::\+Aligned\+Box2f \& Trackball\+::screen\+Viewport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The viewport box in screen-\/space. 
+
+\mbox{\Hypertarget{class_trackball_a0b23783bdc371a21bce72b633bc1c27a}\label{class_trackball_a0b23783bdc371a21bce72b633bc1c27a}} 
+\index{Trackball@{Trackball}!set\+Min\+Near@{set\+Min\+Near}}
+\index{set\+Min\+Near@{set\+Min\+Near}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{set\+Min\+Near()}{setMinNear()}}
+{\footnotesize\ttfamily void Trackball\+::set\+Min\+Near (\begin{DoxyParamCaption}\item[{float}]{min\+Near }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{class_trackball_a0b23783bdc371a21bce72b633bc1c27a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_adb8173ceaf1d83d324751a6379f769ef}\label{class_trackball_adb8173ceaf1d83d324751a6379f769ef}} 
+\index{Trackball@{Trackball}!set\+Near\+Far\+Offsets@{set\+Near\+Far\+Offsets}}
+\index{set\+Near\+Far\+Offsets@{set\+Near\+Far\+Offsets}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{set\+Near\+Far\+Offsets()}{setNearFarOffsets()}}
+{\footnotesize\ttfamily void Trackball\+::set\+Near\+Far\+Offsets (\begin{DoxyParamCaption}\item[{float}]{near\+Offset,  }\item[{float}]{far\+Offset }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_adb8173ceaf1d83d324751a6379f769ef_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_trackball_a279072f30b8e41189b05ce0a1caf36a0}\label{class_trackball_a279072f30b8e41189b05ce0a1caf36a0}} 
+\index{Trackball@{Trackball}!set\+Scene\+Center@{set\+Scene\+Center}}
+\index{set\+Scene\+Center@{set\+Scene\+Center}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{set\+Scene\+Center()}{setSceneCenter()}}
+{\footnotesize\ttfamily void Trackball\+::set\+Scene\+Center (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3f \&}]{scn\+Center }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_a20407b903581f2e34ca12592f8e0c41a}\label{class_trackball_a20407b903581f2e34ca12592f8e0c41a}} 
+\index{Trackball@{Trackball}!set\+Scene\+Distance@{set\+Scene\+Distance}}
+\index{set\+Scene\+Distance@{set\+Scene\+Distance}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{set\+Scene\+Distance()}{setSceneDistance()}}
+{\footnotesize\ttfamily void Trackball\+::set\+Scene\+Distance (\begin{DoxyParamCaption}\item[{float}]{scn\+Distance }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_a0260225e8b58034f6bbc030a35c400e1}\label{class_trackball_a0260225e8b58034f6bbc030a35c400e1}} 
+\index{Trackball@{Trackball}!set\+Scene\+Orientation@{set\+Scene\+Orientation}}
+\index{set\+Scene\+Orientation@{set\+Scene\+Orientation}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{set\+Scene\+Orientation()}{setSceneOrientation()}}
+{\footnotesize\ttfamily void Trackball\+::set\+Scene\+Orientation (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Quaternionf \&}]{scn\+Orientation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_ab546e1363934d09d8ed292dbd8b34e51}\label{class_trackball_ab546e1363934d09d8ed292dbd8b34e51}} 
+\index{Trackball@{Trackball}!set\+Scene\+Radius@{set\+Scene\+Radius}}
+\index{set\+Scene\+Radius@{set\+Scene\+Radius}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{set\+Scene\+Radius()}{setSceneRadius()}}
+{\footnotesize\ttfamily void Trackball\+::set\+Scene\+Radius (\begin{DoxyParamCaption}\item[{float}]{scn\+Radius }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_aac926ad4f5144195a88b47203e3b5ca7}\label{class_trackball_aac926ad4f5144195a88b47203e3b5ca7}} 
+\index{Trackball@{Trackball}!set\+Screen\+Viewport@{set\+Screen\+Viewport}}
+\index{set\+Screen\+Viewport@{set\+Screen\+Viewport}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{set\+Screen\+Viewport()}{setScreenViewport()}}
+{\footnotesize\ttfamily void Trackball\+::set\+Screen\+Viewport (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Aligned\+Box2f \&}]{scn\+Viewport }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_afa938da0cd322cc44cfb9e73add017df}\label{class_trackball_afa938da0cd322cc44cfb9e73add017df}} 
+\index{Trackball@{Trackball}!start\+Rotation@{start\+Rotation}}
+\index{start\+Rotation@{start\+Rotation}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{start\+Rotation()}{startRotation()}}
+{\footnotesize\ttfamily void Trackball\+::start\+Rotation (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector2f \&}]{scr\+Pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_afd0be3e6f9c79903d35af33fb2a6451c}\label{class_trackball_afd0be3e6f9c79903d35af33fb2a6451c}} 
+\index{Trackball@{Trackball}!start\+Translation@{start\+Translation}}
+\index{start\+Translation@{start\+Translation}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{start\+Translation()}{startTranslation()}}
+{\footnotesize\ttfamily void Trackball\+::start\+Translation (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector2f \&}]{scr\+Pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_af8dc66630b00cd3d92b999630691ff05}\label{class_trackball_af8dc66630b00cd3d92b999630691ff05}} 
+\index{Trackball@{Trackball}!state@{state}}
+\index{state@{state}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{state()}{state()}}
+{\footnotesize\ttfamily \hyperlink{class_trackball_a102216413a87cb37801044063a1b05be}{State} Trackball\+::state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_trackball_aa4f8422c14007f8b27a3b469abe7b1e2}\label{class_trackball_aa4f8422c14007f8b27a3b469abe7b1e2}} 
+\index{Trackball@{Trackball}!translate@{translate}}
+\index{translate@{translate}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{translate()}{translate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Trackball\+::translate (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector2f \&}]{scn\+Vec }\end{DoxyParamCaption})}
+
+
+
+Translate in the view plane. 
+
+\mbox{\Hypertarget{class_trackball_a1a40442f993381ffcba90edacb1d1957}\label{class_trackball_a1a40442f993381ffcba90edacb1d1957}} 
+\index{Trackball@{Trackball}!translate@{translate}}
+\index{translate@{translate}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{translate()}{translate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Trackball\+::translate (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3f \&}]{scn\+Vec }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_trackball_afe05c150d9bf2301250f8a47080d9a7e}\label{class_trackball_afe05c150d9bf2301250f8a47080d9a7e}} 
+\index{Trackball@{Trackball}!zoom@{zoom}}
+\index{zoom@{zoom}!Trackball@{Trackball}}
+\subsubsection{\texorpdfstring{zoom()}{zoom()}}
+{\footnotesize\ttfamily void Trackball\+::zoom (\begin{DoxyParamCaption}\item[{float}]{factor }\end{DoxyParamCaption})}
+
+
+
+Move camera forward or backward without changing fov. (So it changes radius.) 
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trackball_afe05c150d9bf2301250f8a47080d9a7e_cgraph}
+\end{center}
+\end{figure}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{trackball_8h}{trackball.\+h}\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/view/\hyperlink{trackball_8cpp}{trackball.\+cpp}\end{DoxyCompactItemize}

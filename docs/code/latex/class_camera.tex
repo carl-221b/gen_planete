@@ -1,0 +1,90 @@
+\hypertarget{class_camera}{}\section{Référence de la classe Camera}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+{\ttfamily \#include $<$camera.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Camera\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_camera__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Camera\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_camera__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_camera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static Eigen\+::\+Matrix4f \hyperlink{class_camera_aa63f48a3280871eba3a6f74a3c0f2e2e}{perspective} (float fovy, float aspect, float z\+Near, float z\+Far)
+\item 
+static Eigen\+::\+Matrix4f \hyperlink{class_camera_a683a2e432969a485412c28e18567c174}{look\+At} (const Eigen\+::\+Vector3f \&position, const Eigen\+::\+Vector3f \&target, const Eigen\+::\+Vector3f \&up)
+\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{class_camera_a01f94c3543f56ede7af49dc778f19331}\label{class_camera_a01f94c3543f56ede7af49dc778f19331}} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_camera_a01f94c3543f56ede7af49dc778f19331_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_camera_a683a2e432969a485412c28e18567c174}\label{class_camera_a683a2e432969a485412c28e18567c174}} 
+\index{Camera@{Camera}!look\+At@{look\+At}}
+\index{look\+At@{look\+At}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{look\+At()}{lookAt()}}
+{\footnotesize\ttfamily Matrix4f Camera\+::look\+At (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3f \&}]{position,  }\item[{const Eigen\+::\+Vector3f \&}]{target,  }\item[{const Eigen\+::\+Vector3f \&}]{up }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{class_camera_a683a2e432969a485412c28e18567c174_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_camera_aa63f48a3280871eba3a6f74a3c0f2e2e}\label{class_camera_aa63f48a3280871eba3a6f74a3c0f2e2e}} 
+\index{Camera@{Camera}!perspective@{perspective}}
+\index{perspective@{perspective}!Camera@{Camera}}
+\subsubsection{\texorpdfstring{perspective()}{perspective()}}
+{\footnotesize\ttfamily Matrix4f Camera\+::perspective (\begin{DoxyParamCaption}\item[{float}]{fovy,  }\item[{float}]{aspect,  }\item[{float}]{z\+Near,  }\item[{float}]{z\+Far }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_camera_aa63f48a3280871eba3a6f74a3c0f2e2e_icgraph}
+\end{center}
+\end{figure}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/include/\hyperlink{camera_8h}{camera.\+h}\item 
+/home/marc-\/cerutti/\+Documents/pdp-\/21-\/2/src/view/\hyperlink{camera_8cpp}{camera.\+cpp}\end{DoxyCompactItemize}

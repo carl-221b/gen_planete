@@ -5,24 +5,34 @@
    <basic_shape name="icosphere"/>
 
    <shape_params>
-       <nb_subdivision value="8"/>
-       <organic value="true"/>
-   </shape_params>
+	<!-- Nombre de subdivision pour plus de polygones, conseillé entre 0 et 10 -->
+        <nb_subdivision value="8"/>
+	<!-- Rajout d'aléatoire pour un maillage moins régulier -->
+        <organic value="true"/>
+    </shape_params>
 
    <!-- Editor -->
    <editor name="noisy_height" />
 
    <editor_params>
+       <!-- Ratio de hauteur maximal relativement au rayon de la planet -->
        <maximum_displacement_ratio value="0.1"/>
+       <!-- Paramêtre controlant les contours du bruit -->
        <octave value="6"/>
+	<!-- Paramêtre controlant la frequence du bruit -->
        <frequence value="5"/>
+	<!-- Paramêtre controlant la persistence du bruit -->
        <persistence value="0.7"/>
-       <!-- <seed value="200"/> -->
+	<!-- Paramêtre controlant l'aléoire du bruit, permet de regénérer à l'identique si vous avez un seed particulier.-->
+       <seed value="200"/>
 
+       	<!-- Table des couleurs en fonction de la hauteur-->
        <colors_treshold>
+	    <!-- Par défaut-->
            <default_color>
                <vector3f x="0." y="0." z="0."/>
            </default_color>
+	   <!-- Chaque layer avec son seuil maximal, et sa couleur RGB-->
            <table>
                <layer>
                    <max_treshold value="0."/>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>gen_planet:  Fichier source de /home/marc-cerutti/Documents/pdp-21-2/src/include/shader.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">gen_planet
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">shader.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="shader_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _Shader_h_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _Shader_h_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="opengl_8h.html">opengl.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_shader.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_shader.html">Shader</a></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_shader.html#a0d654ebaca4e0555197c0724c6d30610">   27</a></span>&#160;    <a class="code" href="class_shader.html#a0d654ebaca4e0555197c0724c6d30610">Shader</a>()</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      : <a class="code" href="class_shader.html#a2cf5f11fb1cfd53e9106285b6b9da0b4">mIsValid</a>(false)</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {}</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_shader.html#ab3326b4493672d0e456e05d9b64c7b28">loadFromFiles</a>(<span class="keyword">const</span> std::string&amp; fileV, <span class="keyword">const</span> std::string&amp; fileF);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_shader.html#ac849c6315a283ebf04571ca62000c187">loadSources</a>(<span class="keyword">const</span> std::string&amp; vsrc, <span class="keyword">const</span> std::string&amp; fsrc);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#aac46b11981aef0616f45e191201f519a">activate</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#ae7a6e4cdb7719dc501a61d6ef732ad98">deactivate</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_shader.html#ae42ef5734471e2cdf1e5045c8883961d">getUniformLocation</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name) <span class="keyword">const</span>;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#ae6ebc266e4706be4b040fe23aced651a">setSamplerUnit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* samplerName, <span class="keywordtype">int</span> textureUnit) <span class="keyword">const</span>;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_shader.html#a4287e8012d956746f99cf8d1d6a126f8">getAttribLocation</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name) <span class="keyword">const</span>;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="class_shader.html#ac6f8837bdac2997de1a79c9a518c664c">   72</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_shader.html#ac6f8837bdac2997de1a79c9a518c664c">id</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_shader.html#ad3c569bb2c0755c647ca139863d44b55">mProgramID</a>; }</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div><div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_shader.html#ade2fdfa75d4447eaac246b8d3b799cec">   74</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_shader.html#ade2fdfa75d4447eaac246b8d3b799cec">valid</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_shader.html#a2cf5f11fb1cfd53e9106285b6b9da0b4">mIsValid</a>; }</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_shader.html#af4bd705b0eb25ec610dffb4b5d694641">dumpInfos</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">protected</span>:</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_shader.html#a2cf5f11fb1cfd53e9106285b6b9da0b4">   80</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_shader.html#a2cf5f11fb1cfd53e9106285b6b9da0b4">mIsValid</a>;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_shader.html#ab46602912ae536c070edf4720a254c31">printProgramInfoLog</a>(GLuint objectID);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_shader.html#af36e2a57d8f789e95b7d014a8ddfaf97">printShaderInfoLog</a>(GLuint objectID);</div><div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_shader.html#ad3c569bb2c0755c647ca139863d44b55">   83</a></span>&#160;    GLuint <a class="code" href="class_shader.html#ad3c569bb2c0755c647ca139863d44b55">mProgramID</a>;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_shader_html_a0d654ebaca4e0555197c0724c6d30610"><div class="ttname"><a href="class_shader.html#a0d654ebaca4e0555197c0724c6d30610">Shader::Shader</a></div><div class="ttdeci">Shader()</div><div class="ttdef"><b>Definition:</b> shader.h:27</div></div>
+<div class="ttc" id="class_shader_html_ae7a6e4cdb7719dc501a61d6ef732ad98"><div class="ttname"><a href="class_shader.html#ae7a6e4cdb7719dc501a61d6ef732ad98">Shader::deactivate</a></div><div class="ttdeci">void deactivate() const</div><div class="ttdef"><b>Definition:</b> shader.cpp:96</div></div>
+<div class="ttc" id="class_shader_html_ac6f8837bdac2997de1a79c9a518c664c"><div class="ttname"><a href="class_shader.html#ac6f8837bdac2997de1a79c9a518c664c">Shader::id</a></div><div class="ttdeci">int id() const</div><div class="ttdef"><b>Definition:</b> shader.h:72</div></div>
+<div class="ttc" id="opengl_8h_html"><div class="ttname"><a href="opengl_8h.html">opengl.h</a></div></div>
+<div class="ttc" id="class_shader_html_af36e2a57d8f789e95b7d014a8ddfaf97"><div class="ttname"><a href="class_shader.html#af36e2a57d8f789e95b7d014a8ddfaf97">Shader::printShaderInfoLog</a></div><div class="ttdeci">static void printShaderInfoLog(GLuint objectID)</div><div class="ttdef"><b>Definition:</b> shader.cpp:147</div></div>
+<div class="ttc" id="class_shader_html_ab3326b4493672d0e456e05d9b64c7b28"><div class="ttname"><a href="class_shader.html#ab3326b4493672d0e456e05d9b64c7b28">Shader::loadFromFiles</a></div><div class="ttdeci">bool loadFromFiles(const std::string &amp;fileV, const std::string &amp;fileF)</div><div class="ttdef"><b>Definition:</b> shader.cpp:29</div></div>
+<div class="ttc" id="class_shader_html_ade2fdfa75d4447eaac246b8d3b799cec"><div class="ttname"><a href="class_shader.html#ade2fdfa75d4447eaac246b8d3b799cec">Shader::valid</a></div><div class="ttdeci">bool valid() const</div><div class="ttdef"><b>Definition:</b> shader.h:74</div></div>
+<div class="ttc" id="class_shader_html_ae6ebc266e4706be4b040fe23aced651a"><div class="ttname"><a href="class_shader.html#ae6ebc266e4706be4b040fe23aced651a">Shader::setSamplerUnit</a></div><div class="ttdeci">void setSamplerUnit(const char *samplerName, int textureUnit) const</div><div class="ttdef"><b>Definition:</b> shader.cpp:107</div></div>
+<div class="ttc" id="class_shader_html_a4287e8012d956746f99cf8d1d6a126f8"><div class="ttname"><a href="class_shader.html#a4287e8012d956746f99cf8d1d6a126f8">Shader::getAttribLocation</a></div><div class="ttdeci">int getAttribLocation(const char *name) const</div><div class="ttdef"><b>Definition:</b> shader.cpp:113</div></div>
+<div class="ttc" id="class_shader_html_a2cf5f11fb1cfd53e9106285b6b9da0b4"><div class="ttname"><a href="class_shader.html#a2cf5f11fb1cfd53e9106285b6b9da0b4">Shader::mIsValid</a></div><div class="ttdeci">bool mIsValid</div><div class="ttdef"><b>Definition:</b> shader.h:80</div></div>
+<div class="ttc" id="class_shader_html_ab46602912ae536c070edf4720a254c31"><div class="ttname"><a href="class_shader.html#ab46602912ae536c070edf4720a254c31">Shader::printProgramInfoLog</a></div><div class="ttdeci">static void printProgramInfoLog(GLuint objectID)</div><div class="ttdef"><b>Definition:</b> shader.cpp:132</div></div>
+<div class="ttc" id="class_shader_html_ad3c569bb2c0755c647ca139863d44b55"><div class="ttname"><a href="class_shader.html#ad3c569bb2c0755c647ca139863d44b55">Shader::mProgramID</a></div><div class="ttdeci">GLuint mProgramID</div><div class="ttdef"><b>Definition:</b> shader.h:83</div></div>
+<div class="ttc" id="class_shader_html_ae42ef5734471e2cdf1e5045c8883961d"><div class="ttname"><a href="class_shader.html#ae42ef5734471e2cdf1e5045c8883961d">Shader::getUniformLocation</a></div><div class="ttdeci">int getUniformLocation(const char *name) const</div><div class="ttdef"><b>Definition:</b> shader.cpp:101</div></div>
+<div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> shader.h:24</div></div>
+<div class="ttc" id="class_shader_html_aac46b11981aef0616f45e191201f519a"><div class="ttname"><a href="class_shader.html#aac46b11981aef0616f45e191201f519a">Shader::activate</a></div><div class="ttdeci">void activate() const</div><div class="ttdef"><b>Definition:</b> shader.cpp:90</div></div>
+<div class="ttc" id="class_shader_html_af4bd705b0eb25ec610dffb4b5d694641"><div class="ttname"><a href="class_shader.html#af4bd705b0eb25ec610dffb4b5d694641">Shader::dumpInfos</a></div><div class="ttdeci">void dumpInfos() const</div><div class="ttdef"><b>Definition:</b> shader.cpp:119</div></div>
+<div class="ttc" id="class_shader_html_ac849c6315a283ebf04571ca62000c187"><div class="ttname"><a href="class_shader.html#ac849c6315a283ebf04571ca62000c187">Shader::loadSources</a></div><div class="ttdeci">bool loadSources(const std::string &amp;vsrc, const std::string &amp;fsrc)</div><div class="ttdef"><b>Definition:</b> shader.cpp:36</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
