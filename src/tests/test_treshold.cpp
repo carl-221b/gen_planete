@@ -65,14 +65,14 @@ TEST(TresholdTest, getvalue)
 
     ThresholdTable<Eigen::Vector4f>* layers = new ThresholdTable<Eigen::Vector4f>(colors.back());
 
-    for (size_t i = 0; i< (colors.size()-1); i++)
+    for (size_t i = 0; i< (nb_layers-1); i++)
     {
-        layers->addLayer(i*1.0/colors.size(), colors[i]);
+        layers->addLayer(i*1.0/nb_layers, colors[i]);
     }
 
-    double ind = NoiseRandom::random(0,20);
+    double ind = NoiseRandom::random(0, nb_layers);
     int layerExpected = std::ceil(ind);
-    double value = ind*1.0/colors.size();
-    EXPECT_EQ(layers->getColorLayerByValue(value), colors[layerExpected]);
+    double value = ind / nb_layers;
+    EXPECT_EQ(layers->getDataLayerByValue(value), colors[layerExpected]);
 
 }
