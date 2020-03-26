@@ -46,3 +46,33 @@ TEST(TresholdTest, creation)
     }
 
 }
+
+
+TEST(TresholdTest, getvalue)
+{
+
+    int nb_layers = (int)NoiseRandom::random(0,20);
+    std::vector<Eigen::Vector4f> colors;
+    for(int i=0; i< nb_layers; i++)
+    {
+        colors.push_back(
+                    Eigen::Vector4f(
+                        NoiseRandom::random(0,1),
+                        NoiseRandom::random(0,1),
+                        NoiseRandom::random(0,1),
+                        NoiseRandom::random(0,1)));
+    }
+
+    ThresholdTable<Eigen::Vector4f>* layers = new ThresholdTable<Eigen::Vector4f>(colors.back());
+
+    for (size_t i = 0; i< (colors.size()-1); i++)
+    {
+        layers->addLayer(i*1.0/colors.size(), colors[i]);
+    }
+
+    double ind = NoiseRandom::random(0,20);
+    int layerExpected = std::ceil(ind);
+    double value = ind*1.0/colors.size();
+    EXPECT_EQ(layers->getColorLayerByValue(value), colors[layerExpected]);
+
+}
