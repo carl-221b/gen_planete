@@ -7,7 +7,7 @@ Viewer::Viewer(Rendering* rendering)
 {
    _rendering = rendering;
    _theta=0;
-   _rotate=true;
+   _rotate=false;
 }
 
 Viewer::~Viewer()
@@ -76,22 +76,15 @@ void Viewer::display()
 
     _rendering->polygonModeFill();
 
+    //Planet relief
     _simple_shader->activate();
-
     _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view,0);
-
     if(!_ready){
         const Shape::Vertices* shape_vertices = _shape->getVertices();
         _rendering->loadBuffer(shape_vertices, _shape->getFaces());
         _ready = true;
     }
     _rendering->draw(_shape->getFaces().size(),_simple_shader);
-    _simple_shader->deactivate();
-
-    _simple_shader->activate();
-    _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view,1);
-    _rendering->draw(_shape->getFaces().size(),_simple_shader);
-
     _simple_shader->deactivate();
 
     if(_wireframe){
@@ -102,16 +95,23 @@ void Viewer::display()
 
         _rendering->draw(_shape->getFaces().size(),_line_shader);
 
+        _line_shader->deactivate();
     }
 
-    _line_shader->deactivate();
+    //Sea Mode
+    _simple_shader->activate();
+    _rendering->UniformValues(_simple_shader, _cam, _lightDir, normal_matrix, model_view,1);
+    _rendering->draw(_shape->getFaces().size(),_simple_shader);
+    _simple_shader->deactivate();
+
+
     _rendering->checkErrors();
 }
 
 
 void Viewer::updateScene() 
 {
-    if(_rotate) _theta+= 0.02*M_PI;
+    if(_rotate) _theta+= SPEED_LIGHT_ROTATION*M_PI;
     display();
 }
 

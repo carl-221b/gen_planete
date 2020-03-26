@@ -34,27 +34,6 @@ public:
     virtual void load(const std::string& filename) override;
 
     /**
-     * @brief Get the Vertices object (editable)
-     * 
-     * @return Vertices*
-     */
-    virtual Vertices* getVertices() const override;
-
-    /**
-     * @brief Get the Vertices object (non editable)
-     * 
-     * @return Vertices*
-     */
-    virtual const Vertices* getVertices() const override;
-
-    /**
-     * @brief Get the number of faces
-     * 
-     * @return int the number of faces
-     */
-    virtual int numFaces() const override { return _halfEdge.faces_size(); }
-
-    /**
      * @brief Updates mesh's attributes (vertices and faces) from its Surface_mesh
      */
     void updateMeshFromSurfaceMesh();

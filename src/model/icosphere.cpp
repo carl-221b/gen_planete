@@ -13,7 +13,7 @@ using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
 
-Icosphere::Icosphere(int nbSubdivision, bool organicLook) {
+Icosphere::Icosphere(uint nbSubdivision, bool organicLook) {
     _vertices = new Vertices;
 
     load(DATA_DIR"/models/icosa.obj");
@@ -258,12 +258,6 @@ void Icosphere::subdivide()
     updateMeshFromSurfaceMesh();
 }
 
-
-Icosphere::Vertices* Icosphere::getVertices(){
-    return _vertices;
-}
-
-
 void Icosphere::organicTriangulation(){
     Vertices* vertices = this->getVertices();
 
@@ -301,7 +295,7 @@ void Icosphere::organicTriangulation(){
         //origin.z() += NoiseRandom::normalRandom(0.0, dist_min/2);
 
 
-        //Fix the height to previous
+        //Fix the height to previous one
         Vector3f newUv = cartesianToSphericalCoord(origin);
         newUv.x() = oldUv.x();
 

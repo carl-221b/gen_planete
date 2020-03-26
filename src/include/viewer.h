@@ -8,6 +8,8 @@
 #include "trackball.h"
 #include "rendering.h"
 
+#define SPEED_LIGHT_ROTATION 0.005
+
 /**
  * @brief 
  * 

@@ -35,26 +35,14 @@ public:
      * 
      * @return int the number of faces
      */ 
-    virtual int numFaces() const override { return _faces.size(); }
+    int numFaces() const { return _faces.size(); }
 
     /**
      * @brief Get the Vertices object (editable)
      *
      * @return Vertices*
      */
-    virtual Vertices* getVertices() = 0;
-
-    /**
-     * @brief Get the Vertices object (non editable)
-     * 
-     * @return Vertices*
-     */
-    const Vertices* getVertices() const = 0;
-
-    /**
-     * @brief Compute normal for each face.
-     */
-    virtual void computeNormals() = 0;
+    Vertices* getVertices() {return _vertices;}
 
     /**
      * @brief Get the Vertices object (const)
@@ -62,6 +50,11 @@ public:
      * @return const Vertices*
      */
     const Vertices* getVertices() const {return _vertices;}
+
+    /**
+     * @brief Compute normal for each face.
+     */
+    virtual void computeNormals() = 0;
 
     /**
      * @brief boundingBox used for the rasterzation

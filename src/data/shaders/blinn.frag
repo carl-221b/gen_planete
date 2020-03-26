@@ -34,7 +34,6 @@ vec3 shade(vec3 N, vec3 L, vec3 V,
 void main(void)
 {
     vec3 light_color = vec3(1.0,1.0,1.0);
-    
     out_color.rgb = shade(normalize(vert_normal_view), normalize(light_dir_world),normalize(vert_pos_view).xyz,v_color.xyz,0.4,v_diffuse,v_spec,light_color,v_shininess);
     out_color.a = v_color.a;
 }
