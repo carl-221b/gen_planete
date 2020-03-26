@@ -11,7 +11,8 @@ The Color\+Threshold\+Table class Construction like \mbox{[}-\/\+L\+I\+M\+I\+T\+
 
 
 
-Graphe de collaboration de Threshold\+Table$<$ T $>$\+:\nopagebreak
+Graphe de collaboration de Threshold\+Table$<$ T $>$\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,6 +32,16 @@ T \hyperlink{class_threshold_table_ac20ccb2dd4cd20e96036818ca0106f93}{get\+Defau
 \begin{DoxyCompactList}\small\item\em get\+Default\+Color \end{DoxyCompactList}\item 
 const std\+::set$<$ \hyperlink{struct_threshold}{Threshold}$<$ T $>$ $>$ \& \hyperlink{class_threshold_table_a6cb1745a571a4e071e9b74ad34372405}{get\+Layers} () const
 \begin{DoxyCompactList}\small\item\em get\+Layers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_threshold_table_a0323e0da4f0a97b1b3f84c1d2ae7a5b2}{add\+Layer} (\hyperlink{struct_threshold}{Threshold}$<$ T $>$ data)
+\begin{DoxyCompactList}\small\item\em add\+Layer add a layer in the structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+std\+::set$<$ \hyperlink{struct_threshold}{Threshold}$<$ T $>$ $>$ \hyperlink{class_threshold_table_aa85ce39b849283e9fd2a26d6571646a2}{\+\_\+layers}
+\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -62,7 +73,7 @@ The Color\+Threshold\+Table class Construction like \mbox{[}-\/\+L\+I\+M\+I\+T\+
 \mbox{\Hypertarget{class_threshold_table_a8724b07d34b3b1c84d4e6e6f2afdad37}\label{class_threshold_table_a8724b07d34b3b1c84d4e6e6f2afdad37}} 
 \index{Threshold\+Table@{Threshold\+Table}!add\+Layer@{add\+Layer}}
 \index{add\+Layer@{add\+Layer}!Threshold\+Table@{Threshold\+Table}}
-\subsubsection{\texorpdfstring{add\+Layer()}{addLayer()}}
+\subsubsection{\texorpdfstring{add\+Layer()}{addLayer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \hyperlink{class_threshold_table}{Threshold\+Table}$<$ T $>$\+::add\+Layer (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{T}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -77,13 +88,30 @@ add\+Layer add a layer with upperbound=value and will be sorted in the table.
 {\em data} & the data associated. \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_threshold_table_a8724b07d34b3b1c84d4e6e6f2afdad37_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_threshold_table_a0323e0da4f0a97b1b3f84c1d2ae7a5b2}\label{class_threshold_table_a0323e0da4f0a97b1b3f84c1d2ae7a5b2}} 
+\index{Threshold\+Table@{Threshold\+Table}!add\+Layer@{add\+Layer}}
+\index{add\+Layer@{add\+Layer}!Threshold\+Table@{Threshold\+Table}}
+\subsubsection{\texorpdfstring{add\+Layer()}{addLayer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \hyperlink{class_threshold_table}{Threshold\+Table}$<$ T $>$\+::add\+Layer (\begin{DoxyParamCaption}\item[{\hyperlink{struct_threshold}{Threshold}$<$ T $>$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+add\+Layer add a layer in the structure. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & the treshold to add. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_threshold_table_a35e7219d9476c3a5c0362e80ab7f5596}\label{class_threshold_table_a35e7219d9476c3a5c0362e80ab7f5596}} 
 \index{Threshold\+Table@{Threshold\+Table}!get\+Color\+Layer\+By\+Value@{get\+Color\+Layer\+By\+Value}}
 \index{get\+Color\+Layer\+By\+Value@{get\+Color\+Layer\+By\+Value}!Threshold\+Table@{Threshold\+Table}}
@@ -103,7 +131,8 @@ get\+Color\+Layer\+By\+Value
 \begin{DoxyReturn}{Renvoie}
 The color of the layer that is belong or the default one if is higher than max of the table. Print a warning if convention \mbox{[}-\/1,1\mbox{]} is noit respected. 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -138,13 +167,24 @@ get\+Layers
 \begin{DoxyReturn}{Renvoie}
 the differents layers added. At least the default, that is last one. 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_threshold_table_a6cb1745a571a4e071e9b74ad34372405_icgraph}
 \end{center}
 \end{figure}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_threshold_table_aa85ce39b849283e9fd2a26d6571646a2}\label{class_threshold_table_aa85ce39b849283e9fd2a26d6571646a2}} 
+\index{Threshold\+Table@{Threshold\+Table}!\+\_\+layers@{\+\_\+layers}}
+\index{\+\_\+layers@{\+\_\+layers}!Threshold\+Table@{Threshold\+Table}}
+\subsubsection{\texorpdfstring{\+\_\+layers}{\_layers}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::set$<$\hyperlink{struct_threshold}{Threshold}$<$T$>$ $>$ \hyperlink{class_threshold_table}{Threshold\+Table}$<$ T $>$\+::\+\_\+layers\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}

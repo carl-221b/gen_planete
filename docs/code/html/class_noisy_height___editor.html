@@ -61,6 +61,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
 <a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pri-attribs">Attributs privés</a> &#124;
 <a href="class_noisy_height___editor-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe NoisyHeight_Editor</div>  </div>
@@ -76,7 +77,7 @@ Graphe d'héritage de NoisyHeight_Editor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_noisy_height___editor__inherit__graph.png" border="0" usemap="#_noisy_height___editor_inherit__map" alt="Inheritance graph"/></div>
 <map name="_noisy_height___editor_inherit__map" id="_noisy_height___editor_inherit__map">
-<area shape="rect" id="node2" href="class_editor.html" title="Interface to be implemented by an editor that will transform a generic icosphere into a given type of..." alt="" coords="45,5,129,141"/>
+<area shape="rect" id="node2" href="class_editor.html" title="Interface to be implemented by an editor that will transform a generic basic shape into a planet..." alt="" coords="53,5,137,141"/>
 </map>
 </div>
 <div class="dynheader">
@@ -84,9 +85,10 @@ Graphe de collaboration de NoisyHeight_Editor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_noisy_height___editor__coll__graph.png" border="0" usemap="#_noisy_height___editor_coll__map" alt="Collaboration graph"/></div>
 <map name="_noisy_height___editor_coll__map" id="_noisy_height___editor_coll__map">
-<area shape="rect" id="node2" href="class_editor.html" title="Interface to be implemented by an editor that will transform a generic icosphere into a given type of..." alt="" coords="55,476,139,597"/>
-<area shape="rect" id="node3" href="class_shape.html" title="interface implemented by icoshpere which contains the needed data for the planet generation ..." alt="" coords="5,175,188,413"/>
-<area shape="rect" id="node4" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colo for each vertex. " alt="" coords="39,5,154,112"/>
+<area shape="rect" id="node2" href="class_editor.html" title="Interface to be implemented by an editor that will transform a generic basic shape into a planet..." alt="" coords="55,505,139,627"/>
+<area shape="rect" id="node3" href="class_shape.html" title="interface which contains the needed data for the planet generation. " alt="" coords="5,175,188,428"/>
+<area shape="rect" id="node4" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. " alt="" coords="39,5,154,112"/>
+<area shape="rect" id="node5" href="class_threshold_table.html" title="The ColorThresholdTable class Construction like [&#45;LIMIT_DOUBLE, 1st value[ for first data..." alt="" coords="163,491,335,641"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -116,6 +118,21 @@ Fonctions membres publiques</h2></td></tr>
 Fonctions membres protégées</h2></td></tr>
 <tr class="memitem:a4cb46efb3183c7558f450368b962d3fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noisy_height___editor.html#a4cb46efb3183c7558f450368b962d3fc">assignColor</a> (<a class="el" href="struct_shape_1_1_vertices.html">Shape::Vertices</a> *vertices, Eigen::Vector3f colors)</td></tr>
 <tr class="separator:a4cb46efb3183c7558f450368b962d3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr class="memitem:ae4a5069cc1a10e7fd9525648ac20c3b7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noisy_height___editor.html#ae4a5069cc1a10e7fd9525648ac20c3b7">_maximum_displacement_ratio</a></td></tr>
+<tr class="separator:ae4a5069cc1a10e7fd9525648ac20c3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af52b33d7a5ea98cdda1a1bc17d897d75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noisy_height___editor.html#af52b33d7a5ea98cdda1a1bc17d897d75">_octave</a></td></tr>
+<tr class="separator:af52b33d7a5ea98cdda1a1bc17d897d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6b90169942b0bb92d6461dbf9a2e000"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noisy_height___editor.html#ac6b90169942b0bb92d6461dbf9a2e000">_frequence</a></td></tr>
+<tr class="separator:ac6b90169942b0bb92d6461dbf9a2e000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0752875febd6605a9c0ecdf040c6f48"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noisy_height___editor.html#aa0752875febd6605a9c0ecdf040c6f48">_persistence</a></td></tr>
+<tr class="separator:aa0752875febd6605a9c0ecdf040c6f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8765f88743f3ea7f2c850a9415060287"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noisy_height___editor.html#a8765f88743f3ea7f2c850a9415060287">_seed</a></td></tr>
+<tr class="separator:a8765f88743f3ea7f2c850a9415060287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40ef1d409c9cbc17b24556b1072e43c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="thresholdtable_8h.html#ab0deb49d07758f9814993774cb9935cc">ColorThresholdTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noisy_height___editor.html#a40ef1d409c9cbc17b24556b1072e43c1">_layers</a></td></tr>
+<tr class="separator:a40ef1d409c9cbc17b24556b1072e43c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Membres hérités additionnels</h2></td></tr>
@@ -383,6 +400,139 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" id="node3" href="class_threshold_table.html#a6cb1745a571a4e071e9b74ad34372405" title="getLayers " alt="" coords="188,56,364,83"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="ac6b90169942b0bb92d6461dbf9a2e000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6b90169942b0bb92d6461dbf9a2e000">&#9670;&nbsp;</a></span>_frequence</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double NoisyHeight_Editor::_frequence</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40ef1d409c9cbc17b24556b1072e43c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40ef1d409c9cbc17b24556b1072e43c1">&#9670;&nbsp;</a></span>_layers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="thresholdtable_8h.html#ab0deb49d07758f9814993774cb9935cc">ColorThresholdTable</a>* NoisyHeight_Editor::_layers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4a5069cc1a10e7fd9525648ac20c3b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4a5069cc1a10e7fd9525648ac20c3b7">&#9670;&nbsp;</a></span>_maximum_displacement_ratio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double NoisyHeight_Editor::_maximum_displacement_ratio</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af52b33d7a5ea98cdda1a1bc17d897d75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af52b33d7a5ea98cdda1a1bc17d897d75">&#9670;&nbsp;</a></span>_octave</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NoisyHeight_Editor::_octave</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0752875febd6605a9c0ecdf040c6f48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0752875febd6605a9c0ecdf040c6f48">&#9670;&nbsp;</a></span>_persistence</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double NoisyHeight_Editor::_persistence</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8765f88743f3ea7f2c850a9415060287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8765f88743f3ea7f2c850a9415060287">&#9670;&nbsp;</a></span>_seed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NoisyHeight_Editor::_seed</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

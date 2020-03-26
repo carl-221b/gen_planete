@@ -11,16 +11,18 @@ Applies a random modification to the position (x,y,z) of each vertex and applies
 
 
 
-Graphe d\textquotesingle{}héritage de Random\+\_\+\+Editor\+:\nopagebreak
+Graphe d\textquotesingle{}héritage de Random\+\_\+\+Editor\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=185pt]{class_random___editor__inherit__graph}
+\includegraphics[width=214pt]{class_random___editor__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Graphe de collaboration de Random\+\_\+\+Editor\+:\nopagebreak
+Graphe de collaboration de Random\+\_\+\+Editor\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -38,6 +40,18 @@ virtual void \hyperlink{class_random___editor_abea41199b1502f89be0b2914b3c191fc}
 \begin{DoxyCompactList}\small\item\em Applies vertex deplacement and colors the shape. \end{DoxyCompactList}\item 
 virtual std\+::string \hyperlink{class_random___editor_aa194991b2926aeab96ad5470f549f087}{info} () const
 \begin{DoxyCompactList}\small\item\em info \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_random___editor_a24b101aa09fc78ad3febf247ae47038d}{assign\+Color} (\hyperlink{struct_shape_1_1_vertices}{Shape\+::\+Vertices} $\ast$vertices, Eigen\+::\+Vector3f colors)
+\begin{DoxyCompactList}\small\item\em Assigns color for a vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_random___editor_a3f94d9732552caff8f645cd077f4743b}{\+\_\+maximum\+\_\+displacement\+\_\+ratio}
+\item 
+\hyperlink{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}{Color\+Threshold\+Table} $\ast$ \hyperlink{class_random___editor_af2105a201bbe9cf3ad46137037a6b69d}{\+\_\+layers}
+\end{DoxyCompactItemize}
 \subsection*{Membres hérités additionnels}
 
 
@@ -80,6 +94,31 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 
 
 \subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{class_random___editor_a24b101aa09fc78ad3febf247ae47038d}\label{class_random___editor_a24b101aa09fc78ad3febf247ae47038d}} 
+\index{Random\+\_\+\+Editor@{Random\+\_\+\+Editor}!assign\+Color@{assign\+Color}}
+\index{assign\+Color@{assign\+Color}!Random\+\_\+\+Editor@{Random\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{assign\+Color()}{assignColor()}}
+{\footnotesize\ttfamily void Random\+\_\+\+Editor\+::assign\+Color (\begin{DoxyParamCaption}\item[{\hyperlink{struct_shape_1_1_vertices}{Shape\+::\+Vertices} $\ast$}]{vertices,  }\item[{Eigen\+::\+Vector3f}]{colors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Assigns color for a vertex. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vertices} & Structure that contains the vertex data \\
+\hline
+{\em colors} & \+: vector of 3 floats, each float is a color of the vertex (red, green and blue). Each float value is in \mbox{[}0,1\mbox{]}. \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_random___editor_a24b101aa09fc78ad3febf247ae47038d_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_random___editor_abea41199b1502f89be0b2914b3c191fc}\label{class_random___editor_abea41199b1502f89be0b2914b3c191fc}} 
 \index{Random\+\_\+\+Editor@{Random\+\_\+\+Editor}!edit@{edit}}
 \index{edit@{edit}!Random\+\_\+\+Editor@{Random\+\_\+\+Editor}}
@@ -94,11 +133,12 @@ Applies vertex deplacement and colors the shape.
 
 Implémente \hyperlink{class_editor_abca97ba11536c494a0c26bac77917792}{Editor}.
 
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=348pt]{class_random___editor_abea41199b1502f89be0b2914b3c191fc_cgraph}
+\includegraphics[width=350pt]{class_random___editor_abea41199b1502f89be0b2914b3c191fc_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_random___editor_aa194991b2926aeab96ad5470f549f087}\label{class_random___editor_aa194991b2926aeab96ad5470f549f087}} 
@@ -118,13 +158,29 @@ the informations of editors, overload it to display parameters informations.
 
 Réimplémentée à partir de \hyperlink{class_editor_a5747cd74b71d67f6d39b094071058382}{Editor}.
 
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_random___editor_aa194991b2926aeab96ad5470f549f087_cgraph}
 \end{center}
 \end{figure}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_random___editor_af2105a201bbe9cf3ad46137037a6b69d}\label{class_random___editor_af2105a201bbe9cf3ad46137037a6b69d}} 
+\index{Random\+\_\+\+Editor@{Random\+\_\+\+Editor}!\+\_\+layers@{\+\_\+layers}}
+\index{\+\_\+layers@{\+\_\+layers}!Random\+\_\+\+Editor@{Random\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{\+\_\+layers}{\_layers}}
+{\footnotesize\ttfamily \hyperlink{thresholdtable_8h_ab0deb49d07758f9814993774cb9935cc}{Color\+Threshold\+Table}$\ast$ Random\+\_\+\+Editor\+::\+\_\+layers\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_random___editor_a3f94d9732552caff8f645cd077f4743b}\label{class_random___editor_a3f94d9732552caff8f645cd077f4743b}} 
+\index{Random\+\_\+\+Editor@{Random\+\_\+\+Editor}!\+\_\+maximum\+\_\+displacement\+\_\+ratio@{\+\_\+maximum\+\_\+displacement\+\_\+ratio}}
+\index{\+\_\+maximum\+\_\+displacement\+\_\+ratio@{\+\_\+maximum\+\_\+displacement\+\_\+ratio}!Random\+\_\+\+Editor@{Random\+\_\+\+Editor}}
+\subsubsection{\texorpdfstring{\+\_\+maximum\+\_\+displacement\+\_\+ratio}{\_maximum\_displacement\_ratio}}
+{\footnotesize\ttfamily double Random\+\_\+\+Editor\+::\+\_\+maximum\+\_\+displacement\+\_\+ratio\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}

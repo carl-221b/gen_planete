@@ -1,5 +1,12 @@
 <map id="XMLGenerator::generate" name="XMLGenerator::generate">
-<area shape="rect" id="node2" href="$class_editor.html#a5747cd74b71d67f6d39b094071058382" title="info " alt="" coords="261,5,346,32"/>
-<area shape="rect" id="node3" href="$class_editor.html#abca97ba11536c494a0c26bac77917792" title="Applies vertex deplacement and colors the shapes. " alt="" coords="261,56,346,83"/>
-<area shape="rect" id="node4" href="$class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37" title="addLayer add a layer with upperbound=value and will be sorted in the table. " alt="" coords="217,107,389,133"/>
+<area shape="rect" id="node2" href="$class_x_m_l_generator.html#acbd95e69a36222e6f8906a77e6530f1b" title="basicShapeContruct check the corresponding node and construct the basic shape. " alt="" coords="217,49,400,90"/>
+<area shape="rect" id="node5" href="$class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d" title="applyEditor apply the editor in configuration file. " alt="" coords="219,140,398,167"/>
+<area shape="rect" id="node3" href="$class_x_m_l_generator.html#a0254cdb59750801014903ed7a4169827" title="XMLGenerator::readInt" alt="" coords="484,56,639,83"/>
+<area shape="rect" id="node4" href="$class_x_m_l_generator.html#a0030450c03ad82fe328e27382bcfe011" title="XMLGenerator::readBool" alt="" coords="479,5,644,32"/>
+<area shape="rect" id="node6" href="$class_x_m_l_generator.html#ab0a3198e6d44dcf102e13902325e0bd1" title="XMLGenerator::readDouble" alt="" coords="727,109,907,136"/>
+<area shape="rect" id="node7" href="$class_x_m_l_generator.html#a4df5b09d456665f90f1c2e0818ccd442" title="XMLGenerator::readColorThreshold\lTable" alt="" coords="448,158,675,199"/>
+<area shape="rect" id="node10" href="$class_editor.html#a5747cd74b71d67f6d39b094071058382" title="info " alt="" coords="519,224,604,251"/>
+<area shape="rect" id="node11" href="$class_editor.html#abca97ba11536c494a0c26bac77917792" title="Applies vertex deplacement and colors the shapes. " alt="" coords="519,275,604,301"/>
+<area shape="rect" id="node8" href="$class_x_m_l_generator.html#abf2e3d3b2d44fdd1e01d0f2bbca7f028" title="XMLGenerator::readVector3f" alt="" coords="723,164,911,191"/>
+<area shape="rect" id="node9" href="$class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37" title="addLayer add a layer with upperbound=value and will be sorted in the table. " alt="" coords="731,215,903,241"/>
 </map>

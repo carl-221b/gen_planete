@@ -1,4 +1,5 @@
 <map id="Editor::edit" name="Editor::edit">
-<area shape="rect" id="node2" href="$class_editor.html#ab9aea98e4964b437a937354d2f3edd42" title="Editor::~Editor" alt="" coords="167,5,274,32"/>
-<area shape="rect" id="node3" href="$class_x_m_l_generator.html#aea905ef316503fe716d368ae21f25b9b" title="XMLGenerator::generate" alt="" coords="139,56,303,83"/>
+<area shape="rect" id="node2" href="$class_editor.html#aea7f803e3bbb79dbbeb9a9ad9b01ed5a" title="Editor::Editor" alt="" coords="179,5,277,32"/>
+<area shape="rect" id="node3" href="$class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d" title="applyEditor apply the editor in configuration file. " alt="" coords="139,56,317,83"/>
+<area shape="rect" id="node4" href="$class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="365,56,529,83"/>
 </map>

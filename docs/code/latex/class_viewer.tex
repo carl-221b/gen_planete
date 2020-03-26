@@ -6,11 +6,12 @@
 
 
 
-Graphe de collaboration de Viewer\+:\nopagebreak
+Graphe de collaboration de Viewer\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=177pt]{class_viewer__coll__graph}
+\includegraphics[height=550pt]{class_viewer__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Fonctions membres publiques}
@@ -39,6 +40,37 @@ void \hyperlink{class_viewer_abd042d0aa5ae88ef0261d83c15ce8d4b}{mouse\+Scroll} (
 void \hyperlink{class_viewer_a79192db7ddae958fc0ae2ee2e90cb995}{key\+Pressed} (int key, int action, int mods)
 \item 
 void \hyperlink{class_viewer_a12155081915ec2fcf3554534b8aa52d6}{char\+Pressed} (int key)
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_trackball}{Trackball} \hyperlink{class_viewer_ae5cf141efe1b370bddb3aee4f459aae6}{\+\_\+cam}
+\item 
+int \hyperlink{class_viewer_a5ed35052dd2cafc37dcb9ebdc707b0ee}{\+\_\+win\+Width}
+\item 
+int \hyperlink{class_viewer_aa9b2ec5f7c556f9c21bd4db90db4adc3}{\+\_\+win\+Height}
+\item 
+\hyperlink{class_shader}{Shader} $\ast$ \hyperlink{class_viewer_a28fb6ad2e98323a2e15cf8d3f6250715}{\+\_\+simple\+\_\+shader}
+\item 
+\hyperlink{class_shader}{Shader} $\ast$ \hyperlink{class_viewer_a8179d29882494d1c22c9f1836a374eab}{\+\_\+line\+\_\+shader}
+\item 
+\hyperlink{class_shape}{Shape} $\ast$ \hyperlink{class_viewer_a4da6f3bfd65c6e60809d1ca6bccba84c}{\+\_\+shape}
+\item 
+bool \hyperlink{class_viewer_a3316af44dc82836ab420a1c1dd7de738}{\+\_\+wireframe} = false
+\item 
+Eigen\+::\+Vector3f \hyperlink{class_viewer_a821af83607bfed860f0d3566dd9db597}{\+\_\+light\+Dir}
+\item 
+float \hyperlink{class_viewer_a4f1313a7d9a6b81079985c9ad0f93e0c}{\+\_\+theta}
+\item 
+bool \hyperlink{class_viewer_a5ec677d1951652c794bcdea1663e1fb7}{\+\_\+rotate}
+\item 
+Eigen\+::\+Vector2f \hyperlink{class_viewer_a809a18b8663d86d127fee482326919ad}{\+\_\+last\+Mouse\+Pos}
+\item 
+int \hyperlink{class_viewer_aebac1d4a942eab5c1bfcfe46c67f7c6a}{\+\_\+button} = -\/1
+\item 
+\hyperlink{class_rendering}{Rendering} $\ast$ \hyperlink{class_viewer_a58d6891d6b99ada90a627407fd5e7b8f}{\+\_\+rendering}
+\item 
+bool \hyperlink{class_viewer_a16a03e43d748a30a2a7413abeb949c4c}{\+\_\+ready} = false
 \end{DoxyCompactItemize}
 
 
@@ -185,6 +217,93 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 
 refresh the window if called 
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_viewer_aebac1d4a942eab5c1bfcfe46c67f7c6a}\label{class_viewer_aebac1d4a942eab5c1bfcfe46c67f7c6a}} 
+\index{Viewer@{Viewer}!\+\_\+button@{\+\_\+button}}
+\index{\+\_\+button@{\+\_\+button}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+button}{\_button}}
+{\footnotesize\ttfamily int Viewer\+::\+\_\+button = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_ae5cf141efe1b370bddb3aee4f459aae6}\label{class_viewer_ae5cf141efe1b370bddb3aee4f459aae6}} 
+\index{Viewer@{Viewer}!\+\_\+cam@{\+\_\+cam}}
+\index{\+\_\+cam@{\+\_\+cam}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+cam}{\_cam}}
+{\footnotesize\ttfamily \hyperlink{class_trackball}{Trackball} Viewer\+::\+\_\+cam\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a809a18b8663d86d127fee482326919ad}\label{class_viewer_a809a18b8663d86d127fee482326919ad}} 
+\index{Viewer@{Viewer}!\+\_\+last\+Mouse\+Pos@{\+\_\+last\+Mouse\+Pos}}
+\index{\+\_\+last\+Mouse\+Pos@{\+\_\+last\+Mouse\+Pos}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+last\+Mouse\+Pos}{\_lastMousePos}}
+{\footnotesize\ttfamily Eigen\+::\+Vector2f Viewer\+::\+\_\+last\+Mouse\+Pos\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a821af83607bfed860f0d3566dd9db597}\label{class_viewer_a821af83607bfed860f0d3566dd9db597}} 
+\index{Viewer@{Viewer}!\+\_\+light\+Dir@{\+\_\+light\+Dir}}
+\index{\+\_\+light\+Dir@{\+\_\+light\+Dir}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+light\+Dir}{\_lightDir}}
+{\footnotesize\ttfamily Eigen\+::\+Vector3f Viewer\+::\+\_\+light\+Dir\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a8179d29882494d1c22c9f1836a374eab}\label{class_viewer_a8179d29882494d1c22c9f1836a374eab}} 
+\index{Viewer@{Viewer}!\+\_\+line\+\_\+shader@{\+\_\+line\+\_\+shader}}
+\index{\+\_\+line\+\_\+shader@{\+\_\+line\+\_\+shader}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+line\+\_\+shader}{\_line\_shader}}
+{\footnotesize\ttfamily \hyperlink{class_shader}{Shader}$\ast$ Viewer\+::\+\_\+line\+\_\+shader\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a16a03e43d748a30a2a7413abeb949c4c}\label{class_viewer_a16a03e43d748a30a2a7413abeb949c4c}} 
+\index{Viewer@{Viewer}!\+\_\+ready@{\+\_\+ready}}
+\index{\+\_\+ready@{\+\_\+ready}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+ready}{\_ready}}
+{\footnotesize\ttfamily bool Viewer\+::\+\_\+ready = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a58d6891d6b99ada90a627407fd5e7b8f}\label{class_viewer_a58d6891d6b99ada90a627407fd5e7b8f}} 
+\index{Viewer@{Viewer}!\+\_\+rendering@{\+\_\+rendering}}
+\index{\+\_\+rendering@{\+\_\+rendering}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+rendering}{\_rendering}}
+{\footnotesize\ttfamily \hyperlink{class_rendering}{Rendering}$\ast$ Viewer\+::\+\_\+rendering\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a5ec677d1951652c794bcdea1663e1fb7}\label{class_viewer_a5ec677d1951652c794bcdea1663e1fb7}} 
+\index{Viewer@{Viewer}!\+\_\+rotate@{\+\_\+rotate}}
+\index{\+\_\+rotate@{\+\_\+rotate}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+rotate}{\_rotate}}
+{\footnotesize\ttfamily bool Viewer\+::\+\_\+rotate\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a4da6f3bfd65c6e60809d1ca6bccba84c}\label{class_viewer_a4da6f3bfd65c6e60809d1ca6bccba84c}} 
+\index{Viewer@{Viewer}!\+\_\+shape@{\+\_\+shape}}
+\index{\+\_\+shape@{\+\_\+shape}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+shape}{\_shape}}
+{\footnotesize\ttfamily \hyperlink{class_shape}{Shape}$\ast$ Viewer\+::\+\_\+shape\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a28fb6ad2e98323a2e15cf8d3f6250715}\label{class_viewer_a28fb6ad2e98323a2e15cf8d3f6250715}} 
+\index{Viewer@{Viewer}!\+\_\+simple\+\_\+shader@{\+\_\+simple\+\_\+shader}}
+\index{\+\_\+simple\+\_\+shader@{\+\_\+simple\+\_\+shader}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+simple\+\_\+shader}{\_simple\_shader}}
+{\footnotesize\ttfamily \hyperlink{class_shader}{Shader}$\ast$ Viewer\+::\+\_\+simple\+\_\+shader\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a4f1313a7d9a6b81079985c9ad0f93e0c}\label{class_viewer_a4f1313a7d9a6b81079985c9ad0f93e0c}} 
+\index{Viewer@{Viewer}!\+\_\+theta@{\+\_\+theta}}
+\index{\+\_\+theta@{\+\_\+theta}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+theta}{\_theta}}
+{\footnotesize\ttfamily float Viewer\+::\+\_\+theta\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_aa9b2ec5f7c556f9c21bd4db90db4adc3}\label{class_viewer_aa9b2ec5f7c556f9c21bd4db90db4adc3}} 
+\index{Viewer@{Viewer}!\+\_\+win\+Height@{\+\_\+win\+Height}}
+\index{\+\_\+win\+Height@{\+\_\+win\+Height}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+win\+Height}{\_winHeight}}
+{\footnotesize\ttfamily int Viewer\+::\+\_\+win\+Height\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a5ed35052dd2cafc37dcb9ebdc707b0ee}\label{class_viewer_a5ed35052dd2cafc37dcb9ebdc707b0ee}} 
+\index{Viewer@{Viewer}!\+\_\+win\+Width@{\+\_\+win\+Width}}
+\index{\+\_\+win\+Width@{\+\_\+win\+Width}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+win\+Width}{\_winWidth}}
+{\footnotesize\ttfamily int Viewer\+::\+\_\+win\+Width\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_viewer_a3316af44dc82836ab420a1c1dd7de738}\label{class_viewer_a3316af44dc82836ab420a1c1dd7de738}} 
+\index{Viewer@{Viewer}!\+\_\+wireframe@{\+\_\+wireframe}}
+\index{\+\_\+wireframe@{\+\_\+wireframe}!Viewer@{Viewer}}
+\subsubsection{\texorpdfstring{\+\_\+wireframe}{\_wireframe}}
+{\footnotesize\ttfamily bool Viewer\+::\+\_\+wireframe = false\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

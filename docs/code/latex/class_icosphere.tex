@@ -11,7 +11,8 @@ Implementation of \hyperlink{class_shape}{Shape} interface.
 
 
 
-Graphe d\textquotesingle{}héritage de Icosphere\+:\nopagebreak
+Graphe d\textquotesingle{}héritage de Icosphere\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,11 +21,12 @@ Graphe d\textquotesingle{}héritage de Icosphere\+:\nopagebreak
 \end{figure}
 
 
-Graphe de collaboration de Icosphere\+:\nopagebreak
+Graphe de collaboration de Icosphere\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=245pt]{class_icosphere__coll__graph}
+\includegraphics[height=550pt]{class_icosphere__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Fonctions membres publiques}
@@ -42,6 +44,16 @@ virtual void \hyperlink{class_icosphere_af7d6c8c60248794f6a6c382dc5f98a24}{compu
 \begin{DoxyCompactList}\small\item\em Compute normal for each face. \end{DoxyCompactList}\item 
 void \hyperlink{class_icosphere_ab3470de718fee359ef4691e0c2ee987a}{organic\+Triangulation} ()
 \begin{DoxyCompactList}\small\item\em Move vertices positions to make the planet look more organic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_icosphere_a1086e13d1300ed79bf201d2570eb7ebe}{subdivide} ()
+\begin{DoxyCompactList}\small\item\em Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+surface\+\_\+mesh\+::\+Surface\+\_\+mesh \hyperlink{class_icosphere_a454cb570544ec34a65e2f3753fd3dc14}{\+\_\+half\+Edge}
+\begin{DoxyCompactList}\small\item\em \+\_\+half\+Edge \+: structure used to know the connectivity between the different faces and vertices. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Membres hérités additionnels}
 
 
@@ -118,7 +130,47 @@ Implémente \hyperlink{class_shape_a20d654ec232b682c36cd8b28d2cba750}{Shape}.
 
 Move vertices positions to make the planet look more organic. 
 
-\mbox{\Hypertarget{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}\label{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}} 
+\mbox{\Hypertarget{class_icosphere_a1086e13d1300ed79bf201d2570eb7ebe}\label{class_icosphere_a1086e13d1300ed79bf201d2570eb7ebe}} 
+\index{Icosphere@{Icosphere}!subdivide@{subdivide}}
+\index{subdivide@{subdivide}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{subdivide()}{subdivide()}}
+{\footnotesize\ttfamily void Icosphere\+::subdivide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother. 
+
+The algorithm is from \+: \href{https://www.labri.fr/perso/pbenard/teaching/mondes3d/td9.html}{\tt https\+://www.\+labri.\+fr/perso/pbenard/teaching/mondes3d/td9.\+html} which is based on the thesis \+: \href{https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/thesis-10.pdf}{\tt https\+://www.\+microsoft.\+com/en-\/us/research/wp-\/content/uploads/2016/02/thesis-\/10.\+pdf}
+
+Step 1 \+: after defining a new Surface\+\_\+mesh, it inserts the vertices of the old one. Then, it adds the intermediate vertices (Ui) on the edges of each triangles \+: \begin{DoxyVerb}                V1- - -U5- - V3
+               /  \         /
+              /    \       /
+             U2     U1    U3
+            /        \   /
+           /          \ /
+         V0- - -U4- - -V2
+\end{DoxyVerb}
+
+
+with the formula \+: U1 = (3/8)$\ast$\+V0+(3/8)$\ast$\+V2+(1/8)$\ast$\+V1+(1/8)$\ast$\+V3 (see above links)
+
+Step 2 \+: it adds the 4 new sub triangles to the new Surface\+\_\+mesh \begin{DoxyVerb}                          V1
+                         /  \
+                        /    \
+                       U0- - -U1
+                      /  \   / \
+                     /    \ /   \
+                   V0- - -U2- - -V2
+\end{DoxyVerb}
+
+
+Step 3 \+: it computes the new positions of the initial vertices \+: \begin{DoxyVerb}                                 di
+     Vi' = (1 - B*di) * Vi + B * ∑(Vij)   (see above links)
+                                j=1
+\end{DoxyVerb}
+
+
+Step 4 \+: it replaces the old Surface\+\_\+mesh by the new one, and updates the attributes of the mesh from it \mbox{\Hypertarget{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}\label{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}} 
 \index{Icosphere@{Icosphere}!update\+Mesh\+From\+Surface\+Mesh@{update\+Mesh\+From\+Surface\+Mesh}}
 \index{update\+Mesh\+From\+Surface\+Mesh@{update\+Mesh\+From\+Surface\+Mesh}!Icosphere@{Icosphere}}
 \subsubsection{\texorpdfstring{update\+Mesh\+From\+Surface\+Mesh()}{updateMeshFromSurfaceMesh()}}
@@ -127,6 +179,19 @@ Move vertices positions to make the planet look more organic.
 
 
 Updates mesh\textquotesingle{}s attributes (vertices and faces) from its Surface\+\_\+mesh. 
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_icosphere_a454cb570544ec34a65e2f3753fd3dc14}\label{class_icosphere_a454cb570544ec34a65e2f3753fd3dc14}} 
+\index{Icosphere@{Icosphere}!\+\_\+half\+Edge@{\+\_\+half\+Edge}}
+\index{\+\_\+half\+Edge@{\+\_\+half\+Edge}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{\+\_\+half\+Edge}{\_halfEdge}}
+{\footnotesize\ttfamily surface\+\_\+mesh\+::\+Surface\+\_\+mesh Icosphere\+::\+\_\+half\+Edge\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\+\_\+half\+Edge \+: structure used to know the connectivity between the different faces and vertices. 
 
 
 

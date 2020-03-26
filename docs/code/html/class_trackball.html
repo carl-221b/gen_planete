@@ -61,6 +61,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Types publics</a> &#124;
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-methods">Fonctions membres privées</a> &#124;
+<a href="#pri-attribs">Attributs privés</a> &#124;
 <a href="class_trackball-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Trackball</div>  </div>
@@ -76,13 +78,15 @@ Graphe d'héritage de Trackball:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_trackball__inherit__graph.png" border="0" usemap="#_trackball_inherit__map" alt="Inheritance graph"/></div>
 <map name="_trackball_inherit__map" id="_trackball_inherit__map">
-<area shape="rect" id="node2" href="class_camera.html" title="{Camera\n||+ Camera()\l+ perspective()\l+ lookAt()\l}" alt="" coords="41,277,151,384"/>
+<area shape="rect" id="node2" href="class_camera.html" title="Implementation of Trackball class. " alt="" coords="44,893,153,1000"/>
 </map>
 </div>
 <div class="dynheader">
 Graphe de collaboration de Trackball:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_trackball__coll__graph.png" border="0" usemap="#_trackball_coll__map" alt="Collaboration graph"/></div>
+<map name="_trackball_coll__map" id="_trackball_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -184,6 +188,42 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a12d2e0436352bb7d222e2a3aed39e41c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a12d2e0436352bb7d222e2a3aed39e41c">dollyZoom</a> (float factor)</td></tr>
 <tr class="memdesc:a12d2e0436352bb7d222e2a3aed39e41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do a dolly zoom: move the camera and change the fov so that the subject stay in the same frame.  <a href="#a12d2e0436352bb7d222e2a3aed39e41c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a12d2e0436352bb7d222e2a3aed39e41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr class="memitem:a84d3a79355d75d73e72ca10f5d469728"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a84d3a79355d75d73e72ca10f5d469728">normFromScr</a> (const Eigen::Vector2f &amp;scrPos) const</td></tr>
+<tr class="separator:a84d3a79355d75d73e72ca10f5d469728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a13b098e2bb5af29c2ef295969ba25"><td class="memItemLeft" align="right" valign="top">Eigen::Quaternionf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#af3a13b098e2bb5af29c2ef295969ba25">computeRotation</a> (const Eigen::Vector2f &amp;scrPos) const</td></tr>
+<tr class="separator:af3a13b098e2bb5af29c2ef295969ba25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cddc7573037b7988d720664a4099ff6"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a2cddc7573037b7988d720664a4099ff6">computeTranslation</a> (const Eigen::Vector2f &amp;scrPos) const</td></tr>
+<tr class="separator:a2cddc7573037b7988d720664a4099ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr class="memitem:ae7fde591bbfcfe0fe9af9cf3b79c5665"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#ae7fde591bbfcfe0fe9af9cf3b79c5665">_scnCenter</a></td></tr>
+<tr class="separator:ae7fde591bbfcfe0fe9af9cf3b79c5665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4c24a27f219bad3b309d6cfcc3cec8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a6b4c24a27f219bad3b309d6cfcc3cec8">_scnDistance</a></td></tr>
+<tr class="separator:a6b4c24a27f219bad3b309d6cfcc3cec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a308ba1b945ed2c6fdb008db88813afad"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a308ba1b945ed2c6fdb008db88813afad">_scnRadius</a></td></tr>
+<tr class="separator:a308ba1b945ed2c6fdb008db88813afad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30efdceb6156ee673db955c6cc0a00f8"><td class="memItemLeft" align="right" valign="top">Eigen::Quaternionf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a30efdceb6156ee673db955c6cc0a00f8">_scnOrientation</a></td></tr>
+<tr class="separator:a30efdceb6156ee673db955c6cc0a00f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec324aef6388b1e9bed7b47572e2f0b3"><td class="memItemLeft" align="right" valign="top">Eigen::AlignedBox2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#aec324aef6388b1e9bed7b47572e2f0b3">_scrViewport</a></td></tr>
+<tr class="separator:aec324aef6388b1e9bed7b47572e2f0b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9130004320d2ebca9aee340403513f41"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a9130004320d2ebca9aee340403513f41">_minNear</a></td></tr>
+<tr class="separator:a9130004320d2ebca9aee340403513f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08e3d5e8358c166c29d015f36c998bd1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a08e3d5e8358c166c29d015f36c998bd1">_nearOffset</a></td></tr>
+<tr class="separator:a08e3d5e8358c166c29d015f36c998bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafee1403bc2961498e3df496b787679a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#aafee1403bc2961498e3df496b787679a">_farOffset</a></td></tr>
+<tr class="separator:aafee1403bc2961498e3df496b787679a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138a8078de8d43d681e6b377166333a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_trackball.html#a102216413a87cb37801044063a1b05be">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a138a8078de8d43d681e6b377166333a1">_state</a></td></tr>
+<tr class="separator:a138a8078de8d43d681e6b377166333a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e5ae9d56df6bd61bb3e05c017bee133"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a0e5ae9d56df6bd61bb3e05c017bee133">_scrMouseInit</a></td></tr>
+<tr class="separator:a0e5ae9d56df6bd61bb3e05c017bee133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a6fb95a1c6cbb60fa11288cbe83e70a"><td class="memItemLeft" align="right" valign="top">Eigen::Quaternionf&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a4a6fb95a1c6cbb60fa11288cbe83e70a">_scnOrientInit</a></td></tr>
+<tr class="separator:a4a6fb95a1c6cbb60fa11288cbe83e70a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90663027f06115f88a1045c1870f4531"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_trackball.html#a90663027f06115f88a1045c1870f4531">_scnCenterInit</a></td></tr>
+<tr class="separator:a90663027f06115f88a1045c1870f4531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>A (relatively) simple trackball. </p>
@@ -317,6 +357,82 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
+<a id="af3a13b098e2bb5af29c2ef295969ba25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3a13b098e2bb5af29c2ef295969ba25">&#9670;&nbsp;</a></span>computeRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Quaternionf Trackball::computeRotation </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector2f &amp;&#160;</td>
+          <td class="paramname"><em>scrPos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_trackball_af3a13b098e2bb5af29c2ef295969ba25_icgraph.png" border="0" usemap="#class_trackball_af3a13b098e2bb5af29c2ef295969ba25_icgraph" alt=""/></div>
+<map name="class_trackball_af3a13b098e2bb5af29c2ef295969ba25_icgraph" id="class_trackball_af3a13b098e2bb5af29c2ef295969ba25_icgraph">
+<area shape="rect" id="node2" href="class_trackball.html#a1dcd5aef16fd43aabfc0099183202437" title="Trackball::dragRotate" alt="" coords="236,5,383,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2cddc7573037b7988d720664a4099ff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cddc7573037b7988d720664a4099ff6">&#9670;&nbsp;</a></span>computeTranslation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3f Trackball::computeTranslation </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector2f &amp;&#160;</td>
+          <td class="paramname"><em>scrPos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_trackball_a2cddc7573037b7988d720664a4099ff6_cgraph.png" border="0" usemap="#class_trackball_a2cddc7573037b7988d720664a4099ff6_cgraph" alt=""/></div>
+<map name="class_trackball_a2cddc7573037b7988d720664a4099ff6_cgraph" id="class_trackball_a2cddc7573037b7988d720664a4099ff6_cgraph">
+<area shape="rect" id="node2" href="class_trackball.html#ac50d8b300e7c77162c6134986f9a8a50" title="Trackball::minScreenViewportSize" alt="" coords="251,5,473,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_trackball_a2cddc7573037b7988d720664a4099ff6_icgraph.png" border="0" usemap="#class_trackball_a2cddc7573037b7988d720664a4099ff6_icgraph" alt=""/></div>
+<map name="class_trackball_a2cddc7573037b7988d720664a4099ff6_icgraph" id="class_trackball_a2cddc7573037b7988d720664a4099ff6_icgraph">
+<area shape="rect" id="node2" href="class_trackball.html#ab4271070a39f9c771b526e9e0116894e" title="Trackball::dragTranslate" alt="" coords="251,5,413,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="acb8ad68c2077f4ff149e501acfe67d50"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acb8ad68c2077f4ff149e501acfe67d50">&#9670;&nbsp;</a></span>computeViewMatrix()</h2>
 
@@ -360,14 +476,6 @@ Voici le graphe d'appel pour cette fonction :</div>
 </div><div class="memdoc">
 
 <p>Do a dolly zoom: move the camera and change the fov so that the subject stay in the same frame. </p>
-<div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="class_trackball_a12d2e0436352bb7d222e2a3aed39e41c_cgraph.png" border="0" usemap="#class_trackball_a12d2e0436352bb7d222e2a3aed39e41c_cgraph" alt=""/></div>
-<map name="class_trackball_a12d2e0436352bb7d222e2a3aed39e41c_cgraph" id="class_trackball_a12d2e0436352bb7d222e2a3aed39e41c_cgraph">
-<area shape="rect" id="node2" href="class_trackball.html#ac50d8b300e7c77162c6134986f9a8a50" title="Trackball::minScreenViewportSize" alt="" coords="196,5,419,32"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -386,6 +494,14 @@ Voici le graphe d'appel pour cette fonction :</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_trackball_a1dcd5aef16fd43aabfc0099183202437_cgraph.png" border="0" usemap="#class_trackball_a1dcd5aef16fd43aabfc0099183202437_cgraph" alt=""/></div>
+<map name="class_trackball_a1dcd5aef16fd43aabfc0099183202437_cgraph" id="class_trackball_a1dcd5aef16fd43aabfc0099183202437_cgraph">
+<area shape="rect" id="node2" href="class_trackball.html#af3a13b098e2bb5af29c2ef295969ba25" title="Trackball::computeRotation" alt="" coords="200,5,383,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -404,6 +520,15 @@ Voici le graphe d'appel pour cette fonction :</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_trackball_ab4271070a39f9c771b526e9e0116894e_cgraph.png" border="0" usemap="#class_trackball_ab4271070a39f9c771b526e9e0116894e_cgraph" alt=""/></div>
+<map name="class_trackball_ab4271070a39f9c771b526e9e0116894e_cgraph" id="class_trackball_ab4271070a39f9c771b526e9e0116894e_cgraph">
+<area shape="rect" id="node2" href="class_trackball.html#a2cddc7573037b7988d720664a4099ff6" title="Trackball::computeTranslation" alt="" coords="216,5,413,32"/>
+<area shape="rect" id="node3" href="class_trackball.html#ac50d8b300e7c77162c6134986f9a8a50" title="Trackball::minScreenViewportSize" alt="" coords="461,5,684,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -650,10 +775,12 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="class_trackball_ac50d8b300e7c77162c6134986f9a8a50_icgraph.png" border="0" usemap="#class_trackball_ac50d8b300e7c77162c6134986f9a8a50_icgraph" alt=""/></div>
 <map name="class_trackball_ac50d8b300e7c77162c6134986f9a8a50_icgraph" id="class_trackball_ac50d8b300e7c77162c6134986f9a8a50_icgraph">
-<area shape="rect" id="node2" href="class_trackball.html#a4d156f831f9c5eac08ca40283327fb3d" title="Trackball::computeProjection\lMatrix" alt="" coords="276,5,467,47"/>
-<area shape="rect" id="node5" href="class_trackball.html#a12d2e0436352bb7d222e2a3aed39e41c" title="Do a dolly zoom: move the camera and change the fov so that the subject stay in the same frame..." alt="" coords="300,71,443,98"/>
-<area shape="rect" id="node3" href="class_rendering___open_g_l.html#a3d370bebbf4e66ba7bd4ea61dc59bef1" title="Uniform values for renderer. " alt="" coords="515,5,705,47"/>
-<area shape="rect" id="node4" href="class_rendering___open_g_l.html#a0db708eaeae23e85a18d9c40995b27ae" title="Rendering_OpenGL::Rendering\l_OpenGL" alt="" coords="753,5,956,47"/>
+<area shape="rect" id="node2" href="class_trackball.html#a4d156f831f9c5eac08ca40283327fb3d" title="Trackball::computeProjection\lMatrix" alt="" coords="279,5,470,47"/>
+<area shape="rect" id="node5" href="class_trackball.html#a84d3a79355d75d73e72ca10f5d469728" title="Trackball::normFromScr" alt="" coords="293,71,456,98"/>
+<area shape="rect" id="node6" href="class_trackball.html#a2cddc7573037b7988d720664a4099ff6" title="Trackball::computeTranslation" alt="" coords="276,122,473,149"/>
+<area shape="rect" id="node3" href="class_rendering___open_g_l.html#a3d370bebbf4e66ba7bd4ea61dc59bef1" title="Uniform values for renderer. " alt="" coords="521,5,712,47"/>
+<area shape="rect" id="node4" href="class_rendering___open_g_l.html#a0db708eaeae23e85a18d9c40995b27ae" title="Rendering_OpenGL::Rendering\l_OpenGL" alt="" coords="760,5,963,47"/>
+<area shape="rect" id="node7" href="class_trackball.html#ab4271070a39f9c771b526e9e0116894e" title="Trackball::dragTranslate" alt="" coords="535,122,698,149"/>
 </map>
 </div>
 
@@ -679,6 +806,40 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8_icgraph.png" border="0" usemap="#class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8_icgraph" alt=""/></div>
 <map name="class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8_icgraph" id="class_trackball_a1e4f2903b71d3bdd8327294d4e9c58b8_icgraph">
 <area shape="rect" id="node2" href="class_trackball.html#adb8173ceaf1d83d324751a6379f769ef" title="Trackball::setNearFarOffsets" alt="" coords="197,5,388,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a84d3a79355d75d73e72ca10f5d469728"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d3a79355d75d73e72ca10f5d469728">&#9670;&nbsp;</a></span>normFromScr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector2f Trackball::normFromScr </td>
+          <td>(</td>
+          <td class="paramtype">const Eigen::Vector2f &amp;&#160;</td>
+          <td class="paramname"><em>scrPos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_trackball_a84d3a79355d75d73e72ca10f5d469728_cgraph.png" border="0" usemap="#class_trackball_a84d3a79355d75d73e72ca10f5d469728_cgraph" alt=""/></div>
+<map name="class_trackball_a84d3a79355d75d73e72ca10f5d469728_cgraph" id="class_trackball_a84d3a79355d75d73e72ca10f5d469728_cgraph">
+<area shape="rect" id="node2" href="class_trackball.html#ac50d8b300e7c77162c6134986f9a8a50" title="Trackball::minScreenViewportSize" alt="" coords="216,5,439,32"/>
 </map>
 </div>
 
@@ -1069,6 +1230,271 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" id="node3" href="class_trackball.html#a3712c12a5a5468301593a01b0df4c6be" title="Trackball::isOrthographic" alt="" coords="379,5,545,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="aafee1403bc2961498e3df496b787679a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafee1403bc2961498e3df496b787679a">&#9670;&nbsp;</a></span>_farOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Trackball::_farOffset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9130004320d2ebca9aee340403513f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9130004320d2ebca9aee340403513f41">&#9670;&nbsp;</a></span>_minNear</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Trackball::_minNear</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08e3d5e8358c166c29d015f36c998bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08e3d5e8358c166c29d015f36c998bd1">&#9670;&nbsp;</a></span>_nearOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Trackball::_nearOffset</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7fde591bbfcfe0fe9af9cf3b79c5665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7fde591bbfcfe0fe9af9cf3b79c5665">&#9670;&nbsp;</a></span>_scnCenter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3f Trackball::_scnCenter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90663027f06115f88a1045c1870f4531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90663027f06115f88a1045c1870f4531">&#9670;&nbsp;</a></span>_scnCenterInit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3f Trackball::_scnCenterInit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b4c24a27f219bad3b309d6cfcc3cec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b4c24a27f219bad3b309d6cfcc3cec8">&#9670;&nbsp;</a></span>_scnDistance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Trackball::_scnDistance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a30efdceb6156ee673db955c6cc0a00f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30efdceb6156ee673db955c6cc0a00f8">&#9670;&nbsp;</a></span>_scnOrientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Quaternionf Trackball::_scnOrientation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a6fb95a1c6cbb60fa11288cbe83e70a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a6fb95a1c6cbb60fa11288cbe83e70a">&#9670;&nbsp;</a></span>_scnOrientInit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Quaternionf Trackball::_scnOrientInit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a308ba1b945ed2c6fdb008db88813afad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a308ba1b945ed2c6fdb008db88813afad">&#9670;&nbsp;</a></span>_scnRadius</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Trackball::_scnRadius</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e5ae9d56df6bd61bb3e05c017bee133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e5ae9d56df6bd61bb3e05c017bee133">&#9670;&nbsp;</a></span>_scrMouseInit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector2f Trackball::_scrMouseInit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec324aef6388b1e9bed7b47572e2f0b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec324aef6388b1e9bed7b47572e2f0b3">&#9670;&nbsp;</a></span>_scrViewport</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::AlignedBox2f Trackball::_scrViewport</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a138a8078de8d43d681e6b377166333a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138a8078de8d43d681e6b377166333a1">&#9670;&nbsp;</a></span>_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_trackball.html#a102216413a87cb37801044063a1b05be">State</a> Trackball::_state</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

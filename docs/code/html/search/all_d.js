@@ -9,5 +9,6 @@ var searchData=
   ['noisyheight_5feditor_2ecpp',['noisyheight_editor.cpp',['../noisyheight__editor_8cpp.html',1,'']]],
   ['noisyheight_5feditor_2eh',['noisyheight_editor.h',['../noisyheight__editor_8h.html',1,'']]],
   ['normalrandom',['normalRandom',['../namespace_noise_random.html#a59564286391d50c76b1c9caf61e01233',1,'NoiseRandom']]],
+  ['normfromscr',['normFromScr',['../class_trackball.html#a84d3a79355d75d73e72ca10f5d469728',1,'Trackball']]],
   ['numfaces',['numFaces',['../class_shape.html#aaa316f693b1679276dc2bc1014485ab3',1,'Shape']]]
 ];

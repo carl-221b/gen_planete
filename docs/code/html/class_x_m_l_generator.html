@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-methods">Fonctions membres privées</a> &#124;
 <a href="class_x_m_l_generator-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe XMLGenerator</div>  </div>
@@ -75,7 +76,7 @@ Graphe d'héritage de XMLGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_x_m_l_generator__inherit__graph.png" border="0" usemap="#_x_m_l_generator_inherit__map" alt="Inheritance graph"/></div>
 <map name="_x_m_l_generator_inherit__map" id="_x_m_l_generator_inherit__map">
-<area shape="rect" id="node2" href="class_generator.html" title="The Generator class, permit to read a given configuration file and generate a planet. " alt="" coords="19,5,126,112"/>
+<area shape="rect" id="node2" href="class_generator.html" title="The Generator class, permit to read a given configuration file and generate a planet. " alt="" coords="43,5,150,112"/>
 </map>
 </div>
 <div class="dynheader">
@@ -83,7 +84,7 @@ Graphe de collaboration de XMLGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_x_m_l_generator__coll__graph.png" border="0" usemap="#_x_m_l_generator_coll__map" alt="Collaboration graph"/></div>
 <map name="_x_m_l_generator_coll__map" id="_x_m_l_generator_coll__map">
-<area shape="rect" id="node2" href="class_generator.html" title="The Generator class, permit to read a given configuration file and generate a planet. " alt="" coords="19,5,126,112"/>
+<area shape="rect" id="node2" href="class_generator.html" title="The Generator class, permit to read a given configuration file and generate a planet. " alt="" coords="43,5,150,112"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -100,6 +101,25 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:aae25f1e872541b353e40fb0e4ee0dd45 inherit pub_methods_class_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a175792ff2622a6ce48bf2adab7e09e58 inherit pub_methods_class_generator"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_generator.html#a175792ff2622a6ce48bf2adab7e09e58">~Generator</a> ()=default</td></tr>
 <tr class="separator:a175792ff2622a6ce48bf2adab7e09e58 inherit pub_methods_class_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Fonctions membres privées</h2></td></tr>
+<tr class="memitem:acbd95e69a36222e6f8906a77e6530f1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shape.html">Shape</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_m_l_generator.html#acbd95e69a36222e6f8906a77e6530f1b">basicShapeContruct</a> (const pugi::xml_node &amp;root)</td></tr>
+<tr class="memdesc:acbd95e69a36222e6f8906a77e6530f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">basicShapeContruct check the corresponding node and construct the basic shape.  <a href="#acbd95e69a36222e6f8906a77e6530f1b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acbd95e69a36222e6f8906a77e6530f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bd445a70b67303cf5539212ed58928d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d">applyEditor</a> (const pugi::xml_node &amp;root, <a class="el" href="class_shape.html">Shape</a> *shape)</td></tr>
+<tr class="memdesc:a3bd445a70b67303cf5539212ed58928d"><td class="mdescLeft">&#160;</td><td class="mdescRight">applyEditor apply the editor in configuration file.  <a href="#a3bd445a70b67303cf5539212ed58928d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3bd445a70b67303cf5539212ed58928d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df5b09d456665f90f1c2e0818ccd442"><td class="memItemLeft" align="right" valign="top"><a class="el" href="thresholdtable_8h.html#ab0deb49d07758f9814993774cb9935cc">ColorThresholdTable</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_m_l_generator.html#a4df5b09d456665f90f1c2e0818ccd442">readColorThresholdTable</a> (const pugi::xml_node &amp;node) const</td></tr>
+<tr class="separator:a4df5b09d456665f90f1c2e0818ccd442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0030450c03ad82fe328e27382bcfe011"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_m_l_generator.html#a0030450c03ad82fe328e27382bcfe011">readBool</a> (const pugi::xml_node &amp;node) const</td></tr>
+<tr class="separator:a0030450c03ad82fe328e27382bcfe011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0254cdb59750801014903ed7a4169827"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_m_l_generator.html#a0254cdb59750801014903ed7a4169827">readInt</a> (const pugi::xml_node &amp;node) const</td></tr>
+<tr class="separator:a0254cdb59750801014903ed7a4169827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a3198e6d44dcf102e13902325e0bd1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_m_l_generator.html#ab0a3198e6d44dcf102e13902325e0bd1">readDouble</a> (const pugi::xml_node &amp;node) const</td></tr>
+<tr class="separator:ab0a3198e6d44dcf102e13902325e0bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf2e3d3b2d44fdd1e01d0f2bbca7f028"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_m_l_generator.html#abf2e3d3b2d44fdd1e01d0f2bbca7f028">readVector3f</a> (const pugi::xml_node &amp;node) const</td></tr>
+<tr class="separator:abf2e3d3b2d44fdd1e01d0f2bbca7f028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>The <a class="el" href="class_x_m_l_generator.html" title="The XMLGenerator class, the xml implementation of generator. ">XMLGenerator</a> class, the xml implementation of generator. </p>
@@ -139,6 +159,125 @@ Fonctions membres publiques</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a3bd445a70b67303cf5539212ed58928d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bd445a70b67303cf5539212ed58928d">&#9670;&nbsp;</a></span>applyEditor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XMLGenerator::applyEditor </td>
+          <td>(</td>
+          <td class="paramtype">const pugi::xml_node &amp;&#160;</td>
+          <td class="paramname"><em>root</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_shape.html">Shape</a> *&#160;</td>
+          <td class="paramname"><em>shape</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>applyEditor apply the editor in configuration file. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>the root node of the xml document. </td></tr>
+    <tr><td class="paramname">shape</td><td>the shape to modify. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_a3bd445a70b67303cf5539212ed58928d_cgraph.png" border="0" usemap="#class_x_m_l_generator_a3bd445a70b67303cf5539212ed58928d_cgraph" alt=""/></div>
+<map name="class_x_m_l_generator_a3bd445a70b67303cf5539212ed58928d_cgraph" id="class_x_m_l_generator_a3bd445a70b67303cf5539212ed58928d_cgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#ab0a3198e6d44dcf102e13902325e0bd1" title="XMLGenerator::readDouble" alt="" coords="511,5,691,32"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#a0254cdb59750801014903ed7a4169827" title="XMLGenerator::readInt" alt="" coords="268,41,423,68"/>
+<area shape="rect" id="node4" href="class_x_m_l_generator.html#a4df5b09d456665f90f1c2e0818ccd442" title="XMLGenerator::readColorThreshold\lTable" alt="" coords="232,93,459,134"/>
+<area shape="rect" id="node7" href="class_editor.html#a5747cd74b71d67f6d39b094071058382" title="info " alt="" coords="303,159,388,185"/>
+<area shape="rect" id="node8" href="class_editor.html#abca97ba11536c494a0c26bac77917792" title="Applies vertex deplacement and colors the shapes. " alt="" coords="303,209,388,236"/>
+<area shape="rect" id="node5" href="class_x_m_l_generator.html#abf2e3d3b2d44fdd1e01d0f2bbca7f028" title="XMLGenerator::readVector3f" alt="" coords="507,85,695,112"/>
+<area shape="rect" id="node6" href="class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37" title="addLayer add a layer with upperbound=value and will be sorted in the table. " alt="" coords="515,136,687,163"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_a3bd445a70b67303cf5539212ed58928d_icgraph.png" border="0" usemap="#class_x_m_l_generator_a3bd445a70b67303cf5539212ed58928d_icgraph" alt=""/></div>
+<map name="class_x_m_l_generator_a3bd445a70b67303cf5539212ed58928d_icgraph" id="class_x_m_l_generator_a3bd445a70b67303cf5539212ed58928d_icgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="232,5,396,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acbd95e69a36222e6f8906a77e6530f1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbd95e69a36222e6f8906a77e6530f1b">&#9670;&nbsp;</a></span>basicShapeContruct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_shape.html">Shape</a> * XMLGenerator::basicShapeContruct </td>
+          <td>(</td>
+          <td class="paramtype">const pugi::xml_node &amp;&#160;</td>
+          <td class="paramname"><em>root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>basicShapeContruct check the corresponding node and construct the basic shape. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>the root node of the xml document. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the basic shape. </dd></dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_acbd95e69a36222e6f8906a77e6530f1b_cgraph.png" border="0" usemap="#class_x_m_l_generator_acbd95e69a36222e6f8906a77e6530f1b_cgraph" alt=""/></div>
+<map name="class_x_m_l_generator_acbd95e69a36222e6f8906a77e6530f1b_cgraph" id="class_x_m_l_generator_acbd95e69a36222e6f8906a77e6530f1b_cgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#a0254cdb59750801014903ed7a4169827" title="XMLGenerator::readInt" alt="" coords="241,5,396,32"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#a0030450c03ad82fe328e27382bcfe011" title="XMLGenerator::readBool" alt="" coords="236,56,401,83"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_acbd95e69a36222e6f8906a77e6530f1b_icgraph.png" border="0" usemap="#class_x_m_l_generator_acbd95e69a36222e6f8906a77e6530f1b_icgraph" alt=""/></div>
+<map name="class_x_m_l_generator_acbd95e69a36222e6f8906a77e6530f1b_icgraph" id="class_x_m_l_generator_acbd95e69a36222e6f8906a77e6530f1b_icgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="236,13,400,39"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="adf874b492da2e813980151c3453dd75c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf874b492da2e813980151c3453dd75c">&#9670;&nbsp;</a></span>generate()</h2>
 
@@ -170,9 +309,204 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="class_x_m_l_generator_adf874b492da2e813980151c3453dd75c_cgraph.png" border="0" usemap="#class_x_m_l_generator_adf874b492da2e813980151c3453dd75c_cgraph" alt=""/></div>
 <map name="class_x_m_l_generator_adf874b492da2e813980151c3453dd75c_cgraph" id="class_x_m_l_generator_adf874b492da2e813980151c3453dd75c_cgraph">
-<area shape="rect" id="node2" href="class_editor.html#a5747cd74b71d67f6d39b094071058382" title="info " alt="" coords="261,5,346,32"/>
-<area shape="rect" id="node3" href="class_editor.html#abca97ba11536c494a0c26bac77917792" title="Applies vertex deplacement and colors the shapes. " alt="" coords="261,56,346,83"/>
-<area shape="rect" id="node4" href="class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37" title="addLayer add a layer with upperbound=value and will be sorted in the table. " alt="" coords="217,107,389,133"/>
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#acbd95e69a36222e6f8906a77e6530f1b" title="basicShapeContruct check the corresponding node and construct the basic shape. " alt="" coords="217,49,400,90"/>
+<area shape="rect" id="node5" href="class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d" title="applyEditor apply the editor in configuration file. " alt="" coords="219,140,398,167"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#a0254cdb59750801014903ed7a4169827" title="XMLGenerator::readInt" alt="" coords="484,56,639,83"/>
+<area shape="rect" id="node4" href="class_x_m_l_generator.html#a0030450c03ad82fe328e27382bcfe011" title="XMLGenerator::readBool" alt="" coords="479,5,644,32"/>
+<area shape="rect" id="node6" href="class_x_m_l_generator.html#ab0a3198e6d44dcf102e13902325e0bd1" title="XMLGenerator::readDouble" alt="" coords="727,109,907,136"/>
+<area shape="rect" id="node7" href="class_x_m_l_generator.html#a4df5b09d456665f90f1c2e0818ccd442" title="XMLGenerator::readColorThreshold\lTable" alt="" coords="448,158,675,199"/>
+<area shape="rect" id="node10" href="class_editor.html#a5747cd74b71d67f6d39b094071058382" title="info " alt="" coords="519,224,604,251"/>
+<area shape="rect" id="node11" href="class_editor.html#abca97ba11536c494a0c26bac77917792" title="Applies vertex deplacement and colors the shapes. " alt="" coords="519,275,604,301"/>
+<area shape="rect" id="node8" href="class_x_m_l_generator.html#abf2e3d3b2d44fdd1e01d0f2bbca7f028" title="XMLGenerator::readVector3f" alt="" coords="723,164,911,191"/>
+<area shape="rect" id="node9" href="class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37" title="addLayer add a layer with upperbound=value and will be sorted in the table. " alt="" coords="731,215,903,241"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0030450c03ad82fe328e27382bcfe011"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0030450c03ad82fe328e27382bcfe011">&#9670;&nbsp;</a></span>readBool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool XMLGenerator::readBool </td>
+          <td>(</td>
+          <td class="paramtype">const pugi::xml_node &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_a0030450c03ad82fe328e27382bcfe011_icgraph.png" border="0" usemap="#class_x_m_l_generator_a0030450c03ad82fe328e27382bcfe011_icgraph" alt=""/></div>
+<map name="class_x_m_l_generator_a0030450c03ad82fe328e27382bcfe011_icgraph" id="class_x_m_l_generator_a0030450c03ad82fe328e27382bcfe011_icgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#acbd95e69a36222e6f8906a77e6530f1b" title="basicShapeContruct check the corresponding node and construct the basic shape. " alt="" coords="219,5,401,47"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="449,13,613,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4df5b09d456665f90f1c2e0818ccd442"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4df5b09d456665f90f1c2e0818ccd442">&#9670;&nbsp;</a></span>readColorThresholdTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="thresholdtable_8h.html#ab0deb49d07758f9814993774cb9935cc">ColorThresholdTable</a> * XMLGenerator::readColorThresholdTable </td>
+          <td>(</td>
+          <td class="paramtype">const pugi::xml_node &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_a4df5b09d456665f90f1c2e0818ccd442_cgraph.png" border="0" usemap="#class_x_m_l_generator_a4df5b09d456665f90f1c2e0818ccd442_cgraph" alt=""/></div>
+<map name="class_x_m_l_generator_a4df5b09d456665f90f1c2e0818ccd442_cgraph" id="class_x_m_l_generator_a4df5b09d456665f90f1c2e0818ccd442_cgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#abf2e3d3b2d44fdd1e01d0f2bbca7f028" title="XMLGenerator::readVector3f" alt="" coords="280,5,468,32"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#ab0a3198e6d44dcf102e13902325e0bd1" title="XMLGenerator::readDouble" alt="" coords="284,56,464,83"/>
+<area shape="rect" id="node4" href="class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37" title="addLayer add a layer with upperbound=value and will be sorted in the table. " alt="" coords="288,107,460,133"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_a4df5b09d456665f90f1c2e0818ccd442_icgraph.png" border="0" usemap="#class_x_m_l_generator_a4df5b09d456665f90f1c2e0818ccd442_icgraph" alt=""/></div>
+<map name="class_x_m_l_generator_a4df5b09d456665f90f1c2e0818ccd442_icgraph" id="class_x_m_l_generator_a4df5b09d456665f90f1c2e0818ccd442_icgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d" title="applyEditor apply the editor in configuration file. " alt="" coords="280,13,459,39"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="507,13,671,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab0a3198e6d44dcf102e13902325e0bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a3198e6d44dcf102e13902325e0bd1">&#9670;&nbsp;</a></span>readDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XMLGenerator::readDouble </td>
+          <td>(</td>
+          <td class="paramtype">const pugi::xml_node &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_ab0a3198e6d44dcf102e13902325e0bd1_icgraph.png" border="0" usemap="#class_x_m_l_generator_ab0a3198e6d44dcf102e13902325e0bd1_icgraph" alt=""/></div>
+<map name="class_x_m_l_generator_ab0a3198e6d44dcf102e13902325e0bd1_icgraph" id="class_x_m_l_generator_ab0a3198e6d44dcf102e13902325e0bd1_icgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d" title="applyEditor apply the editor in configuration file. " alt="" coords="508,5,687,32"/>
+<area shape="rect" id="node4" href="class_x_m_l_generator.html#a4df5b09d456665f90f1c2e0818ccd442" title="XMLGenerator::readColorThreshold\lTable" alt="" coords="233,27,460,69"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="735,5,899,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0254cdb59750801014903ed7a4169827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0254cdb59750801014903ed7a4169827">&#9670;&nbsp;</a></span>readInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int XMLGenerator::readInt </td>
+          <td>(</td>
+          <td class="paramtype">const pugi::xml_node &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_a0254cdb59750801014903ed7a4169827_icgraph.png" border="0" usemap="#class_x_m_l_generator_a0254cdb59750801014903ed7a4169827_icgraph" alt=""/></div>
+<map name="class_x_m_l_generator_a0254cdb59750801014903ed7a4169827_icgraph" id="class_x_m_l_generator_a0254cdb59750801014903ed7a4169827_icgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#acbd95e69a36222e6f8906a77e6530f1b" title="basicShapeContruct check the corresponding node and construct the basic shape. " alt="" coords="208,5,391,47"/>
+<area shape="rect" id="node4" href="class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d" title="applyEditor apply the editor in configuration file. " alt="" coords="210,71,389,98"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="439,42,603,69"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abf2e3d3b2d44fdd1e01d0f2bbca7f028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf2e3d3b2d44fdd1e01d0f2bbca7f028">&#9670;&nbsp;</a></span>readVector3f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3f XMLGenerator::readVector3f </td>
+          <td>(</td>
+          <td class="paramtype">const pugi::xml_node &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_x_m_l_generator_abf2e3d3b2d44fdd1e01d0f2bbca7f028_icgraph.png" border="0" usemap="#class_x_m_l_generator_abf2e3d3b2d44fdd1e01d0f2bbca7f028_icgraph" alt=""/></div>
+<map name="class_x_m_l_generator_abf2e3d3b2d44fdd1e01d0f2bbca7f028_icgraph" id="class_x_m_l_generator_abf2e3d3b2d44fdd1e01d0f2bbca7f028_icgraph">
+<area shape="rect" id="node2" href="class_x_m_l_generator.html#a4df5b09d456665f90f1c2e0818ccd442" title="XMLGenerator::readColorThreshold\lTable" alt="" coords="241,5,468,47"/>
+<area shape="rect" id="node3" href="class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d" title="applyEditor apply the editor in configuration file. " alt="" coords="516,13,695,39"/>
+<area shape="rect" id="node4" href="class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="743,13,907,39"/>
 </map>
 </div>
 
