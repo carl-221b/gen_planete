@@ -8,7 +8,7 @@
 #include <Eigen/Geometry>
 
 /**
- * @brief Interface of Bridge pattern use to block the dependance with library like openGL.
+ * @brief Interface of Bridge pattern use to free the dependance with library like openGL.
  */
 
 class Rendering {

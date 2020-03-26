@@ -11,7 +11,7 @@ XMLGenerator::~XMLGenerator()
 {
 }
 
-Shape* XMLGenerator::generate(std::string fileconfig)
+Shape* XMLGenerator::generate(const std::string& fileconfig)
 {
     using namespace pugi;
 
@@ -33,7 +33,7 @@ Shape* XMLGenerator::generate(std::string fileconfig)
     return shape;
 }
 
-Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
+Shape *XMLGenerator::basicShapeContruct(const pugi::xml_node &root)
 {
     using namespace pugi;
 
@@ -63,6 +63,14 @@ Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
             if ((opt = shape_params.child("nb_subdivision"))) // attribute really exists
             {
                 nb_subdivision = readInt(opt);
+                if(nb_subdivision < 0)
+                {
+                    throw std::runtime_error("Negative subdivision value.\n");
+                }
+                else if(nb_subdivision > 10)
+                {
+                    std::cerr << "Warning : " << nb_subdivision <<" subdivisions can cause performance issues, prefer 10 maximum.\n";
+                }
             }
             if ((opt = shape_params.child("organic"))) // attribute really exists
             {
@@ -72,13 +80,13 @@ Shape *XMLGenerator::basicShapeContruct(pugi::xml_node &root)
 
         std::cout << "Basic shape : " << name <<" subdivided "<< nb_subdivision <<" times \n";
         std::cout << "With : organic " << (organic?"true":"false") <<"\n";
-        return new Icosphere(nb_subdivision, organic);
+        return new Icosphere((unsigned)nb_subdivision, organic);
 
     }
-    else throw std::runtime_error("Not implemented basic_shape.");
+    else throw std::runtime_error("Not implemented basic_shape:" + name + ".\n");
 }
 
-void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
+void XMLGenerator::applyEditor(const pugi::xml_node &root, Shape *shape)
 {
     using namespace pugi;
 
@@ -175,14 +183,14 @@ void XMLGenerator::applyEditor(pugi::xml_node &root, Shape *shape)
 
         ed = new Random_Editor(shape, maximum_displacement_ratio, colors_threshold);
     }
-    else throw std::runtime_error("Not implemented editor.");
+    else throw std::runtime_error("Not implemented editor :" + name + ".\n");
 
     std::cout << "Editor : " << ed->info() <<" \n";
     ed->edit();
     delete ed;
 }
 
-ColorThresholdTable *XMLGenerator::readColorThresholdTable(pugi::xml_node &node)
+ColorThresholdTable *XMLGenerator::readColorThresholdTable(const pugi::xml_node &node) const
 {
     using namespace pugi;
 
@@ -212,34 +220,26 @@ ColorThresholdTable *XMLGenerator::readColorThresholdTable(pugi::xml_node &node)
     return colors_threshold;
 }
 
-bool XMLGenerator::readBool(pugi::xml_node &node)
+bool XMLGenerator::readBool(const pugi::xml_node &node) const
 {
-    using namespace pugi;
-    xml_attribute attr = node.first_attribute();
-    return attr.as_bool();
+    return node.first_attribute().as_bool();
 }
 
-int XMLGenerator::readInt(pugi::xml_node &node)
+int XMLGenerator::readInt(const pugi::xml_node &node) const
 {
-    using namespace pugi;
-    xml_attribute attr = node.first_attribute();
-    return attr.as_int();
+    return node.first_attribute().as_int();
 }
 
-double XMLGenerator::readDouble(pugi::xml_node &node)
+double XMLGenerator::readDouble(const pugi::xml_node &node) const
 {
-    using namespace pugi;
-    xml_attribute attr = node.first_attribute();
-    return attr.as_double();
-
+    return node.first_attribute().as_double();
 }
 
-Eigen::Vector3f XMLGenerator::readVector3f(pugi::xml_node &node)
+Eigen::Vector3f XMLGenerator::readVector3f(const pugi::xml_node &node) const
 {
-    using namespace pugi;
     Eigen::Vector3f vect;
     int i = 0;
-    for(xml_attribute val_attr: node.child("vector3f").attributes())
+    for(const pugi::xml_attribute& val_attr: node.child("vector3f").attributes())
     {
         vect(i) = val_attr.as_double();
         i++;

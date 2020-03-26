@@ -7,7 +7,7 @@
 
 /**
  * @brief The NoisyHeight_Editor class permit to use a noise in order to displace vertices
- * and apply a color from the resulting height.
+ * and apply a color from the resulting height. 
  */
 class NoisyHeight_Editor : public Editor
 {
@@ -35,7 +35,8 @@ public:
      * @param frequence
      * @param persistence
      * @param seed
-     * @param layers the colors with associated bounds of heights.
+     * @param layers the colors with associated bounds of heights. If null, set the default layer for visualisation.
+     * Destroyed at the end of life of the object.
      */
     NoisyHeight_Editor(Shape* shape,
                        double maximum_displacement_ratio,

@@ -53,7 +53,7 @@ NoisyHeight_Editor::~NoisyHeight_Editor()
     delete _layers;
 }
 
-void NoisyHeight_Editor::assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors){
+inline void NoisyHeight_Editor::assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors){
     vertices->_colors.push_back(colors);
 }
 

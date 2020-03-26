@@ -3,18 +3,17 @@
 
 #include "editor.h"
 
-
 /**
  * @brief Applies a random modification to the position (x,y,z) of each vertex and applies color depending on the new position.
- * This class allows to transform a generic icosphere into a simple planet
  */
 class Random_Editor : public Editor {
 public:
     /**
      * @brief Random_Editor
-     * @param shape the shpe to modify.
+     * @param shape the shape to modify.
      * @param maximum_displacement_ratio the maximum displacement.
-     * @param layers the colors with associated bounds of heights.
+     * @param layers the colors with associated bounds of heights. If null, set the default layer for visualisation.
+     * Destroyed at the end of life of the object.
      */
     Random_Editor(Shape* shape,
                   double maximum_displacement_ratio = DEFAULT_MAXIMUM_DISPLACEMENT_RATIO,

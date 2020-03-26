@@ -16,12 +16,21 @@ class Timer
     typedef std::chrono::high_resolution_clock Clock;
 public:
 
-    Timer()
-    {}
+    Timer() = default;
 
+    /**
+    * @brief Permit to update the start time of the timer. Call it on firts use and to reset timer.
+    */
     void startTimer(){  _start = Clock::now(); }
+    /**
+    * @brief Permit to update the end time of the timer. Don't neccesarly need to be called with startTimer() if you want cumulative time.
+    */
     void endTimer(){  _end = Clock::now(); }
-    double getDurationMs()
+
+    /**
+    * @brief Get the duaration beetween the last startTimer and endTimer. If this funtions haven't be called, unpredictable behaviour.
+    */
+    double getDurationMs() const
     {
         return std::chrono::duration_cast<std::chrono::milliseconds>(_end - _start).count();
     }
@@ -32,9 +41,11 @@ private :
 };
 
 /**
- * @brief cartesianToPolarCoord, transform cartesian coordinates to polar.
- * Convention : use radians to output.
- * @param cartesian coordinates
+ * @brief cartesianToPolarCoord, transform cartesian coordinates to spherical.
+ * Conventions : 
+ *      Cartesian coordinates in input,
+ *      Spherical coordinates to ouput, use radians with rho in [0, infinity), theta in [0, PI], phi in [0, 2 * PI).
+ * @param cartesian coordinates to transform.
  * @return Vector3f with rho, theta, phi in this order.
  */
 static Eigen::Vector3f cartesianToSphericalCoord(const Eigen::Vector3f& cartesian)
@@ -52,8 +63,10 @@ static Eigen::Vector3f cartesianToSphericalCoord(const Eigen::Vector3f& cartesia
 
 /**
  * @brief polarToCartesianCoord, transform cartesian coordinates to polar.
- * Convention : use origin to center of sphere to output.
- * @param polar coordinates
+ * Convention : 
+ *      Spherical coordinates to input, use radians with rho in [0, infinity), theta in [0, PI], phi in [0, 2 * PI),
+ *      Cartesians coordinates to ouytput with origin at the center of sphere.
+ * @param polar coordinates to transform.
  * @return the cartesian coordinates x, y , z.
  */
 static Eigen::Vector3f sphericalToCartesianCoord(const Eigen::Vector3f& polar)

@@ -10,14 +10,20 @@
 #define DEFAULT_NB_SUBDIVISION 8
 
 /**
- * @brief Class that contains the needed data for the planet generation
- * 
+ * @brief Implementation of Shape interface.
  */
-
 class Icosphere : public Shape
 {
 public:
-    Icosphere(int nbSubdivision, bool organicLook = false);
+
+    /**
+     * @brief Construct a new Icosphere object
+     * 
+     * @param nbSubdivision the number of subdivision. Higher it is, higher number of polygons it have.
+     * Don't use it higher than 10 because of performances issues.
+     * @param organicLook permit to displace vertices for a more organic mesh.
+     */
+    Icosphere(unsigned int nbSubdivision, bool organicLook = false);
     ~Icosphere();
 
     /**
@@ -25,22 +31,44 @@ public:
      * 
      * @param filename Path to the file to load
      */
-    void load(const std::string& filename);
+    virtual void load(const std::string& filename) override;
 
     /**
      * @brief Get the Vertices object (editable)
      * 
      * @return Vertices*
      */
-    Vertices* getVertices();
+    virtual Vertices* getVertices() const override;
+
+    /**
+     * @brief Get the Vertices object (non editable)
+     * 
+     * @return Vertices*
+     */
+    virtual const Vertices* getVertices() const override;
 
     /**
      * @brief Get the number of faces
      * 
      * @return int the number of faces
      */
-    int numFaces() const { return _halfEdge.faces_size(); }
+    virtual int numFaces() const override { return _halfEdge.faces_size(); }
 
+    /**
+     * @brief Updates mesh's attributes (vertices and faces) from its Surface_mesh
+     */
+    void updateMeshFromSurfaceMesh();
+
+    /**
+     * @brief Compute normal for each face
+     */
+    virtual void computeNormals() override;
+
+    /**
+     * @brief Move vertices positions to make the planet look more organic
+     */
+    void organicTriangulation();
+    
 private:
 
     /**
@@ -83,27 +111,9 @@ private:
     void subdivide();
 
     /**
-     * @brief Updates mesh's attributes (vertices and faces) from its Surface_mesh
-     */
-    void updateMeshFromSurfaceMesh();
-
-    /**
-     * @brief Compute normal for each face
-     */
-    void computeNormals();
-
-    /**
-     * @brief Move vertices positions to make the planet look more organic
-     */
-    void organicTriangulation();
-
-    /**
      * @brief _halfEdge : structure used to know the connectivity between the different faces and vertices.
      */
     surface_mesh::Surface_mesh _halfEdge;
-
-protected:
-
 };
 
 

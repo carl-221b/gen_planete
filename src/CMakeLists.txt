@@ -51,7 +51,6 @@ set(SRC_FILES
     model/noisyheight_editor.cpp
     model/noiserandom.cpp
     model/icosphere.cpp
-    model/advanced_editor.cpp
     model/xmlgenerator.cpp
     view/shader.cpp
     view/trackball.cpp
@@ -76,7 +75,6 @@ set(HEADERS
     include/camera.h
     include/common.h
     include/opengl.h
-    include/advanced_editor.h
     include/rendering.h
     include/rendering_opengl.h
     include/shape_repository.h

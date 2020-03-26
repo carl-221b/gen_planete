@@ -6,15 +6,13 @@
 #include <Eigen/Geometry>
 
 /**
- * @brief interface implemented by icoshpere which contains the needed data for the planet generation
- *
+ * @brief interface which contains the needed data for the planet generation.
  */
 class Shape {
 public:
 
     /**
-     * @brief The Vertices struct containing positions normals and colo for each vertex
-     *
+     * @brief The Vertices struct containing positions normals and colors for each vertex.
      */
     struct Vertices{
         std::vector<Eigen::Vector3f> _positions;
@@ -23,7 +21,7 @@ public:
     };
 
     Shape() : _transformation(Eigen::Matrix4f::Identity()) {}
-    virtual ~Shape() {}
+    virtual ~Shape() = default;
 
     /**
      * @brief Creates the _halfEdge attribute from an OBJ file
@@ -33,12 +31,29 @@ public:
     virtual void load(const std::string& filename) = 0;
 
     /**
-     * @brief Get the Vertices object
+     * @brief Get the number of faces
+     * 
+     * @return int the number of faces
+     */ 
+    virtual int numFaces() const override { return _faces.size(); }
+
+    /**
+     * @brief Get the Vertices object (editable)
      *
      * @return Vertices*
      */
     virtual Vertices* getVertices() = 0;
 
+    /**
+     * @brief Get the Vertices object (non editable)
+     * 
+     * @return Vertices*
+     */
+    const Vertices* getVertices() const = 0;
+
+    /**
+     * @brief Compute normal for each face.
+     */
     virtual void computeNormals() = 0;
 
     /**
