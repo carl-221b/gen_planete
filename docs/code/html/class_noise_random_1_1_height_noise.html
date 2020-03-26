@@ -78,19 +78,18 @@ $(function() {
 Graphe de collaboration de NoiseRandom::HeightNoise:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_noise_random_1_1_height_noise__coll__graph.png" border="0" usemap="#_noise_random_1_1_height_noise_coll__map" alt="Collaboration graph"/></div>
-<map name="_noise_random_1_1_height_noise_coll__map" id="_noise_random_1_1_height_noise_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:ab166c1a0af9e801a289d33a6d7bd2292"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noise_random_1_1_height_noise.html#ab166c1a0af9e801a289d33a6d7bd2292">HeightNoise</a> (int seed, double frequence, int octave, double persistence)</td></tr>
+<tr class="memdesc:ab166c1a0af9e801a289d33a6d7bd2292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Height Noise object.  <a href="#ab166c1a0af9e801a289d33a6d7bd2292">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ab166c1a0af9e801a289d33a6d7bd2292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85d91613d7cc310e928f136680afff22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noise_random_1_1_height_noise.html#a85d91613d7cc310e928f136680afff22">~HeightNoise</a> ()</td></tr>
 <tr class="separator:a85d91613d7cc310e928f136680afff22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0be08d8bcaef1c76a80c45898355d236"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noise_random_1_1_height_noise.html#a0be08d8bcaef1c76a80c45898355d236">getValue</a> (const Eigen::Vector3f &amp;keygen)</td></tr>
-<tr class="memdesc:a0be08d8bcaef1c76a80c45898355d236"><td class="mdescLeft">&#160;</td><td class="mdescRight">getValue get the value noise.  <a href="#a0be08d8bcaef1c76a80c45898355d236">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a0be08d8bcaef1c76a80c45898355d236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd30f88b20ba463d156c210ef08d54e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_noise_random_1_1_height_noise.html#a2fd30f88b20ba463d156c210ef08d54e">getValue</a> (const Eigen::Vector3f &amp;keygen) const</td></tr>
+<tr class="memdesc:a2fd30f88b20ba463d156c210ef08d54e"><td class="mdescLeft">&#160;</td><td class="mdescRight">getValue get the value noise.  <a href="#a2fd30f88b20ba463d156c210ef08d54e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2fd30f88b20ba463d156c210ef08d54e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>The <a class="el" href="class_noise_random_1_1_height_noise.html" title="The HeightNoise class generate noise. ">HeightNoise</a> class generate noise. </p>
@@ -133,6 +132,17 @@ Fonctions membres publiques</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construct a new Height Noise object. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed</td><td>the seed for aleatory. </td></tr>
+    <tr><td class="paramname">frequence</td><td>the frerquence of the noise. </td></tr>
+    <tr><td class="paramname">octave</td><td>the octave of the noise. </td></tr>
+    <tr><td class="paramname">persistence</td><td>the persistence of the noise. More informations for parameters in library libnoise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a85d91613d7cc310e928f136680afff22"></a>
@@ -153,8 +163,8 @@ Fonctions membres publiques</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
-<a id="a0be08d8bcaef1c76a80c45898355d236"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0be08d8bcaef1c76a80c45898355d236">&#9670;&nbsp;</a></span>getValue()</h2>
+<a id="a2fd30f88b20ba463d156c210ef08d54e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd30f88b20ba463d156c210ef08d54e">&#9670;&nbsp;</a></span>getValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +174,7 @@ Fonctions membres publiques</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const Eigen::Vector3f &amp;&#160;</td>
           <td class="paramname"><em>keygen</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -172,17 +182,17 @@ Fonctions membres publiques</h2></td></tr>
 <p>getValue get the value noise. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">keygen</td><td>THe key of the generation. </td></tr>
+    <tr><td class="paramname">keygen</td><td>Tke key for generation. Same key = same value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>the value noise in float associated to the key. Domain between [-1, 1] </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>the value noise in double associated to the key. Domain between [-1, 1] </dd></dl>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="class_noise_random_1_1_height_noise_a0be08d8bcaef1c76a80c45898355d236_icgraph.png" border="0" usemap="#class_noise_random_1_1_height_noise_a0be08d8bcaef1c76a80c45898355d236_icgraph" alt=""/></div>
-<map name="class_noise_random_1_1_height_noise_a0be08d8bcaef1c76a80c45898355d236_icgraph" id="class_noise_random_1_1_height_noise_a0be08d8bcaef1c76a80c45898355d236_icgraph">
-<area shape="rect" id="node2" href="class_noisy_height___editor.html#a3ed5c7267dec56ff2f21366ce2ae9818" title="Applies vertex deplacement and colors the shape. " alt="" coords="239,5,373,47"/>
+<div class="center"><img src="class_noise_random_1_1_height_noise_a2fd30f88b20ba463d156c210ef08d54e_icgraph.png" border="0" usemap="#class_noise_random_1_1_height_noise_a2fd30f88b20ba463d156c210ef08d54e_icgraph" alt=""/></div>
+<map name="class_noise_random_1_1_height_noise_a2fd30f88b20ba463d156c210ef08d54e_icgraph" id="class_noise_random_1_1_height_noise_a2fd30f88b20ba463d156c210ef08d54e_icgraph">
+<area shape="rect" id="node2" href="class_noisy_height___editor.html#a3ed5c7267dec56ff2f21366ce2ae9818" title="Applies vertex deplacement and colors the shapes. " alt="" coords="239,5,373,47"/>
 </map>
 </div>
 

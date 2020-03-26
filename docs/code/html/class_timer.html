@@ -74,26 +74,27 @@ $(function() {
 Graphe de collaboration de Timer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_timer__coll__graph.png" border="0" usemap="#_timer_coll__map" alt="Collaboration graph"/></div>
-<map name="_timer_coll__map" id="_timer_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a5f16e8da27d2a5a5242dead46de05d97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_timer.html#a5f16e8da27d2a5a5242dead46de05d97">Timer</a> ()</td></tr>
-<tr class="separator:a5f16e8da27d2a5a5242dead46de05d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed3c5e074223900c0c9a74376471209"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_timer.html#a8ed3c5e074223900c0c9a74376471209">Timer</a> ()=default</td></tr>
+<tr class="separator:a8ed3c5e074223900c0c9a74376471209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8c887576ec3b0d68c10ebf4097c367c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_timer.html#aa8c887576ec3b0d68c10ebf4097c367c">startTimer</a> ()</td></tr>
+<tr class="memdesc:aa8c887576ec3b0d68c10ebf4097c367c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permit to update the start time of the timer. Call it on firts use and to reset timer.  <a href="#aa8c887576ec3b0d68c10ebf4097c367c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa8c887576ec3b0d68c10ebf4097c367c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef101eede3d1689a55f25f7164ecafcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_timer.html#aef101eede3d1689a55f25f7164ecafcd">endTimer</a> ()</td></tr>
+<tr class="memdesc:aef101eede3d1689a55f25f7164ecafcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permit to update the end time of the timer. Don't neccesarly need to be called with <a class="el" href="class_timer.html#aa8c887576ec3b0d68c10ebf4097c367c" title="Permit to update the start time of the timer. Call it on firts use and to reset timer. ">startTimer()</a> if you want cumulative time.  <a href="#aef101eede3d1689a55f25f7164ecafcd">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aef101eede3d1689a55f25f7164ecafcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6476c32878861cb4d0a3e650bbe9b6c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_timer.html#ae6476c32878861cb4d0a3e650bbe9b6c">getDurationMs</a> ()</td></tr>
-<tr class="separator:ae6476c32878861cb4d0a3e650bbe9b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70eb18ad272faecc82c376c590d1ae4a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_timer.html#a70eb18ad272faecc82c376c590d1ae4a">getDurationMs</a> () const</td></tr>
+<tr class="memdesc:a70eb18ad272faecc82c376c590d1ae4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the duaration beetween the last startTimer and endTimer. If this funtions haven't be called, unpredictable behaviour.  <a href="#a70eb18ad272faecc82c376c590d1ae4a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a70eb18ad272faecc82c376c590d1ae4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>The <a class="el" href="class_timer.html" title="The Timer class, used for durationn in Ms. ">Timer</a> class, used for durationn in Ms. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
-<a id="a5f16e8da27d2a5a5242dead46de05d97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f16e8da27d2a5a5242dead46de05d97">&#9670;&nbsp;</a></span>Timer()</h2>
+<a id="a8ed3c5e074223900c0c9a74376471209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ed3c5e074223900c0c9a74376471209">&#9670;&nbsp;</a></span>Timer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -110,7 +111,7 @@ Fonctions membres publiques</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -141,10 +142,12 @@ Fonctions membres publiques</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Permit to update the end time of the timer. Don't neccesarly need to be called with <a class="el" href="class_timer.html#aa8c887576ec3b0d68c10ebf4097c367c" title="Permit to update the start time of the timer. Call it on firts use and to reset timer. ">startTimer()</a> if you want cumulative time. </p>
+
 </div>
 </div>
-<a id="ae6476c32878861cb4d0a3e650bbe9b6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6476c32878861cb4d0a3e650bbe9b6c">&#9670;&nbsp;</a></span>getDurationMs()</h2>
+<a id="a70eb18ad272faecc82c376c590d1ae4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70eb18ad272faecc82c376c590d1ae4a">&#9670;&nbsp;</a></span>getDurationMs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,7 +159,7 @@ Fonctions membres publiques</h2></td></tr>
           <td class="memname">double Timer::getDurationMs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -165,6 +168,8 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Get the duaration beetween the last startTimer and endTimer. If this funtions haven't be called, unpredictable behaviour. </p>
 
 </div>
 </div>
@@ -190,6 +195,8 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Permit to update the start time of the timer. Call it on firts use and to reset timer. </p>
 
 </div>
 </div>

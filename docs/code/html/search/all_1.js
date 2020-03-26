@@ -2,9 +2,6 @@ var searchData=
 [
   ['activate',['activate',['../class_shader.html#aac46b11981aef0616f45e191201f519a',1,'Shader']]],
   ['addlayer',['addLayer',['../class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37',1,'ThresholdTable']]],
-  ['advanced_5feditor',['Advanced_Editor',['../class_advanced___editor.html',1,'Advanced_Editor'],['../class_advanced___editor.html#a5727b0fb3127ff32135d4b0e39a605e5',1,'Advanced_Editor::Advanced_Editor()']]],
-  ['advanced_5feditor_2ecpp',['advanced_editor.cpp',['../advanced__editor_8cpp.html',1,'']]],
-  ['advanced_5feditor_2eh',['advanced_editor.h',['../advanced__editor_8h.html',1,'']]],
   ['alea_5ffrequence',['ALEA_FREQUENCE',['../aleatorymode_8h.html#a8dc9582d5186e7d1ba17c0f21779d3d6a1060e90e6818f081d88c82c4cc0c0f49',1,'aleatorymode.h']]],
   ['alea_5foctave',['ALEA_OCTAVE',['../aleatorymode_8h.html#a8dc9582d5186e7d1ba17c0f21779d3d6ae7b11bf23829e07bf1d45f2d8c546a58',1,'aleatorymode.h']]],
   ['alea_5fpersistence',['ALEA_PERSISTENCE',['../aleatorymode_8h.html#a8dc9582d5186e7d1ba17c0f21779d3d6ad53beed6e3fa9562a593de38e3ad9c17',1,'aleatorymode.h']]],

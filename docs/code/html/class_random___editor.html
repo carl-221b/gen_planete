@@ -66,7 +66,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Applies a random modification to the position (x,y,z) of each vertex and applies color depending on the new position. This class allows to transform a generic icosphere into a simple planet.  
+<p>Applies a random modification to the position (x,y,z) of each vertex and applies color depending on the new position.  
  <a href="class_random___editor.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="random__editor_8h_source.html">random_editor.h</a>&gt;</code></p>
@@ -105,8 +105,8 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="inherit_header pub_methods_class_editor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_editor')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="class_editor.html">Editor</a></td></tr>
 <tr class="memitem:aea7f803e3bbb79dbbeb9a9ad9b01ed5a inherit pub_methods_class_editor"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#aea7f803e3bbb79dbbeb9a9ad9b01ed5a">Editor</a> (<a class="el" href="class_shape.html">Shape</a> *shape)</td></tr>
 <tr class="separator:aea7f803e3bbb79dbbeb9a9ad9b01ed5a inherit pub_methods_class_editor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9aea98e4964b437a937354d2f3edd42 inherit pub_methods_class_editor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#ab9aea98e4964b437a937354d2f3edd42">~Editor</a> ()</td></tr>
-<tr class="separator:ab9aea98e4964b437a937354d2f3edd42 inherit pub_methods_class_editor"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a192c911dff4ebca89d0b1bb3aa482253 inherit pub_methods_class_editor"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a192c911dff4ebca89d0b1bb3aa482253">~Editor</a> ()=default</td></tr>
+<tr class="separator:a192c911dff4ebca89d0b1bb3aa482253 inherit pub_methods_class_editor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Membres hérités additionnels</h2></td></tr>
@@ -117,7 +117,7 @@ Membres hérités additionnels</h2></td></tr>
 <tr class="separator:ad9f31fcae91fb4a91b5ff5ecb4308bdf inherit pro_attribs_class_editor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Applies a random modification to the position (x,y,z) of each vertex and applies color depending on the new position. This class allows to transform a generic icosphere into a simple planet. </p>
+<div class="textblock"><p>Applies a random modification to the position (x,y,z) of each vertex and applies color depending on the new position. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a68118d2b9929e7c9dbb821ce76554164"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a68118d2b9929e7c9dbb821ce76554164">&#9670;&nbsp;</a></span>Random_Editor()</h2>
@@ -154,9 +154,9 @@ Membres hérités additionnels</h2></td></tr>
 <p><a class="el" href="class_random___editor.html" title="Applies a random modification to the position (x,y,z) of each vertex and applies color depending on t...">Random_Editor</a>. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">shape</td><td>the shpe to modify. </td></tr>
+    <tr><td class="paramname">shape</td><td>the shape to modify. </td></tr>
     <tr><td class="paramname">maximum_displacement_ratio</td><td>the maximum displacement. </td></tr>
-    <tr><td class="paramname">layers</td><td>the colors with associated bounds of heights. </td></tr>
+    <tr><td class="paramname">layers</td><td>the colors with associated bounds of heights. If null, set the default layer for visualisation. Destroyed at the end of life of the object. </td></tr>
   </table>
   </dd>
 </dl>

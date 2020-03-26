@@ -2,7 +2,7 @@
 \label{class_icosphere}\index{Icosphere@{Icosphere}}
 
 
-Class that contains the needed data for the planet generation.  
+Implementation of \hyperlink{class_shape}{Shape} interface.  
 
 
 
@@ -11,50 +11,61 @@ Class that contains the needed data for the planet generation.
 
 
 
-Graphe d\textquotesingle{}héritage de Icosphere\+:
-\nopagebreak
+Graphe d\textquotesingle{}héritage de Icosphere\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=217pt]{class_icosphere__inherit__graph}
+\includegraphics[width=245pt]{class_icosphere__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Graphe de collaboration de Icosphere\+:
-\nopagebreak
+Graphe de collaboration de Icosphere\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=217pt]{class_icosphere__coll__graph}
+\includegraphics[width=245pt]{class_icosphere__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_icosphere_acbbb6a69f296101cbf883e8b17d0e24f}{Icosphere} (int nb\+Subdivision, bool organic\+Look=false)
-\item 
+\hyperlink{class_icosphere_a6051bb79f73f5aecb95074118fb019b3}{Icosphere} (unsigned int nb\+Subdivision, bool organic\+Look=false)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{class_icosphere}{Icosphere} object. \end{DoxyCompactList}\item 
 \hyperlink{class_icosphere_ac9473c8c8d6085b6370d95772b898a45}{$\sim$\+Icosphere} ()
 \item 
-void \hyperlink{class_icosphere_a1b20bf118a66f5202228a5a4522bd7fd}{load} (const std\+::string \&filename)
+virtual void \hyperlink{class_icosphere_a72c3cc3d95cf508a623fe336cbbab350}{load} (const std\+::string \&filename) override
 \begin{DoxyCompactList}\small\item\em Creates the \+\_\+half\+Edge attribute from an O\+BJ file. \end{DoxyCompactList}\item 
-\hyperlink{struct_shape_1_1_vertices}{Vertices} $\ast$ \hyperlink{class_icosphere_aae0a9d0e0cff48ca120bd401e2cb14f4}{get\+Vertices} ()
-\begin{DoxyCompactList}\small\item\em Get the Vertices object (editable) \end{DoxyCompactList}\item 
-int \hyperlink{class_icosphere_a4bacbf52b66b1c6b3e80380a0bb4c9e5}{num\+Faces} () const
-\begin{DoxyCompactList}\small\item\em Get the number of faces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}{update\+Mesh\+From\+Surface\+Mesh} ()
+\begin{DoxyCompactList}\small\item\em Updates mesh\textquotesingle{}s attributes (vertices and faces) from its Surface\+\_\+mesh. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_icosphere_af7d6c8c60248794f6a6c382dc5f98a24}{compute\+Normals} () override
+\begin{DoxyCompactList}\small\item\em Compute normal for each face. \end{DoxyCompactList}\item 
+void \hyperlink{class_icosphere_ab3470de718fee359ef4691e0c2ee987a}{organic\+Triangulation} ()
+\begin{DoxyCompactList}\small\item\em Move vertices positions to make the planet look more organic. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Membres hérités additionnels}
 
 
 \subsection{Description détaillée}
-Class that contains the needed data for the planet generation. 
+Implementation of \hyperlink{class_shape}{Shape} interface. 
 
 \subsection{Documentation des constructeurs et destructeur}
-\mbox{\Hypertarget{class_icosphere_acbbb6a69f296101cbf883e8b17d0e24f}\label{class_icosphere_acbbb6a69f296101cbf883e8b17d0e24f}} 
+\mbox{\Hypertarget{class_icosphere_a6051bb79f73f5aecb95074118fb019b3}\label{class_icosphere_a6051bb79f73f5aecb95074118fb019b3}} 
 \index{Icosphere@{Icosphere}!Icosphere@{Icosphere}}
 \index{Icosphere@{Icosphere}!Icosphere@{Icosphere}}
 \subsubsection{\texorpdfstring{Icosphere()}{Icosphere()}}
-{\footnotesize\ttfamily Icosphere\+::\+Icosphere (\begin{DoxyParamCaption}\item[{int}]{nb\+Subdivision,  }\item[{bool}]{organic\+Look = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Icosphere\+::\+Icosphere (\begin{DoxyParamCaption}\item[{unsigned int}]{nb\+Subdivision,  }\item[{bool}]{organic\+Look = {\ttfamily false} }\end{DoxyParamCaption})}
 
+
+
+Construct a new \hyperlink{class_icosphere}{Icosphere} object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nb\+Subdivision} & the number of subdivision. Higher it is, higher number of polygons it have. Don\textquotesingle{}t use it higher than 10 because of performances issues. \\
+\hline
+{\em organic\+Look} & permit to displace vertices for a more organic mesh. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_icosphere_ac9473c8c8d6085b6370d95772b898a45}\label{class_icosphere_ac9473c8c8d6085b6370d95772b898a45}} 
 \index{Icosphere@{Icosphere}!````~Icosphere@{$\sim$\+Icosphere}}
 \index{````~Icosphere@{$\sim$\+Icosphere}!Icosphere@{Icosphere}}
@@ -64,28 +75,25 @@ Class that contains the needed data for the planet generation.
 
 
 \subsection{Documentation des fonctions membres}
-\mbox{\Hypertarget{class_icosphere_aae0a9d0e0cff48ca120bd401e2cb14f4}\label{class_icosphere_aae0a9d0e0cff48ca120bd401e2cb14f4}} 
-\index{Icosphere@{Icosphere}!get\+Vertices@{get\+Vertices}}
-\index{get\+Vertices@{get\+Vertices}!Icosphere@{Icosphere}}
-\subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}}
-{\footnotesize\ttfamily \hyperlink{struct_shape_1_1_vertices}{Icosphere\+::\+Vertices} $\ast$ Icosphere\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+\mbox{\Hypertarget{class_icosphere_af7d6c8c60248794f6a6c382dc5f98a24}\label{class_icosphere_af7d6c8c60248794f6a6c382dc5f98a24}} 
+\index{Icosphere@{Icosphere}!compute\+Normals@{compute\+Normals}}
+\index{compute\+Normals@{compute\+Normals}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{compute\+Normals()}{computeNormals()}}
+{\footnotesize\ttfamily void Icosphere\+::compute\+Normals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Get the Vertices object (editable) 
-
-\begin{DoxyReturn}{Renvoie}
-Vertices$\ast$ 
-\end{DoxyReturn}
+Compute normal for each face. 
 
 
-Implémente \hyperlink{class_shape_a08ba4a861e979b8adffdbe615d048203}{Shape}.
 
-\mbox{\Hypertarget{class_icosphere_a1b20bf118a66f5202228a5a4522bd7fd}\label{class_icosphere_a1b20bf118a66f5202228a5a4522bd7fd}} 
+Implémente \hyperlink{class_shape_afd886ad433d08a566003073bfd837f40}{Shape}.
+
+\mbox{\Hypertarget{class_icosphere_a72c3cc3d95cf508a623fe336cbbab350}\label{class_icosphere_a72c3cc3d95cf508a623fe336cbbab350}} 
 \index{Icosphere@{Icosphere}!load@{load}}
 \index{load@{load}!Icosphere@{Icosphere}}
 \subsubsection{\texorpdfstring{load()}{load()}}
-{\footnotesize\ttfamily void Icosphere\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Icosphere\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -100,19 +108,26 @@ Creates the \+\_\+half\+Edge attribute from an O\+BJ file.
 
 Implémente \hyperlink{class_shape_a20d654ec232b682c36cd8b28d2cba750}{Shape}.
 
-\mbox{\Hypertarget{class_icosphere_a4bacbf52b66b1c6b3e80380a0bb4c9e5}\label{class_icosphere_a4bacbf52b66b1c6b3e80380a0bb4c9e5}} 
-\index{Icosphere@{Icosphere}!num\+Faces@{num\+Faces}}
-\index{num\+Faces@{num\+Faces}!Icosphere@{Icosphere}}
-\subsubsection{\texorpdfstring{num\+Faces()}{numFaces()}}
-{\footnotesize\ttfamily int Icosphere\+::num\+Faces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{class_icosphere_ab3470de718fee359ef4691e0c2ee987a}\label{class_icosphere_ab3470de718fee359ef4691e0c2ee987a}} 
+\index{Icosphere@{Icosphere}!organic\+Triangulation@{organic\+Triangulation}}
+\index{organic\+Triangulation@{organic\+Triangulation}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{organic\+Triangulation()}{organicTriangulation()}}
+{\footnotesize\ttfamily void Icosphere\+::organic\+Triangulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Get the number of faces. 
+Move vertices positions to make the planet look more organic. 
 
-\begin{DoxyReturn}{Renvoie}
-int the number of faces 
-\end{DoxyReturn}
+\mbox{\Hypertarget{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}\label{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}} 
+\index{Icosphere@{Icosphere}!update\+Mesh\+From\+Surface\+Mesh@{update\+Mesh\+From\+Surface\+Mesh}}
+\index{update\+Mesh\+From\+Surface\+Mesh@{update\+Mesh\+From\+Surface\+Mesh}!Icosphere@{Icosphere}}
+\subsubsection{\texorpdfstring{update\+Mesh\+From\+Surface\+Mesh()}{updateMeshFromSurfaceMesh()}}
+{\footnotesize\ttfamily void Icosphere\+::update\+Mesh\+From\+Surface\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates mesh\textquotesingle{}s attributes (vertices and faces) from its Surface\+\_\+mesh. 
+
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}

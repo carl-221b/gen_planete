@@ -68,7 +68,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>interface implemented by icoshpere which contains the needed data for the planet generation  
+<p>interface which contains the needed data for the planet generation.  
  <a href="class_shape.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="shape_8h_source.html">shape.h</a>&gt;</code></p>
@@ -92,26 +92,30 @@ Graphe de collaboration de Shape:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_shape_1_1_vertices.html">Vertices</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colo for each vertex. ">Vertices</a> struct containing positions normals and colo for each vertex.  <a href="struct_shape_1_1_vertices.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. ">Vertices</a> struct containing positions normals and colors for each vertex.  <a href="struct_shape_1_1_vertices.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:aaa8d87171e65e0d8ba3c5459978992a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#aaa8d87171e65e0d8ba3c5459978992a7">Shape</a> ()</td></tr>
 <tr class="separator:aaa8d87171e65e0d8ba3c5459978992a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3b9fc48965274893f25b18aa14ba665"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#ac3b9fc48965274893f25b18aa14ba665">~Shape</a> ()</td></tr>
-<tr class="separator:ac3b9fc48965274893f25b18aa14ba665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8ad2fd02e1e94beeb98e65ab795cd56"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#ac8ad2fd02e1e94beeb98e65ab795cd56">~Shape</a> ()=default</td></tr>
+<tr class="separator:ac8ad2fd02e1e94beeb98e65ab795cd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20d654ec232b682c36cd8b28d2cba750"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#a20d654ec232b682c36cd8b28d2cba750">load</a> (const std::string &amp;filename)=0</td></tr>
 <tr class="memdesc:a20d654ec232b682c36cd8b28d2cba750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the _halfEdge attribute from an OBJ file.  <a href="#a20d654ec232b682c36cd8b28d2cba750">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a20d654ec232b682c36cd8b28d2cba750"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08ba4a861e979b8adffdbe615d048203"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="struct_shape_1_1_vertices.html">Vertices</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#a08ba4a861e979b8adffdbe615d048203">getVertices</a> ()=0</td></tr>
-<tr class="memdesc:a08ba4a861e979b8adffdbe615d048203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colo for each vertex. ">Vertices</a> object.  <a href="#a08ba4a861e979b8adffdbe615d048203">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a08ba4a861e979b8adffdbe615d048203"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd886ad433d08a566003073bfd837f40"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#afd886ad433d08a566003073bfd837f40">computeNormals</a> ()=0</td></tr>
-<tr class="separator:afd886ad433d08a566003073bfd837f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa316f693b1679276dc2bc1014485ab3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#aaa316f693b1679276dc2bc1014485ab3">numFaces</a> () const</td></tr>
+<tr class="memdesc:aaa316f693b1679276dc2bc1014485ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of faces.  <a href="#aaa316f693b1679276dc2bc1014485ab3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaa316f693b1679276dc2bc1014485ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacdf84a7934b19a50bf9d5b4cd122caf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_shape_1_1_vertices.html">Vertices</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#aacdf84a7934b19a50bf9d5b4cd122caf">getVertices</a> ()</td></tr>
+<tr class="memdesc:aacdf84a7934b19a50bf9d5b4cd122caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. ">Vertices</a> object (editable)  <a href="#aacdf84a7934b19a50bf9d5b4cd122caf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aacdf84a7934b19a50bf9d5b4cd122caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac40943613d4b7480d305d807abeb01e0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_shape_1_1_vertices.html">Vertices</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#ac40943613d4b7480d305d807abeb01e0">getVertices</a> () const</td></tr>
-<tr class="memdesc:ac40943613d4b7480d305d807abeb01e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colo for each vertex. ">Vertices</a> object (const)  <a href="#ac40943613d4b7480d305d807abeb01e0">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:ac40943613d4b7480d305d807abeb01e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. ">Vertices</a> object (const)  <a href="#ac40943613d4b7480d305d807abeb01e0">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac40943613d4b7480d305d807abeb01e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd886ad433d08a566003073bfd837f40"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#afd886ad433d08a566003073bfd837f40">computeNormals</a> ()=0</td></tr>
+<tr class="memdesc:afd886ad433d08a566003073bfd837f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute normal for each face.  <a href="#afd886ad433d08a566003073bfd837f40">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afd886ad433d08a566003073bfd837f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd24561b01d6769b4a0c96cd0237a961"><td class="memItemLeft" align="right" valign="top">const Eigen::AlignedBox3f &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shape.html#acd24561b01d6769b4a0c96cd0237a961">boundingBox</a> () const</td></tr>
 <tr class="memdesc:acd24561b01d6769b4a0c96cd0237a961"><td class="mdescLeft">&#160;</td><td class="mdescRight">boundingBox used for the rasterzation  <a href="#acd24561b01d6769b4a0c96cd0237a961">Plus de détails...</a><br /></td></tr>
 <tr class="separator:acd24561b01d6769b4a0c96cd0237a961"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,7 +143,7 @@ Attributs protégés</h2></td></tr>
 <tr class="separator:ac2f7f1148a34325d99be6d983fcf9bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>interface implemented by icoshpere which contains the needed data for the planet generation </p>
+<div class="textblock"><p>interface which contains the needed data for the planet generation. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="aaa8d87171e65e0d8ba3c5459978992a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaa8d87171e65e0d8ba3c5459978992a7">&#9670;&nbsp;</a></span>Shape()</h2>
@@ -163,11 +167,20 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_shape_aaa8d87171e65e0d8ba3c5459978992a7_cgraph.png" border="0" usemap="#class_shape_aaa8d87171e65e0d8ba3c5459978992a7_cgraph" alt=""/></div>
+<map name="class_shape_aaa8d87171e65e0d8ba3c5459978992a7_cgraph" id="class_shape_aaa8d87171e65e0d8ba3c5459978992a7_cgraph">
+<area shape="rect" id="node2" href="class_shape.html#ac8ad2fd02e1e94beeb98e65ab795cd56" title="Shape::~Shape" alt="" coords="157,5,269,32"/>
+<area shape="rect" id="node3" href="class_shape.html#a20d654ec232b682c36cd8b28d2cba750" title="Creates the _halfEdge attribute from an OBJ file. " alt="" coords="168,56,259,83"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ac3b9fc48965274893f25b18aa14ba665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3b9fc48965274893f25b18aa14ba665">&#9670;&nbsp;</a></span>~Shape()</h2>
+<a id="ac8ad2fd02e1e94beeb98e65ab795cd56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8ad2fd02e1e94beeb98e65ab795cd56">&#9670;&nbsp;</a></span>~Shape()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,18 +197,16 @@ Attributs protégés</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
+Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="class_shape_ac3b9fc48965274893f25b18aa14ba665_cgraph.png" border="0" usemap="#class_shape_ac3b9fc48965274893f25b18aa14ba665_cgraph" alt=""/></div>
-<map name="class_shape_ac3b9fc48965274893f25b18aa14ba665_cgraph" id="class_shape_ac3b9fc48965274893f25b18aa14ba665_cgraph">
-<area shape="rect" id="node2" href="class_shape.html#a20d654ec232b682c36cd8b28d2cba750" title="Creates the _halfEdge attribute from an OBJ file. " alt="" coords="203,5,294,32"/>
-<area shape="rect" id="node3" href="class_shape.html#a08ba4a861e979b8adffdbe615d048203" title="Get the Vertices object. " alt="" coords="182,56,315,83"/>
-<area shape="rect" id="node4" href="class_shape.html#afd886ad433d08a566003073bfd837f40" title="Shape::computeNormals" alt="" coords="165,107,332,133"/>
+<div class="center"><img src="class_shape_ac8ad2fd02e1e94beeb98e65ab795cd56_icgraph.png" border="0" usemap="#class_shape_ac8ad2fd02e1e94beeb98e65ab795cd56_icgraph" alt=""/></div>
+<map name="class_shape_ac8ad2fd02e1e94beeb98e65ab795cd56_icgraph" id="class_shape_ac8ad2fd02e1e94beeb98e65ab795cd56_icgraph">
+<area shape="rect" id="node2" href="class_shape.html#aaa8d87171e65e0d8ba3c5459978992a7" title="Shape::Shape" alt="" coords="165,5,269,32"/>
 </map>
 </div>
 
@@ -252,6 +263,10 @@ Voici le graphe d'appel pour cette fonction :</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Compute normal for each face. </p>
+
+<p>Implémenté dans <a class="el" href="class_icosphere.html#af7d6c8c60248794f6a6c382dc5f98a24">Icosphere</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
@@ -331,8 +346,8 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a08ba4a861e979b8adffdbe615d048203"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08ba4a861e979b8adffdbe615d048203">&#9670;&nbsp;</a></span>getVertices() <span class="overload">[1/2]</span></h2>
+<a id="aacdf84a7934b19a50bf9d5b4cd122caf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacdf84a7934b19a50bf9d5b4cd122caf">&#9670;&nbsp;</a></span>getVertices() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,7 +356,7 @@ Voici le graphe des appelants de cette fonction :</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="struct_shape_1_1_vertices.html">Vertices</a>* Shape::getVertices </td>
+          <td class="memname"><a class="el" href="struct_shape_1_1_vertices.html">Vertices</a>* Shape::getVertices </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -349,26 +364,23 @@ Voici le graphe des appelants de cette fonction :</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colo for each vertex. ">Vertices</a> object. </p>
+<p>Get the <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. ">Vertices</a> object (editable) </p>
 <dl class="section return"><dt>Renvoie</dt><dd>Vertices* </dd></dl>
-
-<p>Implémenté dans <a class="el" href="class_icosphere.html#aae0a9d0e0cff48ca120bd401e2cb14f4">Icosphere</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="class_shape_a08ba4a861e979b8adffdbe615d048203_icgraph.png" border="0" usemap="#class_shape_a08ba4a861e979b8adffdbe615d048203_icgraph" alt=""/></div>
-<map name="class_shape_a08ba4a861e979b8adffdbe615d048203_icgraph" id="class_shape_a08ba4a861e979b8adffdbe615d048203_icgraph">
-<area shape="rect" id="node2" href="class_shape.html#ac3b9fc48965274893f25b18aa14ba665" title="Shape::~Shape" alt="" coords="226,5,338,32"/>
-<area shape="rect" id="node3" href="class_noisy_height___editor.html#a3ed5c7267dec56ff2f21366ce2ae9818" title="Applies vertex deplacement and colors the shape. " alt="" coords="215,57,349,98"/>
-<area shape="rect" id="node4" href="class_random___editor.html#abea41199b1502f89be0b2914b3c191fc" title="Applies vertex deplacement and colors the shape. " alt="" coords="211,123,353,149"/>
-<area shape="rect" id="node5" href="class_shape___repository.html#a0a0e36f8beab55be3c88e08c823819cd" title="Saves the planet into a .obj format file, does not include the color yet. " alt="" coords="187,173,377,200"/>
-<area shape="rect" id="node7" href="class_shape___repository.html#ad52141b6883d20084a0105355f2271b5" title="Saves the planet into a .off format file, does not include the color yet. " alt="" coords="187,224,377,251"/>
-<area shape="rect" id="node6" href="class_viewer.html#a79192db7ddae958fc0ae2ee2e90cb995" title="Viewer::keyPressed" alt="" coords="425,173,564,200"/>
+<div class="center"><img src="class_shape_aacdf84a7934b19a50bf9d5b4cd122caf_icgraph.png" border="0" usemap="#class_shape_aacdf84a7934b19a50bf9d5b4cd122caf_icgraph" alt=""/></div>
+<map name="class_shape_aacdf84a7934b19a50bf9d5b4cd122caf_icgraph" id="class_shape_aacdf84a7934b19a50bf9d5b4cd122caf_icgraph">
+<area shape="rect" id="node2" href="class_noisy_height___editor.html#a3ed5c7267dec56ff2f21366ce2ae9818" title="Applies vertex deplacement and colors the shapes. " alt="" coords="215,5,349,47"/>
+<area shape="rect" id="node3" href="class_random___editor.html#abea41199b1502f89be0b2914b3c191fc" title="Applies vertex deplacement and colors the shape. " alt="" coords="211,71,353,98"/>
+<area shape="rect" id="node4" href="class_shape___repository.html#a0a0e36f8beab55be3c88e08c823819cd" title="Saves the planet into a .obj format file, does not include the color yet. " alt="" coords="187,122,377,149"/>
+<area shape="rect" id="node6" href="class_shape___repository.html#ad52141b6883d20084a0105355f2271b5" title="Saves the planet into a .off format file, does not include the color yet. " alt="" coords="187,173,377,199"/>
+<area shape="rect" id="node5" href="class_viewer.html#a79192db7ddae958fc0ae2ee2e90cb995" title="Viewer::keyPressed" alt="" coords="425,122,564,149"/>
 </map>
 </div>
 
@@ -397,8 +409,16 @@ Voici le graphe des appelants de cette fonction :</div>
 </table>
 </div><div class="memdoc">
 
-<p>Get the <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colo for each vertex. ">Vertices</a> object (const) </p>
+<p>Get the <a class="el" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. ">Vertices</a> object (const) </p>
 <dl class="section return"><dt>Renvoie</dt><dd>const Vertices* </dd></dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_shape_ac40943613d4b7480d305d807abeb01e0_cgraph.png" border="0" usemap="#class_shape_ac40943613d4b7480d305d807abeb01e0_cgraph" alt=""/></div>
+<map name="class_shape_ac40943613d4b7480d305d807abeb01e0_cgraph" id="class_shape_ac40943613d4b7480d305d807abeb01e0_cgraph">
+<area shape="rect" id="node2" href="class_shape.html#afd886ad433d08a566003073bfd837f40" title="Compute normal for each face. " alt="" coords="187,5,353,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -434,7 +454,7 @@ Voici le graphe des appelants de cette fonction :</div>
   </dd>
 </dl>
 
-<p>Implémenté dans <a class="el" href="class_icosphere.html#a1b20bf118a66f5202228a5a4522bd7fd">Icosphere</a>.</p>
+<p>Implémenté dans <a class="el" href="class_icosphere.html#a72c3cc3d95cf508a623fe336cbbab350">Icosphere</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
@@ -443,6 +463,34 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" id="node2" href="class_shape.html#ac3b9fc48965274893f25b18aa14ba665" title="Shape::~Shape" alt="" coords="144,5,256,32"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="aaa316f693b1679276dc2bc1014485ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa316f693b1679276dc2bc1014485ab3">&#9670;&nbsp;</a></span>numFaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Shape::numFaces </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of faces. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>int the number of faces </dd></dl>
 
 </div>
 </div>

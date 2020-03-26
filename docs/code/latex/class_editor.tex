@@ -2,7 +2,7 @@
 \label{class_editor}\index{Editor@{Editor}}
 
 
-Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet.  
+Interface to be implemented by an editor that will transform a generic basic shape into a planet.  
 
 
 
@@ -11,18 +11,16 @@ Interface to be implemented by an editor that will transform a generic icosphere
 
 
 
-Graphe d\textquotesingle{}héritage de Editor\+:
-\nopagebreak
+Graphe d\textquotesingle{}héritage de Editor\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_editor__inherit__graph}
+\includegraphics[width=326pt]{class_editor__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Graphe de collaboration de Editor\+:
-\nopagebreak
+Graphe de collaboration de Editor\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -34,10 +32,10 @@ Graphe de collaboration de Editor\+:
 \item 
 \hyperlink{class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a}{Editor} (\hyperlink{class_shape}{Shape} $\ast$shape)
 \item 
-virtual \hyperlink{class_editor_ab9aea98e4964b437a937354d2f3edd42}{$\sim$\+Editor} ()
+virtual \hyperlink{class_editor_a192c911dff4ebca89d0b1bb3aa482253}{$\sim$\+Editor} ()=default
 \item 
 virtual void \hyperlink{class_editor_abca97ba11536c494a0c26bac77917792}{edit} ()=0
-\begin{DoxyCompactList}\small\item\em Applies vertex deplacement and colors the shape. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Applies vertex deplacement and colors the shapes. \end{DoxyCompactList}\item 
 virtual std\+::string \hyperlink{class_editor_a5747cd74b71d67f6d39b094071058382}{info} () const
 \begin{DoxyCompactList}\small\item\em info \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Attributs protégés}
@@ -50,7 +48,7 @@ std\+::string \hyperlink{class_editor_a0ae04e135284b48561a538397106f42a}{\+\_\+n
 
 
 \subsection{Description détaillée}
-Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet. 
+Interface to be implemented by an editor that will transform a generic basic shape into a planet. 
 
 \subsection{Documentation des constructeurs et destructeur}
 \mbox{\Hypertarget{class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a}\label{class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a}} 
@@ -59,17 +57,24 @@ Interface to be implemented by an editor that will transform a generic icosphere
 \subsubsection{\texorpdfstring{Editor()}{Editor()}}
 {\footnotesize\ttfamily Editor\+::\+Editor (\begin{DoxyParamCaption}\item[{\hyperlink{class_shape}{Shape} $\ast$}]{shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{class_editor_ab9aea98e4964b437a937354d2f3edd42}\label{class_editor_ab9aea98e4964b437a937354d2f3edd42}} 
-\index{Editor@{Editor}!````~Editor@{$\sim$\+Editor}}
-\index{````~Editor@{$\sim$\+Editor}!Editor@{Editor}}
-\subsubsection{\texorpdfstring{$\sim$\+Editor()}{~Editor()}}
-{\footnotesize\ttfamily virtual Editor\+::$\sim$\+Editor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
 Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=260pt]{class_editor_ab9aea98e4964b437a937354d2f3edd42_cgraph}
+\includegraphics[width=270pt]{class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_editor_a192c911dff4ebca89d0b1bb3aa482253}\label{class_editor_a192c911dff4ebca89d0b1bb3aa482253}} 
+\index{Editor@{Editor}!````~Editor@{$\sim$\+Editor}}
+\index{````~Editor@{$\sim$\+Editor}!Editor@{Editor}}
+\subsubsection{\texorpdfstring{$\sim$\+Editor()}{~Editor()}}
+{\footnotesize\ttfamily virtual Editor\+::$\sim$\+Editor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{class_editor_a192c911dff4ebca89d0b1bb3aa482253_icgraph}
 \end{center}
 \end{figure}
 
@@ -83,11 +88,11 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 
 
 
-Applies vertex deplacement and colors the shape. 
+Applies vertex deplacement and colors the shapes. 
 
 
 
-Implémenté dans \hyperlink{class_noisy_height___editor_a3ed5c7267dec56ff2f21366ce2ae9818}{Noisy\+Height\+\_\+\+Editor}, \hyperlink{class_random___editor_abea41199b1502f89be0b2914b3c191fc}{Random\+\_\+\+Editor}, et \hyperlink{class_advanced___editor_afc51cb1199403cb6785bfd3d7e290a1b}{Advanced\+\_\+\+Editor}.
+Implémenté dans \hyperlink{class_noisy_height___editor_a3ed5c7267dec56ff2f21366ce2ae9818}{Noisy\+Height\+\_\+\+Editor}, et \hyperlink{class_random___editor_abea41199b1502f89be0b2914b3c191fc}{Random\+\_\+\+Editor}.
 
 Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]

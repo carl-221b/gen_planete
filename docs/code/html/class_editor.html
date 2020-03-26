@@ -67,7 +67,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet.  
+<p>Interface to be implemented by an editor that will transform a generic basic shape into a planet.  
  <a href="class_editor.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="editor_8h_source.html">editor.h</a>&gt;</code></p>
@@ -95,10 +95,10 @@ Graphe de collaboration de Editor:</div>
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:aea7f803e3bbb79dbbeb9a9ad9b01ed5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#aea7f803e3bbb79dbbeb9a9ad9b01ed5a">Editor</a> (<a class="el" href="class_shape.html">Shape</a> *shape)</td></tr>
 <tr class="separator:aea7f803e3bbb79dbbeb9a9ad9b01ed5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9aea98e4964b437a937354d2f3edd42"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#ab9aea98e4964b437a937354d2f3edd42">~Editor</a> ()</td></tr>
-<tr class="separator:ab9aea98e4964b437a937354d2f3edd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a192c911dff4ebca89d0b1bb3aa482253"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a192c911dff4ebca89d0b1bb3aa482253">~Editor</a> ()=default</td></tr>
+<tr class="separator:a192c911dff4ebca89d0b1bb3aa482253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abca97ba11536c494a0c26bac77917792"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#abca97ba11536c494a0c26bac77917792">edit</a> ()=0</td></tr>
-<tr class="memdesc:abca97ba11536c494a0c26bac77917792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies vertex deplacement and colors the shape.  <a href="#abca97ba11536c494a0c26bac77917792">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:abca97ba11536c494a0c26bac77917792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies vertex deplacement and colors the shapes.  <a href="#abca97ba11536c494a0c26bac77917792">Plus de détails...</a><br /></td></tr>
 <tr class="separator:abca97ba11536c494a0c26bac77917792"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5747cd74b71d67f6d39b094071058382"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_editor.html#a5747cd74b71d67f6d39b094071058382">info</a> () const</td></tr>
 <tr class="memdesc:a5747cd74b71d67f6d39b094071058382"><td class="mdescLeft">&#160;</td><td class="mdescRight">info  <a href="#a5747cd74b71d67f6d39b094071058382">Plus de détails...</a><br /></td></tr>
@@ -112,7 +112,7 @@ Attributs protégés</h2></td></tr>
 <tr class="separator:ad9f31fcae91fb4a91b5ff5ecb4308bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet. </p>
+<div class="textblock"><p>Interface to be implemented by an editor that will transform a generic basic shape into a planet. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="aea7f803e3bbb79dbbeb9a9ad9b01ed5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea7f803e3bbb79dbbeb9a9ad9b01ed5a">&#9670;&nbsp;</a></span>Editor()</h2>
@@ -137,11 +137,20 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a_cgraph.png" border="0" usemap="#class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a_cgraph" alt=""/></div>
+<map name="class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a_cgraph" id="class_editor_aea7f803e3bbb79dbbeb9a9ad9b01ed5a_cgraph">
+<area shape="rect" id="node2" href="class_editor.html#a192c911dff4ebca89d0b1bb3aa482253" title="Editor::~Editor" alt="" coords="152,5,259,32"/>
+<area shape="rect" id="node3" href="class_editor.html#abca97ba11536c494a0c26bac77917792" title="Applies vertex deplacement and colors the shapes. " alt="" coords="163,56,248,83"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="ab9aea98e4964b437a937354d2f3edd42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9aea98e4964b437a937354d2f3edd42">&#9670;&nbsp;</a></span>~Editor()</h2>
+<a id="a192c911dff4ebca89d0b1bb3aa482253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a192c911dff4ebca89d0b1bb3aa482253">&#9670;&nbsp;</a></span>~Editor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,16 +167,16 @@ Attributs protégés</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
+Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="class_editor_ab9aea98e4964b437a937354d2f3edd42_cgraph.png" border="0" usemap="#class_editor_ab9aea98e4964b437a937354d2f3edd42_cgraph" alt=""/></div>
-<map name="class_editor_ab9aea98e4964b437a937354d2f3edd42_cgraph" id="class_editor_ab9aea98e4964b437a937354d2f3edd42_cgraph">
-<area shape="rect" id="node2" href="class_editor.html#abca97ba11536c494a0c26bac77917792" title="Applies vertex deplacement and colors the shape. " alt="" coords="160,5,245,32"/>
+<div class="center"><img src="class_editor_a192c911dff4ebca89d0b1bb3aa482253_icgraph.png" border="0" usemap="#class_editor_a192c911dff4ebca89d0b1bb3aa482253_icgraph" alt=""/></div>
+<map name="class_editor_a192c911dff4ebca89d0b1bb3aa482253_icgraph" id="class_editor_a192c911dff4ebca89d0b1bb3aa482253_icgraph">
+<area shape="rect" id="node2" href="class_editor.html#aea7f803e3bbb79dbbeb9a9ad9b01ed5a" title="Editor::Editor" alt="" coords="160,5,259,32"/>
 </map>
 </div>
 
@@ -197,9 +206,9 @@ Voici le graphe d'appel pour cette fonction :</div>
 </table>
 </div><div class="memdoc">
 
-<p>Applies vertex deplacement and colors the shape. </p>
+<p>Applies vertex deplacement and colors the shapes. </p>
 
-<p>Implémenté dans <a class="el" href="class_noisy_height___editor.html#a3ed5c7267dec56ff2f21366ce2ae9818">NoisyHeight_Editor</a>, <a class="el" href="class_random___editor.html#abea41199b1502f89be0b2914b3c191fc">Random_Editor</a>, et <a class="el" href="class_advanced___editor.html#afc51cb1199403cb6785bfd3d7e290a1b">Advanced_Editor</a>.</p>
+<p>Implémenté dans <a class="el" href="class_noisy_height___editor.html#a3ed5c7267dec56ff2f21366ce2ae9818">NoisyHeight_Editor</a>, et <a class="el" href="class_random___editor.html#abea41199b1502f89be0b2914b3c191fc">Random_Editor</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">

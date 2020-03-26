@@ -11,8 +11,7 @@ The \hyperlink{class_timer}{Timer} class, used for durationn in Ms.
 
 
 
-Graphe de collaboration de Timer\+:
-\nopagebreak
+Graphe de collaboration de Timer\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,25 +21,25 @@ Graphe de collaboration de Timer\+:
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_timer_a5f16e8da27d2a5a5242dead46de05d97}{Timer} ()
+\hyperlink{class_timer_a8ed3c5e074223900c0c9a74376471209}{Timer} ()=default
 \item 
 void \hyperlink{class_timer_aa8c887576ec3b0d68c10ebf4097c367c}{start\+Timer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Permit to update the start time of the timer. Call it on firts use and to reset timer. \end{DoxyCompactList}\item 
 void \hyperlink{class_timer_aef101eede3d1689a55f25f7164ecafcd}{end\+Timer} ()
-\item 
-double \hyperlink{class_timer_ae6476c32878861cb4d0a3e650bbe9b6c}{get\+Duration\+Ms} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Permit to update the end time of the timer. Don\textquotesingle{}t neccesarly need to be called with \hyperlink{class_timer_aa8c887576ec3b0d68c10ebf4097c367c}{start\+Timer()} if you want cumulative time. \end{DoxyCompactList}\item 
+double \hyperlink{class_timer_a70eb18ad272faecc82c376c590d1ae4a}{get\+Duration\+Ms} () const
+\begin{DoxyCompactList}\small\item\em Get the duaration beetween the last start\+Timer and end\+Timer. If this funtions haven\textquotesingle{}t be called, unpredictable behaviour. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
 The \hyperlink{class_timer}{Timer} class, used for durationn in Ms. 
 
 \subsection{Documentation des constructeurs et destructeur}
-\mbox{\Hypertarget{class_timer_a5f16e8da27d2a5a5242dead46de05d97}\label{class_timer_a5f16e8da27d2a5a5242dead46de05d97}} 
+\mbox{\Hypertarget{class_timer_a8ed3c5e074223900c0c9a74376471209}\label{class_timer_a8ed3c5e074223900c0c9a74376471209}} 
 \index{Timer@{Timer}!Timer@{Timer}}
 \index{Timer@{Timer}!Timer@{Timer}}
 \subsubsection{\texorpdfstring{Timer()}{Timer()}}
-{\footnotesize\ttfamily Timer\+::\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Timer\+::\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
@@ -51,17 +50,29 @@ The \hyperlink{class_timer}{Timer} class, used for durationn in Ms.
 \subsubsection{\texorpdfstring{end\+Timer()}{endTimer()}}
 {\footnotesize\ttfamily void Timer\+::end\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{class_timer_ae6476c32878861cb4d0a3e650bbe9b6c}\label{class_timer_ae6476c32878861cb4d0a3e650bbe9b6c}} 
+
+
+Permit to update the end time of the timer. Don\textquotesingle{}t neccesarly need to be called with \hyperlink{class_timer_aa8c887576ec3b0d68c10ebf4097c367c}{start\+Timer()} if you want cumulative time. 
+
+\mbox{\Hypertarget{class_timer_a70eb18ad272faecc82c376c590d1ae4a}\label{class_timer_a70eb18ad272faecc82c376c590d1ae4a}} 
 \index{Timer@{Timer}!get\+Duration\+Ms@{get\+Duration\+Ms}}
 \index{get\+Duration\+Ms@{get\+Duration\+Ms}!Timer@{Timer}}
 \subsubsection{\texorpdfstring{get\+Duration\+Ms()}{getDurationMs()}}
-{\footnotesize\ttfamily double Timer\+::get\+Duration\+Ms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily double Timer\+::get\+Duration\+Ms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the duaration beetween the last start\+Timer and end\+Timer. If this funtions haven\textquotesingle{}t be called, unpredictable behaviour. 
 
 \mbox{\Hypertarget{class_timer_aa8c887576ec3b0d68c10ebf4097c367c}\label{class_timer_aa8c887576ec3b0d68c10ebf4097c367c}} 
 \index{Timer@{Timer}!start\+Timer@{start\+Timer}}
 \index{start\+Timer@{start\+Timer}!Timer@{Timer}}
 \subsubsection{\texorpdfstring{start\+Timer()}{startTimer()}}
 {\footnotesize\ttfamily void Timer\+::start\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Permit to update the start time of the timer. Call it on firts use and to reset timer. 
 
 
 
