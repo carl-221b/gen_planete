@@ -7,16 +7,16 @@
 #define DEFAULT_MAXIMUM_DISPLACEMENT_RATIO 0.1
 
 /**
- * @brief Interface to be implemented by an editor that will transform a generic icosphere into a given type of planet
+ * @brief Interface to be implemented by an editor that will transform a generic basic shape into a planet.
  *
  */
 class Editor {
 public:
     Editor(Shape* shape) {_shape = shape;}
-    virtual ~Editor() {}
+    virtual ~Editor() = default;
 
     /**
-     * @brief Applies vertex deplacement and colors the shape
+     * @brief Applies vertex deplacement and colors the shapes.
      */
     virtual void edit() = 0;
 

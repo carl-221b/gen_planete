@@ -4,7 +4,7 @@
 #include <iostream>
 
 /**
- * @brief Flags in oder to decide the application of aleatory in editor parameters.
+ * @brief Flags used for decision of aleatory in editor parameters.
  */
 enum Mode_Aleatory_Flags
 {

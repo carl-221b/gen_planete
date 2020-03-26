@@ -102,9 +102,7 @@ private:
     }
 
 private:
-
     std::set<Threshold<T>> _layers;
-
 };
 
 /**
@@ -112,6 +110,10 @@ private:
  */
 typedef ThresholdTable<Eigen::Vector3f> ColorThresholdTable;
 
+/**
+ * @brief Default colors layer table. Constant ratio with associated colors in domain [0, 1] with 0 the sea, 1 top of montain and grey for higher values.
+ * @return ColorThresholdTable* allocated, if used in an editor, verify it don't take the responsability to destroy it.
+ */
 ColorThresholdTable *DefaultColorThresholdTable();
 
 #endif // THRESHOLDTABLE_H

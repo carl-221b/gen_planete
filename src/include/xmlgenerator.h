@@ -24,7 +24,7 @@ public:
     /**
      * @see generator.h
      */
-    Shape* generate(std::string fileconfig);
+    Shape* generate(const std::string& fileconfig);
 
 private:
 
@@ -33,21 +33,21 @@ private:
      * @param root the root node of the xml document.
      * @return the basic shape.
      */
-    Shape* basicShapeContruct(pugi::xml_node& root);
+    Shape* basicShapeContruct(const pugi::xml_node& root);
 
     /**
      * @brief applyEditor apply the editor in configuration file.
      * @param root the root node of the xml document.
      * @param shape the shape to modify.
      */
-    void applyEditor(pugi::xml_node& root, Shape* shape);
+    void applyEditor(const pugi::xml_node& root, Shape* shape);
 
     //Readers of specifics nodes
-    ColorThresholdTable* readColorThresholdTable(pugi::xml_node& node);
-    bool readBool(pugi::xml_node& node);
-    int readInt(pugi::xml_node& node);
-    double readDouble(pugi::xml_node& node);
-    Eigen::Vector3f readVector3f(pugi::xml_node& node);
+    ColorThresholdTable* readColorThresholdTable(const pugi::xml_node& node) const;
+    bool readBool(const pugi::xml_node& node) const;
+    int readInt(const pugi::xml_node& node) const;
+    double readDouble(const pugi::xml_node& node) const;
+    Eigen::Vector3f readVector3f(const pugi::xml_node& node) const;
 };
 
 #endif // XMLGENERATOR_H

@@ -23,7 +23,7 @@ Random_Editor::~Random_Editor()
 }
 
 
-void Random_Editor::assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors){
+inline void Random_Editor::assignColor(Shape::Vertices* vertices, Eigen::Vector3f colors){
     vertices->_colors.push_back(colors);
 }
 

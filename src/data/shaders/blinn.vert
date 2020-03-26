@@ -27,18 +27,17 @@ void main()
         v_shininess=100.0;
         v_diffuse=0.9;
         v_spec = 2.0;
+        vert_normal_view = normalize(normal_matrix * vtx_normal);
     }
     else
     {   
-        v_color = vec4(0.0,0.4,0.6,0.7);
+        v_color = vec4(0.0,0.4,0.6,0.6);
         gl_Position = projection_matrix * model_view_matrix * vec4(0.708*vtx_position/length(vtx_position),1.0);
-        v_shininess= 40.0;
+        v_shininess= 4.0;
         v_diffuse = 1.0;
-        v_spec = 10.0;
+        v_spec = .9;
+        vert_normal_view = normalize(normal_matrix * vtx_position);
     }
     
-
     vert_pos_view  = normalize(model_view_matrix * vec4(vtx_position,1.0));
-    vert_normal_view = normalize(normal_matrix * vtx_normal);
-    
 }

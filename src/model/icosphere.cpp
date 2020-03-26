@@ -13,7 +13,7 @@ using namespace std;
 using namespace Eigen;
 using namespace surface_mesh;
 
-Icosphere::Icosphere(int nbSubdivision, bool organicLook) {
+Icosphere::Icosphere(uint nbSubdivision, bool organicLook) {
     _vertices = new Vertices;
 
     load(DATA_DIR"/models/icosa.obj");
@@ -29,7 +29,6 @@ Icosphere::Icosphere(int nbSubdivision, bool organicLook) {
 
 Icosphere::~Icosphere()
 {
-
     delete _vertices;
 }
 
@@ -37,35 +36,32 @@ void Icosphere::computeNormals()
 {
     // pass 1: set the normal tangent and bitangent to 0
 
-    for(unsigned int i = 0; i <  _vertices->_normals.size(); i++){
-        _vertices->_normals[i]=Vector3f(0,0,0);
+    for(Eigen::Vector3f& normal :_vertices->_normals)
+    {
+        normal=Vector3f(0,0,0);
     }
 
     // pass 2: compute face normals and accumulate
-
-    for(unsigned int i = 0; i <  _faces.size(); i++)
+    for(Eigen::Vector3i& face :_faces)
     {
-        Vector3i& face = _faces[i];
-
-        Vector3f& p0 =  _vertices->_positions[face.x()];
-        Vector3f& p1 =  _vertices->_positions[face.y()];
-        Vector3f& p2 =  _vertices->_positions[face.z()];
-
+        Vector3f& p0 =  _vertices->_positions[face(0)];
+        Vector3f& p1 =  _vertices->_positions[face(1)];
+        Vector3f& p2 =  _vertices->_positions[face(2)];
 
         Vector3f q1 = p1-p0;
         Vector3f q2 = p2-p0;
+        Vector3f normal = q1.cross(q2);
 
-        _vertices->_normals[face.x()] += q1.cross(q2);
-        _vertices->_normals[face.y()] += q1.cross(q2);
-        _vertices->_normals[face.z()] += q1.cross(q2);
+        _vertices->_normals[face(0)] += normal;
+        _vertices->_normals[face(1)] += normal;
+        _vertices->_normals[face(2)] += normal;
 
     }
     // pass 3: normalize
-
-    for(unsigned int i = 0; i <  _vertices->_normals.size(); i++){
-        _vertices->_normals[i]=_vertices->_normals[i].normalized();
+    for(Eigen::Vector3f& normal :_vertices->_normals)
+    {
+        normal.normalize();
     }
-
 }
 
 
@@ -262,12 +258,6 @@ void Icosphere::subdivide()
     updateMeshFromSurfaceMesh();
 }
 
-
-Icosphere::Vertices* Icosphere::getVertices(){
-    return _vertices;
-}
-
-
 void Icosphere::organicTriangulation(){
     Vertices* vertices = this->getVertices();
 
@@ -305,7 +295,7 @@ void Icosphere::organicTriangulation(){
         //origin.z() += NoiseRandom::normalRandom(0.0, dist_min/2);
 
 
-        //Fix the height to previous
+        //Fix the height to previous one
         Vector3f newUv = cartesianToSphericalCoord(origin);
         newUv.x() = oldUv.x();
 

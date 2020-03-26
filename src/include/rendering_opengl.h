@@ -9,7 +9,9 @@
 
 #include <Eigen/Geometry>
 
-
+/**
+ * @brief Class implementing Rendering.
+ */
 class Rendering_OpenGL : public Rendering
 {
 public:
@@ -25,7 +27,6 @@ public:
     void polygonModeFill();
     void UniformValues(Shader* shader, Trackball cam, Eigen::Vector3f lightDir, Eigen::Matrix3f normal, Eigen::Matrix4f model, int sea_mode);
     void checkErrors();
-
 
     void deleteBuffers();
     void draw(int nb_elements, Shader* shader);
