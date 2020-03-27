@@ -128,8 +128,6 @@ void Icosphere::updateMeshFromSurfaceMesh()
             _faces.push_back(Vector3i(v0.idx(), v1.idx(), v2.idx()));
         } while (++fvit != fvend);
     }
-    //saveOBJ();
-    //saveOFF();
 }
 
 void Icosphere::subdivide()
