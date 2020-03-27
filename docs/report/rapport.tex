@@ -1,0 +1,574 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage[justification=centering]{caption}
+\usepackage{comment}
+\usepackage{titlesec}
+\usepackage{url}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+
+% Code
+\usepackage{listings}
+
+\begin{document}
+
+\newcommand{\customlarge}[1]{\noindent \Large{\textbf{#1}}}
+\newcommand{\customitalic}[1]{\large{\textbf{\textit{#1}}}}
+\newcommand{\avis}[2]{\customlarge{Avis personnel -} \customitalic{#1} \\ #2\\[0.8cm]}
+\newcommand*{\escape}[1]{\texttt{\textbackslash#1}}
+
+\newcommand{\customquote}[1]{\guillemotleft {#1} \guillemorright~}
+
+\renewcommand{\contentsname}{Sommaire}
+
+%%pour subsubsubsection
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+%%
+
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%   HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Université de Bordeaux}\\[0.5cm]
+\textsc{\large Département Informatique}\\[0.5cm]
+\textsc{\large Année 2019-2020}\\[1.5cm]
+\textsc{\Large Groupe 21-2}\\[0.2cm] 
+\textsc{\large Master 1}\\[0.3cm] 
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{  \huge \bfseries Projet de Programmation: \\
+   \huge \bfseries Génération procédurale de planètes sphériques\\[0.4cm] 
+   \Large \bfseries Mémoire
+% Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%   AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{center} \large
+\emph{Client:}\\
+David \textsc{Renault}\\
+~\\
+\emph{Auteurs:}\\
+Rémi \textsc{Barbosa}\\
+Benjamin \textsc{Darmet}\\
+Marc \textsc{Cerutti}\\
+Sofian \textsc{Antri}\\
+Tsiory \textsc{Rakotoarisoa}\\
+\end{center}
+\end{minipage}
+~
+}
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%   DATE SECTION
+%----------------------------------------------------------------------------------------
+
+% {\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%   LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+% ------------------------ END OF TITLEPAGE ------------------------
+\newpage
+
+\tableofcontents
+
+\newpage
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+En informatique, la génération dite procédurale est la création de contenu numérique (modèle 3D, animation, son, musique,...) à une très grande échelle et de manière automatisée. Elle doit répondre à un ensemble de règles qui sont définies par des algorithmes.\\
+\par
+Nous cherchons à mettre en place au sein de ce projet, un outil permettant de générer procéduralement et de visualiser des planètes (une à la fois) dans un but ludique (se balader pour le plaisir d'admirer et explorer, découvrir un nouvel environnement). Chaque planète est représentée par une sphère géodésique (divisée en faces) statique dont les faces colorées témoignent de la présence de différents terrains, tels que des océans, des reliefs, des déserts, des plaines etc. Un exemple est visible sur la figure \ref{exemple}. La planète aura un rendu "low-poly", désignant un style graphique avec peu de polygones et donc volontairement peu de détails pour des raisons d'optimisation mais aussi d'esthétique. Une fois la planète générée, il sera possible de la visualiser par une vue à 360° en orbite autour de la planète. Cette vue s'accompagnera d'un outil de zoom afin d'obtenir par la suite une fois très proche, un changement d'orientation du plan pour pouvoir observer l'horizon en première personne, vue humaine, sans déplacement.
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=1]{img/planete.png}
+        \caption{Exemple de planète générée procéduralement\protect\footnotemark}
+        \label{exemple}
+    \end{center}
+\end{figure}
+
+\footnotetext{\href{https://experilous.com/1/blog/post/procedural-planet-generation}{https://experilous.com, Procedural Planet Generation Posted on September 30, 2014 by Andy Gainey}}
+
+\section{Analyse de l'existant}
+
+\subsection{Algorithmes de génération de sphère}
+
+\subsubsection{Subdivision d'un icosaèdre : icosphére}
+
+Il existe différentes méthodes pour générer une sphère à face polygonale. La toute première est la subdivision à plusieurs reprises d'un  icosaèdre pour obtenir une géode. Un icosaèdre est un polyèdre composé de  12 sommets et 20 triangles équilatéraux (visibile figure  \ref{figure0}). La géode quant à elle est un polyèdre convexe inscrit dans une sphère dont il réalise une approximation. Pour obtenir cette géode, on réalise une subdivision des triangles composant l'icosaèdre en  4 triangles plus petits. On répète cette opération plusieurs fois afin d'obtenir la surface désirée. On peut voir le résultat après 2 subdivisions consécutives sur la figure \ref{figure1}.\\
+\\
+L'utilisation de cette approche permet d'obtenir une position des points régulière mais aussi une décomposition de la sphère en triangle de même taille sans appliquer d'autres algorithmes supplémentaires (Comme Voronoï ou Delaunay qui sont expliqués plus bas). Il s'agit de la méthode standard. Il est possible d'appliquer cette subdivision sur les uv-spheres et les cubesphéres, mais les polygones ne seront pas identiques, et donc leur taille non plus. Pour plus d'informations, voir la référence \cite{SongHoAhn}. Il est néanmoins possible de partir directement de points et de les relier par la suite. C'est le cas de l'utilisation de la sphère de Fibonacci.\\
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.2\linewidth]{img/sphere/gl_sphere05.png}
+        \caption{Icosaèdre\protect\footnotemark}
+        \label{figure0}
+    \end{center}
+\end{figure}
+
+\footnotetext{\href{http://www.songho.ca/opengl/gl_sphere.html}{http://www.songho.ca/, OpenGL Sphere, 2018 by Song Ho Ahn, Accessed January 2020}}
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.2\linewidth]{img/sphere/gl_sphere06-2.png} 
+        \includegraphics[width=0.2\linewidth]{img/sphere/gl_sphere07-2.png} 
+        \caption{Subvidision à 2 reprises d'un icosaèdre.\protect\footnotemark}
+        \label{figure1}
+    \end{center}
+\end{figure}
+
+\footnotetext{\href{http://www.songho.ca/opengl/gl_sphere.html}{http://www.songho.ca/, OpenGL Sphere, 2018 by Song Ho Ahn, Accessed January 2020}}
+
+\subsubsection{Sphère de Fibonacci}
+
+Une sphère de Fibonnacci est la représentation d'une sphère par dispersion de points (voir figure \ref{fibosphere}). Différents algorithmes peuvent être utilisés pour générer cette répartition de points de manière plus ou moins égale. Il y a par exemple celui de la répulsion electrostatique. Il consiste à partir d'une distribution arbitraire des points à appliquer un algorithme de répulsion ponctuelle, dans lequel tous les points se repoussent les uns des autres. On fait alors tourner l'algorithme jusqu'à un certain critère de convergence, autrement dit quand la distribution nous convient. Pour plus d'informations voir \cite{PointDistribution}.
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{img/sphere/fibonacci_sphere.png}
+    \end{center}
+        \caption{Sphère de Fibonacci \protect\footnotemark}
+        \label{fibosphere}
+\end{figure}
+
+\footnotetext{\href{https://www.redblobgames.com/x/1842-delaunay-voronoi-sphere/}{https://www.redblobgames.com, Delaunay + Voronoi on a sphere
+Posted on March 10, 2019 by RedBlobGames, Accessed January 2020}}
+
+
+Une fois la répartition des points obtenue, il est nécessaire de les relier afin d'obtenir une première version d'une sphère. On peut alors utiliser le tout premier algorithme : La triangulation de Delaunay. Cette triangulation consiste à relier tous les points d'un plan P, tel qu'aucun point de P n'est à l'intérieur du cercle circonscrit d'un des triangles formés. On peut bien sûr étendre cette définition à un espace en 3 dimensions. On parle alors de sphères circonscrites. La sphère finale obtenue est celle de la figure \ref{delaunay}.
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.2]{img/sphere/fibonacci-sphere-delaunay.png}
+        \caption{Résultat de la triangulation de Delauney pour une sphère\protect\footnotemark}
+        \label{delaunay}
+    \end{center}
+\end{figure}
+
+\footnotetext{\href{https://www.redblobgames.com/x/1842-delaunay-voronoi-sphere/}{https://www.redblobgames.com, Delaunay + Voronoi on a sphere
+Posted on March 10, 2019 by RedBlobGames}}
+
+Il est alors facile d'appliquer le diagramme de Voronoï par la suite. Ce diagramme consiste à un pavage (découpage) du plan en cellules. Chaque cellule contient un "germe", représenté par un point, dont la cellule en représente sa zone d'influence. Les sommets du diagramme de Voronoï sont les centres des cercles circonscrits des triangles obtenus par la triangulation de Delaunay. Les arêtes du diagrammes quant à elles sont les médiatrices des arêtes de la triangulation de Delaynay. On peut voir la superposition d'un diagramme de Voronoï et de la triangulation de Delaunay à la figure \ref{superposition}. L'application sur une sphère est présentée à la figure \ref{voronoi}.  Pour plus de détails, il est possible de voir \cite{RedBlobGames}.
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.5]{img/Delaunay_Voronoi.png}
+        \caption{Superposition d’un diagramme de Voronoï (en rouge) et de la triangulation de Delaunay (en noir).\protect\footnotemark}
+        \label{superposition}
+    \end{center}
+\end{figure}
+
+\footnotetext{\href{https://www.redblobgames.com/x/1842-delaunay-voronoi-sphere/}{https://www.redblobgames.com, Delaunay + Voronoi on a sphere
+Posted on March 10, 2019 by RedBlobGames}}
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.2]{img/sphere/fibonacci-sphere-voronoi.png}
+        \caption{Résultat de l'application d'un diagramme de Voronoï sur une sphère.\protect\footnotemark}
+        \label{voronoi}
+    \end{center}
+\end{figure}
+
+\footnotetext{\href{https://www.redblobgames.com/x/1842-delaunay-voronoi-sphere/}{https://www.redblobgames.com, Delaunay + Voronoi on a sphere
+Posted on March 10, 2019 by RedBlobGames}}
+
+\newpage
+\subsection{Algorithmes de générations procédurales aléatoires}
+
+    Il existe des algorithmes souvent utilisés dans l'industrie du jeu vidéo et de la modélisation 3D permettant de générer procéduralement à partir de textures avec une part d'aléatoire, des environnements plus ou moins réalistes comme des terrains, des nuanceurs ("shader" en anglais), etc. Un exemple est présent sur la figure \ref{figure5}.
+    
+    \begin{figure}[!h]
+        \begin{center} \includegraphics[width=0.8\linewidth]{img/landscape.jpg} \end{center}
+        \caption{\label{figure5}Image de terrain généré procéduralement\protect\footnotemark .}
+    \end{figure}
+            
+    \footnotetext{\href{https://sainarayan.me/2015/05/13/procedural-terrain-generation-using-perlin-noise-and-machine-learning/}{https://sainarayan.me, Procedural Terrain Generation
+Posted on May 13, 2015 by Cyber Shaman}}
+        
+    Ces algorithmes se basent sur le modèle du "bruit" mathématique utilisé dans la théorie des signaux, mais avec des paramètres qui permettent de varier les effets. C'est ce qu'on appelle le "chaos", de l'aléatoire contrôlé.\\
+    Un exemple très simple serait le bruit dit "blanc"(figure \ref{whitenoise}), ne faisant pas partie de ces bruits chaotiques et est purement aléatoire. Il est peu intéressant pour générer des environnements réalistes, et c'est pour cela que l'on écartera tous les bruits que l'on ne peut pas contrôler.\\
+    
+        \begin{figure}[!h]
+        \begin{center} \includegraphics[width=0.4\linewidth]{img/noise/whitenoise.png} \end{center}
+        \caption{\label{whitenoise}Image de bruit blanc\protect\footnotemark .}
+        \end{figure}
+            
+        \footnotetext{\href{https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/White-noise-mv255-240x180.png/220px-White-noise-mv255-240x180.png}{Image from wikipedia}}
+        
+    Il reste trois types de bruits qui peuvent être intéressant pour ce projet : les bruits de valeurs, les gradients de bruits (Perlin Noise, Simplex Noise), et les bruits organiques (Voronoï, Worley) que l'on peut voir figure  \ref{noises}. Cependant vu la diversité des différents bruits qui existe, le plus intéressant est le bruit de Perlin. Il est le plus utilisé pour réaliser des reliefs de terrain. Il a l'avantage d'être très flexible sur les paramètres donnés, tout en produisant des textures réalistes. Il existe aussi une amélioration moins coûteuse en ressources, Simplex Noise, et qui fait moins d'anormalité sur le rendu 3D (artéfact). Pour plus d'informations, lire \cite{BookShader}.
+\newpage
+    \begin{figure}[!h]
+    \begin{center}
+    \includegraphics[width=0.4\linewidth]{img/noise/value.png}
+    \includegraphics[width=0.4\linewidth]{img/noise/perlin.png}
+    \end{center}
+    \begin{center}
+    \includegraphics[width=0.4\linewidth]{img/noise/simplex.png}
+     \includegraphics[width=0.4\linewidth]{img/noise/voronoi.png}
+     \end{center}
+     \begin{center}
+    \includegraphics[width=0.4\linewidth]{img/noise/worley.png}
+    \end{center}
+        \caption{\label{noises}Différents types de bruit\protect\footnotemark.\\
+        A partir d'en haut à gauche jusqu'en bas à droite : valeur, Perlin, Simplex, Voronoï, Worley.}
+    \end{figure}
+
+    \footnotetext{\href{https://github.com/Scrawk/Procedural-Noise}{Image d'une bibliothèque Github par l'utilisateur Scrawk, Accessed January 2020}}
+            
+\newpage
+
+\subsection{Rendu graphique 3D} \label{raster/ray}
+
+Il existe deux méthodes principales pour le rendu d'une scène 3D : la rastérisation et le ray tracing.
+
+            La rastérisation est un procédé qui consiste à convertir une image vectorielle en une image matricielle destinée à être affichée sur un écran. On englobe dans la rastérisation tous les procédés permettant d'améliorer l'aspect final du rendu en 3 dimensions.
+            Les objets à l'écran sont créés à partir de triangles ou de polygones qui définissent le modèle 3D de l'objet.
+            \begin{itemize}
+                \item \textbf{Avantages :}
+                \begin{itemize}
+                    \item Faible coût en mémoire,
+                    \item Plus de choix dans la représentation des faces et du modèle (triangles, quadriques, polygones, torres ...),
+                    \item La performance dépend directement du nombre de faces.
+                \end{itemize}
+                \item  \textbf{Inconvénients :}
+                \begin{itemize}
+                    \item Rendu simplifié non réaliste,
+                    \item Ne prend pas en compte les reflets, la transparence, l'effet miroir.
+                \end{itemize}
+            \end{itemize}
+        
+Une autre méthode existante est le ray tracing qui remédie aux inconvénients de la rastérisation. Cette technique reproduit les phénomènes physiques que sont la réflexion et la réfraction. Cela permet un rendu plus réaliste en tenant compte de la lumière, des reflets ou encore de la transparence. Cependant, il s'agit d'avantages qui ne correspondent pas aux besoins clients. Il a donc été décidé de ne pas se pencher sur cette technique de rendu et d'utiliser la rastérisation.
+        
+\subsection{Outils existants et prototypes}
+
+\subsubsection{Blender \cite{Blender}}
+
+Afin de pouvoir générer et afficher la planète, une des solutions qui peut-être abordée est l'utilisation d'outils de modélisation en 3 dimensions. Ils disposent déjà de moteurs de rendu performant, dont certains utilisent un système de scripting et de plugin afin de générer des formes, les modifier, et les texturer, pour ensuite les utiliser plus tard dans d'autres logiciels, selon des formats standardisés.
+
+L'un de ces outils existant est l'outil Blender. Il est tout d'abord un logiciel open source, dont le moteur interne est en C/C++ permettant de bonnes performances. Il dispose aussi d'une API en Python permettant un prototypage très rapide.
+
+Un script python a été écrit permettant de :
+\begin{enumerate}
+            \item {créer une icosphère d'environ 10 000 polygones}
+            \item {appliquer une transformation sur ses sommets selon une texture de Voronoï.}
+            \item {afficher les paramètres et le temps de génération.}
+\end{enumerate}
+
+Le script est disponible dans la hiérarchie du projet \textit{docs/requirements/test\_blender} ainsi que les résultats. Le premier résultat obtenu en exportant l'image depuis l'éditeur est visible sur la figure \ref{blendericos}.\\
+
+\begin{figure}[!h]
+\begin{center} \includegraphics[width=0.8\linewidth]{img/blender/blender_1.png} \end{center}
+\caption{\label{blendericos}Icosphère générée par Blender. Texture de bruit Voronoï, 6 subdivisions, \textasciitilde0.02 s, 20480 polygones}
+\end{figure}
+
+Attention à la version de Blender. Le moteur de rendu utilisé est Evee version 2.8 permettant une visualisation sans dégradation lors du déplacement de point de vue (rotation, zoom) avec les rendus finaux. Pour des soucis de performance, il faut aussi faire attention à la machine utilisée, notamment la carte graphique.\\
+
+Les paramètres ont été changés depuis l'éditeur Blender afin d'arriver aux résultats figure \ref{blendericosmodif} et \ref{blendericosmodifedit}.\\
+
+\begin{figure}[!h]
+\begin{center} \includegraphics[width=0.8\linewidth]{img/blender/blender_2.png} \end{center}
+\caption{\label{blendericosmodif}Modification de la texture de bruit Voronoï sans couleur}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.8\linewidth]{img/blender/blender_editeur_bruit.png}
+\includegraphics[width=0.8\linewidth]{img/blender/blender_shaderEditor.png}
+\end{center}
+\caption{\label{blendericosmodifedit}Essais de modifications par l'éditeur Blender : paramètres de texture, bruit de déplacement des sommets, rajout de nuances (shader)}
+\end{figure}
+
+\newpage
+\paragraph{Avantages}
+
+\begin{enumerate}
+            \item {Rendu de base avec OpenGL, Moteur interne en C/C++ :}
+            Permet d'espérer de très bonnes performances au niveau des algorithmes de base. Crucial dans le cas de rendu de l'ordre de 60 images par secondes (FPS) avec une bonne machine.
+            
+            \item {Open source et sous GNU General Public License (ou "logiciel libre") :}
+            Cela permettrait de modifier le moteur de rendu, et les algorithmes de visualisation selon les besoins.
+            
+            \item {Multi-plateforme :}
+            Permet le portage Linux (correspondant à notre besoin), et aussi sur d'autres plateformes nativement.
+            
+            \item {API très simple en Python afin d'accéder et de modifier la forme :}
+            Permet de faire des tests très rapides, et de laisser le client manipuler les algorithmes de modification plus facilement qu'on aurait implémenté en sur-couche du moteur interne.
+            
+            \item {Fonctionnalités supplémentaires (sauvegarde, modification, amélioration de rendu, création de nuauceurs en noeuds...) :}
+            Permettrait de se focaliser davantage sur les fonctionnalités concernant la génération de la planète, en ayant déjà les possibilités d'extensions de notre projet.
+            
+\end{enumerate}
+
+\paragraph{Inconvénients}
+
+    \begin{enumerate}
+                
+                \item {Ne convient pas à l'exercice du PDP :}
+                étant informaticiens et non des graphistes, il n'y a aucun intérêt pédagogique à utiliser un outil aussi complet. Son utilisation nécessiterait aucunement une équipe de 5 personnes, et encore moins au sein d'une formation informatique.
+                
+                \item {Interface de Blender trop riche pour le client :}
+                contraire à la demande du client demandant une visualisation simple. Nécessite une connaissance au moins de surface de l'outil. Risque de refus à envisager avant de commencer à l'utiliser.
+                
+                \item {La version de Blender influe sur l'API (la version 2.8 n'est pas encore formellement documentée), et sur les performances de rendu (moteur Evee) :}
+                risques d'instabilité et de bug sur l'API fournie, ainsi qu'un développement plus chaotique du fait d'un manque de documentation.
+                
+                \item {Pas de sécurité sur des paramètres trop grands (cesse de fonctionner, pas d'erreurs de ressources si demande trop grande) :}
+                lié au fait d'utiliser une API en "boîte noire", nécessite un apprentissage des fonctions du moteur interne et une bonne documentation. Cela aussi influe sur la flexibilité du code et les limites d'extensions avec le logiciel de base.
+                
+                \item {Rendu et génération dépendant de la machine choisi :}
+                il est nécessaire d'avoir une configuration suffisamment puissante pour pouvoir utiliser cet outil (se référer à la configuration du client \ref{Compatibilité}).
+                
+    \end{enumerate}
+    
+\subsubsection{OpenGL}
+\label{choixoutil}
+OpenGL (Open Graphics Library) est considérée comme une API (Application programming interface) qui offre la capacité d'afficher des objets en 2D et en 3D. Elle est principalement utilisée pour interagir facilement avec les cartes graphiques (GPU). Elle est utilisée en C/C++. Néanmoins, c'est avant tout une spécification, qui décrit ce que sont les entrées et sorties de chaque fonction et comment elles doivent s'exécuter. Cette spécification est implémentée par les constructeurs de carte graphique (dans les pilotes). OpenGL est disponible sous plusieurs versions.
+La version 3.3 quant à elle, est une base de la programmation moderne d'OpenGL (et donc actuellement la plus utilisée) et permet une grande flexibilité et efficacité. Qui plus est, les versions supérieures à celle-ci implémentent des fonctionnalités supplémentaires sans changer les précédentes. Il y a donc un faible problème de compatibilité. Il est tout à fait possible d'afficher une sphère de plus de 10 000 polygones, comme le prouve la figure \ref{sphereOpenGL}.
+
+
+\begin{figure}[!h]
+\begin{center}\includegraphics[width=0.6\linewidth]{img/icosphere.png} \end{center}
+\caption{Affichage d'une sphère en OpenGL avec plus de 10000 polygones}
+\label{sphereOpenGL}
+\end{figure}
+
+\paragraph{Avantages}
+    \begin{enumerate}
+                \item {Performant :}
+                Ces bibliothèques sont implémentées en C/C++ et sont utilisées par de nombreuses compagnies, studios et équipes de développement afin de faire des applications graphiques performantes (60 images par secondes et définition 4K maintenant). On peut donc espérer avoir de bonnes performances concernant le logiciel.
+                
+                \item {Accessible :}
+                Les principales bibliothèques dérivées d'OpenGL ont une bonne documentation et de nombreux tutoriels. Cela permet d'avoir plus de temps pour l'implémentation sachant que l'apprentissage sera plus aisé.
+                
+    \end{enumerate}
+
+\paragraph{Inconvénient}
+    \begin{enumerate}
+                \item {Temps de développement :}
+                Du fait que OpenGL est en C/C++, la réfléxion pour la gestion mémoire et l'architecture demandera du temps. Il sera donc nécessaire d'avoir ces faits en tête lors du développement.
+                
+                \item {Complexité de prise en main :} 
+                OpenGL et ses bibliothèques offrent une très grande flexibilité mais la compréhension et la prise en main de celles-ci est très complexe, comme il y en a beaucoup. Même avec les bons tutoriels et une bonne documentation, il faudra prendre en compte l'apprentissage dans le temps passé au développement.
+                
+    \end{enumerate}
+    
+
+\subsubsection{Gestion de fenêtre et interaction utilisateur}
+    OpenGL ne permet pas directement de gérer des fenêtres et des évènements d'entrée (clavier/souris). En revanche, il existe principalement deux bibliothèques open source qui étendent OpenGL et permettent cela : freeglut\cite{freeglut} (écrit en C et sous licence X-Consortium) et GLFW\cite{GLFW} (écrit en C et sous licence zlib/libpng).\\
+    
+    Ces bibliothèques mettent des fonctions à disposition dont la création de fenêtre en indiquant ses dimensions. Il faut ensuite utiliser une boucle de rendu pour garder la fenêtre ouverte, continuer de dessiner les images et gérer les entrées utilisateur.\\
+    
+    Il n'y a pas vraiment de différence de fonctionnalité entre ces deux bibliothèques, si ce n'est que freeglut est basé et étend la bibliothèque GLUT qui était très utilisé par le passé mais sous droit d'auteur privé et dépassé.
+ 
+ \subsubsection{Bibliothèques de bruit}
+ 
+ % A FAIRE Libnoise et FastNoise
+ 
+ \subsubsection{Moteurs de jeux}
+
+    Il est possible de s'intéresser aux moteurs de jeux. Le seul moteur de jeu qui aurait pu être intéressant est Godot, car il est open source et est sous licence MIT qui a des avantages au niveau de la distribution et de son utilisation comparé aux concurrents les plus utilisé Unity et Unreal Engine. Mais cette solution a été vite écartée pour trois grandes raisons : 
+    \begin{enumerate}
+        \item  La première est que les moteurs de jeux, bien qu'ils aient un moteur de rendu 3D intégré sont beaucoup trop fournis en fonctionnalités. La plupart des fonctionnalités ne sont pas intéressantes pour ce projet. 
+        
+        \item La deuxième est que cela ne convient pas à l'exercice du PDP, en soit faire une sur-couche et faire quelques modifications aurait suffi, mais ce n'est pas le but pédagogique de PDP.
+        
+        \item  La dernière est que bien que le moteur de rendu permet d'avoir déjà des optimisations, il risque d'y avoir encore plus de code qui peut ralentir le rendu. Pire, cela rajoute des dépendances et l'installation d'un moteur de jeu par le client, ce qui est contraire à une interface simple.
+    \end{enumerate}
+
+\section{Besoins respectées}
+
+Les besoins fonctionnels et non fonctionnels seront énoncés, ainsi que la manière d'y répondre.
+
+\subsection{Fonctionnels}
+
+%décrire les besoins statisfaits
+
+\subsection{Non fonctionnels}
+
+%décrire les besoins statisfaits
+
+\section{Architecture du projet}
+
+%exemples de bon fonctionnement, schémas, justifications, explication de la décomposition modulaire (modules, classes, paquetages,namespaces), points techniques d’implémentation, utilisation de bibliothèques externes, extensions, application de principes logiciels
+
+L'architecture complète de notre logiciel est disponible en annexe (voir \hyperref[archiComplete]{\textbf{ici}}). \\
+
+Notre code est organisé en 2 parties principales qui se suivent chronologiquement, la partie génération de la planète, ou aussi appelé le modèle, et la partie visualisation. \\
+
+%A DETAILLER
+A DETAILLER :\\
+- décomposition modulaire (justifier l'architecture)\\
+- points techniques d’implémentation (config xml OU new Editor)\\
+- utilisation des bibliothèques externes\\
+- extensions (Shape, Rendering, Generator, Editor)\\
+- bridge Rendering\\
+- Treshold template
+- HeightNoise
+- AleatoryMode pour choix des paramètres aléatoires de éditeur
+
+dire que basé sur TD9 de Mondes3D de Pierre BENARD
+pour appliquer un éditor : soit passer par config xml (limité car XMLGenerator pas extensible mais pratique à l'utilisateur), soit créer un editor avec shape en paramètre et appeler edit (extensible mais on ne peut pas choisir dynamiquement les paramètres)
+
+\subsection{Modèle}
+
+\subsection{Visualisation}
+
+\subsection{Dépendances}
+
+\newpage 
+\section{Analyse du fonctionnement}
+
+La figure \ref{seqmodel} représente le diagramme de séquence de la partie modèle. On peut voire ainsi tout d'abord la lecture du fichier de configuration par l'objet XMLGenerator qui va ensuite le long de la lecture renseignée tout les paramètres d'abord pour créer la géométrie de base, ici une icosphère, pour ensuite la modifier avec un éditeur, par exemple NoisyHeight\_Editor. A la fin on donnera la planète obtenu à la partie visualisation.\\
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=\linewidth]{img/seqmodel.png} 
+        \caption{Diagramme de séquence de la partie model.}
+        \label{seqmodel}
+    \end{center}
+\end{figure}
+
+%Partie visualisation à détailler
+
+\newpage
+Après exécution de notre logiciel avec le fichier de configuration "simple.xml", on obtiens une planète comme la figure \ref{notre_planete}. On peut lire ensuite dans le terminal les différents paramètres qui ont été utilisé afin de créer un fichier de configuration avec les mêmes paramètres pour pouvoir la recréer et faire de légers ajustements.\\
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{img/notre_planete.png} 
+        \caption{Une planète générée à partir de "simple.xml"}
+        \label{notre_planete}
+    \end{center}
+\end{figure}
+
+%demander au client si ce résultat le satisfait
+
+\newpage 
+\section{Tests}
+\subsection{Tests esthétiques}
+
+%RDV Client A détailler
+RDV Client A détailler et scénarios qualitatifs
+
+\subsection{Tests sur les éditeurs}
+Le test sur les éditeurs concerne principalement le seul éditeur paramétrable et où l'aléatoire n'entre pas trop en compte. En effet, il est difficile de tester que fonctionne correctement un éditeur où tout est aléatoire (cas du random\_editor). Dans le cas du noisyheight\_editor, il est possible de vérifier qu'il fonctionne correctement. En effet, à paramètres équivalent, la génération doit être identique au niveau de la position des points et des normals. (Pas le cas des couleurs qui peuvent légèrement varier au vu de la palette disponible). Pour se faire, nous procédons à deux générations de planète avec les mêmes paramètres, puis nous comparons la valeurs de chaque point dans le tableau de position. Nous faisons la même chose pour les normales. Si les deux sont parfaitement identique, la génération est alors correct.
+
+\subsection{Tests sur les performances}
+On cherche ici à évaluer les performances de calcul en fonction du nombre de subdivision et de l'application de notre éditeur. Pour cela on répète la création pour une valeur de subdivision afin d'avoir une moyenne par valeur de subdivision, et on augmente la subdivision. On peut alors savoir jusqu'où il est possible d'aller dans le nombre de subdivision si on ne donne pas de bornes supérieur. On compare aussi le temps de calcul avec et sans editeur, en fonction du nombre de subdivision et nous obtenons alors le graphique visibile à la figure \ref{graphperf}
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.4]{img/perf.png}
+        \caption{Graphique représentant le temps de génération en fonction du nombre de subdivision et l'application ou non d'un éditeur\protect\footnotemark}
+        \label{graphperf}
+    \end{center}
+\end{figure}
+
+On remarque alors que passé la subdivision de taille 10, le temps commence à augmenter de manière exponentiel. Même si 10 secondes restent tout à fait raisonnable, si on va plus loin le test nous a permis de mettre en évidence le manque de mémoire afin de réaliser la génération qui se solde par une exception de "bad alloc".
+
+\subsection{Test sur le temps de génération}
+Le but de ce test est de déterminer le nombre de subdivision possible dans un certain temps donné. Ainsi, on cherche à obtenir avec ce test quel est le nombre de subdivision idéal dans un temps arbitraire( que l'on peut voir comme une contrainte du client). On part donc d'une subdivision à 0, et on augmente tant que le temps ne dépasse pas celui que l'on souhaite avoir. Dans le cas de notre test, on prend en compte le temps de modification de la planète à lui appliquant le NoiyHeight\_Editor.
+
+\subsection{Test sur la sauvegarde}
+Pour s'assurer que la sauvegarde fonctionne correctement, il faut s'assurer que les données sauvegarder soient identiques à la planète qui a été générée. Pour se faire, nous mettons en place un test scénario. Nous sauvegarder dans les données au sein d'un fichier .obj que nous lançons sur un logiciel de visionnage (type blender). Si le fichier n'est pas correct, il est facile de l'observer car la planète générée ne sera pas du tout la même. Il est tout à fait possible de sauvegarder la planète 2 fois et vérifier que les données soient les mêmes, mais ce genre de test ne garantie pas que les données sauvegardées soient les bonnes. La seul référence possible est une référence visuel. Nous pouvons tout à fait lancer le fichier depuis notre exécutable pour comparer que les deux planètes sont identiques (il n'est donc pas forcément nécessaire d'utiliser un logiciels tiers pour comparer).
+
+\subsection{Tests de non régression}
+
+\paragraph{Coordonnées : } On a vérifié le bon passage des coordonnées cartésiennes à sphériques, et vice versa, tantôt avec des valeurs d'oracle, tantôt avec des valeurs aléatoires où on doit pouvoir revenir à la cordonnées de départ.
+On a aussi vérifie certains points particulier comme 
+
+\paragraph{Random : } On a vérifié que pour les fonctions de hasard suivent bien le comportement indiqué, autant sur les domaines que sur les lois qu'elles doivent suivre selon la loi des grands nombres.
+
+\paragraph{Treshold : } On a vérifié la bonne construction et l'ordre des couches dans la table ainsi que la non-modification des données durant le processus. 
+On a testé aussi si sur une valeur comprise dans l'intervalle du minimum et du maximum des bornes de la tables la fonction getColorDataByValue renvoie bien la bonne donnée de la couche auquel cette valeur appartient.
+Comme le nombre de couches et les données sont non importantes pour ces tests, c'est décidé aléatoirement.
+
+\section{Conclusion}
+% description de ce qu’il y aurait encore `a faire,extensions (et comment les réaliser).
+% et besoins non satisfaits
+
+\section{Annexes}
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=1.5\linewidth, angle=90]{Architecture_complete.pdf} 
+        \caption{Architecture complète}
+        \label{archiComplete}
+    \end{center}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+\newpage
+\bibliographystyle{plain}
+\bibliography{bibliographie}
+
+\end{document}
