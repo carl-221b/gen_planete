@@ -33,9 +33,9 @@ public:
     /**
      * @brief Get the number of faces
      * 
-     * @return int the number of faces
+     * @return unsigned int the number of faces
      */ 
-    int numFaces() const { return _faces.size(); }
+    unsigned int numFaces() const { return _faces.size(); }
 
     /**
      * @brief Get the Vertices object (editable)

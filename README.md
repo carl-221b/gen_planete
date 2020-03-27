@@ -14,7 +14,7 @@ Commandes à faire dans le dossier build :
 ```
 ./gen_planet [options] [config_file_path]
 ```
-Mettez pour *config_file_path* le chemin vers le fichier de configuration contenant les paramètres de génération.
+Mettez pour *config_file_path* le chemin vers le fichier de configuration contenant les paramètres de génération. Si aucun fichier de configuration n'est fournit, la génération se fera à partir d'une Shape et d'un Editor crée (et modifiable) dans le ```main```.
 
 Une fenêtre openGL s'ouvre alors avec la planète générée à partir d'un bruit aléatoire.
 
