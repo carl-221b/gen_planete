@@ -207,8 +207,9 @@ void Viewer::keyPressed(int key, int action, int mods)
         if (key == GLFW_KEY_R)
             loadPrograms();
         else if(key == GLFW_KEY_S){
-            Shape_Repository::saveOBJ(_shape, FILE_SAVE_OUTPUT);
-            Shape_Repository::saveOFF(_shape, FILE_SAVE_OUTPUT);
+            std::cerr << "Save to " << DEFAULT_SAVE_PATH <<"\n";
+            Shape_Repository::saveOBJ(_shape, DEFAULT_SAVE_PATH);
+            Shape_Repository::saveOFF(_shape, DEFAULT_SAVE_PATH);
         }
         else if(key == GLFW_KEY_Z)
         {

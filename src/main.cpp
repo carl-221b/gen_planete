@@ -103,8 +103,8 @@ int main (int argc, char **argv)
     //TODO Output save
     //Options and main parameters 
     int opt = 0;
-    FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
-    while ((opt = getopt(argc, argv, "h:"/*"ho:*/)) != -1) {
+    //FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
+    while ((opt = getopt(argc, argv, "h"/*"ho:*/)) != -1) {
         switch (opt) {
         case 'h':
             usage();
