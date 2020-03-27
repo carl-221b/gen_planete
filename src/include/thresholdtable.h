@@ -60,10 +60,10 @@ public:
     /**
      * @brief getColorLayerByValue
      * @param value that is in layer = [lowerbound,upperbound=maxvalue].
-     * @return The color of the layer that is belong or the default one if is higher than max of the table.
-     * Print a warning if convention [-1,1] is noit respected.
+     * @return The data of the layer that is belong or the default one if is higher than max of the table.
+     * Print a warning if convention [-1,1] is not respected.
      */
-    T getColorLayerByValue(double value) const{
+    T getDataLayerByValue(double value) const{
         if(value <= -1. || value >= 1.)
         {
             std::cerr << "Warning : Get value to treshold table in scale outside convention ]-1, 1[.\n"
@@ -76,10 +76,10 @@ public:
     }
 
     /**
-     * @brief getDefaultColor
+     * @brief getDefaultData
      * @return the default data.
      */
-    T getDefaultColor() const{
+    T getDefaultData() const{
         return _layers.end()->_data;
     }
 
@@ -106,7 +106,7 @@ private:
 };
 
 /**
- * @brief ColorThresholdTable use for a threshold scale foàr colors. Exemple : the treshold can be height factor displacement associated to a color.
+ * @brief ColorThresholdTable use for a threshold scale for colors. Exemple : the treshold can be height factor displacement associated to a color.
  */
 typedef ThresholdTable<Eigen::Vector3f> ColorThresholdTable;
 

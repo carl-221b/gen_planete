@@ -210,11 +210,11 @@ void Viewer::keyPressed(int key, int action, int mods)
             Shape_Repository::saveOBJ(_shape, FILE_SAVE_OUTPUT);
             Shape_Repository::saveOFF(_shape, FILE_SAVE_OUTPUT);
         }
-        else if(key == GLFW_KEY_W)
+        else if(key == GLFW_KEY_Z)
         {
             _wireframe = !_wireframe;
         }
-        else if(key == GLFW_KEY_A)
+        else if(key == GLFW_KEY_L)
         {
             _rotate = !_rotate;
         }

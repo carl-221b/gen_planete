@@ -3,6 +3,8 @@
 #include "opengl.h"
 #include "viewer.h"
 
+#include "shape.h"
+#include "icosphere.h"
 #include "noisyheight_editor.h"
 #include "rendering_opengl.h"
 #include "xmlgenerator.h"
@@ -98,9 +100,9 @@ static void usage(){
 
 int main (int argc, char **argv)
 {
-
-    //Options and main parameters
-    int opt = 0;
+    //TODO
+    //Options and main parameters 
+    /*int opt = 0;
     FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
     while ((opt = getopt(argc, argv, "ho:")) != -1) {
         switch (opt) {
@@ -115,21 +117,23 @@ int main (int argc, char **argv)
             usage();
             exit(EXIT_FAILURE);
         }
-    }
-
-    if (optind >= argc) {
-        fprintf(stderr, "Expected one argument after options\n");
-        usage();
-        exit(EXIT_FAILURE);
-    }
-
-    std::string config_path = std::string(argv[optind]);
-    std::cout << "File config generator : " << config_path << std::endl;
+    }*/
 
     //Generation
+    Shape* shape;
 
-    XMLGenerator parameters;
-    Shape* shape = parameters.generate(config_path);
+    if (optind >= argc) { //if no config_file_path
+        shape = new Icosphere(10, true);
+        Editor* noisy = new NoisyHeight_Editor(shape);
+        noisy->edit();
+        delete noisy;
+    }else{
+        std::string config_path = std::string(argv[optind]);
+        std::cout << "File config generator : " << config_path << std::endl;
+
+        XMLGenerator parameters;
+        shape = parameters.generate(config_path);
+    }
 
     // Visualisation
 

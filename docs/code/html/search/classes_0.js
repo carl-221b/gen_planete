@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['advanced_5feditor',['Advanced_Editor',['../class_advanced___editor.html',1,'']]]
+  ['camera',['Camera',['../class_camera.html',1,'']]]
 ];

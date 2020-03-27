@@ -1,2 +1,7 @@
 <map id="Viewer" name="Viewer">
+<area shape="rect" id="node2" href="$class_rendering.html" title="Interface of Bridge pattern use to free the dependance with library like openGL. " alt="" coords="5,468,156,721"/>
+<area shape="rect" id="node3" href="$class_trackball.html" title="A (relatively) simple trackball. " alt="" coords="181,175,367,1015"/>
+<area shape="rect" id="node4" href="$class_shader.html" title="{Shader\n|# mIsValid\l# mProgramID\l|+ Shader()\l+ loadFromFiles()\l+ loadSources()\l+ activate()\l+ deactivate()\l+ getUniformLocation()\l+ setSamplerUnit()\l+ getAttribLocation()\l+ id()\l+ valid()\l+ dumpInfos()\l# printProgramInfoLog()\l# printShaderInfoLog()\l}" alt="" coords="392,461,551,729"/>
+<area shape="rect" id="node5" href="$class_shape.html" title="interface which contains the needed data for the planet generation. " alt="" coords="575,468,757,721"/>
+<area shape="rect" id="node6" href="$struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. " alt="" coords="609,5,723,112"/>
 </map>

@@ -2,6 +2,11 @@
 \label{class_rendering___open_g_l}\index{Rendering\+\_\+\+Open\+GL@{Rendering\+\_\+\+Open\+GL}}
 
 
+Class implementing \hyperlink{class_rendering}{Rendering}.  
+
+
+
+
 {\ttfamily \#include $<$rendering\+\_\+opengl.\+h$>$}
 
 
@@ -53,7 +58,19 @@ void \hyperlink{class_rendering___open_g_l_a8ad1a3e698d694782f4174d94b745cd5}{sp
 \begin{DoxyCompactList}\small\item\em Sends vertices data to the shader. \end{DoxyCompactList}\item 
 void \hyperlink{class_rendering___open_g_l_aee7a6085edb4e6927282067b6cde59bf}{load\+Buffer} (const \hyperlink{struct_shape_1_1_vertices}{Shape\+::\+Vertices} $\ast$vertices, std\+::vector$<$ Eigen\+::\+Vector3i $>$ faces)
 \begin{DoxyCompactList}\small\item\em Computes all the data needed by Open\+GL for the display (\+\_\+positions,\+\_\+normals,\+\_\+colors,\+\_\+indices) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{class_rendering___open_g_l_a6838049f26cc1811531f2e266f61c158}{\+\_\+faces\+Buffer}
+\begin{DoxyCompactList}\small\item\em Variables used for open\+GL buffers. \end{DoxyCompactList}\item 
+G\+Luint \hyperlink{class_rendering___open_g_l_a4397283457770370db833b1c59db797e}{\+\_\+vao}
+\item 
+G\+Luint \hyperlink{class_rendering___open_g_l_ade7eb98ac80d30c4611389027a2ed568}{\+\_\+vbo} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
 
+
+\subsection{Description détaillée}
+Class implementing \hyperlink{class_rendering}{Rendering}. 
 
 \subsection{Documentation des constructeurs et destructeur}
 \mbox{\Hypertarget{class_rendering___open_g_l_a0db708eaeae23e85a18d9c40995b27ae}\label{class_rendering___open_g_l_a0db708eaeae23e85a18d9c40995b27ae}} 
@@ -373,6 +390,31 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{class_rendering___open_g_l_a3d370bebbf4e66ba7bd4ea61dc59bef1_icgraph}
 \end{center}
 \end{figure}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_rendering___open_g_l_a6838049f26cc1811531f2e266f61c158}\label{class_rendering___open_g_l_a6838049f26cc1811531f2e266f61c158}} 
+\index{Rendering\+\_\+\+Open\+GL@{Rendering\+\_\+\+Open\+GL}!\+\_\+faces\+Buffer@{\+\_\+faces\+Buffer}}
+\index{\+\_\+faces\+Buffer@{\+\_\+faces\+Buffer}!Rendering\+\_\+\+Open\+GL@{Rendering\+\_\+\+Open\+GL}}
+\subsubsection{\texorpdfstring{\+\_\+faces\+Buffer}{\_facesBuffer}}
+{\footnotesize\ttfamily G\+Luint Rendering\+\_\+\+Open\+G\+L\+::\+\_\+faces\+Buffer\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Variables used for open\+GL buffers. 
+
+\mbox{\Hypertarget{class_rendering___open_g_l_a4397283457770370db833b1c59db797e}\label{class_rendering___open_g_l_a4397283457770370db833b1c59db797e}} 
+\index{Rendering\+\_\+\+Open\+GL@{Rendering\+\_\+\+Open\+GL}!\+\_\+vao@{\+\_\+vao}}
+\index{\+\_\+vao@{\+\_\+vao}!Rendering\+\_\+\+Open\+GL@{Rendering\+\_\+\+Open\+GL}}
+\subsubsection{\texorpdfstring{\+\_\+vao}{\_vao}}
+{\footnotesize\ttfamily G\+Luint Rendering\+\_\+\+Open\+G\+L\+::\+\_\+vao\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_rendering___open_g_l_ade7eb98ac80d30c4611389027a2ed568}\label{class_rendering___open_g_l_ade7eb98ac80d30c4611389027a2ed568}} 
+\index{Rendering\+\_\+\+Open\+GL@{Rendering\+\_\+\+Open\+GL}!\+\_\+vbo@{\+\_\+vbo}}
+\index{\+\_\+vbo@{\+\_\+vbo}!Rendering\+\_\+\+Open\+GL@{Rendering\+\_\+\+Open\+GL}}
+\subsubsection{\texorpdfstring{\+\_\+vbo}{\_vbo}}
+{\footnotesize\ttfamily G\+Luint Rendering\+\_\+\+Open\+G\+L\+::\+\_\+vbo\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}

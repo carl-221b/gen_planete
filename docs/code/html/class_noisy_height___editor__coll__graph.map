@@ -1,5 +1,6 @@
 <map id="NoisyHeight_Editor" name="NoisyHeight_Editor">
-<area shape="rect" id="node2" href="$class_editor.html" title="Interface to be implemented by an editor that will transform a generic icosphere into a given type of..." alt="" coords="55,476,139,597"/>
-<area shape="rect" id="node3" href="$class_shape.html" title="interface implemented by icoshpere which contains the needed data for the planet generation ..." alt="" coords="5,175,188,413"/>
-<area shape="rect" id="node4" href="$struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colo for each vertex. " alt="" coords="39,5,154,112"/>
+<area shape="rect" id="node2" href="$class_editor.html" title="Interface to be implemented by an editor that will transform a generic basic shape into a planet..." alt="" coords="55,505,139,627"/>
+<area shape="rect" id="node3" href="$class_shape.html" title="interface which contains the needed data for the planet generation. " alt="" coords="5,175,188,428"/>
+<area shape="rect" id="node4" href="$struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. " alt="" coords="39,5,154,112"/>
+<area shape="rect" id="node5" href="$class_threshold_table.html" title="The ColorThresholdTable class Construction like [&#45;LIMIT_DOUBLE, 1st value[ for first data..." alt="" coords="163,491,335,641"/>
 </map>

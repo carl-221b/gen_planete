@@ -5,7 +5,7 @@
 
 #define DEFAULT_SAVE_PATH "./planet"
 
-static char* FILE_SAVE_OUTPUT;
+//static char* FILE_SAVE_OUTPUT;
 
 /**
  * @brief interface to manage saves and loads of shapes

@@ -8,7 +8,8 @@
 #include "trackball.h"
 #include "rendering.h"
 
-#define SPEED_LIGHT_ROTATION 0.005
+#define SPEED_LIGHT_ROTATION 0.0005
+#define FILE_SAVE_OUTPUT "../src/data/planet"
 
 /**
  * @brief 

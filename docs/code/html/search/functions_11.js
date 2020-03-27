@@ -18,9 +18,11 @@ var searchData=
   ['settransformationmatrix',['setTransformationMatrix',['../class_shape.html#a04294d1d80623bb8c5a7d4037549fa27',1,'Shape']]],
   ['shader',['Shader',['../class_shader.html#a0d654ebaca4e0555197c0724c6d30610',1,'Shader']]],
   ['shape',['Shape',['../class_shape.html#aaa8d87171e65e0d8ba3c5459978992a7',1,'Shape']]],
+  ['shape_5frepository',['Shape_Repository',['../class_shape___repository.html#ad2181017a4b9b4e0aafc16c8765a07ce',1,'Shape_Repository']]],
   ['specifyvertexdata',['specifyVertexData',['../class_rendering.html#aecb85f0a1da2d14cde84a918e2636841',1,'Rendering::specifyVertexData()'],['../class_rendering___open_g_l.html#a8ad1a3e698d694782f4174d94b745cd5',1,'Rendering_OpenGL::specifyVertexData()']]],
   ['startrotation',['startRotation',['../class_trackball.html#afa938da0cd322cc44cfb9e73add017df',1,'Trackball']]],
   ['starttimer',['startTimer',['../class_timer.html#aa8c887576ec3b0d68c10ebf4097c367c',1,'Timer']]],
   ['starttranslation',['startTranslation',['../class_trackball.html#afd0be3e6f9c79903d35af33fb2a6451c',1,'Trackball']]],
-  ['state',['state',['../class_trackball.html#af8dc66630b00cd3d92b999630691ff05',1,'Trackball']]]
+  ['state',['state',['../class_trackball.html#af8dc66630b00cd3d92b999630691ff05',1,'Trackball']]],
+  ['subdivide',['subdivide',['../class_icosphere.html#a1086e13d1300ed79bf201d2570eb7ebe',1,'Icosphere']]]
 ];

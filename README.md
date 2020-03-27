@@ -77,8 +77,10 @@ Pour des paramètres particulier sur les bruits, je vous invite à regarder la d
 ## Interaction fenêtre openGL 
  - Clic and drag : Rotation de la planète
  - Molette de la souris : zoom et de-zoom
- - Touche ' Z ' : Mode " fil de fer " pour afficher le maillage
-
+ - Touche ' W ' : Activer/Desactiver Mode " fil de fer " pour afficher le maillage
+ - Touche ' L ' : Activer/Desactiver la lumière autour de la planète
+ - Touche ' R ' : Chargement des modifications appliqués au shader s'il y en a eu
+ - CTRL + ' S ' : Sauvegarde en obj (sans les couleurs) et off (avec les couleurs)
  //TO COMPLETE
  
 ## Bibliothèques utilisés

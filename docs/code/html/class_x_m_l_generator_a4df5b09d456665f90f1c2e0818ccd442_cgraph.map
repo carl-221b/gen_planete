@@ -1,0 +1,5 @@
+<map id="XMLGenerator::readColorThresholdTable" name="XMLGenerator::readColorThresholdTable">
+<area shape="rect" id="node2" href="$class_x_m_l_generator.html#abf2e3d3b2d44fdd1e01d0f2bbca7f028" title="XMLGenerator::readVector3f" alt="" coords="280,5,468,32"/>
+<area shape="rect" id="node3" href="$class_x_m_l_generator.html#ab0a3198e6d44dcf102e13902325e0bd1" title="XMLGenerator::readDouble" alt="" coords="284,56,464,83"/>
+<area shape="rect" id="node4" href="$class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37" title="addLayer add a layer with upperbound=value and will be sorted in the table. " alt="" coords="288,107,460,133"/>
+</map>

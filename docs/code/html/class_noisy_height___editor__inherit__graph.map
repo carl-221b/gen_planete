@@ -1,3 +1,3 @@
 <map id="NoisyHeight_Editor" name="NoisyHeight_Editor">
-<area shape="rect" id="node2" href="$class_editor.html" title="Interface to be implemented by an editor that will transform a generic icosphere into a given type of..." alt="" coords="45,5,129,141"/>
+<area shape="rect" id="node2" href="$class_editor.html" title="Interface to be implemented by an editor that will transform a generic basic shape into a planet..." alt="" coords="53,5,137,141"/>
 </map>

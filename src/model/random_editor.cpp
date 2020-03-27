@@ -42,7 +42,7 @@ void Random_Editor::edit(){
 
         point *= 1.0 + heightFactor * _maximum_displacement_ratio;
         
-        Eigen::Vector3f color = _layers->getColorLayerByValue(heightFactor);
+        Eigen::Vector3f color = _layers->getDataLayerByValue(heightFactor);
         assignColor(vertices, color);
     }
      _shape->computeNormals();
