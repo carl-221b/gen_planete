@@ -100,9 +100,9 @@ static void usage(){
 
 int main (int argc, char **argv)
 {
-
-    //Options and main parameters
-    int opt = 0;
+    //TODO
+    //Options and main parameters 
+    /*int opt = 0;
     FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
     while ((opt = getopt(argc, argv, "ho:")) != -1) {
         switch (opt) {
@@ -117,7 +117,7 @@ int main (int argc, char **argv)
             usage();
             exit(EXIT_FAILURE);
         }
-    }
+    }*/
 
     //Generation
     Shape* shape;
