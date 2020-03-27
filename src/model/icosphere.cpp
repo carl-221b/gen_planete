@@ -42,19 +42,19 @@ void Icosphere::computeNormals()
     }
 
     // pass 2: compute face normals and accumulate
-    for(Eigen::Vector3i& face :_faces)
+    for(const Eigen::Vector3i& face :_faces)
     {
-        Vector3f& p0 =  _vertices->_positions[face(0)];
-        Vector3f& p1 =  _vertices->_positions[face(1)];
-        Vector3f& p2 =  _vertices->_positions[face(2)];
+        const Vector3f& p0 =  _vertices->_positions[face.x()];
+        const Vector3f& p1 =  _vertices->_positions[face.y()];
+        const Vector3f& p2 =  _vertices->_positions[face.z()];
 
-        Vector3f q1 = p1-p0;
-        Vector3f q2 = p2-p0;
-        Vector3f normal = q1.cross(q2);
+        const Vector3f q1 = p1-p0;
+        const Vector3f q2 = p2-p0;
+        const Vector3f normal = q1.cross(q2);
 
-        _vertices->_normals[face(0)] += normal;
-        _vertices->_normals[face(1)] += normal;
-        _vertices->_normals[face(2)] += normal;
+        _vertices->_normals[face.x()] += normal;
+        _vertices->_normals[face.y()] += normal;
+        _vertices->_normals[face.z()] += normal;
 
     }
     // pass 3: normalize
