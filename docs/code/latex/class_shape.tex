@@ -2,7 +2,7 @@
 \label{class_shape}\index{Shape@{Shape}}
 
 
-interface implemented by icoshpere which contains the needed data for the planet generation  
+interface which contains the needed data for the planet generation.  
 
 
 
@@ -16,13 +16,12 @@ Graphe d\textquotesingle{}héritage de Shape\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=217pt]{class_shape__inherit__graph}
+\includegraphics[width=245pt]{class_shape__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Graphe de collaboration de Shape\+:
-\nopagebreak
+Graphe de collaboration de Shape\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,22 +32,24 @@ Graphe de collaboration de Shape\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{struct_shape_1_1_vertices}{Vertices}
-\begin{DoxyCompactList}\small\item\em The \hyperlink{struct_shape_1_1_vertices}{Vertices} struct containing positions normals and colo for each vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{struct_shape_1_1_vertices}{Vertices} struct containing positions normals and colors for each vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_shape_aaa8d87171e65e0d8ba3c5459978992a7}{Shape} ()
 \item 
-virtual \hyperlink{class_shape_ac3b9fc48965274893f25b18aa14ba665}{$\sim$\+Shape} ()
+virtual \hyperlink{class_shape_ac8ad2fd02e1e94beeb98e65ab795cd56}{$\sim$\+Shape} ()=default
 \item 
 virtual void \hyperlink{class_shape_a20d654ec232b682c36cd8b28d2cba750}{load} (const std\+::string \&filename)=0
 \begin{DoxyCompactList}\small\item\em Creates the \+\_\+half\+Edge attribute from an O\+BJ file. \end{DoxyCompactList}\item 
-virtual \hyperlink{struct_shape_1_1_vertices}{Vertices} $\ast$ \hyperlink{class_shape_a08ba4a861e979b8adffdbe615d048203}{get\+Vertices} ()=0
-\begin{DoxyCompactList}\small\item\em Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object. \end{DoxyCompactList}\item 
-virtual void \hyperlink{class_shape_afd886ad433d08a566003073bfd837f40}{compute\+Normals} ()=0
-\item 
+int \hyperlink{class_shape_aaa316f693b1679276dc2bc1014485ab3}{num\+Faces} () const
+\begin{DoxyCompactList}\small\item\em Get the number of faces. \end{DoxyCompactList}\item 
+\hyperlink{struct_shape_1_1_vertices}{Vertices} $\ast$ \hyperlink{class_shape_aacdf84a7934b19a50bf9d5b4cd122caf}{get\+Vertices} ()
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object (editable) \end{DoxyCompactList}\item 
 const \hyperlink{struct_shape_1_1_vertices}{Vertices} $\ast$ \hyperlink{class_shape_ac40943613d4b7480d305d807abeb01e0}{get\+Vertices} () const
 \begin{DoxyCompactList}\small\item\em Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object (const) \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_shape_afd886ad433d08a566003073bfd837f40}{compute\+Normals} ()=0
+\begin{DoxyCompactList}\small\item\em Compute normal for each face. \end{DoxyCompactList}\item 
 const Eigen\+::\+Aligned\+Box3f \& \hyperlink{class_shape_acd24561b01d6769b4a0c96cd0237a961}{bounding\+Box} () const
 \begin{DoxyCompactList}\small\item\em bounding\+Box used for the rasterzation \end{DoxyCompactList}\item 
 const Eigen\+::\+Affine3f \& \hyperlink{class_shape_a9a1f2d5c370b8c9194fc51ea37a03cac}{get\+Transformation\+Matrix} () const
@@ -71,7 +72,7 @@ std\+::vector$<$ Eigen\+::\+Vector3i $>$ \hyperlink{class_shape_abb07b26e344946f
 
 
 \subsection{Description détaillée}
-interface implemented by icoshpere which contains the needed data for the planet generation 
+interface which contains the needed data for the planet generation. 
 
 \subsection{Documentation des constructeurs et destructeur}
 \mbox{\Hypertarget{class_shape_aaa8d87171e65e0d8ba3c5459978992a7}\label{class_shape_aaa8d87171e65e0d8ba3c5459978992a7}} 
@@ -80,17 +81,24 @@ interface implemented by icoshpere which contains the needed data for the planet
 \subsubsection{\texorpdfstring{Shape()}{Shape()}}
 {\footnotesize\ttfamily Shape\+::\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{class_shape_ac3b9fc48965274893f25b18aa14ba665}\label{class_shape_ac3b9fc48965274893f25b18aa14ba665}} 
-\index{Shape@{Shape}!````~Shape@{$\sim$\+Shape}}
-\index{````~Shape@{$\sim$\+Shape}!Shape@{Shape}}
-\subsubsection{\texorpdfstring{$\sim$\+Shape()}{~Shape()}}
-{\footnotesize\ttfamily virtual Shape\+::$\sim$\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
 Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=325pt]{class_shape_ac3b9fc48965274893f25b18aa14ba665_cgraph}
+\includegraphics[width=278pt]{class_shape_aaa8d87171e65e0d8ba3c5459978992a7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_shape_ac8ad2fd02e1e94beeb98e65ab795cd56}\label{class_shape_ac8ad2fd02e1e94beeb98e65ab795cd56}} 
+\index{Shape@{Shape}!````~Shape@{$\sim$\+Shape}}
+\index{````~Shape@{$\sim$\+Shape}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{$\sim$\+Shape()}{~Shape()}}
+{\footnotesize\ttfamily virtual Shape\+::$\sim$\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{class_shape_ac8ad2fd02e1e94beeb98e65ab795cd56_icgraph}
 \end{center}
 \end{figure}
 
@@ -114,6 +122,14 @@ the bounding\+Box which contains the vertex of the shape
 \index{compute\+Normals@{compute\+Normals}!Shape@{Shape}}
 \subsubsection{\texorpdfstring{compute\+Normals()}{computeNormals()}}
 {\footnotesize\ttfamily virtual void Shape\+::compute\+Normals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Compute normal for each face. 
+
+
+
+Implémenté dans \hyperlink{class_icosphere_af7d6c8c60248794f6a6c382dc5f98a24}{Icosphere}.
 
 Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
@@ -155,28 +171,24 @@ get\+Transformation\+Matrix
 \begin{DoxyReturn}{Renvoie}
 a transformation matrix 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_shape_a08ba4a861e979b8adffdbe615d048203}\label{class_shape_a08ba4a861e979b8adffdbe615d048203}} 
+\mbox{\Hypertarget{class_shape_aacdf84a7934b19a50bf9d5b4cd122caf}\label{class_shape_aacdf84a7934b19a50bf9d5b4cd122caf}} 
 \index{Shape@{Shape}!get\+Vertices@{get\+Vertices}}
 \index{get\+Vertices@{get\+Vertices}!Shape@{Shape}}
 \subsubsection{\texorpdfstring{get\+Vertices()}{getVertices()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily virtual \hyperlink{struct_shape_1_1_vertices}{Vertices}$\ast$ Shape\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \hyperlink{struct_shape_1_1_vertices}{Vertices}$\ast$ Shape\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object. 
+Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object (editable) 
 
 \begin{DoxyReturn}{Renvoie}
 Vertices$\ast$ 
 \end{DoxyReturn}
-
-
-Implémenté dans \hyperlink{class_icosphere_aae0a9d0e0cff48ca120bd401e2cb14f4}{Icosphere}.
-
 Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_shape_a08ba4a861e979b8adffdbe615d048203_icgraph}
+\includegraphics[width=350pt]{class_shape_aacdf84a7934b19a50bf9d5b4cd122caf_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_shape_ac40943613d4b7480d305d807abeb01e0}\label{class_shape_ac40943613d4b7480d305d807abeb01e0}} 
@@ -192,6 +204,13 @@ Get the \hyperlink{struct_shape_1_1_vertices}{Vertices} object (const)
 \begin{DoxyReturn}{Renvoie}
 const Vertices$\ast$ 
 \end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{class_shape_ac40943613d4b7480d305d807abeb01e0_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_shape_a20d654ec232b682c36cd8b28d2cba750}\label{class_shape_a20d654ec232b682c36cd8b28d2cba750}} 
 \index{Shape@{Shape}!load@{load}}
 \index{load@{load}!Shape@{Shape}}
@@ -209,15 +228,28 @@ Creates the \+\_\+half\+Edge attribute from an O\+BJ file.
 \end{DoxyParams}
 
 
-Implémenté dans \hyperlink{class_icosphere_a1b20bf118a66f5202228a5a4522bd7fd}{Icosphere}.
+Implémenté dans \hyperlink{class_icosphere_a72c3cc3d95cf508a623fe336cbbab350}{Icosphere}.
 
 Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=268pt]{class_shape_a20d654ec232b682c36cd8b28d2cba750_icgraph}
+\includegraphics[width=262pt]{class_shape_a20d654ec232b682c36cd8b28d2cba750_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_shape_aaa316f693b1679276dc2bc1014485ab3}\label{class_shape_aaa316f693b1679276dc2bc1014485ab3}} 
+\index{Shape@{Shape}!num\+Faces@{num\+Faces}}
+\index{num\+Faces@{num\+Faces}!Shape@{Shape}}
+\subsubsection{\texorpdfstring{num\+Faces()}{numFaces()}}
+{\footnotesize\ttfamily int Shape\+::num\+Faces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of faces. 
+
+\begin{DoxyReturn}{Renvoie}
+int the number of faces 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_shape_a04294d1d80623bb8c5a7d4037549fa27}\label{class_shape_a04294d1d80623bb8c5a7d4037549fa27}} 
 \index{Shape@{Shape}!set\+Transformation\+Matrix@{set\+Transformation\+Matrix}}
 \index{set\+Transformation\+Matrix@{set\+Transformation\+Matrix}!Shape@{Shape}}

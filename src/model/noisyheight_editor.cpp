@@ -71,8 +71,8 @@ void NoisyHeight_Editor::edit()
 
         point *= (1 + heightFactor * _maximum_displacement_ratio);
         
-        Eigen::Vector3f color = _layers->getColorLayerByValue(heightFactor);
-        color = color + color * NoiseRandom::random(-0.15, 0.15);
+        Eigen::Vector3f color = _layers->getDataLayerByValue(heightFactor);
+        color = color + color * NoiseRandom::random(-RANDOM_COLOR_RATIO, RANDOM_COLOR_RATIO);
         assignColor(vertices, color);
     }
     _shape->computeNormals();

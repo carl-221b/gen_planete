@@ -4,7 +4,7 @@ var searchData=
   ['thresholdtable',['ThresholdTable',['../class_threshold_table.html',1,'ThresholdTable&lt; T &gt;'],['../class_threshold_table.html#aed8c318959eca9a7f33944a8300b3e6a',1,'ThresholdTable::ThresholdTable()']]],
   ['thresholdtable_2ecpp',['thresholdtable.cpp',['../thresholdtable_8cpp.html',1,'']]],
   ['thresholdtable_2eh',['thresholdtable.h',['../thresholdtable_8h.html',1,'']]],
-  ['timer',['Timer',['../class_timer.html',1,'Timer'],['../class_timer.html#a5f16e8da27d2a5a5242dead46de05d97',1,'Timer::Timer()']]],
+  ['timer',['Timer',['../class_timer.html',1,'Timer'],['../class_timer.html#a8ed3c5e074223900c0c9a74376471209',1,'Timer::Timer()']]],
   ['trackball',['Trackball',['../class_trackball.html',1,'Trackball'],['../class_trackball.html#a11588efe7e24d7deb177f4df3dbd9916',1,'Trackball::Trackball()']]],
   ['trackball_2ecpp',['trackball.cpp',['../trackball_8cpp.html',1,'']]],
   ['trackball_2eh',['trackball.h',['../trackball_8h.html',1,'']]],

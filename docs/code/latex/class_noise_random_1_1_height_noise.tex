@@ -23,11 +23,18 @@ Graphe de collaboration de Noise\+Random\+:\+:Height\+Noise\+:
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_noise_random_1_1_height_noise_ab166c1a0af9e801a289d33a6d7bd2292}{Height\+Noise} (int seed, double frequence, int octave, double persistence)
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new Height Noise object. \end{DoxyCompactList}\item 
 \hyperlink{class_noise_random_1_1_height_noise_a85d91613d7cc310e928f136680afff22}{$\sim$\+Height\+Noise} ()
 \item 
-double \hyperlink{class_noise_random_1_1_height_noise_a0be08d8bcaef1c76a80c45898355d236}{get\+Value} (const Eigen\+::\+Vector3f \&keygen)
+double \hyperlink{class_noise_random_1_1_height_noise_a2fd30f88b20ba463d156c210ef08d54e}{get\+Value} (const Eigen\+::\+Vector3f \&keygen) const
 \begin{DoxyCompactList}\small\item\em get\+Value get the value noise. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+noise\+::module\+::\+Perlin \hyperlink{class_noise_random_1_1_height_noise_a537d769e59cef8e6691238c9f838510f}{\+\_\+generator}
+\item 
+noise\+::module\+::\+Clamp \hyperlink{class_noise_random_1_1_height_noise_a5e4713b2a4522778d1478cdf75339658}{\+\_\+out}
+\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -40,6 +47,21 @@ The \hyperlink{class_noise_random_1_1_height_noise}{Height\+Noise} class generat
 \subsubsection{\texorpdfstring{Height\+Noise()}{HeightNoise()}}
 {\footnotesize\ttfamily Height\+Noise\+::\+Height\+Noise (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{double}]{frequence,  }\item[{int}]{octave,  }\item[{double}]{persistence }\end{DoxyParamCaption})}
 
+
+
+Construct a new Height Noise object. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em seed} & the seed for aleatory. \\
+\hline
+{\em frequence} & the frerquence of the noise. \\
+\hline
+{\em octave} & the octave of the noise. \\
+\hline
+{\em persistence} & the persistence of the noise. More informations for parameters in library libnoise. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_noise_random_1_1_height_noise_a85d91613d7cc310e928f136680afff22}\label{class_noise_random_1_1_height_noise_a85d91613d7cc310e928f136680afff22}} 
 \index{Noise\+Random\+::\+Height\+Noise@{Noise\+Random\+::\+Height\+Noise}!````~Height\+Noise@{$\sim$\+Height\+Noise}}
 \index{````~Height\+Noise@{$\sim$\+Height\+Noise}!Noise\+Random\+::\+Height\+Noise@{Noise\+Random\+::\+Height\+Noise}}
@@ -49,11 +71,11 @@ The \hyperlink{class_noise_random_1_1_height_noise}{Height\+Noise} class generat
 
 
 \subsection{Documentation des fonctions membres}
-\mbox{\Hypertarget{class_noise_random_1_1_height_noise_a0be08d8bcaef1c76a80c45898355d236}\label{class_noise_random_1_1_height_noise_a0be08d8bcaef1c76a80c45898355d236}} 
+\mbox{\Hypertarget{class_noise_random_1_1_height_noise_a2fd30f88b20ba463d156c210ef08d54e}\label{class_noise_random_1_1_height_noise_a2fd30f88b20ba463d156c210ef08d54e}} 
 \index{Noise\+Random\+::\+Height\+Noise@{Noise\+Random\+::\+Height\+Noise}!get\+Value@{get\+Value}}
 \index{get\+Value@{get\+Value}!Noise\+Random\+::\+Height\+Noise@{Noise\+Random\+::\+Height\+Noise}}
 \subsubsection{\texorpdfstring{get\+Value()}{getValue()}}
-{\footnotesize\ttfamily double Height\+Noise\+::get\+Value (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3f \&}]{keygen }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Height\+Noise\+::get\+Value (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3f \&}]{keygen }\end{DoxyParamCaption}) const}
 
 
 
@@ -61,19 +83,34 @@ get\+Value get the value noise.
 
 
 \begin{DoxyParams}{Paramètres}
-{\em keygen} & T\+He key of the generation. \\
+{\em keygen} & Tke key for generation. Same key = same value. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-the value noise in float associated to the key. Domain between \mbox{[}-\/1, 1\mbox{]} 
+the value noise in double associated to the key. Domain between \mbox{[}-\/1, 1\mbox{]} 
 \end{DoxyReturn}
 Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_noise_random_1_1_height_noise_a0be08d8bcaef1c76a80c45898355d236_icgraph}
+\includegraphics[width=350pt]{class_noise_random_1_1_height_noise_a2fd30f88b20ba463d156c210ef08d54e_icgraph}
 \end{center}
 \end{figure}
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{class_noise_random_1_1_height_noise_a537d769e59cef8e6691238c9f838510f}\label{class_noise_random_1_1_height_noise_a537d769e59cef8e6691238c9f838510f}} 
+\index{Noise\+Random\+::\+Height\+Noise@{Noise\+Random\+::\+Height\+Noise}!\+\_\+generator@{\+\_\+generator}}
+\index{\+\_\+generator@{\+\_\+generator}!Noise\+Random\+::\+Height\+Noise@{Noise\+Random\+::\+Height\+Noise}}
+\subsubsection{\texorpdfstring{\+\_\+generator}{\_generator}}
+{\footnotesize\ttfamily noise\+::module\+::\+Perlin Noise\+Random\+::\+Height\+Noise\+::\+\_\+generator\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_noise_random_1_1_height_noise_a5e4713b2a4522778d1478cdf75339658}\label{class_noise_random_1_1_height_noise_a5e4713b2a4522778d1478cdf75339658}} 
+\index{Noise\+Random\+::\+Height\+Noise@{Noise\+Random\+::\+Height\+Noise}!\+\_\+out@{\+\_\+out}}
+\index{\+\_\+out@{\+\_\+out}!Noise\+Random\+::\+Height\+Noise@{Noise\+Random\+::\+Height\+Noise}}
+\subsubsection{\texorpdfstring{\+\_\+out}{\_out}}
+{\footnotesize\ttfamily noise\+::module\+::\+Clamp Noise\+Random\+::\+Height\+Noise\+::\+\_\+out\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}

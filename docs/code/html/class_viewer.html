@@ -60,6 +60,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-attribs">Attributs privés</a> &#124;
 <a href="class_viewer-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Viewer</div>  </div>
@@ -72,6 +73,11 @@ Graphe de collaboration de Viewer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_viewer__coll__graph.png" border="0" usemap="#_viewer_coll__map" alt="Collaboration graph"/></div>
 <map name="_viewer_coll__map" id="_viewer_coll__map">
+<area shape="rect" id="node2" href="class_rendering.html" title="Interface of Bridge pattern use to free the dependance with library like openGL. " alt="" coords="5,468,156,721"/>
+<area shape="rect" id="node3" href="class_trackball.html" title="A (relatively) simple trackball. " alt="" coords="181,175,367,1015"/>
+<area shape="rect" id="node4" href="class_shader.html" title="{Shader\n|# mIsValid\l# mProgramID\l|+ Shader()\l+ loadFromFiles()\l+ loadSources()\l+ activate()\l+ deactivate()\l+ getUniformLocation()\l+ setSamplerUnit()\l+ getAttribLocation()\l+ id()\l+ valid()\l+ dumpInfos()\l# printProgramInfoLog()\l# printShaderInfoLog()\l}" alt="" coords="392,461,551,729"/>
+<area shape="rect" id="node5" href="class_shape.html" title="interface which contains the needed data for the planet generation. " alt="" coords="575,468,757,721"/>
+<area shape="rect" id="node6" href="struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. " alt="" coords="609,5,723,112"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -107,6 +113,37 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a79192db7ddae958fc0ae2ee2e90cb995"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12155081915ec2fcf3554534b8aa52d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a12155081915ec2fcf3554534b8aa52d6">charPressed</a> (int key)</td></tr>
 <tr class="separator:a12155081915ec2fcf3554534b8aa52d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr class="memitem:ae5cf141efe1b370bddb3aee4f459aae6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_trackball.html">Trackball</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#ae5cf141efe1b370bddb3aee4f459aae6">_cam</a></td></tr>
+<tr class="separator:ae5cf141efe1b370bddb3aee4f459aae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed35052dd2cafc37dcb9ebdc707b0ee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a5ed35052dd2cafc37dcb9ebdc707b0ee">_winWidth</a></td></tr>
+<tr class="separator:a5ed35052dd2cafc37dcb9ebdc707b0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b2ec5f7c556f9c21bd4db90db4adc3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#aa9b2ec5f7c556f9c21bd4db90db4adc3">_winHeight</a></td></tr>
+<tr class="separator:aa9b2ec5f7c556f9c21bd4db90db4adc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28fb6ad2e98323a2e15cf8d3f6250715"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shader.html">Shader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a28fb6ad2e98323a2e15cf8d3f6250715">_simple_shader</a></td></tr>
+<tr class="separator:a28fb6ad2e98323a2e15cf8d3f6250715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8179d29882494d1c22c9f1836a374eab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shader.html">Shader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a8179d29882494d1c22c9f1836a374eab">_line_shader</a></td></tr>
+<tr class="separator:a8179d29882494d1c22c9f1836a374eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da6f3bfd65c6e60809d1ca6bccba84c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shape.html">Shape</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a4da6f3bfd65c6e60809d1ca6bccba84c">_shape</a></td></tr>
+<tr class="separator:a4da6f3bfd65c6e60809d1ca6bccba84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3316af44dc82836ab420a1c1dd7de738"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a3316af44dc82836ab420a1c1dd7de738">_wireframe</a> = false</td></tr>
+<tr class="separator:a3316af44dc82836ab420a1c1dd7de738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821af83607bfed860f0d3566dd9db597"><td class="memItemLeft" align="right" valign="top">Eigen::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a821af83607bfed860f0d3566dd9db597">_lightDir</a></td></tr>
+<tr class="separator:a821af83607bfed860f0d3566dd9db597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f1313a7d9a6b81079985c9ad0f93e0c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a4f1313a7d9a6b81079985c9ad0f93e0c">_theta</a></td></tr>
+<tr class="separator:a4f1313a7d9a6b81079985c9ad0f93e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec677d1951652c794bcdea1663e1fb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a5ec677d1951652c794bcdea1663e1fb7">_rotate</a></td></tr>
+<tr class="separator:a5ec677d1951652c794bcdea1663e1fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809a18b8663d86d127fee482326919ad"><td class="memItemLeft" align="right" valign="top">Eigen::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a809a18b8663d86d127fee482326919ad">_lastMousePos</a></td></tr>
+<tr class="separator:a809a18b8663d86d127fee482326919ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebac1d4a942eab5c1bfcfe46c67f7c6a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#aebac1d4a942eab5c1bfcfe46c67f7c6a">_button</a> = -1</td></tr>
+<tr class="separator:aebac1d4a942eab5c1bfcfe46c67f7c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58d6891d6b99ada90a627407fd5e7b8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_rendering.html">Rendering</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a58d6891d6b99ada90a627407fd5e7b8f">_rendering</a></td></tr>
+<tr class="separator:a58d6891d6b99ada90a627407fd5e7b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a03e43d748a30a2a7413abeb949c4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_viewer.html#a16a03e43d748a30a2a7413abeb949c4c">_ready</a> = false</td></tr>
+<tr class="separator:a16a03e43d748a30a2a7413abeb949c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a29d3e7c2922835cbd92c285c709dbe30"></a>
@@ -470,6 +507,315 @@ Voici le graphe des appelants de cette fonction :</div>
 </div><div class="memdoc">
 
 <p>refresh the window if called </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="aebac1d4a942eab5c1bfcfe46c67f7c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebac1d4a942eab5c1bfcfe46c67f7c6a">&#9670;&nbsp;</a></span>_button</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Viewer::_button = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5cf141efe1b370bddb3aee4f459aae6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5cf141efe1b370bddb3aee4f459aae6">&#9670;&nbsp;</a></span>_cam</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_trackball.html">Trackball</a> Viewer::_cam</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a809a18b8663d86d127fee482326919ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809a18b8663d86d127fee482326919ad">&#9670;&nbsp;</a></span>_lastMousePos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector2f Viewer::_lastMousePos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a821af83607bfed860f0d3566dd9db597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a821af83607bfed860f0d3566dd9db597">&#9670;&nbsp;</a></span>_lightDir</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Eigen::Vector3f Viewer::_lightDir</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8179d29882494d1c22c9f1836a374eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8179d29882494d1c22c9f1836a374eab">&#9670;&nbsp;</a></span>_line_shader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_shader.html">Shader</a>* Viewer::_line_shader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16a03e43d748a30a2a7413abeb949c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a03e43d748a30a2a7413abeb949c4c">&#9670;&nbsp;</a></span>_ready</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Viewer::_ready = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58d6891d6b99ada90a627407fd5e7b8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d6891d6b99ada90a627407fd5e7b8f">&#9670;&nbsp;</a></span>_rendering</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_rendering.html">Rendering</a>* Viewer::_rendering</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ec677d1951652c794bcdea1663e1fb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec677d1951652c794bcdea1663e1fb7">&#9670;&nbsp;</a></span>_rotate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Viewer::_rotate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4da6f3bfd65c6e60809d1ca6bccba84c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da6f3bfd65c6e60809d1ca6bccba84c">&#9670;&nbsp;</a></span>_shape</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_shape.html">Shape</a>* Viewer::_shape</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28fb6ad2e98323a2e15cf8d3f6250715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28fb6ad2e98323a2e15cf8d3f6250715">&#9670;&nbsp;</a></span>_simple_shader</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_shader.html">Shader</a>* Viewer::_simple_shader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f1313a7d9a6b81079985c9ad0f93e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f1313a7d9a6b81079985c9ad0f93e0c">&#9670;&nbsp;</a></span>_theta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Viewer::_theta</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9b2ec5f7c556f9c21bd4db90db4adc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b2ec5f7c556f9c21bd4db90db4adc3">&#9670;&nbsp;</a></span>_winHeight</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Viewer::_winHeight</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ed35052dd2cafc37dcb9ebdc707b0ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ed35052dd2cafc37dcb9ebdc707b0ee">&#9670;&nbsp;</a></span>_winWidth</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Viewer::_winWidth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3316af44dc82836ab420a1c1dd7de738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3316af44dc82836ab420a1c1dd7de738">&#9670;&nbsp;</a></span>_wireframe</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Viewer::_wireframe = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

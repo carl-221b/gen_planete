@@ -1,6 +1,8 @@
 <map id="ThresholdTable::addLayer" name="ThresholdTable::addLayer">
-<area shape="rect" id="node2" href="$thresholdtable_8cpp.html#a555b8f200a4f6e35f544d24ccc98b1e3" title="DefaultColorThresholdTable" alt="" coords="225,45,409,71"/>
-<area shape="rect" id="node5" href="$class_x_m_l_generator.html#aea905ef316503fe716d368ae21f25b9b" title="XMLGenerator::generate" alt="" coords="235,95,399,122"/>
-<area shape="rect" id="node3" href="$class_noisy_height___editor.html#ac56426a50e5adf94c8b2a4211d0b0c77" title="NoisyHeight_Editor. " alt="" coords="471,5,613,47"/>
-<area shape="rect" id="node4" href="$class_random___editor.html#a68118d2b9929e7c9dbb821ce76554164" title="Random_Editor. " alt="" coords="457,71,627,112"/>
+<area shape="rect" id="node2" href="$thresholdtable_8cpp.html#a555b8f200a4f6e35f544d24ccc98b1e3" title="Default colors layer table. Constant ratio with associated colors in domain [0, 1] with 0 the sea..." alt="" coords="247,78,431,105"/>
+<area shape="rect" id="node5" href="$class_x_m_l_generator.html#a4df5b09d456665f90f1c2e0818ccd442" title="XMLGenerator::readColorThreshold\lTable" alt="" coords="225,129,452,171"/>
+<area shape="rect" id="node3" href="$class_noisy_height___editor.html#ac56426a50e5adf94c8b2a4211d0b0c77" title="NoisyHeight_Editor. " alt="" coords="518,5,661,47"/>
+<area shape="rect" id="node4" href="$class_random___editor.html#a68118d2b9929e7c9dbb821ce76554164" title="Random_Editor. " alt="" coords="505,71,674,112"/>
+<area shape="rect" id="node6" href="$class_x_m_l_generator.html#a3bd445a70b67303cf5539212ed58928d" title="applyEditor apply the editor in configuration file. " alt="" coords="500,137,679,163"/>
+<area shape="rect" id="node7" href="$class_x_m_l_generator.html#adf874b492da2e813980151c3453dd75c" title="XMLGenerator::generate" alt="" coords="727,137,891,163"/>
 </map>

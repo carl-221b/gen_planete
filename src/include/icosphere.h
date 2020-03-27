@@ -1,5 +1,5 @@
-#ifndef MESH_H
-#define MESH_H
+#ifndef ICOSHPERE_H
+#define ICOSHPERE_H
 
 #include "shape.h"
 #include "rendering.h"
@@ -34,21 +34,16 @@ public:
     virtual void load(const std::string& filename) override;
 
     /**
-     * @brief Updates mesh's attributes (vertices and faces) from its Surface_mesh
-     */
-    void updateMeshFromSurfaceMesh();
-
-    /**
      * @brief Compute normal for each face
      */
     virtual void computeNormals() override;
-
-    /**
-     * @brief Move vertices positions to make the planet look more organic
-     */
-    void organicTriangulation();
     
 private:
+
+    /**
+     * @brief Updates mesh's attributes (vertices and faces) from its Surface_mesh
+     */
+    void updateMeshFromSurfaceMesh();
 
     /**
      * @brief Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother
@@ -90,10 +85,15 @@ private:
     void subdivide();
 
     /**
+     * @brief Move vertices positions to make the planet look more organic
+     */
+    void organicTriangulation();
+
+    /**
      * @brief _halfEdge : structure used to know the connectivity between the different faces and vertices.
      */
     surface_mesh::Surface_mesh _halfEdge;
 };
 
 
-#endif // MESH_H
+#endif // ICOSHPERE_H

@@ -5,6 +5,8 @@
 #include "noiserandom.h"
 #include "aleatorymode.h"
 
+#define RANDOM_COLOR_RATIO 0.15
+
 /**
  * @brief The NoisyHeight_Editor class permit to use a noise in order to displace vertices
  * and apply a color from the resulting height. 

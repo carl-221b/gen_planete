@@ -2,6 +2,11 @@
 \label{class_camera}\index{Camera@{Camera}}
 
 
+Implementation of \hyperlink{class_trackball}{Trackball} class.  
+
+
+
+
 {\ttfamily \#include $<$camera.\+h$>$}
 
 
@@ -11,7 +16,7 @@ Graphe d\textquotesingle{}héritage de Camera\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=216pt]{class_camera__inherit__graph}
+\includegraphics[height=550pt]{class_camera__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -21,13 +26,13 @@ Graphe de collaboration de Camera\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=216pt]{class_camera__coll__graph}
+\includegraphics[height=550pt]{class_camera__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_camera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\hyperlink{class_camera_ae23af4d7cab430c77d537621cdd16b3f}{Camera} ()=default
 \end{DoxyCompactItemize}
 \subsection*{Fonctions membres publiques statiques}
 \begin{DoxyCompactItemize}
@@ -39,20 +44,16 @@ static Eigen\+::\+Matrix4f \hyperlink{class_camera_a683a2e432969a485412c28e18567
 \subsection*{Membres hérités additionnels}
 
 
+\subsection{Description détaillée}
+Implementation of \hyperlink{class_trackball}{Trackball} class. 
+
 \subsection{Documentation des constructeurs et destructeur}
-\mbox{\Hypertarget{class_camera_a01f94c3543f56ede7af49dc778f19331}\label{class_camera_a01f94c3543f56ede7af49dc778f19331}} 
+\mbox{\Hypertarget{class_camera_ae23af4d7cab430c77d537621cdd16b3f}\label{class_camera_ae23af4d7cab430c77d537621cdd16b3f}} 
 \index{Camera@{Camera}!Camera@{Camera}}
 \index{Camera@{Camera}!Camera@{Camera}}
 \subsubsection{\texorpdfstring{Camera()}{Camera()}}
-{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=315pt]{class_camera_a01f94c3543f56ede7af49dc778f19331_cgraph}
-\end{center}
-\end{figure}
 
 
 \subsection{Documentation des fonctions membres}
@@ -62,26 +63,12 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \subsubsection{\texorpdfstring{look\+At()}{lookAt()}}
 {\footnotesize\ttfamily Matrix4f Camera\+::look\+At (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Vector3f \&}]{position,  }\item[{const Eigen\+::\+Vector3f \&}]{target,  }\item[{const Eigen\+::\+Vector3f \&}]{up }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=293pt]{class_camera_a683a2e432969a485412c28e18567c174_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{class_camera_aa63f48a3280871eba3a6f74a3c0f2e2e}\label{class_camera_aa63f48a3280871eba3a6f74a3c0f2e2e}} 
 \index{Camera@{Camera}!perspective@{perspective}}
 \index{perspective@{perspective}!Camera@{Camera}}
 \subsubsection{\texorpdfstring{perspective()}{perspective()}}
 {\footnotesize\ttfamily Matrix4f Camera\+::perspective (\begin{DoxyParamCaption}\item[{float}]{fovy,  }\item[{float}]{aspect,  }\item[{float}]{z\+Near,  }\item[{float}]{z\+Far }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=315pt]{class_camera_aa63f48a3280871eba3a6f74a3c0f2e2e_icgraph}
-\end{center}
-\end{figure}
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
