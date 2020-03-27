@@ -94,30 +94,32 @@ static void usage(){
     printf("\n");
     printf("Options: \n");
     printf("-h         Displays this help\n");
-    printf("-o         The filename output when saving.\n");
+    //printf("-o         The filename output when saving.\n");
 }
 
 
 int main (int argc, char **argv)
 {
-    //TODO
+    //TODO Output save
     //Options and main parameters 
-    /*int opt = 0;
+    int opt = 0;
     FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
-    while ((opt = getopt(argc, argv, "ho:")) != -1) {
+    while ((opt = getopt(argc, argv, "h:"/*"ho:*/)) != -1) {
         switch (opt) {
         case 'h':
             usage();
             break;
+            /*
         case 'o':
             FILE_SAVE_OUTPUT = optarg;
             printf("New save path : %s\n", FILE_SAVE_OUTPUT);
             break;
+            */
         default:
             usage();
             exit(EXIT_FAILURE);
         }
-    }*/
+    }
 
     //Generation
     Shape* shape;
