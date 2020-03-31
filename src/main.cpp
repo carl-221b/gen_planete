@@ -90,7 +90,7 @@ static void usage(){
 
     printf("Use: ./gen_planet [options] [config_file_path]\n");
     printf("The program generate and construct a whole planet with differents options.\n");
-    printf("In order to .\n");
+    printf("You can use it without config_file_path, but it's recommended in order to control the parameters.\n");
     printf("\n");
     printf("Options: \n");
     printf("-h         Displays this help\n");
@@ -101,7 +101,7 @@ int main (int argc, char **argv)
 {
     //Options and main parameters 
     int opt = 0;
-    while ((opt = getopt(argc, argv, "h"/*"ho:*/)) != -1) {
+    while ((opt = getopt(argc, argv, "ho:")) != -1) {
         switch (opt) {
         case 'h':
             usage();
