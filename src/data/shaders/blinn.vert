@@ -32,7 +32,7 @@ void main()
     else
     {   
         v_color = vec4(0.0,0.4,0.6,0.6);
-        gl_Position = projection_matrix * model_view_matrix * vec4(0.708*vtx_position/length(vtx_position),1.0);
+        gl_Position = projection_matrix * model_view_matrix * vec4(0.705*normalize(vtx_position),1.0);
         v_shininess= 4.0;
         v_diffuse = 1.0;
         v_spec = .9;
