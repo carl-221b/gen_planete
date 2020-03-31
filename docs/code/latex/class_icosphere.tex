@@ -16,7 +16,7 @@ Graphe d\textquotesingle{}héritage de Icosphere\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=245pt]{class_icosphere__inherit__graph}
+\includegraphics[width=242pt]{class_icosphere__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -38,17 +38,17 @@ Graphe de collaboration de Icosphere\+:
 \item 
 virtual void \hyperlink{class_icosphere_a72c3cc3d95cf508a623fe336cbbab350}{load} (const std\+::string \&filename) override
 \begin{DoxyCompactList}\small\item\em Creates the \+\_\+half\+Edge attribute from an O\+BJ file. \end{DoxyCompactList}\item 
-void \hyperlink{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}{update\+Mesh\+From\+Surface\+Mesh} ()
-\begin{DoxyCompactList}\small\item\em Updates mesh\textquotesingle{}s attributes (vertices and faces) from its Surface\+\_\+mesh. \end{DoxyCompactList}\item 
 virtual void \hyperlink{class_icosphere_af7d6c8c60248794f6a6c382dc5f98a24}{compute\+Normals} () override
-\begin{DoxyCompactList}\small\item\em Compute normal for each face. \end{DoxyCompactList}\item 
-void \hyperlink{class_icosphere_ab3470de718fee359ef4691e0c2ee987a}{organic\+Triangulation} ()
-\begin{DoxyCompactList}\small\item\em Move vertices positions to make the planet look more organic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Compute normal for each face. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Fonctions membres privées}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{class_icosphere_a38645b095ea6895c2aa5bbff7d8edf20}{update\+Mesh\+From\+Surface\+Mesh} ()
+\begin{DoxyCompactList}\small\item\em Updates mesh\textquotesingle{}s attributes (vertices and faces) from its Surface\+\_\+mesh. \end{DoxyCompactList}\item 
 void \hyperlink{class_icosphere_a1086e13d1300ed79bf201d2570eb7ebe}{subdivide} ()
-\begin{DoxyCompactList}\small\item\em Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Subdivides the triangluar mesh. Each triangle is subdivided into 4 smaller triangles which allow the mesh to look smoother. \end{DoxyCompactList}\item 
+void \hyperlink{class_icosphere_ab3470de718fee359ef4691e0c2ee987a}{organic\+Triangulation} ()
+\begin{DoxyCompactList}\small\item\em Move vertices positions to make the planet look more organic. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Attributs privés}
 \begin{DoxyCompactItemize}
 \item 
@@ -124,7 +124,7 @@ Implémente \hyperlink{class_shape_a20d654ec232b682c36cd8b28d2cba750}{Shape}.
 \index{Icosphere@{Icosphere}!organic\+Triangulation@{organic\+Triangulation}}
 \index{organic\+Triangulation@{organic\+Triangulation}!Icosphere@{Icosphere}}
 \subsubsection{\texorpdfstring{organic\+Triangulation()}{organicTriangulation()}}
-{\footnotesize\ttfamily void Icosphere\+::organic\+Triangulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Icosphere\+::organic\+Triangulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -174,7 +174,7 @@ Step 4 \+: it replaces the old Surface\+\_\+mesh by the new one, and updates the
 \index{Icosphere@{Icosphere}!update\+Mesh\+From\+Surface\+Mesh@{update\+Mesh\+From\+Surface\+Mesh}}
 \index{update\+Mesh\+From\+Surface\+Mesh@{update\+Mesh\+From\+Surface\+Mesh}!Icosphere@{Icosphere}}
 \subsubsection{\texorpdfstring{update\+Mesh\+From\+Surface\+Mesh()}{updateMeshFromSurfaceMesh()}}
-{\footnotesize\ttfamily void Icosphere\+::update\+Mesh\+From\+Surface\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Icosphere\+::update\+Mesh\+From\+Surface\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

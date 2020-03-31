@@ -1,6 +1,6 @@
 <map id="Random_Editor::edit" name="Random_Editor::edit">
-<area shape="rect" id="node2" href="$class_shape.html#aacdf84a7934b19a50bf9d5b4cd122caf" title="Get the Vertices object (editable) " alt="" coords="223,5,356,32"/>
-<area shape="rect" id="node3" href="$class_threshold_table.html#a35e7219d9476c3a5c0362e80ab7f5596" title="getColorLayerByValue " alt="" coords="205,57,373,98"/>
-<area shape="rect" id="node4" href="$class_random___editor.html#a24b101aa09fc78ad3febf247ae47038d" title="Assigns color for a vertex. " alt="" coords="195,123,384,149"/>
-<area shape="rect" id="node5" href="$class_shape.html#afd886ad433d08a566003073bfd837f40" title="Compute normal for each face. " alt="" coords="206,173,373,200"/>
+<area shape="rect" id="node2" href="$class_shape.html#aacdf84a7934b19a50bf9d5b4cd122caf" title="Get the Vertices object (editable) " alt="" coords="227,5,360,32"/>
+<area shape="rect" id="node3" href="$class_threshold_table.html#a4d666178969016311a474841e4538a71" title="getColorLayerByValue " alt="" coords="195,57,392,98"/>
+<area shape="rect" id="node4" href="$class_random___editor.html#a24b101aa09fc78ad3febf247ae47038d" title="Assigns color for a vertex. " alt="" coords="199,123,388,149"/>
+<area shape="rect" id="node5" href="$class_shape.html#afd886ad433d08a566003073bfd837f40" title="Compute normal for each face. " alt="" coords="210,173,377,200"/>
 </map>

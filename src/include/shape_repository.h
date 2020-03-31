@@ -5,13 +5,14 @@
 
 #define DEFAULT_SAVE_PATH "./planet"
 
-//static char* FILE_SAVE_OUTPUT;
-
 /**
  * @brief interface to manage saves and loads of shapes
  */
 class Shape_Repository {
 public:
+
+     static char *FILE_SAVE_OUTPUT;
+
     /**
      * @brief Saves the planet into a .obj format file, does not include the color yet
      *
@@ -23,10 +24,6 @@ public:
      *
      */
     static void saveOFF(Shape* shape, const std::string& filename);
-
-private:
-    Shape_Repository() {}
-    ~Shape_Repository() {}
 };
 
 #endif // SHAPE_REPOSITORY_H

@@ -85,7 +85,8 @@ std::string NoisyHeight_Editor::info() const
         << "Octave " << _octave << "\n"
         << "Frequence " << _frequence << "\n"
         << "Persistence " << _persistence << "\n"
-        << "Seed " << _seed << "\n";
+        << "Seed " << _seed << "\n"
+        << "Layers : \n";
 
     for (Threshold<Eigen::Vector3f> tr : _layers->getLayers())
     {

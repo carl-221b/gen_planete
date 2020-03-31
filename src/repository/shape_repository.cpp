@@ -3,6 +3,8 @@
 #include <iostream>
 #include <fstream>
 
+char *Shape_Repository::FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
+
 void Shape_Repository::saveOBJ(Shape* shape, const std::string& filename){
     std::ofstream myfile;
     myfile.open(filename + ".obj");

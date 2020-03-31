@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['speed_5flight_5frotation',['SPEED_LIGHT_ROTATION',['../viewer_8h.html#a7a01048c9d109298f4dd1c46641df248',1,'viewer.h']]]
+  ['random_5fcolor_5fratio',['RANDOM_COLOR_RATIO',['../noisyheight__editor_8h.html#aee0c3a1b33e775c3ac327b21eefdef46',1,'noisyheight_editor.h']]]
 ];

@@ -88,12 +88,12 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a8724b07d34b3b1c84d4e6e6f2afdad37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_threshold_table.html#a8724b07d34b3b1c84d4e6e6f2afdad37">addLayer</a> (double value, T data)</td></tr>
 <tr class="memdesc:a8724b07d34b3b1c84d4e6e6f2afdad37"><td class="mdescLeft">&#160;</td><td class="mdescRight">addLayer add a layer with upperbound=value and will be sorted in the table.  <a href="#a8724b07d34b3b1c84d4e6e6f2afdad37">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8724b07d34b3b1c84d4e6e6f2afdad37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35e7219d9476c3a5c0362e80ab7f5596"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_threshold_table.html#a35e7219d9476c3a5c0362e80ab7f5596">getColorLayerByValue</a> (double value) const</td></tr>
-<tr class="memdesc:a35e7219d9476c3a5c0362e80ab7f5596"><td class="mdescLeft">&#160;</td><td class="mdescRight">getColorLayerByValue  <a href="#a35e7219d9476c3a5c0362e80ab7f5596">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a35e7219d9476c3a5c0362e80ab7f5596"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac20ccb2dd4cd20e96036818ca0106f93"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_threshold_table.html#ac20ccb2dd4cd20e96036818ca0106f93">getDefaultColor</a> () const</td></tr>
-<tr class="memdesc:ac20ccb2dd4cd20e96036818ca0106f93"><td class="mdescLeft">&#160;</td><td class="mdescRight">getDefaultColor  <a href="#ac20ccb2dd4cd20e96036818ca0106f93">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ac20ccb2dd4cd20e96036818ca0106f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d666178969016311a474841e4538a71"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_threshold_table.html#a4d666178969016311a474841e4538a71">getDataLayerByValue</a> (double value) const</td></tr>
+<tr class="memdesc:a4d666178969016311a474841e4538a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">getColorLayerByValue  <a href="#a4d666178969016311a474841e4538a71">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4d666178969016311a474841e4538a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8db6671717f413e500301520310ccc74"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_threshold_table.html#a8db6671717f413e500301520310ccc74">getDefaultData</a> () const</td></tr>
+<tr class="memdesc:a8db6671717f413e500301520310ccc74"><td class="mdescLeft">&#160;</td><td class="mdescRight">getDefaultData  <a href="#a8db6671717f413e500301520310ccc74">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8db6671717f413e500301520310ccc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6cb1745a571a4e071e9b74ad34372405"><td class="memItemLeft" align="right" valign="top">const std::set&lt; <a class="el" href="struct_threshold.html">Threshold</a>&lt; T &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_threshold_table.html#a6cb1745a571a4e071e9b74ad34372405">getLayers</a> () const</td></tr>
 <tr class="memdesc:a6cb1745a571a4e071e9b74ad34372405"><td class="mdescLeft">&#160;</td><td class="mdescRight">getLayers  <a href="#a6cb1745a571a4e071e9b74ad34372405">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6cb1745a571a4e071e9b74ad34372405"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,8 +248,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a35e7219d9476c3a5c0362e80ab7f5596"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35e7219d9476c3a5c0362e80ab7f5596">&#9670;&nbsp;</a></span>getColorLayerByValue()</h2>
+<a id="a4d666178969016311a474841e4538a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d666178969016311a474841e4538a71">&#9670;&nbsp;</a></span>getDataLayerByValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,7 +260,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="class_threshold_table.html">ThresholdTable</a>&lt; T &gt;::getColorLayerByValue </td>
+          <td class="memname">T <a class="el" href="class_threshold_table.html">ThresholdTable</a>&lt; T &gt;::getDataLayerByValue </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -281,21 +281,21 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>The color of the layer that is belong or the default one if is higher than max of the table. Print a warning if convention [-1,1] is noit respected. </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>The data of the layer that is belong or the default one if is higher than max of the table. Print a warning if convention [-1,1] is not respected. </dd></dl>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="class_threshold_table_a35e7219d9476c3a5c0362e80ab7f5596_icgraph.png" border="0" usemap="#class_threshold_table_a35e7219d9476c3a5c0362e80ab7f5596_icgraph" alt=""/></div>
-<map name="class_threshold_table_a35e7219d9476c3a5c0362e80ab7f5596_icgraph" id="class_threshold_table_a35e7219d9476c3a5c0362e80ab7f5596_icgraph">
-<area shape="rect" id="node2" href="class_noisy_height___editor.html#a3ed5c7267dec56ff2f21366ce2ae9818" title="Applies vertex deplacement and colors the shapes. " alt="" coords="225,5,359,47"/>
-<area shape="rect" id="node3" href="class_random___editor.html#abea41199b1502f89be0b2914b3c191fc" title="Applies vertex deplacement and colors the shape. " alt="" coords="221,71,363,98"/>
+<div class="center"><img src="class_threshold_table_a4d666178969016311a474841e4538a71_icgraph.png" border="0" usemap="#class_threshold_table_a4d666178969016311a474841e4538a71_icgraph" alt=""/></div>
+<map name="class_threshold_table_a4d666178969016311a474841e4538a71_icgraph" id="class_threshold_table_a4d666178969016311a474841e4538a71_icgraph">
+<area shape="rect" id="node2" href="class_noisy_height___editor.html#a3ed5c7267dec56ff2f21366ce2ae9818" title="Applies vertex deplacement and colors the shapes. " alt="" coords="254,5,389,47"/>
+<area shape="rect" id="node3" href="class_random___editor.html#abea41199b1502f89be0b2914b3c191fc" title="Applies vertex deplacement and colors the shape. " alt="" coords="251,71,392,98"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ac20ccb2dd4cd20e96036818ca0106f93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac20ccb2dd4cd20e96036818ca0106f93">&#9670;&nbsp;</a></span>getDefaultColor()</h2>
+<a id="a8db6671717f413e500301520310ccc74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8db6671717f413e500301520310ccc74">&#9670;&nbsp;</a></span>getDefaultData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +306,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="class_threshold_table.html">ThresholdTable</a>&lt; T &gt;::getDefaultColor </td>
+          <td class="memname">T <a class="el" href="class_threshold_table.html">ThresholdTable</a>&lt; T &gt;::getDefaultData </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -319,7 +319,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>getDefaultColor </p>
+<p>getDefaultData </p>
 <dl class="section return"><dt>Renvoie</dt><dd>the default data. </dd></dl>
 
 </div>

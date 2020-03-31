@@ -90,31 +90,26 @@ static void usage(){
 
     printf("Use: ./gen_planet [options] [config_file_path]\n");
     printf("The program generate and construct a whole planet with differents options.\n");
-    printf("In order to .\n");
+    printf("You can use it without config_file_path, but it's recommended in order to control the parameters.\n");
     printf("\n");
     printf("Options: \n");
     printf("-h         Displays this help\n");
-    //printf("-o         The filename output when saving.\n");
+    printf("-o         The filename output when saving.\n");
 }
-
 
 int main (int argc, char **argv)
 {
-    //TODO Output save
     //Options and main parameters 
     int opt = 0;
-    //FILE_SAVE_OUTPUT = DEFAULT_SAVE_PATH;
-    while ((opt = getopt(argc, argv, "h"/*"ho:*/)) != -1) {
+    while ((opt = getopt(argc, argv, "ho:")) != -1) {
         switch (opt) {
         case 'h':
             usage();
             break;
-            /*
         case 'o':
-            FILE_SAVE_OUTPUT = optarg;
-            printf("New save path : %s\n", FILE_SAVE_OUTPUT);
+            Shape_Repository::FILE_SAVE_OUTPUT = optarg;
+            printf("New save path : %s\n", Shape_Repository::FILE_SAVE_OUTPUT);
             break;
-            */
         default:
             usage();
             exit(EXIT_FAILURE);
@@ -125,7 +120,7 @@ int main (int argc, char **argv)
     Shape* shape;
 
     if (optind >= argc) { //if no config_file_path
-        shape = new Icosphere(10, true);
+        shape = new Icosphere(5, true);
         Editor* noisy = new NoisyHeight_Editor(shape);
         noisy->edit();
         delete noisy;

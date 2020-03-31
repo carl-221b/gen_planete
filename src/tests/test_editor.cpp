@@ -45,5 +45,7 @@ TEST(EditorTest, NoisyHeightEditorSame)
 
     EXPECT_NO_FATAL_FAILURE();
     delete ed;
+    delete ed_bis;
     delete shape;
+    delete shape_bis;
 }

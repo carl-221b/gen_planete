@@ -1,4 +1,4 @@
 <map id="Icosphere" name="Icosphere">
-<area shape="rect" id="node2" href="$class_shape.html" title="interface which contains the needed data for the planet generation. " alt="" coords="24,175,207,428"/>
-<area shape="rect" id="node3" href="$struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. " alt="" coords="58,5,173,112"/>
+<area shape="rect" id="node2" href="$class_shape.html" title="interface which contains the needed data for the planet generation. " alt="" coords="22,175,205,428"/>
+<area shape="rect" id="node3" href="$struct_shape_1_1_vertices.html" title="The Vertices struct containing positions normals and colors for each vertex. " alt="" coords="56,5,171,112"/>
 </map>
