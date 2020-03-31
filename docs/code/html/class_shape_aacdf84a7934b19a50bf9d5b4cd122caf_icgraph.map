@@ -3,5 +3,5 @@
 <area shape="rect" id="node3" href="$class_random___editor.html#abea41199b1502f89be0b2914b3c191fc" title="Applies vertex deplacement and colors the shape. " alt="" coords="211,71,353,98"/>
 <area shape="rect" id="node4" href="$class_shape___repository.html#a0a0e36f8beab55be3c88e08c823819cd" title="Saves the planet into a .obj format file, does not include the color yet. " alt="" coords="187,122,377,149"/>
 <area shape="rect" id="node6" href="$class_shape___repository.html#ad52141b6883d20084a0105355f2271b5" title="Saves the planet into a .off format file, does not include the color yet. " alt="" coords="187,173,377,199"/>
-<area shape="rect" id="node5" href="$class_viewer.html#a79192db7ddae958fc0ae2ee2e90cb995" title="Viewer::keyPressed" alt="" coords="425,122,564,149"/>
+<area shape="rect" id="node5" href="$class_viewer.html#a79192db7ddae958fc0ae2ee2e90cb995" title="Viewer::keyPressed" alt="" coords="425,147,564,174"/>
 </map>

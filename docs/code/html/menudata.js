@@ -61,6 +61,7 @@ var menudata={children:[
 {text:"~",url:"functions_func.html#index_0x7e"}]},
 {text:"Variables",url:"functions_vars.html",children:[
 {text:"_",url:"functions_vars.html#index__"},
+{text:"f",url:"functions_vars.html#index_f"},
 {text:"m",url:"functions_vars.html#index_m"}]},
 {text:"Définitions de type",url:"functions_type.html"},
 {text:"Énumérations",url:"functions_enum.html"},

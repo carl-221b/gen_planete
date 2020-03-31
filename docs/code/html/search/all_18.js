@@ -9,7 +9,6 @@ var searchData=
   ['_7erendering',['~Rendering',['../class_rendering.html#aefe02eb379fb45f7270bd0887c6c3d5e',1,'Rendering']]],
   ['_7erendering_5fopengl',['~Rendering_OpenGL',['../class_rendering___open_g_l.html#a32ff44fc5d3a776a6add4eef3f662a96',1,'Rendering_OpenGL']]],
   ['_7eshape',['~Shape',['../class_shape.html#ac8ad2fd02e1e94beeb98e65ab795cd56',1,'Shape']]],
-  ['_7eshape_5frepository',['~Shape_Repository',['../class_shape___repository.html#a446ee87301c8318b9fbd9e46ec54b0df',1,'Shape_Repository']]],
   ['_7eviewer',['~Viewer',['../class_viewer.html#a324e5a6a1532fe5eac3f3b0e4792b2da',1,'Viewer']]],
   ['_7exmlgenerator',['~XMLGenerator',['../class_x_m_l_generator.html#a8f947bac9f682ba5a22ccb98ff88ff81',1,'XMLGenerator']]]
 ];

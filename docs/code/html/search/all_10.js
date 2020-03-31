@@ -1,6 +1,7 @@
 var searchData=
 [
   ['random',['random',['../namespace_noise_random.html#a9830d40f986d564ef30504f8dfb9ed90',1,'NoiseRandom']]],
+  ['random_5fcolor_5fratio',['RANDOM_COLOR_RATIO',['../noisyheight__editor_8h.html#aee0c3a1b33e775c3ac327b21eefdef46',1,'noisyheight_editor.h']]],
   ['random_5feditor',['Random_Editor',['../class_random___editor.html',1,'Random_Editor'],['../class_random___editor.html#a68118d2b9929e7c9dbb821ce76554164',1,'Random_Editor::Random_Editor()']]],
   ['random_5feditor_2ecpp',['random_editor.cpp',['../random__editor_8cpp.html',1,'']]],
   ['random_5feditor_2eh',['random_editor.h',['../random__editor_8h.html',1,'']]],
