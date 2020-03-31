@@ -1,5 +1,5 @@
 #include "viewer.h"
-#include "shape_repository.h"
+
 
 using namespace Eigen;
 
@@ -111,7 +111,7 @@ void Viewer::display()
 
 void Viewer::updateScene() 
 {
-    if(_rotate) _theta+= SPEED_LIGHT_ROTATION*M_PI;
+    if(_rotate) _theta += SPEED_LIGHT_ROTATION*M_PI;
     display();
 }
 
@@ -207,17 +207,19 @@ void Viewer::keyPressed(int key, int action, int mods)
         if (key == GLFW_KEY_R)
             loadPrograms();
         else if(key == GLFW_KEY_S){
-            std::cerr << "Save to " << DEFAULT_SAVE_PATH <<"\n";
-            Shape_Repository::saveOBJ(_shape, DEFAULT_SAVE_PATH);
-            Shape_Repository::saveOFF(_shape, DEFAULT_SAVE_PATH);
+            std::cerr << "Save to \"" << Shape_Repository::FILE_SAVE_OUTPUT <<" \".\n";
+            Shape_Repository::saveOBJ(_shape, Shape_Repository::FILE_SAVE_OUTPUT);
+            Shape_Repository::saveOFF(_shape, Shape_Repository::FILE_SAVE_OUTPUT);
         }
         else if(key == GLFW_KEY_Z)
         {
             _wireframe = !_wireframe;
+            std::cerr << "Wireframe mode " << (_wireframe ? "on" : "off") <<"\n";
         }
         else if(key == GLFW_KEY_L)
         {
             _rotate = !_rotate;
+            std::cerr << "Light rotate " << (_rotate ? "on" : "off") <<"\n";
         }
         
     }

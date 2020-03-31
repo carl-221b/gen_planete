@@ -3,7 +3,7 @@
 
 #include <gtest/gtest.h>
 
-#define MAX_SUBDIVIDE_TEST 3
+#define MAX_SUBDIVIDE_TEST 5
 
 TEST(IcosphereTest, creation) {
 

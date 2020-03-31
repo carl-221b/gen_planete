@@ -47,4 +47,5 @@ TEST(EditorTest, NoisyHeightEditorSame)
     delete ed;
     delete ed_bis;
     delete shape;
+    delete shape_bis;
 }

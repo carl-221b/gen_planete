@@ -7,6 +7,7 @@
 #include "shape.h"
 #include "trackball.h"
 #include "rendering.h"
+#include "shape_repository.h"
 
 #define SPEED_LIGHT_ROTATION 0.002
 
