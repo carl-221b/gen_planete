@@ -20,19 +20,19 @@ TEST(TresholdTest, creation)
                         NoiseRandom::random(0,1)));
     }
 
-    ThresholdTable<Eigen::Vector4f>* layers = new ThresholdTable<Eigen::Vector4f>(colors.back());
+    ThresholdTable<Eigen::Vector4f> layers(colors.back());
 
     for (size_t i = 0; i< (colors.size()-1); i++)
     {
-        layers->addLayer(i*1.0/colors.size(), colors[i]);
+        layers.addLayer(i*1.0/colors.size(), colors[i]);
     }
 
-    EXPECT_EQ(layers->getLayers().size(), colors.size());
+    EXPECT_EQ(layers.getLayers().size(), colors.size());
 
     size_t i =0;
-    for(Threshold<Eigen::Vector4f> lay: layers->getLayers())
+    for(Threshold<Eigen::Vector4f> lay: layers.getLayers())
     {
-        if(i != (layers->getLayers().size()-1))
+        if(i != (layers.getLayers().size()-1))
         {
             EXPECT_EQ(lay._max, i*1.0/colors.size());
         }
@@ -63,16 +63,16 @@ TEST(TresholdTest, getvalue)
                         NoiseRandom::random(0,1)));
     }
 
-    ThresholdTable<Eigen::Vector4f>* layers = new ThresholdTable<Eigen::Vector4f>(colors.back());
+    ThresholdTable<Eigen::Vector4f> layers(colors.back());
 
     for (size_t i = 0; i< (nb_layers-1); i++)
     {
-        layers->addLayer(i*1.0/nb_layers, colors[i]);
+        layers.addLayer(i*1.0/nb_layers, colors[i]);
     }
 
     double ind = NoiseRandom::random(0, nb_layers);
     int layerExpected = std::ceil(ind);
     double value = ind / nb_layers;
-    EXPECT_EQ(layers->getDataLayerByValue(value), colors[layerExpected]);
+    EXPECT_EQ(layers.getDataLayerByValue(value), colors[layerExpected]);
 
 }
