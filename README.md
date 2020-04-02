@@ -90,16 +90,13 @@ Pour des paramètres particulier sur les bruits, je vous invite à regarder la d
      Permet le lien entre les données en mémoire et opengl.
  - glfw : 
      API utilisé pour la gestion de fenêtre.
- - ObjFormat :
- Utilisé pour le chargement de fichier obj pour les transformer en données.
- Copyright (C) 2007 Gael Guennebaud 
 
 ### GNU Library General Public License, Version 2
 - surface_mesh :
 Facilite la gestion de connectivité et connexité des vertices pour la subdivision
 Copyright (C) 2013 by Graphics & Geometry Group, Bielefeld University
 - libnoise :
-Utilisé pour l'application des bruits sur la sphère afin de créer les reliefs.
+Utilisé pour créer les reliefs à partir de bruits cohérents.
 
 ### MIT License
 - pugyxml:
