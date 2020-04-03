@@ -1,5 +1,8 @@
 #version 330 core
 
+//uniform vec4 color_ocean = vec4(0.0,0.4,0.6,0.6); // blue
+uniform vec4 color_ocean = vec4(0.4,0.2,0.3, 0.6); // Red
+
 uniform mat4 projection_matrix;
 uniform mat4 model_view_matrix;
 uniform mat3 normal_matrix;
@@ -13,7 +16,7 @@ out float v_diffuse;
 out float v_spec;
 out float v_shininess;
 out vec4 vert_pos_view;
-out vec3 vert_normal_view;
+flat out vec3 vert_normal_view;
 flat out vec4 v_color;
 
 uniform int sea_mode;
@@ -31,7 +34,8 @@ void main()
     }
     else
     {   
-        v_color = vec4(0.0,0.4,0.6,0.6);
+
+        v_color = color_ocean;
         gl_Position = projection_matrix * model_view_matrix * vec4(0.705*normalize(vtx_position),1.0);
         v_shininess= 4.0;
         v_diffuse = 1.0;

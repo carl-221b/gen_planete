@@ -7,7 +7,7 @@ in float v_diffuse;
 in float v_spec;
 in float v_shininess;
 in vec4 vert_pos_view;
-in vec3 vert_normal_view;
+flat in vec3 vert_normal_view;
 flat in vec4 v_color;
 
 out vec4 out_color;
