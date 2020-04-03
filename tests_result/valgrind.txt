@@ -1,0 +1,9 @@
+#Execution in tests_result
+cd..
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Debug ../src
+make clean
+make -j12
+valgrind --leak-check=full --show-leak-kinds=all --log-file="../tests_result/valgrind_tests.txt" ./unit_tests
+valgrind --leak-check=yes --log-file="../tests_result/valgrind_genPlanet.txt" ./gen_planet -o test  ../src/data/generators/simple.xml

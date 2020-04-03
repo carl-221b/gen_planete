@@ -1,0 +1,120 @@
+[==========] Running 20 tests from 9 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from IcosphereTest
+[ RUN      ] IcosphereTest.creation
+[       OK ] IcosphereTest.creation (172 ms)
+[ RUN      ] IcosphereTest.subdivide_0
+[       OK ] IcosphereTest.subdivide_0 (0 ms)
+[ RUN      ] IcosphereTest.subdivide_random
+Number subdivision : 3
+Number vertices : 162
+[       OK ] IcosphereTest.subdivide_random (0 ms)
+[----------] 3 tests from IcosphereTest (172 ms total)
+
+[----------] 1 test from IcosphereyTest
+[ RUN      ] IcosphereyTest.vertices
+[       OK ] IcosphereyTest.vertices (137 ms)
+[----------] 1 test from IcosphereyTest (137 ms total)
+
+[----------] 3 tests from EditorTest
+[ RUN      ] EditorTest.creation_noisyheight
+[       OK ] EditorTest.creation_noisyheight (134 ms)
+[ RUN      ] EditorTest.edit_noisyheight
+[       OK ] EditorTest.edit_noisyheight (209 ms)
+[ RUN      ] EditorTest.NoisyHeightEditorSame
+[       OK ] EditorTest.NoisyHeightEditorSame (353 ms)
+[----------] 3 tests from EditorTest (699 ms total)
+
+[----------] 1 test from Serialisation
+[ RUN      ] Serialisation.save_basic_obj
+[       OK ] Serialisation.save_basic_obj (571 ms)
+[----------] 1 test from Serialisation (571 ms total)
+
+[----------] 1 test from TimeGeneration
+[ RUN      ] TimeGeneration.limits_subdivision
+Maximum subdivision with NoisyHeight_Editor : 10 for 2957 ms.
+Number of vertices : 2621442 
+[       OK ] TimeGeneration.limits_subdivision (3894 ms)
+[----------] 1 test from TimeGeneration (3894 ms total)
+
+[----------] 1 test from GeneratorTest
+[ RUN      ] GeneratorTest.creation
+Load result: No error
+Basic shape : icosphere subdivided 8 times 
+With : organic true
+Editor : noisy_height
+With parameters
+Octave 1
+Frequence 7.7538
+Persistence 0.618466
+Seed -35094299
+Layers : 
+max : 0 
+color :
+  0
+  0
+0.5
+
+max : 0.5 
+color :
+   0
+0.33
+   0
+
+max : 0.9 
+color :
+ 0.5
+0.25
+   0
+
+max : 1 
+color :
+0.8
+0.8
+0.8
+
+max : 1.79769e+308 
+color :
+0.2
+0.2
+0.2
+
+ 
+[       OK ] GeneratorTest.creation (182 ms)
+[----------] 1 test from GeneratorTest (182 ms total)
+
+[----------] 5 tests from CoordinatesTest
+[ RUN      ] CoordinatesTest.cartToPolar
+[       OK ] CoordinatesTest.cartToPolar (0 ms)
+[ RUN      ] CoordinatesTest.polarToCart
+[       OK ] CoordinatesTest.polarToCart (0 ms)
+[ RUN      ] CoordinatesTest.cart0
+[       OK ] CoordinatesTest.cart0 (0 ms)
+[ RUN      ] CoordinatesTest.polar0
+[       OK ] CoordinatesTest.polar0 (0 ms)
+[ RUN      ] CoordinatesTest.cumulated
+[       OK ] CoordinatesTest.cumulated (0 ms)
+[----------] 5 tests from CoordinatesTest (0 ms total)
+
+[----------] 2 tests from TresholdTest
+[ RUN      ] TresholdTest.creation
+[       OK ] TresholdTest.creation (0 ms)
+[ RUN      ] TresholdTest.getvalue
+[       OK ] TresholdTest.getvalue (0 ms)
+[----------] 2 tests from TresholdTest (0 ms total)
+
+[----------] 3 tests from RandomTest
+[ RUN      ] RandomTest.uniform
+[       OK ] RandomTest.uniform (0 ms)
+[ RUN      ] RandomTest.normalRandom
+[       OK ] RandomTest.normalRandom (0 ms)
+[ RUN      ] RandomTest.height
+[       OK ] RandomTest.height (0 ms)
+[----------] 3 tests from RandomTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 20 tests from 9 test suites ran. (5655 ms total)
+[  PASSED  ] 20 tests.
+
+  YOU HAVE 2 DISABLED TESTS
+
