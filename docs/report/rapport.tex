@@ -169,7 +169,7 @@ Nous cherchons à mettre en place au sein de ce projet, un outil permettant de g
 \label{algos_gen_sphere}
 \subsubsection{Subdivision d'un icosaèdre : icosphére}
 
-Il existe différentes méthodes pour générer une sphère à face polygonale. La toute première est la subdivision à plusieurs reprises d'un  icosaèdre pour obtenir une géode. Un icosaèdre est un polyèdre composé de  12 sommets et 20 triangles équilatéraux (visibile figure  \ref{figure0}). La géode quant à elle est un polyèdre convexe inscrit dans une sphère dont il réalise une approximation. Pour obtenir cette géode, on réalise une subdivision des triangles composant l'icosaèdre en  4 triangles plus petits. On répète cette opération plusieurs fois afin d'obtenir la surface désirée. On peut voir le résultat après 2 subdivisions consécutives sur la figure \ref{figure1}.\\
+Il existe différentes méthodes pour générer une sphère à face polygonale. La toute première est la subdivision à plusieurs reprises d'un  icosaèdre pour obtenir une géode. Un icosaèdre est un polyèdre composé de  12 sommets et 20 triangles équilatéraux (visible figure  \ref{figure0}). La géode quant à elle est un polyèdre convexe inscrit dans une sphère dont il réalise une approximation. Pour obtenir cette géode, on réalise une subdivision des triangles composant l'icosaèdre en  4 triangles plus petits. On répète cette opération plusieurs fois afin d'obtenir la surface désirée. On peut voir le résultat après 2 subdivisions consécutives sur la figure \ref{figure1}.\\
 \\
 L'utilisation de cette approche permet d'obtenir une position des points régulière mais aussi une décomposition de la sphère en triangle de même taille sans appliquer d'autres algorithmes supplémentaires (Comme Voronoï ou Delaunay qui sont expliqués plus bas). Il s'agit de la méthode standard. Il est possible d'appliquer cette subdivision sur les uv-spheres et les cubesphéres, mais les polygones ne seront pas identiques, et donc leur taille non plus. Pour plus d'informations, voir la référence \cite{SongHoAhn}. Il est néanmoins possible de partir directement de points et de les relier par la suite. C'est le cas de l'utilisation de la sphère de Fibonacci.\\
 
@@ -572,10 +572,9 @@ Une autre conséquence positive de cette séparation est que la forme de départ
 
 \paragraph{Générateur XML :}
 
-Afin de répondre au besoin \ref{besoin_paramètres} nous avons tout d'abord implémenté un système par ligne de commande. Mais au fur et à mesure de l'avancement, il a été clair que le système était insuffisant à cause du nombre de paramètres et la complexité de ceux-ci.\\
-Nous avons donc mis en place une interface \textbf{Generator} dont sa responsabilité est de lire un fichier de configuration, et de créer à la volée la forme de base et appliquer l'éditeur renseigné avec les différents paramètres.
+Afin de répondre au besoin \ref{besoin_paramètres} nous avons mis en place une interface \textbf{Generator} dont sa responsabilité est de lire un fichier de configuration, et de créer à la volée la forme de base et appliquer l'éditeur renseigné avec les différents paramètres.
 Il retourne ensuite la planète créée qui peut alors être utilisée par la partie visualisation.\\
-Cela a permis notamment de faciliter les modifications appliquées par l'utilisateur, pouvant alors librement choisir les paramètres qu'il veut, jusqu'à choisir les paramètres aléatoirement choisi avec la classe \textbf{AleatoryMode} (simple implémentation de bitflags), mais au prix que pour maintenir les nouveaux éditeurs et de nouveaux paramètres, il faut implémenter la lecture de ceux-ci dans les différentes implémentations.\\
+Cela a permis notamment de faciliter les modifications appliquées par l'utilisateur, pouvant alors librement choisir les paramètres qu'il veut, jusqu'à choisir les paramètres aléatoirement avec l'énumération \textbf{AleatoryMode} en paramètre.
 
 L'implémention actuellement de cette interface se fait avec la bibliothèque pugyxml, avec les fichiers de configurations associé (figure \ref{archi_generator}).
     \begin{figure}[!ht]
@@ -583,11 +582,11 @@ L'implémention actuellement de cette interface se fait avec la bibliothèque pu
         \caption{\label{archi_generator}Diagramme de classe simplifié de Generator et ses implémentations (doxygen).}
     \end{figure}
     
-On a gardé cependant la possibilité dans le main de changer le comportement par défaut si il n'y a pas de fichier de configuration, ce qui permet de garder l'extensibilité mais nécessite une recompilation du programme à chaque modification.
+On a gardé cependant la possibilité dans le main de changer le comportement par défaut si il n'y a pas de fichier de configuration.
 
 \paragraph{Couleurs paramétrables :}
 
-Lié au besoin de l'implémentation précédente, il a fallu créé un système qui puisse déterminer sur une échelle de hauteur les couleurs à utiliser dans les éditeurs. C'est ce que permet la classe \textbf{TresholdTable}, qui permet selon une hauteur par convention dans [-1,1] d'associer une couleur selon des bornes ((\textbf{Treshold}) prédéfinis, illustré figure \ref{archi_treshold}. Mais comme c'est une classe template elle serai extensible à d'autres problèmes, ou juste on pourrai changé la représentation des couleurs. En soit le principe est de pouvoir sur une échelle de valeurs d'un paramètre, découper son domaine et associer à chaque borne une donnée. 
+Lié au besoin de l'implémentation précédente, il a fallu créé un système qui puisse déterminer sur une échelle de hauteur les couleurs à utiliser dans les éditeurs. C'est ce que permet la classe \textbf{TresholdTable}, qui permet selon une hauteur de sommets, par convention ramené dans le domaine [-1,1] d'associer une couleur selon des bornes ((\textbf{Treshold}) prédéfinis, illustré figure \ref{archi_treshold}. Comme c'est une classe template elle serai extensible à d'autres problèmes. On pourrai changé par exemple la représentation des couleurs ou encore pouvoir sur une échelle de valeurs d'un paramètre, découper son domaine et associer à chaque borne une donnée. 
 
 \begin{figure}[!ht]
         \begin{center} \includegraphics[width=\linewidth]{img/archi/example_treshold.png}\end{center}
@@ -723,7 +722,7 @@ Le test sur les éditeurs concerne principalement le seul éditeur paramétrable
 
 \subsection{Tests sur les performances}
 
-On cherche ici à évaluer les performances de calcul en fonction du nombre de subdivision et de l'application de notre éditeur. Pour cela on répète la subdivision 50 fois afin d'avoir une moyenne par valeur de subdivision, et on augmente par la suite le nombre de subdivision dans une génération. On peut alors savoir jusqu'où il est possible d'aller dans le nombre de subdivision si on ne donne pas de bornes supérieur. On compare aussi le temps de calcul avec et sans editeur, en fonction du nombre de subdivision et nous obtenons alors le graphique visible à la figure \ref{graphperf}
+On cherche ici à évaluer les performances de calcul en fonction du nombre de subdivision et de l'application de notre éditeur. Pour cela on répète la même subdivision 50 fois afin d'avoir une moyenne par valeur de subdivision, et on augmente par la suite le nombre de subdivision. On peut alors savoir jusqu'où il est possible d'aller dans le nombre de subdivision si on ne donne pas de bornes supérieur. On compare aussi le temps de calcul avec et sans editeur, en fonction du nombre de subdivision et nous obtenons alors le graphique visible à la figure \ref{graphperf}
 
 \begin{figure}[!ht]
     \begin{center}
@@ -733,12 +732,14 @@ On cherche ici à évaluer les performances de calcul en fonction du nombre de s
     \end{center}
 \end{figure}
 
-On remarque alors que passé la subdivision de taille 10, le temps commence à augmenter de manière exponentiel. C'est bien ce que l'on attendait vu que l'on quadruple le nombre de face à chaque division, ce qui revient à une complexité exponentiel comme observé. Même si 10 secondes restent tout à fait raisonnable, si on va plus loin le test nous a permis de mettre en évidence le manque de mémoire afin de réaliser la génération qui se solde par une exception de "bad alloc". Ce problème mémoire est notamment lié au nombre de point généré à chaque subdivision. Pour chaque triangle, face basic de notre icosphère, nous créons 4 nouveau triangle, ce qui augmente à chaque fois le nombre de point de 3 pour chaque triangle.
-Pour exemple :
+On remarque alors que passé la subdivision de taille 10, le temps commence à augmenter de manière exponentiel. C'est bien ce que l'on attendait vu que l'on quadruple le nombre de face à chaque division, ce qui revient à une complexité exponentiel comme observé. Même si 10 secondes restent tout à fait raisonnable, si on va plus loin le test nous a permis de mettre en évidence le manque de mémoire afin de réaliser la génération qui se solde par une exception de "bad alloc". Ce problème mémoire est notamment lié au nombre de point généré à chaque subdivision. Pour chaque triangle, face basique de notre icosphère, nous créons 4 nouveau triangle, ce qui augmente à chaque fois le nombre de point de 3 pour chaque triangle.
+Un exemple du nombre de sommets :
 \begin{lstlisting}[caption= Résultat des tests unitaires]
 Maximum subdivision with NoisyHeight_Editor : 10 for 2835 ms.
 Number of vertices : 2621442
 \end{lstlisting}
+
+En soit nous souhaitons des rendus "low-poly" c'est à dire avec peu de polygones. Nous pouvons quand même faire de beaux rendus sans pour autant avoir beaucoup de polygones, et la barre des 10 000 est dépassé sans trop de difficulté, donc la complexité n'est pas critique pour ce que l'on veut en faire.
 
 \subsection{Test sur le temps de génération}
 
