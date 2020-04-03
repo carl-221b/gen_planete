@@ -24,32 +24,32 @@
         <colors_treshold>
 	    <!-- Par défaut-->
             <default_color>
-                <vector3f x="0." y="0." z="0."/>
+                <vector3f r="0." g="0." b="0."/>
             </default_color>
 	    <!-- Chaque layer avec son seuil maximal, et sa couleur RGB-->
             <table>
                 <layer>
                     <max_treshold value="0."/>
                     <color>
-                        <vector3f x="0." y="0." z="0.5"/>
+                        <vector3f r="0." g="0." b="0.5"/>
                     </color>
                 </layer>
                 <layer>
                     <max_treshold value="0.5"/>
                     <color>
-                        <vector3f x="0.5" y="0.5" z="0.5"/>
+                        <vector3f r="0.5" g="0.5" b="0.5"/>
                     </color>
                 </layer>
                 <layer>
                     <max_treshold value="0.7"/>
                     <color>
-                        <vector3f x="0.7" y="0.7" z="0.7"/>
+                        <vector3f r="0.7" g="0.7" b="0.7"/>
                     </color>
                 </layer>
                 <layer>
                     <max_treshold value="1.0"/>
                     <color>
-                        <vector3f x="1.0" y="1." z="1.0"/>
+                        <vector3f r="1.0" g="1." b="1.0"/>
                     </color>
                 </layer>
             </table>

@@ -12,7 +12,7 @@
 #define MAX_SUBDIVISION_MODIF 10
 
 //Test to create performance diagramm
-TEST(DISABLED_TimePerformances, nomodif)
+TEST(TimePerformances, nomodif)
 {
     std::ofstream out;
     out.open("test_perf_nomodif.txt");
@@ -26,7 +26,19 @@ TEST(DISABLED_TimePerformances, nomodif)
 
         try{
             out << sub << ";" ;
-            for (int i =0; i <NB_TRY ;i++)
+
+            timer.startTimer();
+            shape = new Icosphere(sub);
+            timer.endTimer();
+
+            int nb_faces = shape->getFaces().size();
+            out << nb_faces << ";" ;
+
+            double duration = timer.getDurationMs();
+            out << duration << ";";
+            delete shape;
+
+            for (int i =1; i <NB_TRY ;i++)
             {
                 timer.startTimer();
                 shape = new Icosphere(sub);
@@ -66,7 +78,23 @@ TEST(DISABLED_TimePerformances, withmodif)
 
         try{
             out << sub << ";" ;
-            for (int i =0; i <NB_TRY ;i++)
+
+            timer.startTimer();
+            shape = new Icosphere(sub, true);
+            ed = new NoisyHeight_Editor(shape);
+            ed->edit();
+            timer.endTimer();
+
+            int nb_faces = shape->getFaces().size();
+            out << nb_faces << ";" ;
+
+            double duration = timer.getDurationMs();
+            out << duration << ";";
+
+            delete shape;
+            delete ed;
+
+            for (int i =1; i <NB_TRY ;i++)
             {
                 timer.startTimer();
                 shape = new Icosphere(sub, true);

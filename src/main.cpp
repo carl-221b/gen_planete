@@ -27,7 +27,7 @@ static void scroll_callback(GLFWwindow* window, double x, double y)
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    if ((key == GLFW_KEY_Q || key == GLFW_KEY_ESCAPE) && action == GLFW_PRESS) {
+    if ((key == GLFW_KEY_A || key == GLFW_KEY_ESCAPE) && action == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
 
@@ -105,6 +105,7 @@ int main (int argc, char **argv)
         switch (opt) {
         case 'h':
             usage();
+            exit(EXIT_SUCCESS);
             break;
         case 'o':
             Shape_Repository::FILE_SAVE_OUTPUT = optarg;
