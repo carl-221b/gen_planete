@@ -81,6 +81,7 @@ Pour des paramètres particulier sur les bruits, je vous invite à regarder la d
  - Touche ' L ' : Activer/Desactiver la rotation de lumière autour de la planète.
  - Touche ' R ' : Chargement des modifications appliqués au shader s'il y en a eu.
  - Touche ' S ' : Sauvegarde en obj (sans les couleurs) et off (avec les couleurs) le relief de la planète (sans la mer).
+ - Touche ' Q ' ou ' Escape ' : Sortir du logiciel.
  
 ## Bibliothèques utilisés
 ### Mozilla Public License 2
