@@ -479,7 +479,7 @@ Les besoins fonctionnels et non fonctionnels seront énoncés, ainsi que la mani
 La planète est caractérisée par une sphère. Il est donc nécessaire de pouvoir créer une sphère. L’analyse de l’existant a montré qu’il existait plusieurs techniques avec deux approches de départ différentes : avec des points, ou directement avec des formes. La solution la plus adéquate est l’utilisation de l’icosaèdre avec sa subdivision. C’est une méthode tout à fait standard et efficace qui ne nécessitera pas l’implémentation d’algorithmes supplémentaires pour un rendu minimal correct à l’inverse de la sphère de Fibonacci. Qui plus est, l’implémentation et l’utilisation d’algorithmes supplémentaires pour améliorer le rendu est tout à fait envisageable avec l’utilisation de l’icosaèdre. C'est pour cela que nous avons choisi cette solution au vu de l'ensemble des avantages qu'elle présente.
 
 \subsubsubsection{Représentation des informations}
-La géométrie définit précédemment, en soit une sphère quasi-parfaite, sert de base à notre planète. Ce n’est qu'après que l'on peut la modifier à notre guise. Ce qui amène du coup à la définition même des informations que l’on va créer et représenter. Dans notre cas, il a été choisi de ne pas créer d'informations supplémentaires et de se contenter d'utiliser la notion de position et de couleurs offertes par les points. La planète ne se voulant pas être une simulation réaliste, il n'a pas été nécessaire de mettre en place des pôles, un équateur, des biômes et une logique scientifique vis à vis de la position des reliefs (plaques tectoniques). L'ajout de ces informations reste cependant une amélioration possible.
+La géométrie définit précédemment, une sphère quasi-parfaite, sert de base à notre planète. Ce n’est qu'après que l'on peut la modifier à notre guise. Ce qui amène du coup à la définition même des informations que l’on va créer et représenter. Dans notre cas, il a été choisi de ne pas créer d'informations supplémentaires et de se contenter d'utiliser la notion de position et de couleurs offertes par les points. La planète ne se voulant pas être une simulation réaliste, il n'a pas été nécessaire de mettre en place des pôles, un équateur, des biômes et une logique scientifique vis à vis de la position des reliefs (plaques tectoniques). L'ajout de ces informations reste cependant une amélioration possible.
 
 \subsubsubsection{Paramètres modifiables}
 \label{besoin_paramètres}
@@ -541,12 +541,12 @@ Une partie du code où la maintenabilité n'est pas assurée est la classe XMLGe
 
 %exemples de bon fonctionnement, schémas, justifications, explication de la décomposition modulaire (modules, classes, paquetages, namespaces), points techniques d’implémentation, utilisation de bibliothèques externes, extensions, application de principes logiciels
 
-Pour l'architecture nous nous sommes basés sur le code du cours de Mondes 3D pour les Master IIS, plus précisément le TD9, par Pierre BENARD \cite{TD_3D}. L'architecture se décompose alors en deux parties: Une partie appelée model qui contient l'ensemble des informations à manipuler (principalement la géométrie). L'autre partie s'occupe quant à elle de la visualisation de ces informations. L'architecture complète de notre logiciel est disponible en annexe (voir \hyperref[archiComplete]{\textbf{8 Annexe}}). 
+Pour l'architecture nous nous sommes basés sur le code du cours de Mondes 3D pour les Master IIS, plus précisément le TD9, par Pierre BENARD \cite{TD_3D}. L'architecture se décompose alors en deux parties: Une partie appelée model qui contient l'ensemble des informations à manipuler (principalement la géométrie). L'autre partie s'occupe quant à elle de la visualisation de ces informations. \textbf{L'architecture complète de notre logiciel est disponible en annexe} (voir \hyperref[archiComplete]{\textbf{8 Annexe}}). 
 \\
 
 
 \subsection{Modèle}
-Le modèle correspond à la partie qui s'occupe de générer une planète : créer une forme, lui appliquer des reliefs, et des couleurs. La représentation de la planète est représentée par l'interface shape et la classe qui l'implémente icosphère. Quant à la partie qui s'occupe de la modification de ces informations est représentée par l'interface Editor et les deux éditeurs qui l'implémentent : random\_editor et noisyheight\_editor. La figure \ref{archi_model} démontre une version simplifiée de l'ensemble du package model.\\
+Le modèle correspond à la partie qui s'occupe de générer une planète : créer une forme, lui appliquer des reliefs, et des couleurs. La représentation de la planète est faite par l'interface "Shape" et la classe qui l'implémente, "icosphère". La partie qui s'occupe de la modification de ces informations est représentée par l'interface Editor et les deux éditeurs qui l'implémentent : random\_editor et noisyheight\_editor. La figure \ref{archi_model} démontre une version simplifiée de l'ensemble du package model.\\
 
  \begin{figure}[!ht]
         \begin{center} \includegraphics[width=\linewidth]{img/archi/model.png}\end{center}
@@ -560,8 +560,8 @@ Le modèle correspond à la partie qui s'occupe de générer une planète : cré
         \caption{\label{archi_shape}Diagramme simplifié du package model}
     \end{figure}
     
-Afin de laissez le choix au développeur d'implémenter de la manière qu'il souhaite une planète, le choix a été fait de faire de shape.h une interface assez légère (peu de contrainte au niveau de la manipulation des informations contenues dans la structure vertices). Cette interface est représentée par la figure \ref{archi_shape}. Elle contient notamment la structure \textbf{Vertices}, utilisé pour stocker l'ensemble des points, leurs normales et les couleurs associés pour permettre la visualisation. Le choix est laissé au développeur d'utiliser la structure de donnée qu'il veut pour gérer la connexité des points. Ainsi, nous limitons alors la dépendance à une bibliothèque en particulier pour gérer cette connexité.
-Dans ce projet, c'est une icosphère (icosphere.cpp) qui a été choisie pour représenter une planète sphérique. Pour gérer la connexité des points et des faces, nous avons utilisé la bibliothèque surface\_mesh. En effet, comme nous sommes partis du TD9 de Pierre Benard sur les mondes3D \cite{TD_3D}, une simplification de la bibliothèque surface\_mesh était proposée. Cette bibliothèque permet principalement de savoir les voisins de chaque point constituant la planète, ainsi que les faces qui sont autour d'un point. Il est tout à fait possible de rajouter des propriétés à chaque point par l'intermédiaire de cette bibliothèque. Néanmoins, une fois qu'une valeur est ajoutée à une propriété, il est impossible de la changer à moins de refaire complètement cette structure de donnée. Ainsi, cela a motivé le choix de faire une deuxième structure qui est \textbf{Vertices} pour stocker les coordonnées, les couleurs et les normales comme dit plus haut et garder celle-ci uniquement pour la connexité.
+Afin de laissez le choix au développeur d'implémenter une planète de la manière qu'il le souhaite, le choix a été fait de faire de shape.h une interface assez légère (peu de contraintes au niveau de la manipulation des informations contenues dans la structure Vertices). Cette interface est représentée par la figure \ref{archi_shape}. Elle contient notamment la structure \textbf{Vertices}, utilisée pour stocker l'ensemble des points, leurs normales et les couleurs associés pour permettre la visualisation. Le choix est laissé au développeur d'utiliser la structure de données qu'il veut pour gérer la connexité des points. Ainsi, nous limitons la dépendance à une bibliothèque en particulier (ici surface\_mesh) pour gérer cette connexité.
+Dans ce projet, c'est une icosphère (icosphere.cpp) qui a été choisie pour représenter une planète sphérique. Pour gérer la connexité des points et des faces, nous avons utilisé la bibliothèque surface\_mesh. En effet, comme nous sommes partis du TD9 de Pierre Benard sur les mondes3D \cite{TD_3D}, une simplification de la bibliothèque surface\_mesh était proposée. Cette bibliothèque permet principalement de savoir les voisins de chaque point constituant la planète, ainsi que les faces qui sont autour d'un point. Il est tout à fait possible de rajouter des propriétés à chaque point par l'intermédiaire de cette bibliothèque. Néanmoins, une fois qu'une valeur est ajoutée à une propriété, il est impossible de la changer à moins de refaire complètement cette structure de données. Ainsi, cela a motivé le choix de faire une deuxième structure qui est \textbf{Vertices} pour stocker les coordonnées, les couleurs et les normales comme dit plus haut et garder celle de surface\_mesh uniquement pour la connexité.
 
 \subsubsection{Modification d'une planète par un éditeur}
 
@@ -572,11 +572,11 @@ Une autre conséquence positive de cette séparation est que la forme de départ
 
 \paragraph{Générateur XML :}
 
-Afin de répondre au besoin \ref{besoin_paramètres} nous avons mis en place une interface \textbf{Generator} dont sa responsabilité est de lire un fichier de configuration, et de créer à la volée la forme de base et appliquer l'éditeur renseigné avec les différents paramètres.
+Afin de répondre au besoin de modification des paramètres (\ref{besoin_paramètres}), nous avons mis en place une interface \textbf{Generator} dont sa responsabilité est de lire un fichier de configuration, et de créer à la volée la forme de base et appliquer l'éditeur renseigné avec les différents paramètres.
 Il retourne ensuite la planète créée qui peut alors être utilisée par la partie visualisation.\\
 Cela a permis notamment de faciliter les modifications appliquées par l'utilisateur, pouvant alors librement choisir les paramètres qu'il veut, jusqu'à choisir les paramètres aléatoirement avec l'énumération \textbf{AleatoryMode} en paramètre.
 
-L'implémention actuellement de cette interface se fait avec la bibliothèque pugyxml, avec les fichiers de configurations associé (figure \ref{archi_generator}).
+L'implémention actuellement de cette interface se fait avec la bibliothèque pugixml, avec les fichiers de configuration associés (figure \ref{archi_generator}).
     \begin{figure}[!ht]
         \begin{center} \includegraphics[width=0.3\linewidth]{img/archi/archi_generator.png}\end{center}
         \caption{\label{archi_generator}Diagramme de classe simplifié de Generator et ses implémentations (doxygen).}
@@ -586,7 +586,7 @@ On a gardé cependant la possibilité dans le main de changer le comportement pa
 
 \paragraph{Couleurs paramétrables :}
 
-Lié au besoin de l'implémentation précédente, il a fallu créé un système qui puisse déterminer sur une échelle de hauteur les couleurs à utiliser dans les éditeurs. C'est ce que permet la classe \textbf{TresholdTable}, qui permet selon une hauteur de sommets, par convention ramené dans le domaine [-1,1] d'associer une couleur selon des bornes ((\textbf{Treshold}) prédéfinis, illustré figure \ref{archi_treshold}. Comme c'est une classe template elle serai extensible à d'autres problèmes. On pourrai changé par exemple la représentation des couleurs ou encore pouvoir sur une échelle de valeurs d'un paramètre, découper son domaine et associer à chaque borne une donnée. 
+Lié au besoin de l'implémentation précédente, il a fallu créé un système qui puisse déterminer sur une échelle de hauteur les couleurs à utiliser dans les éditeurs. C'est le rôle de la classe \textbf{TresholdTable}, qui permet, selon une hauteur de sommets (par convention ramenée dans le domaine [-1,1]), d'associer une couleur selon des bornes (\textbf{Treshold}) prédéfinis, illustré figure \ref{archi_treshold}. Comme c'est une classe template elle serait extensible à d'autres problèmes. On pourrait changer par exemple la représentation des couleurs ou encore pouvoir, sur une échelle de valeurs d'un paramètre, découper son domaine et associer à chaque borne une donnée.
 
 \begin{figure}[!ht]
         \begin{center} \includegraphics[width=\linewidth]{img/archi/example_treshold.png}\end{center}
@@ -596,14 +596,14 @@ Lié au besoin de l'implémentation précédente, il a fallu créé un système 
 \newpage
 \subsubsection{Aléatoire et bruit}
 
-Afin d'avoir une sorte de boite à outil pour tout ce qui concerne l'aléatoire et les bruits, nous avons créé le namespace \textbf{NoiseRandom}. Il permet de centralisé les fonctions global facilitant la manipulation de l'aléatoire, mais aussi grâce à la classe \textbf{HeightNoise} au sien de ce namespace de fournir une abstraction de la bibliothèque Libnoise et de séparer cette dépendance. Au cas où on utiliserait une autre bibliothèque, on pourrait ainsi en changeant l'implémentation de HeightNoise impacter de façon minimal le reste du code si on change pas les signatures de fonction.
+Afin d'avoir une sorte de boite à outil pour tout ce qui concerne l'aléatoire et les bruits, nous avons défini le namespace \textbf{NoiseRandom}. Il permet de centraliser les fonctions globales, facilitant la manipulation de l'aléatoire, mais aussi, grâce à la classe \textbf{HeightNoise} au sein de ce namespace, de fournir une abstraction de la bibliothèque Libnoise et de séparer cette dépendance. Dans le cas où l'on utiliserait une autre bibliothèque, on aurait, en changeant l'implémentation de HeightNoise, un impact minimal sur le reste du code si on ne change pas les signatures de fonction.
 
 \subsection{Visualisation}
 
 % Mettre une image de l'architecture ici
 
-La visualisation regroupe l'ensemble des classes permettant l'affichage et l'interaction avec l'utilisateur. L'ensemble de ses classes est présent dans le répertoire view.
-L'affichage devait se faire sur un système d'exploitation Linux, il a donc été choisi de le faire via OpenGL. Pour permettre toute extension (via Windows avec DirectX par exemple), on a utilisé le pattern bridge via l'interface Rendering. Cette dernière est implémentée par Rendering\_OpenGL. Toute fonction de visualisation de la planète passe donc par cette interface. Elle est principalement utilisée dans la classe \textbf{Viewer}, qui s'occupe à la fois de générer une visualisation mais aussi des interactions avec l'utilisateur (déplacement de la caméra et zoom principalement). Ces interactions sont gérées ici par la bibliothèque GLFW.
+La visualisation regroupe l'ensemble des classes permettant l'affichage et l'interaction avec l'utilisateur. L'ensemble de ces classes se trouve dans le répertoire view.
+L'affichage devant se faire sur un système d'exploitation Linux, il a donc été choisi de le faire via OpenGL. Pour permettre toute extension (via Windows avec DirectX par exemple), on a utilisé le pattern bridge via l'interface Rendering. Cette dernière est implémentée par Rendering\_OpenGL. Toute fonction de visualisation de la planète passe donc par cette interface. Elle est principalement utilisée dans la classe \textbf{Viewer}, qui s'occupe à la fois de générer une visualisation mais aussi des interactions avec l'utilisateur (déplacement de la caméra et zoom principalement). Ces interactions sont gérées ici par la bibliothèque GLFW.
 La capacité de déplacement de l'affichage est faite par l'intermédiaire de la classe caméra qui hérite de trackball, cette dernière contenant l'ensemble des méthodes nécessaires au zoom et à la rotation, ainsi qu'aux matrices de projections.
 
 \subsection{Récapitulatif des dépendances}
@@ -611,40 +611,40 @@ La capacité de déplacement de l'affichage est faite par l'intermédiaire de la
 \paragraph{Mozilla Public License 2 : }
 \begin{itemize}
 \item Eigen :  
-     Facilite les calculs matriciels pour la géométrie. 
+     facilite les calculs matriciels pour la géométrie. 
  \item glbinding :  
-     Permet le lien entre les données en mémoire et Opengl.
+     permet le lien entre les données en mémoire et OpenGL.
 \item glfw : 
-     API utilisé pour la gestion de fenêtre et les intéractions clavier.
+     API utilisée pour la gestion de fenêtres et les intéractions clavier/souris.
 \end{itemize}
 
 \paragraph{GNU Library General Public License, Version 2 : }
 \begin{itemize}
 \item surface\_mesh :
-    Facilite la gestion de connectivité et connexité des vertices pour la subdivision. Copyright (C) 2013 by Graphics \& Geometry Group, Bielefeld University
+    facilite la gestion de connectivité et connexité des vertices pour la subdivision. Copyright (C) 2013 by Graphics \& Geometry Group, Bielefeld University
 \item Libnoise :
-    Utilisé pour créer les reliefs à partir de bruits cohérents.
+    utilisée pour créer les reliefs à partir de bruits cohérents.
 \end{itemize}
 
 \paragraph{MIT License :}
 \begin{itemize}
-\item pugyxml:
-    Permet la prise en charge de fichiers de configurations xml.
+\item pugixml:
+    permet la prise en charge de fichiers de configuration XML.
 \end{itemize}
 
 \paragraph{Copyright 2008, Google Inc. :}
 \begin{itemize}
 \item Googletest :
-    Permet de facilité la mise en place de tests unitaires automatisés. 
+    permet de faciliter la mise en place de tests unitaires automatisés.
 \end{itemize}
 
 \newpage 
-\section{Implémentations}
+\section{Implémentation}
 
 \subsection{Modèle}
 
 La figure \ref{seqmodel} représente le diagramme de séquence de la partie modèle. 
-On peut voir ainsi tout d'abord la lecture du fichier de configuration par l'objet XMLGenerator qui va ensuite le long de la lecture renseignée tout les paramètres d'abord pour créer la géométrie de base, ici une icosphère, et ensuite la modifier avec un éditeur, par exemple NoisyHeight\_Editor. Cas spécial, si le paramètre n'existe pas dans le fichier pour l'éditeur on choisira le paramètre aléatoirement grâce au renseignement par un système de "flags" dans le constructeur, Icosphere n'ayant que des valeurs par défaut dans ce cas là, il n'en a pas besoin. A la fin on donnera la planète obtenu à la partie visualisation avec au passage l'affichage des paramètres.\\
+Il commence par la lecture du fichier de configuration par l'objet XMLGenerator qui va, le long de la lecture, renseigné tous les paramètres pour d'abord créer la géométrie de base, ici une icosphère, et ensuite la modifier avec un éditeur, par exemple NoisyHeight\_Editor. Cas spécial, si le paramètre n'existe pas dans le fichier pour l'éditeur on choisira le paramètre aléatoirement grâce au renseignement par un système de "flags" dans le constructeur, Icosphere n'ayant que des valeurs par défaut dans ce cas là, il n'en a pas besoin. A la fin de la génération, on donnera la planète obtenue à la partie visualisation avec au passage l'affichage des paramètres.\\
 
 \begin{figure}[!ht]
 \centering
@@ -655,15 +655,19 @@ On peut voir ainsi tout d'abord la lecture du fichier de configuration par l'obj
 
 \subsection{Visualisation}
 
-Ensuite on crée une fenêtre OpenGL grâce à GLFW, et on envoie les informations géométriques et graphiques de la planète au GPU pour manipuler la représentation via le vertex shader et le fragment shader (figure \ref{shader_theory})(renseigné dans src/data/shaders/) afin de permettre l'affichage dans cette même fenêtre. Le vertex shader a pour rôle de manipuler les coordonées 3D de chaque sommet et est appelé une fois par sommet. Le fragment shader redéfinit les coordonées RGBA (rouge,vert,bleu pour la couleur et alpha pour la transparence) pour chaque pixel traité, ce shader est appelé une fois par pixel. Les shaders reçoivent donc les informations pour chaque sommet (position, normale, couleur) et les interprètent afin de savoir quelle couleur afficher dans la fenêtre, en utilisant la théorie d'éclairage de Blinn-phong qui permet d'ajouter un effet d'ombre pour chaque point en fonction d'une source de lumière dans la scène 3D \cite{BlinnPhong}. L'affichage est ensuite constamment actualisée, afin de permettre l'interaction avec l'utilisateur.\\
-Pour les mers et les océans nous utilisons les mêmes shaders mais en mode "océan", afin de ne pas refaire une géométrie pour la surface transparente. Autrement dit, on fait l'affichage en 2 passes avec d'abord la planète modifié sans les océans, et ensuite on refait une passe via ce mode pour aplatir dans le GPU le relief, et appliquer une couleur prédéfini dans les shaders. Nous pouvons ainsi gagner en mémoire et en temps par rapport à si on devait le faire sur CPU.
+On crée ensuite une fenêtre OpenGL grâce à GLFW, et on envoie les informations géométriques et graphiques de la planète au GPU pour manipuler la représentation via le vertex shader et le fragment shader (figure \ref{shader_theory})(renseigné dans src/data/shaders/) afin de permettre l'affichage dans cette même fenêtre. Le vertex shader a pour rôle de manipuler les coordonées 3D de chaque sommet et est appelé une fois par sommet. Le fragment shader redéfinit les coordonées RGBA (rouge,vert,bleu pour la couleur et alpha pour la transparence) pour chaque pixel traité, ce shader est appelé une fois par pixel. Les shaders reçoivent donc les informations pour chaque sommet (position, normale, couleur) et les interprètent afin de savoir quelle couleur afficher dans la fenêtre, en utilisant la théorie d'éclairage de Blinn-phong\protect\footnotemark  qui permet d'ajouter un effet d'ombre pour chaque point en fonction d'une source de lumière dans la scène 3D \cite{BlinnPhong}. L'affichage est ensuite constamment actualisée, afin de permettre l'interaction avec l'utilisateur.\\
+Pour les mers et les océans, nous utilisons les mêmes shaders mais en mode "océan", afin de ne pas refaire une géométrie pour la surface transparente de l'eau. Autrement dit, les données sont envoyées une fois du CPU vers le GPU, puis sont utilisées 2 fois par le GPU. En effet, on fait l'affichage en 2 passes : une première passe pour la planète modifiée sans les océans, et une seconde passe via ce mode pour que le GPU aplatisse le relief, et applique une couleur prédéfinie dans les shaders. En procédant ainsi, nous réduisons les transferts entre CPU et GPU, et gagnons donc en mémoire et en temps de calcul.
+
+\footnotetext{\href{https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model
+}{https://en.wikipedia.org/wiki/Blinn–Phong\_reflection\_model, Accessed 4 April 2020}}
 
 \begin{figure}[!ht]
         \begin{center} \includegraphics[width=0.8\linewidth]{img/archi/shader_theory.jpg} \end{center}
-        \caption{\label{shader_theory}Pipeline d'affichage graphique 3D OpenGl \protect\footnotemark .}
+        \caption{\label{shader_theory}Pipeline d'affichage graphique 3D OpenGL \protect\footnotemark .}
 \end{figure}
 
-\footnotetext{\href{https://openclassrooms.com/fr/courses/966823-developpez-vos-applications-3d-avec-opengl-3-3/961139-introduction-aux-shaders}{https://openclassrooms.com/fr/courses/966823-developpez-vos-applications-3d-avec-opengl-3-3/961139-introduction-aux-shaders, Accessed 3 marsh 2020}}
+\footnotetext{\href{https://openclassrooms.com/fr/courses/966823-developpez-vos-applications-3d-avec-opengl-3-3/961139-introduction-aux-shaders}{https://openclassrooms.com/fr/courses/966823-developpez-vos-applications-3d-avec-opengl-3-3/961139-introduction-aux-shaders, Accessed 3 March 2020}
+}
 
 La figure \ref{seqvisu} montre le diagramme de séquence de la partie visualisation.
 
@@ -676,7 +680,7 @@ La figure \ref{seqvisu} montre le diagramme de séquence de la partie visualisat
 \end{figure}
 
 \newpage
-A tout moment, l'utilisateur peut faire tourner la planète à l'aide de la souris (en cliquant et glissant dans la fenêtre), et effectuer un zoom/dézoom sur la planète. Il peut également appuyer sur S pour sauvegarder et W pour afficher le maillage en mode fil de fer. Ces interactions sont détaillés dans la figure \ref{seqinter} 
+A tout moment, l'utilisateur peut faire tourner la planète à l'aide de la souris (en cliquant et glissant dans la fenêtre), et effectuer un zoom/dézoom sur la planète. Il peut également appuyer sur S pour sauvegarder et W pour afficher le maillage en mode fil de fer. Ces interactions sont détaillées dans la figure \ref{seqinter}.
 
 \begin{figure}[!ht]
     \begin{center}
@@ -687,13 +691,23 @@ A tout moment, l'utilisateur peut faire tourner la planète à l'aide de la sour
 \end{figure}
 
 \newpage
-Après exécution de notre logiciel avec le fichier de configuration "simple.xml", on obtiens une planète comme la figure \ref{notre_planete}. On peut lire ensuite dans le terminal les différents paramètres qui ont été utilisé afin de créer un fichier de configuration avec les mêmes paramètres pour pouvoir la recréer et faire de légers ajustements.\\
+Après exécution de notre logiciel avec le fichier de configuration "simple.xml", on obtient une planète comme la figure \ref{notre_planete}. On peut lire ensuite dans le terminal les différents paramètres qui ont été utilisés afin de créer un fichier de configuration avec les mêmes paramètres pour pouvoir la recréer et faire de légers ajustements.\\
 
 \begin{figure}[!ht]
     \begin{center}
         \includegraphics[width=0.6\linewidth]{img/notre_planete.png} 
         \caption{Une planète générée à partir de "simple.xml"}
         \label{notre_planete}
+    \end{center}
+\end{figure}
+
+Un autre exemple de planète plus "martienne" obtenable avec notre logiciel est présenté figure \ref{notre_planete_mars}.
+
+\begin{figure}[!ht]
+    \begin{center}
+        \includegraphics[width=0.6\linewidth]{img/notre_planete_mars.png} 
+        \caption{Une planète dans un style martien}
+        \label{notre_planete_mars}
     \end{center}
 \end{figure}
 
@@ -707,64 +721,64 @@ Pour les tests nous avons utilisé activement le framework GoogleTest surtout po
 Pour la partie visualisation comme elle concerne surtout l'esthétique c'est principalement des tests qualitatifs par l'équipe de développement et le client qui ont été faits.
 
  A METTRE EN VALEUR
- (1) specification et buts du test ; (2) cas de test (donnees utilisees) ; (3) scenarios de tests ; (4) analyse du test
+ (1) specification et buts du test ; (2) cas de test (données utilisées) ; (3) scénarios de tests ; (4) analyse du test
 Utilisation de google test
 
 \subsection{Tests esthétiques et interactions}
 
-Afin de vérifier l'aspect esthétique et l'interaction de la solution, nous avons fait des tests qualitatifs au sein de l'équipe, mais nous avons aussi convié deux fois le client durant la période de développement à faire des retours sur ses impressions de la solution.
+Afin de vérifier l'aspect esthétique et l'interaction de la solution, nous avons fait des tests qualitatifs au sein de l'équipe, mais nous avons aussi convié deux fois le client durant la période de développement à nous faire des retours sur ses impressions de la solution.
 Au premier retour, cela a permis notamment de privilégier la partie visualisation avec l'éclairage et l'amélioration du rendu de l'eau pour qu'elle soit transparente. 
 Au deuxième, cela a permis de personnaliser certaines touches suivant ses préférences, et de mettre aussi en évidence les points à améliorer au niveau de l'utilisation et la documentation du logiciel.
 
 \subsection{Tests sur les éditeurs}
 
-Le test sur les éditeurs concerne principalement le seul éditeur paramétrable et où l'aléatoire n'entre pas trop en compte. En effet, il est difficile de tester que fonctionne correctement un éditeur où tout est aléatoire (cas du random\_editor). Dans le cas du noisyheight\_editor, il est possible de vérifier qu'il fonctionne correctement.Le but du test est de vérifier à paramètres équivalent que la génération doit être identique au niveau de la position des points et des normales. (Pas le cas des couleurs qui peuvent légèrement varier au vu de la palette disponible). Pour se faire, nous procédons à deux générations de planète avec les mêmes paramètres. Pour se faire, nous avons mis à 10 les paramètres d'octave, de fréquence et de persistance. Nous comparons la valeurs de chaque point dans le tableau de position. Nous faisons la même chose pour les normales entre les deux planètes. Si les deux sont parfaitement identique, les deux planètes générées avec les mêmes paramètres sont identiques. Le test est donc valider. Pour s'assurer que les deux points sont équivalents, nous utilisons la fonction EXPECT\_EQ entre chaque valeur de position. Si elles ne sont pas équivalentes, cela lève une erreur et le test ne passe pas. La même chose est faite pour les normales.
+Le test sur les éditeurs concerne principalement le seul éditeur paramétrable et où l'aléatoire n'entre pas trop en compte. En effet, il est difficile (et peu utile) de tester si un éditeur aléatoire fonctionne correctement (cas du random\_editor). Dans le cas du noisyheight\_editor, il est possible de vérifier qu'il fonctionne correctement. Le but du test est de vérifier à paramètres équivalent que la génération doit être identique au niveau de la position des points et des normales (ce qui n'est pas le cas des couleurs qui peuvent légèrement varier au vu de la palette disponible). Pour se faire, nous procédons à deux générations de planète avec les mêmes paramètres. Pour cela, nous avons fixé à 10 les paramètres d'octave, de fréquence et de persistance. Nous comparons la valeur de chaque point dans le tableau de positions. Nous faisons la même chose pour les normales entre les deux planètes. Si les deux sont parfaitement identique, les deux planètes générées avec les mêmes paramètres sont identiques. Le test est donc valider. Pour s'assurer que les deux points sont équivalents, nous utilisons la fonction EXPECT\_EQ entre chaque valeur de position. Si elles ne sont pas équivalentes, cela lève une erreur et le test ne passe pas. La même chose est faite pour les normales.
 
 \subsection{Tests sur les performances}
 
-On cherche ici à évaluer les performances de calcul en fonction du nombre de subdivision et de l'application de notre éditeur. Pour cela on répète la même subdivision 50 fois afin d'avoir une moyenne par valeur de subdivision, et on augmente par la suite le nombre de subdivision. On peut alors savoir jusqu'où il est possible d'aller dans le nombre de subdivision si on ne donne pas de bornes supérieur. On compare aussi le temps de calcul avec et sans editeur, en fonction du nombre de subdivision et nous obtenons alors le graphique visible à la figure \ref{graphperf}
+On cherche ici à évaluer les performances de calcul en fonction du nombre de subdivisions et de l'application de notre éditeur. Pour cela on répète la même subdivision 50 fois afin d'avoir une moyenne par valeur de subdivisions, et on augmente par la suite le nombre de subdivisions. On peut alors savoir jusqu'où il est possible d'aller dans le nombre de subdivisions si on ne donne pas de bornes supérieures. On compare aussi le temps de calcul avec et sans éditeur, en fonction du nombre de subdivisions et nous obtenons alors le graphique visible à la figure \ref{graphperf}.
 
 \begin{figure}[!ht]
     \begin{center}
         \includegraphics[scale=0.4]{img/perf.png}
-        \caption{Graphique représentant le temps de génération en fonction du nombre de subdivision et l'application ou non d'un éditeur}
+        \caption{Graphique représentant le temps de génération en fonction du nombre de subdivisions et l'application ou non d'un éditeur}
         \label{graphperf}
     \end{center}
 \end{figure}
 
-On remarque alors que passé la subdivision de taille 10, le temps commence à augmenter de manière exponentiel. C'est bien ce que l'on attendait vu que l'on quadruple le nombre de face à chaque division, ce qui revient à une complexité exponentiel comme observé. Même si 10 secondes restent tout à fait raisonnable, si on va plus loin le test nous a permis de mettre en évidence le manque de mémoire afin de réaliser la génération qui se solde par une exception de "bad alloc". Ce problème mémoire est notamment lié au nombre de point généré à chaque subdivision. Pour chaque triangle, face basique de notre icosphère, nous créons 4 nouveau triangle, ce qui augmente à chaque fois le nombre de point de 3 pour chaque triangle.
+On remarque alors que passé 10 subdivisions, le temps commence à augmenter de manière exponentielle. C'est bien ce que l'on attendait vu que l'on quadruple le nombre de faces à chaque subdivision, ce qui revient à une complexité exponentielle comme observé. Même si un temps de 10 secondes reste tout à fait raisonnable, si l'on va plus loin, le test nous a permis de mettre en évidence un manque de mémoire afin de réaliser la génération qui se solde par une exception de "bad alloc". Ce problème mémoire est notamment lié au nombre de points générés à chaque subdivision. Pour chaque triangle, face élémentaire de notre icosphère, nous créons 4 nouveaux triangles, ce qui augmente à chaque fois le nombre de points de 3 pour chaque triangle.
 Un exemple du nombre de sommets :
 \begin{lstlisting}[caption= Résultat des tests unitaires]
 Maximum subdivision with NoisyHeight_Editor : 10 for 2835 ms.
 Number of vertices : 2621442
 \end{lstlisting}
 
-En soit nous souhaitons des rendus "low-poly" c'est à dire avec peu de polygones. Nous pouvons quand même faire de beaux rendus sans pour autant avoir beaucoup de polygones, et la barre des 10 000 est dépassé sans trop de difficulté, donc la complexité n'est pas critique pour ce que l'on veut en faire.
+Cependant, ce résultat n'est pas contraignant pour ce projet puisque nous souhaitons des rendus "low-poly", c'est à dire avec peu de polygones. Nous pouvons quand même faire de jolis rendus sans pour autant avoir beaucoup de polygones, et la barre des 10 000 est dépassée sans trop de difficultés, donc la complexité n'est pas critique pour l'objectif de ce projet.\\
 
-\subsection{Test sur le temps de génération}
 
-Le but de ce test est de déterminer le nombre de subdivision possible dans un certain temps donné. Ainsi, on cherche à obtenir avec ce test quel est le nombre de subdivision idéal dans un temps arbitraire( que l'on peut voir comme une contrainte du client). On part donc d'une subdivision à 0, et on augmente tant que le temps ne dépasse pas celui que l'on souhaite avoir. Dans le cas de notre test, on prend en compte le temps de modification de la planète à lui appliquant le NoiyHeight\_Editor.
+On a réalisé un autre test plus global portant sur le temps de génération d'une planète.
+Le but de ce test est de déterminer le nombre de subdivisions possible dans un certain temps donné. Ainsi, on cherche à obtenir avec ce test quel est le nombre de subdivisions idéal dans un temps arbitraire (que l'on peut voir comme une contrainte du client). On part donc d'une subdivision à 0, et on augmente tant que le temps ne dépasse pas celui que l'on souhaite avoir. Dans le cas de notre test, on prend en compte le temps de modification de la planète en lui appliquant le NoiyHeight\_Editor.
 
 \subsection{Test sur la sauvegarde}
 
-Pour s'assurer que la sauvegarde fonctionne correctement, il faut s'assurer que les données sauvegarder soient identiques à la planète qui a été générée. Pour se faire, nous mettons en place un test scénario. Nous sauvegarder dans les données au sein d'un fichier .obj que nous lançons sur un logiciel de visionnage (type blender). Si le fichier n'est pas correct, il est facile de l'observer car la planète générée ne sera pas du tout la même. Il est tout à fait possible de sauvegarder la planète 2 fois et vérifier que les données soient les mêmes, mais ce genre de test ne garantie pas que les données sauvegardées soient les bonnes. La seul référence possible est une référence visuel. Nous pouvons tout à fait lancer le fichier depuis notre exécutable pour comparer que les deux planètes sont identiques (il n'est donc pas forcément nécessaire d'utiliser un logiciels tiers pour comparer).
+Pour que la sauvegarde fonctionne correctement, il faut s'assurer que les données sauvegardées soient identiques à la planète qui a été générée. Pour se faire, nous mettons en place un test scénario. Nous sauvegardons les données au sein d'un fichier .obj que nous lançons sur un logiciel de visionnage (type blender). Si le fichier n'est pas correct, il est facile de l'observer car la planète générée ne sera pas du tout la même. Il est tout à fait possible de sauvegarder la planète 2 fois et vérifier que les données soient les mêmes, mais ce genre de test ne garantie pas que les données sauvegardées soient les bonnes. La seul référence possible est une référence visuel. Nous pouvons tout à fait lancer le fichier depuis notre exécutable pour comparer que les deux planètes sont identiques (il n'est donc pas forcément nécessaire d'utiliser un logiciel tiers pour comparer).
 
 \subsection{Tests de non régression}
 
-\paragraph{Coordonnées : } On a vérifié le bon passage des coordonnées cartésiennes à sphériques, et vice versa, tantôt avec des valeurs d'oracle, tantôt avec des valeurs aléatoires où on doit pouvoir revenir à la cordonnées de départ.
-On a aussi vérifie certains points particulier comme 
+\paragraph{Coordonnées : } On a vérifié le bon passage des coordonnées cartésiennes à sphériques, et vice versa, tantôt avec des valeurs d'oracle, tantôt avec des valeurs aléatoires où on doit pouvoir revenir à la cordonnée de départ.
+On a aussi vérifié certains points particulier comme :
 
-\paragraph{Random : } On a vérifié que pour les fonctions de hasard suivent bien le comportement indiqué, autant sur les domaines que sur les lois qu'elles doivent suivre selon la loi des grands nombres.
+\paragraph{- Random :} On a vérifié que les fonctions de hasard suivent bien le comportement indiqué, autant sur les domaines que sur les lois qu'elles doivent suivre selon la loi des grands nombres.
 
-\paragraph{Treshold : } On a vérifié la bonne construction et l'ordre des couches dans la table ainsi que la non-modification des données durant le processus. 
-On a testé aussi si sur une valeur comprise dans l'intervalle du minimum et du maximum des bornes de la tables la fonction getColorDataByValue renvoie bien la bonne donnée de la couche auquel cette valeur appartient.
-Comme le nombre de couches et les données sont non importantes pour ces tests, c'est décidé aléatoirement.
+\paragraph{- Treshold :} On a vérifié la bonne construction et l'ordre des couches dans la table ainsi que la non-modification des données durant le processus. 
+On a aussi testé si, sur une valeur comprise dans l'intervalle du minimum et du maximum des bornes de la table, la fonction getColorDataByValue renvoie bien la bonne donnée de la couche à laquelle cette valeur appartient.
+Comme le nombre de couches et les données ne sont pas importantes pour ces tests, c'est décidé aléatoirement.
 
 \subsection{Tests mémoires}
 
-Nous nous sommes assuré des fuites mémoires avec l'outil Valgrind, à la fois sur les tests et sur le programme principal.
-Conclusion nous n'avons pas de problèmes majeurs de mémoire par rapport à notre code, même si nous avons des erreurs que l'on suppose des bibliothèques. 
-L'erreur la plus marquante est celle des tests puisque nous contrôlons les dépendances et que on utilise pas OpenGl et Glfw sur les test unitaires. Les erreurs du programme principal sont du même type et sont dispobles dans le dossier /tests\_result
+Nous nous sommes occupés des fuites mémoires avec l'outil Valgrind, à la fois sur les tests et sur le programme principal.
+Nous n'avons pas observé de problèmes majeurs de mémoire par rapport à notre code, même si nous avons des erreurs que l'on suppose venir des bibliothèques.
+L'erreur la plus flagrante est celle des tests puisque nous contrôlons les dépendances et que nous n'utilisons pas OpenGL et GLFW sur les tests unitaires. Les erreurs du programme principal sont du même type et sont disponibles dans le dossier /tests\_result.
 
 \begin{lstlisting}[caption= Extrait de la commande valgrind \\ 
 \texttt{valgrind --leak-check=full --show-leak-kinds=all --log-file="../tests\_result/valgrind\_tests.txt" ./unit\_tests}]
@@ -782,21 +796,23 @@ L'erreur la plus marquante est celle des tests puisque nous contrôlons les dép
 \newpage
 \section{Conclusion et perspectives}
 
-La solution proposé permet de créer une planète complètement procéduralement, avec un rendu intéressant en low-poly pour une utilisation ludique, ce qui en soit était le but recherché. 
+La solution proposée permet de créer une planète complètement procéduralement, avec un rendu intéressant en low-poly pour une utilisation ludique, ce qui correspond à l'objectif de ce projet. 
 
-On a aussi une architecture maintenable si on voulait changer les dépendances, avec par exemple changer le système de visualisation OpenGL par un de ses concurrent, DirectX voire Vulkan. Ou sinon changer la bibliothèque Libnoise par une autre plus performante serait tout à fait envisageable avec un minimum d'impact sur le code source.
+On dispose aussi d'une architecture maintenable. Il est notamment possible de changer les dépendances, comme par exemple le système de visualisation OpenGL par un de ses concurrents, DirectX ou Vulkan, mais aussi de changer la bibliothèque Libnoise par une autre plus performante avec un impact minimum sur le code.
 
-Les éditeurs sont aussi un système qui permettra plus tard d'implémenter des générations de planètes plus complexe. D'ailleurs une difficulté a été de trouver un moyen de faire en sorte que se soit maintenable et faciliter les futurs implémentions de l'éditeur. En soit, nous n'avons pas trouvé de moyen de faire des éditeurs "général" au vue de la complexité de ci par exemple nous rajoutons la génération de plaques tectoniques, de rivières, de villes, de biômes, etc. La logique de construction variant beaucoup d'une solution à une autre d'aprés nos recherches, on a fait le choix de fournir juste les fonctionnalités de base afin que ce soit un futur développeur qui puisse implémenter son propre éditeur avec ses paramètres et ses règles.
+Les éditeurs sont aussi un système qui permettra plus tard d'implémenter des générations de planètes plus complexe. En effet, l'une des pistes d'amélioration serait d'implémenter des éditeurs générant des plaques tectoniques, rivières, biomes etc. L'une difficulté a été de trouver un moyen de faire en sorte que cela reste maintenable et de faciliter les futurs implémentions de l'éditeur. La logique de construction variant beaucoup d'une solution à une autre d'après nos recherches, nous avons fait le choix de fournir juste des fonctionnalités de base afin qu'un futur développeur puisse implémenter son propre éditeur avec ses paramètres et ses règles.\\
 
-Les points qui restent tout de même à améliorer sont cependant nombreux.
+En plus d'un éditeur plus poussé, d'autres pistes d'amélioration sont envisageables.
 
-En premier lieu améliorer le système de gestion des dépendances avec Cmake. Pour l'instant toutes les sources des différentes bibliothèques sont en dur, et il n'y a pas l'option d'utiliser celles du  système de l'utilisateur. En soit cela a permis de ne pas s'inquiéter des dépendances peu importe la machine où l'on travaillait, mais cela a le désavantage de recompiler les bibliothèques à chaque fois. Cette remarque est venu très tardivement sur le projet et nous n'avons pas eu le temps de le modifier.
+Tout d'abord, comme indiqué par le client, il serait préférable que gestion par cmake des dépendances trouve les bibliothèques déjà installées sur la machine plutôt qu'aller les chercher dans le répertoire "ext" (ou d'inviter à les télécharger si elles ne sont pas présentes), ce qui allégerait noter git. Nous avions procédé ainsi pour ne pas avoir à nous inquiéter des dépendances, peu importe la machine où l'on travaillait.
 
-Le système d'import/export qui en soit n'a pas toutes les fonctionnalités de départ qu'on aurait pu espérer. Notamment ce qui est fonctionnel à l'heure actuel est uniquement l'export, et ce sans les couleurs dans le cas du format .obj ou le rendu de la mer qui est fait par notre système de rendu personnalisé. L'import n'as pas été fait mais en soi vu qu'avec les paramètres de génération nous pouvons créer une planète presque à l'identique, cette fonctionnalité n'était pas trés importante.
+Le système de sauvegarde/chargement d'un fichier n'a pas toutes les fonctionnalités de départ que l'on aurait pu espérer. Actuellement, la sauvegarde est fonctionnelle (sans les couleurs dans le cas du format .obj) mais sans l'eau transparente puisqu'elle est implémenté directement dans le rendu. Le chargement d'un fichier n'a pas été implémenté mais son importance est amoindrie du fait de la possibilité de pouvoir re-créer une planète presque à l'identique en appelant le logiciel avec les mêmes paramètres de génération.
 
-Le système de lecture des fichiers de configuration même si il a de nombreuses possibilités à l'avenir manque de souplesse et de maintenabilité. On peut changer l'implémentation de XML en JSON théoriquement, mais il faudrait refaire tout le système de lecture puisque on utilise la bibliothèque pugyXML. En soit, cela ne faisait pas parti de nos priorités donc cette solution était suffisante. Aussi au sein de notre implémentation, en cas de nouveau paramètre ou éditeur, il faut rajouter les cas un par un de lecture. Un système de tableau de paramètres et de types prédéfini automatisé, où on s'occuperait plus d'implémenter la mécanique de lecture aurait été préférable du coup. Cependant cela aurait pris beaucoup trop de temps à implémenter et nous sommes resté sur notre simple système de lecture de XML.
+De plus, le système de lecture des fichiers de configuration, même s'il a de nombreuses possibilités à l'avenir, manque de souplesse et de maintenabilité. On peut changer l'implémentation pour passer de XML à JSON, mais il faudrait refaire tout le système de lecture puisque l'on utilise la bibliothèque pugiXML. Cela ne faisait pas parti de nos priorités donc cette solution était suffisante. Aussi, dû à l'actuelle implémentation, en cas de nouveau paramètre ou éditeur, il faut rajouter les cas un par un de lecture. Un système de tableau de paramètres et de types prédéfinis automatisé, où l'on ne s'occuperait plus d'implémenter la mécanique de lecture aurait été préférable. Cependant, cela aurait demandé beaucoup trop de temps pour être implémenté et nous sommes restés sur un simple système de lecture de XML.
 
-Certaines parties aurait pu être plus développé comme par exemple la caméra qui est pour l'instant uniquement un système bloqué autour de la planète, ou l'interface Shape qui pourrait proposer plus de fonctions afin du manipuler la structure par l'éditeur, avec par exemple des fonctions de parcours de connexité sur les sommets.
+Aussi, une meilleur gestion de la caméra avec notamment une vue en première personne lorsque l'on se rapproche de la surface de la planète fait partie des fonctionnalités manquantes.
+
+Enfin, le client a évoqué la possibilité de pouvoir appliquer des transformations dynamiquement sur la planète (élévation de terrain ou ajout de rivières par des interactions clavier/souris par exemple). Cela nécessiterait entre autres d'ajouter des méthodes dans l'interface Shape permettant de parcourir la connexité des sommets.
 
 \newpage
 \section{Annexes}
@@ -815,3 +831,4 @@ Certaines parties aurait pu être plus développé comme par exemple la caméra 
 \bibliography{bibliographie}
 
 \end{document}
+
