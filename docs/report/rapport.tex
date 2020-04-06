@@ -556,17 +556,17 @@ Le modèle correspond à la partie qui s'occupe de générer une planète : cré
 
  \begin{figure}[!ht]
         \begin{center} \includegraphics[width=0.6\linewidth]{img/archi/model_shape.png}\end{center}
-        \caption{\label{archi_shape}Diagramme simplifié du package model}
+        \caption{\label{archi_shape}Diagramme de la classe représentant une planète}
     \end{figure}
     
 Afin de laissez le choix au développeur d'implémenter une planète de la manière qu'il le souhaite, le choix a été fait de faire de \textbf{Shape} une interface assez légère (peu de contraintes au niveau de la manipulation des informations contenues dans la structure Vertices). Cette interface est représentée par la figure \ref{archi_shape}. Elle contient notamment la structure \textbf{Vertices}, utilisée pour stocker l'ensemble des points, leurs normales et les couleurs associés pour permettre la visualisation. Le choix est laissé au développeur d'utiliser la structure de données qu'il veut pour gérer la connexité des points. Ainsi, nous limitons la dépendance à une bibliothèque en particulier (ici surface\_mesh) pour gérer cette connexité. \\
-Dans ce projet, c'est une icosphère (icosphere.cpp) qui a été choisie pour représenter une planète sphérique. Pour gérer la connexité des points et des faces, nous avons utilisé la bibliothèque surface\_mesh. En effet, comme nous sommes partis du TD9 de Pierre Benard sur les mondes3D \cite{TD_3D}, une simplification de la bibliothèque surface\_mesh était proposée. Cette bibliothèque permet principalement de savoir les voisins de chaque point constituant la planète, ainsi que les faces qui sont autour d'un point. Il est tout à fait possible de rajouter des propriétés à chaque point par l'intermédiaire de cette bibliothèque. Néanmoins, une fois qu'une valeur est ajoutée à une propriété, il est impossible de la changer à moins de refaire complètement cette structure de données. Ainsi, cela a motivé le choix de faire une deuxième structure qui est \textbf{Vertices} pour stocker les coordonnées, les couleurs et les normales comme dit plus haut et garder celle de surface\_mesh uniquement pour la connexité.
+Dans ce projet, c'est une icosphère (icosphere.cpp) qui a été choisie pour représenter une planète sphérique. Pour gérer la connexité des points et des faces, nous avons utilisé la bibliothèque surface\_mesh. En effet, comme nous sommes partis du TD9 de Pierre Benard sur les mondes3D \cite{TD_3D}, une simplification de la bibliothèque surface\_mesh était proposée. Cette bibliothèque permet principalement de savoir les voisins de chaque point constituant la planète, ainsi que les faces qui sont autour d'un point. Il est tout à fait possible de rajouter des propriétés à chaque point par l'intermédiaire de cette bibliothèque. Néanmoins, une fois qu'une valeur est ajoutée à une propriété, il est impossible de la changer à moins de refaire complètement cette structure de données. Ainsi, cela a motivé le choix de faire une deuxième structure qui est \textbf{Vertices} pour stocker les coordonnées, les couleurs et les normales et garder celle de surface\_mesh uniquement pour la connexité.
 
 \subsubsection{Modification d'une planète par un éditeur}
 
-Le choix a été fait de faire une dissociation entre la représentation d'une planète et sa modification. La raison est d'avoir la capacité de créer plusieurs éditeurs de planètes et de pouvoir les appliquer à la même planète de manière cohérente. L'éditeur représente donc cette capacité à modifier la représentation d'une planète et qui produit la planète finale. Cela évite d'autant plus d'avoir un objet beaucoup trop complexe. Une seule méthode doit être implémenter : edit. C'est cette dernière, une fois appelée qui s'occupera de modifier l'ensemble de la planète.\\
+Il a été décidé de faire une dissociation entre la représentation d'une planète et sa modification. La raison est d'avoir la capacité de créer plusieurs éditeurs de planètes et de pouvoir les appliquer à la même planète de manière cohérente. L'éditeur représente donc cette capacité à modifier la représentation d'une planète et produit la planète finale. Cela évite d'autant plus d'avoir un objet beaucoup trop complexe. Une seule méthode doit être implémenter : edit. C'est cette dernière qui s'occupera de modifier l'ensemble de la planète.\\
 Nous mettons à disposition deux éditeurs qui implémentent cette interface comme dit précédemment : \textbf{Noisyheight\_Editor} qui produit un bruit de perlin afin de changer le relief et \textbf{Random\_Editor} qui lui est complètement aléatoire. Ces deux éditeurs prennent la hauteur des points résultantes afin de leur attribuer une couleur.\\
-Une autre conséquence positive de cette séparation est que la forme de départ, l'implémentation de l'interface \textbf{Shape}, peut être ré-implémentée par un autre algorithme que celui que l'on a choisi (\ref{geo_planet}). Ainsi on pourrait remplacé \textbf{Icosphere} par un autre algorithme (voir \ref{algos_gen_sphere}).\\
+Une autre conséquence positive de cette séparation est que la forme de départ, l'implémentation de l'interface \textbf{Shape}, peut être ré-implémentée par un autre algorithme que celui que l'on a choisi (\ref{geo_planet}). Ainsi on pourrait remplacé l'icosphère par un autre algorithme (voir \ref{algos_gen_sphere}).\\
 
 \subsubsection{Paramètres modifiables par l'utilisateur}
 
@@ -702,7 +702,7 @@ Après exécution de notre logiciel avec le fichier de configuration "simple.xml
 \end{figure}
 
 \newpage
-Un autre exemple de planète plus "martienne" à la demande du client obtenable avec notre logiciel est présenté figure \ref{notre_planete_mars}. Il a suffit de changer la couleur de l'océan dans le shader "blin.vert", mais possiblement il pourrait être rajouter en paramètre du viewer. Les paramètres de génération sont sinon dans le fichier "src/data/generator/client.xml"
+Un autre exemple de planète plus "martienne" à la demande du client obtenable avec notre logiciel est présenté figure \ref{notre_planete_mars}. Il a suffit de changer la couleur de l'océan dans le shader "blin.vert", mais il pourrait être rajouté en paramètre du viewer. Les paramètres de génération sont disponible dans le fichier "src/data/generator/client.xml"
 
 \begin{figure}[!ht]
     \begin{center}
@@ -715,8 +715,8 @@ Un autre exemple de planète plus "martienne" à la demande du client obtenable 
 \newpage 
 \section{Tests}
 
-Pour les tests nous avons utilisé activement le framework GoogleTest surtout pour les tests unitaires en ce qui concerne la partie génération. 
-Pour la partie visualisation comme elle concerne surtout l'esthétique c'est principalement des tests qualitatifs par l'équipe de développement et le client qui ont été faits.
+Pour les tests nous avons utilisé activement le framework GoogleTest, notamment pour les tests unitaires sur la partie génération. 
+Pour la partie visualisation, comme elle concerne surtout l'esthétique c'est principalement des tests qualitatifs par l'équipe de développement et le client qui ont été faits.
 
 \subsection{Tests esthétiques et interactions}
 
@@ -728,7 +728,7 @@ Au deuxième, cela a permis de personnaliser certaines touches suivant ses préf
 
 Le test sur les éditeurs concerne principalement le seul éditeur paramétrable et où l'aléatoire n'entre pas trop en compte. En effet, il est difficile (et peu utile) de tester si un éditeur aléatoire fonctionne correctement (cas du random\_editor). Dans le cas du noisyheight\_editor, il est possible de vérifier qu'il fonctionne correctement par le domaine des informations de sortie.\\
 
-Le but du test est de vérifier à paramètres équivalent que la génération doit être identique au niveau de la position des points et des normales (ce qui n'est pas le cas des couleurs qui peuvent légèrement varier au vu de la palette disponible). Pour se faire, nous procédons à deux générations de planète avec les mêmes paramètres. Pour cela, nous avons fixé à 10 les paramètres d'octave, de fréquence et de persistance. Nous comparons la valeur de chaque point dans le tableau de positions. Nous faisons la même chose pour les normales entre les deux planètes. Si les deux sont parfaitement identique, les deux planètes générées avec les mêmes paramètres sont identiques. Le test est donc valider. On s'assure que les deux points et les normales ait les même valeurs. Si elles ne sont pas équivalentes, cela lève une erreur et le test ne passe pas.
+Le but du test est de vérifier à paramètres équivalents que la génération doit être identique au niveau de la position des points et des normales (ce qui n'est pas le cas des couleurs qui peuvent légèrement varier au vu de la palette disponible). Pour se faire, nous procédons à deux générations de planète avec les mêmes paramètres. Pour cela, nous avons fixé à 10 les paramètres d'octave, de fréquence et de persistance. Nous comparons la valeur de chaque point dans le tableau de positions. Nous faisons la même chose pour les normales entre les deux planètes. Si les deux sont parfaitement identique, les deux planètes générées avec les mêmes paramètres sont identiques. Le test est donc validé. Si elles ne sont pas équivalentes, cela lève une erreur et le test ne passe pas.
 
 \subsection{Tests sur les performances}
 
@@ -758,7 +758,7 @@ Maximum subdivision with NoisyHeight_Editor : 10 for 2835 ms.
 Number of vertices : 2621442
 \end{lstlisting}
 
-Cependant, ce résultat n'est pas contraignant pour ce projet puisque nous souhaitons des rendus "low-poly", c'est à dire avec peu de polygones. Nous pouvons quand même faire de jolis rendus sans pour autant avoir beaucoup de polygones, et la barre des 10 000 est dépassée sans trop de difficultés, donc la complexité n'est pas critique pour l'objectif de ce projet.\\
+Cependant, ce résultat n'est pas contraignant pour ce projet puisque nous souhaitons des rendus "low-poly", c'est à dire avec peu de polygones. Nous pouvons quand même faire des rendus visuellement agréables sans pour autant avoir beaucoup de polygones. La barre des 10 000 est dépassée sans trop de difficultés, donc la complexité n'est pas critique pour l'objectif de ce projet.\\
 \newpage
 On a réalisé un autre test plus global portant sur le temps de génération d'une planète.
 Le but de ce test est de déterminer le nombre de subdivisions possible dans un certain temps donné. Ainsi, on cherche à obtenir avec ce test quel est le nombre de subdivisions idéal dans un temps arbitraire (que l'on peut voir comme une contrainte du client). On part donc d'une subdivision à 0, et on augmente tant que le temps ne dépasse pas celui que l'on souhaite avoir. Dans le cas de notre test, on prend en compte le temps de modification de la planète en lui appliquant le NoiyHeight\_Editor.
@@ -804,32 +804,32 @@ Il y a eu cependant des retours du client pour signaler des problèmes au niveau
 \newpage
 \section{Analyse du fonctionnement}
 
-La solution proposée permet de créer une planète complètement procéduralement, avec un rendu intéressant en low-poly pour une utilisation ludique, ce qui correspond à l'objectif de ce projet.\\
+La solution proposée permet de créer une planète entièrement procédurale, avec un rendu intéressant en low-poly pour une utilisation ludique, ce qui correspond à l'objectif de ce projet.\\
 
 On dispose d'une architecture maintenable où il est notamment possible de changer les dépendances, comme par exemple le système de visualisation OpenGL par un de ses concurrents, DirectX ou Vulkan, ou encore la bibliothèque Libnoise par une autre plus performante avec un impact minimum sur le code.\\
 
-Les éditeurs sont aussi un système qui permettra plus tard d'implémenter des générations de planètes plus complexe. L'une difficulté a été de trouver un moyen de faire en sorte que cela reste maintenable et de faciliter les futurs implémentions de l'éditeur. La logique de construction variant beaucoup d'une solution à une autre d'après nos recherches, nous avons fait le choix de fournir juste des fonctionnalités de base afin qu'un futur développeur puisse implémenter son propre éditeur avec ses paramètres et ses règles.\\
+Les éditeurs sont aussi un système qui permettra plus tard d'implémenter des générations de planètes plus complexe. L'une difficulté a été de trouver un moyen de faire en sorte que cela reste maintenable et de faciliter les futurs implémentions de l'éditeur. La logique de construction variant beaucoup d'une solution à une autre d'après nos recherches, nous avons fait le choix de simplement fournir des fonctionnalités de base afin qu'un futur développeur puisse implémenter son propre éditeur avec ses paramètres et ses règles.\\
 
-Mais l'architecture du système de configuration devrai être améliorer. Même s'il a de nombreuses possibilités à l'avenir, il manque de souplesse et de maintenabilité. On peut changer l'implémentation pour passer de XML à JSON, mais il faudrait refaire tout le système de lecture puisque l'on utilise la bibliothèque pugiXML. Dû à l'actuelle implémentation, en cas de nouveau paramètre ou éditeur, il faut rajouter les cas un par un de lecture dans le XMLGenerator. Un système de tableau de paramètres et de types prédéfinis automatisé, où l'on ne s'occuperait plus d'implémenter la mécanique de lecture aurait été préférable. Cependant, cela aurait demandé beaucoup trop de temps pour être implémenté et nous sommes restés sur un simple système de lecture de XML, cette solution était suffisante. \\
+Mais l'architecture du système de configuration devrait être améliorée. Même s'il a de nombreuses possibilités à l'avenir, il manque de souplesse et de maintenabilité. On peut changer l'implémentation pour passer de XML à JSON, mais il faudrait refaire tout le système de lecture puisque l'on utilise la bibliothèque pugiXML. Dû à l'actuelle implémentation, en cas de nouveau paramètre ou éditeur, il faut rajouter les cas un par un de lecture dans le XMLGenerator. Un système de tableau de paramètres et de types prédéfinis automatisé, où l'on ne s'occuperait plus d'implémenter la mécanique de lecture aurait été préférable. Cependant, cela aurait demandé beaucoup trop de temps pour être implémenté et nous sommes restés sur un simple système de lecture de XML, cette solution était suffisante. \\
 
-Les résultats des tests ont aussi permis d'assurer une bonne base du logiciel, mais aussi et surtout de mesurer précisément l'impact au niveau des performances du logiciel. Certains sont encore à peaufiner pour justement tester certains cas inattendus comme lors de la gestion des fichiers de configuration, ou encore donner de mauvais paramètres aux éditeurs, mais on s'est assuré au minimum que ce soit fonctionnel en lisant la documentation.\\
+Les résultats des tests ont aussi permis d'assurer une bonne base du logiciel, mais aussi et surtout de mesurer précisément l'impact au niveau des performances du logiciel. Certains sont encore à peaufiner pour tester certains cas inattendus comme lors de la gestion des fichiers de configuration, ou encore donner de mauvais paramètres aux éditeurs, mais on s'est assuré au minimum que ce soit fonctionnel en lisant la documentation.\\
 
-Au niveau de l'esthétique, nous avons pu donner une grande liberté à l'utilisateur, ce qui est un grand point positif. Cependant des points restent à améliorer, notamment sur la gestion des couleurs sur OpenGL qui fait que des faces de même couleurs se retrouvent séparé au niveau de la définition des bords de zones. Le niveau de l'océan aussi n'a pas été formellement défini et paramétrable, ce qui fait que certaines parties de la planète paraissent submergées. Nous aurions aussi dû pour faciliter les discussions avec le client lui proposer au moins des références pour bien fixer le style graphique qu'il voulait.\\
+Au niveau de l'esthétique, nous avons pu donner une grande liberté à l'utilisateur, ce qui est un grand point positif. Cependant, des points restent à améliorer, notamment sur la gestion des couleurs sur OpenGL qui fait que des faces de même couleurs se retrouvent séparées au niveau de la définition des bords de zones. Le niveau de l'océan aussi n'a pas été formellement défini et paramétrable, ce qui fait que certaines parties de la planète paraissent submergées. Aussi, pour faciliter les discussions avec le client, nous aurions dû lui proposer des références pour bien fixer le style graphique qu'il souhaitait.\\
 
 \newpage
 \section{Conclusion et perspectives}
 
-L'une des pistes d'amélioration serait d'implémenter des éditeurs générant des plaques tectoniques, rivières, biomes etc. Nous avons déjà réfléchi à des possibilités d'implémentation dans le fichier "docs/requirements/BiomesTheorie.pdf". \\
+Nous avons réussi, par l'intermédiaire de ce projet à mettre en place une génération entièrement procédurale d'une planète. Cette génération produit un rendu intéressant en low-poly pour une utilisation ludique, ce qui correspond à l'objectif de ce projet. Néanmoins, plusieurs pistes d'améliorations sont envisageables : \\
 
-En plus d'un éditeur plus poussé, d'autres pistes d'amélioration sont envisageables.\\
+Il serait intéressant d'implémenter des éditeurs générant des plaques tectoniques, rivières, biomes etc. Nous avons déjà réfléchi à des possibilités d'implémentation dans le fichier "docs/requirements/BiomesTheorie.pdf". \\
 
-Tout d'abord, comme indiqué par le client, il serait préférable que la gestion par cmake des dépendances trouve les bibliothèques déjà installées sur la machine plutôt qu'aller les chercher dans le répertoire "ext" (ou d'inviter à les télécharger si elles ne sont pas présentes), ce qui allégerait notre git. Nous avions procédé ainsi pour ne pas avoir à nous inquiéter des dépendances, peu importe la machine où l'on travaillait.\\
+Comme l'a indiqué le client, il serait préférable que la gestion par cmake des dépendances trouve les bibliothèques déjà installées sur la machine plutôt qu'aller les chercher dans le répertoire "ext" (ou d'inviter à les télécharger si elles ne sont pas présentes), ce qui allégerait notre git. Nous avions procédé ainsi pour ne pas avoir à nous inquiéter des dépendances, peu importe la machine où l'on travaillait.\\
 
 Le système de sauvegarde/chargement d'un fichier n'a pas toutes les fonctionnalités de départ que l'on aurait pu espérer. Actuellement, la sauvegarde est fonctionnelle (sans les couleurs dans le cas du format .obj) mais sans l'eau transparente puisqu'elle est implémenté directement dans le rendu. Le chargement d'un fichier n'a pas été implémenté mais son importance est amoindrie du fait de la possibilité de pouvoir re-créer une planète presque à l'identique en appelant le logiciel avec les mêmes paramètres de génération.\\
 
 Aussi, une meilleur gestion de la caméra avec notamment une vue en première personne lorsque l'on se rapproche de la surface de la planète fait partie des fonctionnalités manquantes.\\
 
-Enfin, le client a évoqué la possibilité de pouvoir appliquer des transformations dynamiquement sur la planète (élévation de terrain ou ajout de rivières par des interactions clavier/souris par exemple). Cela nécessiterait entre autres d'ajouter des méthodes dans l'interface Shape permettant de parcourir la connexité des sommets, mais aussi de revoir comment gérer cela au niveau de l'interface. Des solutions existent, mais elles nécessitent l'utilisation pour être efficace soit de structures d'accélération comme les kd-tree au niveau du model, soit des lectures des données renvoyé par la carte graphique.\\
+Enfin, le client a évoqué la possibilité de pouvoir appliquer dynamiquement des transformations sur la planète (élévation de terrain ou ajout de rivières par des interactions clavier/souris par exemple). Cela nécessiterait entre autres d'ajouter des méthodes dans l'interface Shape permettant de parcourir la connexité des sommets, mais aussi de revoir comment gérer cela au niveau de l'interface. Des solutions existent, mais elles nécessitent l'utilisation pour être efficace soit de structures d'accélération comme les kd-tree au niveau du model, soit des lectures de données renvoyées par la carte graphique.
 
 \newpage
 \section{Annexes}
