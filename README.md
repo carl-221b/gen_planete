@@ -1,5 +1,10 @@
-# **Génération procédurale de planètes sphériques - Groupe 2**
-
+# ** Génération procédurale de planètes sphériques **
+## Authors
+- Sofian Antri
+- Benjamin Darmet
+- Tsiory Rakotoarisoa
+- Rémi Barbosa
+- Marc Cerutti
 ## Build 
 Commandes à faire :
 ```
