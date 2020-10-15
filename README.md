@@ -1,4 +1,4 @@
-# ** Génération procédurale de planètes sphériques **
+# **Génération procédurale de planètes sphériques**
 ## Authors
 - Sofian Antri
 - Benjamin Darmet
