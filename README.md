@@ -1,11 +1,18 @@
 # **Génération procédurale de planètes sphériques**
-## Authors
+## Auteurs
 - Sofian Antri
 - Benjamin Darmet
 - Tsiory Rakotoarisoa
 - Rémi Barbosa
 - Marc Cerutti
-## Build 
+
+## Résultats 
+
+![](https://github.com/carl-221b/gen_planete/blob/master/docs/report/img/notre_planete.png "Planète normale")
+Rendu de planète avec un bruit aléatoire
+
+![](https://github.com/carl-221b/gen_planete/blob/master/docs/report/img/notre_planete_mars.png "Planète rouge")
+Rendu de planète avec un bruit aléatoire et couleur différente (biome non terrestre
 Commandes à faire :
 ```
 mkdir build
