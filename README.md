@@ -12,9 +12,11 @@ Rendu de planète avec un bruit aléatoire
 - Marc Cerutti
 
 ## Autres Résultats 
+
 ![](https://github.com/carl-221b/gen_planete/blob/master/docs/report/img/notre_planete_mars.png "Planète rouge")
 
 Rendu de planète avec un bruit aléatoire et couleur différente (biome non terrestre
+
 Commandes à faire :
 ```
 mkdir build
@@ -24,6 +26,7 @@ make
 ```
 
 ## Lancer le générateur
+
 Commandes à faire dans le dossier build :
 ```
 ./gen_planet [options] [config_file_path]
