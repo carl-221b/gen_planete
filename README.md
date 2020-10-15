@@ -1,4 +1,9 @@
 # **Génération procédurale de planètes sphériques**
+
+![](https://github.com/carl-221b/gen_planete/blob/master/docs/report/img/notre_planete.png "Planète normale")
+
+Rendu de planète avec un bruit aléatoire
+
 ## Auteurs
 - Sofian Antri
 - Benjamin Darmet
@@ -6,11 +11,7 @@
 - Rémi Barbosa
 - Marc Cerutti
 
-## Résultats 
-
-![](https://github.com/carl-221b/gen_planete/blob/master/docs/report/img/notre_planete.png "Planète normale")
-Rendu de planète avec un bruit aléatoire
-
+## Autres Résultats 
 ![](https://github.com/carl-221b/gen_planete/blob/master/docs/report/img/notre_planete_mars.png "Planète rouge")
 Rendu de planète avec un bruit aléatoire et couleur différente (biome non terrestre
 Commandes à faire :
