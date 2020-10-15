@@ -111,3 +111,7 @@ Permet la prise en charge de fichiers de configurations xml.
 ### Copyright 2008, Google Inc.
 - googletest :
 Permet de faccilité la mise en place de tests unitaires automatisés. 
+
+### Credits 
+- Simon Boyé
+- Gael Guennebaud
