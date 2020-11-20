@@ -2,7 +2,7 @@
 
 ![](https://github.com/carl-221b/gen_planete/blob/master/docs/report/img/notre_planete.png "Planète normale")
 
-Rendu de planète avec un bruit aléatoire
+Rendu de planète avec un bruit aléatoire. Lien vers le [rapport](https://tsiory-rakotoarisoa.emi.u-bordeaux.fr/Projet_PDP_2020_Jupiter.pdf)
 
 ## Auteurs
 - Sofian Antri
